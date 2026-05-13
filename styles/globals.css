@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom fonts via Google Fonts (add to <head> in layout) ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --color-primary: #D62828;
+    --color-dark: #121212;
+    --color-bg: #FAFAFA;
+  }
+
+  html {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-dark);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Serif for large display headers */
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  /* Grid dot/line overlay pattern */
+  .grid-pattern {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(0, 0, 0, 0.04) 39px,
+        rgba(0, 0, 0, 0.04) 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 39px,
+        rgba(0, 0, 0, 0.04) 39px,
+        rgba(0, 0, 0, 0.04) 40px
+      );
+  }
+
+  /* Glassmorphism navbar */
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* Smooth scroll */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
