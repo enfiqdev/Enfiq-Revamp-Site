@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 interface FAQItem {
   question: string;
@@ -37,7 +38,7 @@ export default function FAQAccordion() {
   return (
     <section className="py-16 px-4">
       <div
-        className="max-w-2xl mx-auto rounded-2xl border border-[#D62828]/30 p-8 relative overflow-hidden"
+        className="max-w-2xl mx-auto rounded-2xl border border-[#D41717]/30 p-8 relative overflow-hidden"
         style={gridBg}
       >
         {/* Label */}
@@ -72,12 +73,13 @@ export default function FAQAccordion() {
                   {/* Answer */}
                   <div className="flex gap-3 ml-2">
                     <div className="flex-shrink-0 mt-1">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M11 0C11 0 18 7 18 14C18 18.4 14.9 22 11 22C7.1 22 4 18.4 4 14C4 12 4.6 10.1 5.6 8.5C5.6 8.5 7 12 9 13C9 13 8 10 9 7C10 4 11 0 11 0Z"
-                          fill="#D62828"
-                        />
-                      </svg>
+                      <Image
+                        src="/images/assets/enfiqlogo.png"
+                        alt="Enfiq Icon"
+                        width={20}
+                        height={20}
+                        className="object-contain"
+                      />
                     </div>
                     <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
                   </div>
@@ -105,7 +107,7 @@ export default function FAQAccordion() {
           <p className="text-sm text-gray-500">Can&apos;t find your answer?</p>
           <a
             href="mailto:team@enfiq.com"
-            className="flex items-center gap-2 bg-[#D62828] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#b82020] transition-colors"
+            className="flex items-center gap-2 bg-[#D41717] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#B21313] transition-colors"
           >
             Send us a Mail
             <span className="w-5 h-5 bg-white/20 rounded-full flex items-center justify-center">

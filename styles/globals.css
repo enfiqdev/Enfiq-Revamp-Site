@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --color-primary: #D62828;
+    --color-primary: #D41717;
     --color-dark: #121212;
     --color-bg: #FAFAFA;
   }
@@ -17,6 +17,11 @@
     background-color: var(--color-bg);
     color: var(--color-dark);
     -webkit-font-smoothing: antialiased;
+    cursor: url('/cursor.svg') 4 4, auto;
+  }
+
+  a, button, input, [role="button"], label, select, textarea {
+    cursor: url('/cursor.svg') 4 4, pointer !important;
   }
 
   /* Serif for large display headers */
@@ -72,4 +77,23 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
+}
+
+/* Custom Infinite Marquee Animations */
+@keyframes marquee-ltr {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes marquee-rtl {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 30s linear infinite;
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 30s linear infinite;
 }

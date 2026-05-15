@@ -30,7 +30,7 @@ const allPosts: BlogPost[] = [
     title: "Why Bad Website UX Design Is Killing Your Startup's Growth",
     tag: "Designing / Branding",
     bg: "#F0F0FF",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const allPosts: BlogPost[] = [
     title: "How Fast Website Speed Boosts SEO: Top Tips for 2025",
     tag: "SEO",
     bg: "#FFF5F0",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ const allPosts: BlogPost[] = [
     title: "No-Code vs Full-Stack Dev: The Best Choice for Your Startup...",
     tag: "No-code Development",
     bg: "#F5F0FF",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ const allPosts: BlogPost[] = [
     title: "No-Code vs Full-Stack Dev: The Best Choice for Your Startup...",
     tag: "No-code Development",
     bg: "#F5F0FF",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ const allPosts: BlogPost[] = [
     title: "Why Bad Website UX Design Is Killing Your Startup's Growth",
     tag: "Designing / Branding",
     bg: "#F0F0FF",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ const allPosts: BlogPost[] = [
     title: "How Fast Website Speed Boosts SEO: Top Tips for 2025",
     tag: "SEO",
     bg: "#FFF5F0",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
   {
     id: 7,
@@ -84,7 +84,7 @@ const allPosts: BlogPost[] = [
     title: "How Fast Website Speed Boosts SEO: Top Tips for 2025",
     tag: "SEO",
     bg: "#FFF5F0",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
   {
     id: 8,
@@ -93,7 +93,7 @@ const allPosts: BlogPost[] = [
     title: "No-Code vs Full-Stack Dev: The Best Choice for Your Startup...",
     tag: "No-code Development",
     bg: "#F5F0FF",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
   {
     id: 9,
@@ -102,7 +102,7 @@ const allPosts: BlogPost[] = [
     title: "Why Bad Website UX Design Is Killing Your Startup's Growth",
     tag: "Designing / Branding",
     bg: "#F0F0FF",
-    tagColor: "#D62828",
+    tagColor: "#D41717",
   },
 ];
 
@@ -151,11 +151,11 @@ function BlogCard({ post }: { post: BlogPost }) {
           {post.title}
         </h3>
         <div className="flex items-center gap-1">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#D62828" strokeWidth="2.5">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#D41717" strokeWidth="2.5">
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.35-4.35" />
           </svg>
-          <span className="text-xs text-[#D62828] font-medium">{post.tag}</span>
+          <span className="text-xs text-[#D41717] font-medium">{post.tag}</span>
         </div>
       </div>
     </article>
@@ -210,7 +210,7 @@ export default function BlogsPage() {
               onClick={() => setActiveCategory(cat)}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
                 activeCategory === cat
-                  ? "bg-[#D62828] text-white border-[#D62828]"
+                  ? "bg-[#D41717] text-white border-[#D41717]"
                   : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
               }`}
             >
@@ -260,7 +260,7 @@ export default function BlogsPage() {
               placeholder="Enter your mail"
               className="flex-1 border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-gray-400 transition-colors"
             />
-            <button className="bg-[#D62828] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#b82020] transition-colors whitespace-nowrap">
+            <button className="bg-[#D41717] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#B21313] transition-colors whitespace-nowrap">
               Subscribe Now
             </button>
           </div>

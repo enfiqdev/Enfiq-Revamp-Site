@@ -125,7 +125,7 @@ function ContactForm() {
             <input
               type="text"
               placeholder="First name"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
             />
           </div>
           <div>
@@ -133,7 +133,7 @@ function ContactForm() {
             <input
               type="text"
               placeholder="Last name"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
             />
           </div>
         </div>
@@ -143,7 +143,7 @@ function ContactForm() {
           <input
             type="email"
             placeholder="you@company.com"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
           />
         </div>
 
@@ -158,7 +158,7 @@ function ContactForm() {
             <input
               type="tel"
               placeholder="+1 (555) 000-0000"
-              className="flex-1 border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors"
+              className="flex-1 border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
             />
           </div>
         </div>
@@ -167,12 +167,12 @@ function ContactForm() {
           <label className="text-xs text-gray-600 mb-1 block">Message</label>
           <textarea
             rows={4}
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors resize-none"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors resize-none"
           />
         </div>
 
         <div className="flex items-center gap-2">
-          <input type="checkbox" id="privacy" className="accent-[#D62828]" />
+          <input type="checkbox" id="privacy" className="accent-[#D41717]" />
           <label htmlFor="privacy" className="text-xs text-gray-500">
             You agree to our friendly privacy policy.
           </label>
@@ -180,7 +180,7 @@ function ContactForm() {
 
         <button
           type="submit"
-          className="w-full bg-[#D62828] text-white font-semibold py-3 rounded-full hover:bg-[#b82020] transition-colors"
+          className="w-full bg-[#D41717] text-white font-semibold py-3 rounded-full hover:bg-[#B21313] transition-colors"
         >
           Get in touch
         </button>
@@ -229,7 +229,7 @@ export default function ServicesPage() {
             <div className="flex flex-col md:flex-row items-start gap-10 py-10 relative">
               {/* Number on the left */}
               <div className="flex-shrink-0 w-16 text-center relative z-10">
-                <span className="text-4xl font-black text-[#D62828] leading-none block">
+                <span className="text-4xl font-black text-[#D41717] leading-none block">
                   {service.num}
                 </span>
               </div>
@@ -243,7 +243,7 @@ export default function ServicesPage() {
                 <ul className="space-y-1.5">
                   {service.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-center gap-2 text-sm font-medium text-[#121212]">
-                      <span className="w-1.5 h-1.5 bg-[#D62828] rounded-full flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 bg-[#D41717] rounded-full flex-shrink-0" />
                       {bullet}
                     </li>
                   ))}

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -37,21 +38,15 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1.5">
-          {/* Flame icon + ENFIQ text */}
-          <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
-            <path
-              d="M11 0C11 0 18 7 18 14C18 18.4 14.9 22 11 22C7.1 22 4 18.4 4 14C4 12 4.6 10.1 5.6 8.5C5.6 8.5 7 12 9 13C9 13 8 10 9 7C10 4 11 0 11 0Z"
-              fill="#D62828"
-            />
-            <path
-              d="M11 13C11 13 14 15.5 14 18C14 20.2 12.7 22 11 22C9.3 22 8 20.2 8 18C8 15.5 11 13 11 13Z"
-              fill="#B22020"
-            />
-          </svg>
-          <span className="font-black text-xl tracking-tight text-[#121212]">
-            ENF<span className="text-[#D62828]">I</span>Q
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/assets/enfiq.png"
+            alt="Enfiq Logo"
+            width={120}
+            height={32}
+            className="object-contain h-7 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav Links */}
@@ -70,7 +65,7 @@ export default function Navbar() {
         {/* Desktop CTA Button */}
         <Link
           href="/contact"
-          className="hidden md:inline-flex bg-[#D62828] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#b82020] transition-colors"
+          className="hidden md:inline-flex bg-[#D41717] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-black transition-colors"
         >
           Get Started
         </Link>
@@ -82,17 +77,17 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-[2.5px] bg-[#D62828] rounded-full transition-all duration-300 ${
+            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${
               mobileOpen ? "rotate-45 translate-y-[7.5px]" : ""
             }`}
           />
           <span
-            className={`block w-6 h-[2.5px] bg-[#D62828] rounded-full transition-all duration-300 ${
+            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${
               mobileOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block w-6 h-[2.5px] bg-[#D62828] rounded-full transition-all duration-300 ${
+            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${
               mobileOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
             }`}
           />
@@ -111,7 +106,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-base font-medium text-[#121212] hover:text-[#D62828] transition-colors"
+              className="text-base font-medium text-[#121212] hover:text-[#D41717] transition-colors"
             >
               {link.label}
             </Link>
@@ -119,7 +114,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}
-            className="bg-[#D62828] text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-[#b82020] transition-colors mt-1"
+            className="bg-[#D41717] text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-black transition-colors mt-1"
           >
             Get Started
           </Link>

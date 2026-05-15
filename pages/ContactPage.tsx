@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import FAQAccordion from "../components/FAQAccordion";
 
 // Calendar mock component
@@ -28,12 +29,13 @@ function CalendarWidget() {
           {/* Left info pane */}
           <div className="w-44 pr-4 border-r border-gray-100">
             <div className="flex items-center gap-1 mb-2">
-              <svg width="12" height="14" viewBox="0 0 22 26" fill="none">
-                <path
-                  d="M11 0C11 0 18 7 18 14C18 18.4 14.9 22 11 22C7.1 22 4 18.4 4 14C4 12 4.6 10.1 5.6 8.5C5.6 8.5 7 12 9 13C9 13 8 10 9 7C10 4 11 0 11 0Z"
-                  fill="#D62828"
-                />
-              </svg>
+              <Image
+                src="/images/assets/enfiqlogo.png"
+                alt="Enfiq Icon"
+                width={12}
+                height={14}
+                className="object-contain"
+              />
               <span className="text-xs text-gray-400">enfiq.com</span>
             </div>
             <p className="font-bold text-sm text-[#121212]">30 Min Meeting</p>
@@ -68,9 +70,9 @@ function CalendarWidget() {
                   key={i}
                   className={`text-center text-xs py-1.5 rounded-full cursor-pointer ${
                     day === 27
-                      ? "bg-[#D62828] text-white font-bold"
+                      ? "bg-[#D41717] text-white font-bold"
                       : day === 30
-                      ? "border border-[#D62828] text-[#D62828] font-medium"
+                      ? "border border-[#D41717] text-[#D41717] font-medium"
                       : day
                       ? "hover:bg-gray-100 text-gray-700"
                       : ""
@@ -86,13 +88,13 @@ function CalendarWidget() {
           <div className="w-24 flex flex-col gap-1 overflow-y-auto max-h-52">
             <div className="flex gap-1 mb-2 text-xs">
               <button className="px-2 py-0.5 rounded border border-gray-200 text-gray-500">12h</button>
-              <button className="px-2 py-0.5 rounded bg-[#D62828] text-white">24h</button>
+              <button className="px-2 py-0.5 rounded bg-[#D41717] text-white">24h</button>
             </div>
-            <p className="text-xs text-[#D62828] font-medium mb-1">Fri 27</p>
+            <p className="text-xs text-[#D41717] font-medium mb-1">Fri 27</p>
             {times.map((t) => (
               <button
                 key={t}
-                className="w-full text-xs border border-gray-200 rounded py-1 text-gray-600 hover:border-[#D62828] hover:text-[#D62828] transition-colors text-center"
+                className="w-full text-xs border border-gray-200 rounded py-1 text-gray-600 hover:border-[#D41717] hover:text-[#D41717] transition-colors text-center"
               >
                 {t}
               </button>
@@ -140,7 +142,7 @@ function ContactForm() {
             <input
               type="text"
               placeholder="First name"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
             />
           </div>
           <div>
@@ -148,7 +150,7 @@ function ContactForm() {
             <input
               type="text"
               placeholder="Last name"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors"
+              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
             />
           </div>
         </div>
@@ -158,7 +160,7 @@ function ContactForm() {
           <input
             type="email"
             placeholder="you@company.com"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
           />
         </div>
 
@@ -173,7 +175,7 @@ function ContactForm() {
             <input
               type="tel"
               placeholder="+1 (555) 000-0000"
-              className="flex-1 border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors"
+              className="flex-1 border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
             />
           </div>
         </div>
@@ -182,12 +184,12 @@ function ContactForm() {
           <label className="text-xs text-gray-600 mb-1 block">Message</label>
           <textarea
             rows={5}
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D62828] transition-colors resize-none"
+            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors resize-none"
           />
         </div>
 
         <div className="flex items-center gap-2">
-          <input type="checkbox" id="privacy2" className="accent-[#D62828]" />
+          <input type="checkbox" id="privacy2" className="accent-[#D41717]" />
           <label htmlFor="privacy2" className="text-xs text-gray-500">
             You agree to our friendly privacy policy.
           </label>
@@ -195,7 +197,7 @@ function ContactForm() {
 
         <button
           type="submit"
-          className="w-full bg-[#D62828] text-white font-semibold py-3 rounded-full hover:bg-[#b82020] transition-colors"
+          className="w-full bg-[#D41717] text-white font-semibold py-3 rounded-full hover:bg-[#B21313] transition-colors"
         >
           Get in touch
         </button>

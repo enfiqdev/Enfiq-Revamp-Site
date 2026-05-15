@@ -47,7 +47,7 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    name: "KeeleAI",
+    name: "ReelerAI",
     type: "AI Product Design",
     description:
       "End-to-end AI-powered design partner for marketing teams, enabling faster campaign production with intelligent automation and brand consistency.",
@@ -77,7 +77,7 @@ function ProjectImage({ bg, label }: { bg: string; label: string }) {
       <div className="text-center">
         <p className="text-sm font-bold text-gray-600">{label}</p>
         <p className="text-xs text-gray-400 mt-1">Unified APIs And Agents</p>
-        <p className="text-xs font-semibold text-[#D62828]">For All Product Integrations</p>
+        <p className="text-xs font-semibold text-[#D41717]">For All Product Integrations</p>
       </div>
     </div>
   );
@@ -141,8 +141,8 @@ export default function ProjectsPage() {
               <div className="flex-1">
                 {/* Project icon + title */}
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 bg-[#D62828]/10 rounded-lg flex items-center justify-center">
-                    <div className="w-4 h-4 bg-[#D62828] rounded-sm" />
+                  <div className="w-8 h-8 bg-[#D41717]/10 rounded-lg flex items-center justify-center">
+                    <div className="w-4 h-4 bg-[#D41717] rounded-sm" />
                   </div>
                   <h2 className="text-xl font-black text-[#121212]">
                     {project.name} — {project.type}
