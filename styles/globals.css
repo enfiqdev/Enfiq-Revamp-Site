@@ -97,3 +97,13 @@
 .animate-marquee-rtl {
   animation: marquee-rtl 30s linear infinite;
 }
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(-4.44deg); }
+  50% { transform: translateY(-10px) rotate(-4.44deg); }
+  100% { transform: translateY(0px) rotate(-4.44deg); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}

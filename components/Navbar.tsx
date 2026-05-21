@@ -29,22 +29,15 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100"
-          : "bg-white"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
+    <header className="w-full flex justify-center pt-[32px] relative z-50">
+      <div className="w-[1144px] h-[44px] flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
             src="/images/assets/enfiq.png"
             alt="Enfiq Logo"
-            width={120}
-            height={32}
-            className="object-contain h-7 w-auto"
+            width={138.16}
+            height={40}
+            className="object-contain  h-[40px] w-auto"
             priority
           />
         </Link>
@@ -55,7 +48,12 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-700 hover:text-[#121212] transition-colors"
+              className="text-[16px] leading-[24px] text-[#000000] hover:text-[#121212] transition-colors"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 400,
+                letterSpacing: "0%",
+              }}
             >
               {link.label}
             </Link>
@@ -77,28 +75,24 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${
-              mobileOpen ? "rotate-45 translate-y-[7.5px]" : ""
-            }`}
+            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7.5px]" : ""
+              }`}
           />
           <span
-            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
+            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
+              }`}
           />
           <span
-            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${
-              mobileOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
-            }`}
+            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
+              }`}
           />
         </button>
       </div>
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="mx-4 mb-4 bg-white rounded-2xl shadow-lg border border-gray-100 py-6 px-6 flex flex-col items-center gap-5">
           {navLinks.map((link) => (
