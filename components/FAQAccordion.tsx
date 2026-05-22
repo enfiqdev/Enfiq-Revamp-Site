@@ -27,15 +27,13 @@ const faqs: FAQItem[] = [
   },
 ];
 
-const gridBg = {
+const gridBg: React.CSSProperties = {
   backgroundColor: "#F8F8F8",
-
   backgroundImage: `
     linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
   `,
-
-  backgroundSize: "40px 40px",
+  backgroundSize: "10px 10px",
 };
 export default function FAQAccordion() {
   const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
@@ -99,15 +97,19 @@ export default function FAQAccordion() {
                     >
                       {isOpen ? "−" : "+"}
                     </motion.span>
-                    <span
+                    <motion.span
+                      key={isOpen ? "open" : "closed"}
                       className={`text-[16px] font-normal px-[24px] py-[16px] rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] rounded-br-[0px] transition-colors duration-300 ${isOpen
                         ? "bg-[#2A2A2A] text-white"
                         : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
                         }`}
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      style={{ fontFamily: "'Inter', sans-serif", transformOrigin: "bottom right" }}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 180, damping: 12 }}
                     >
                       {faq.question}
-                    </span>
+                    </motion.span>
                   </motion.button>
                 </div>
 
@@ -115,13 +117,14 @@ export default function FAQAccordion() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
-                      initial={{ height: 0, opacity: 0, scale: 0.95 }}
+                      initial={{ opacity: 0, scale: 0, height: 0 }}
                       animate={{ height: "auto", opacity: 1, scale: 1 }}
-                      exit={{ height: 0, opacity: 0, scale: 0.95 }}
+                      exit={{ opacity: 0, scale: 0, height: 0 }}
+                      style={{ transformOrigin: "bottom left" }}
                       transition={{
                         height: { type: "spring", stiffness: 350, damping: 25 },
-                        opacity: { duration: 0.2 },
-                        scale: { type: "spring", stiffness: 350, damping: 20 }
+                        opacity: { duration: 0.15 },
+                        scale: { type: "spring", stiffness: 180, damping: 12 }
                       }}
                       className="overflow-hidden"
                     >

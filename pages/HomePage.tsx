@@ -275,7 +275,7 @@ export default function HomePage() {
           className="absolute top-[-120px] left-0 right-0 bottom-0 z-0 pointer-events-none"
           style={{
             backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px',
+            backgroundSize: '10px 10px',
             WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 30%, #000 40%, transparent 100%)',
             maskImage: 'radial-gradient(ellipse 80% 80% at 50% 30%, #000 40%, transparent 100%)'
           }}
