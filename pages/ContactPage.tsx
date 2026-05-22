@@ -1,12 +1,24 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
+import React, { useEffect } from "react";
 import FAQAccordion from "../components/FAQAccordion";
+import Cal, { getCalApi } from "@calcom/embed-react";
 
 // Calendar mock component
 function CalendarWidget() {
-  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "30min" });
+      cal("ui", {
+        layout: "month_view",
+        cssVarsPerTheme: {
+          light: { "cal-brand": "#D41717" },
+          dark: { "cal-brand": "#fafafa" },
+        },
+      });
+    })();
+  }, []);
+
   const calDays = [
     [null, null, null, null, null, null, 1],
     [2, 3, 4, 5, 6, 7, 8],
@@ -22,101 +34,33 @@ function CalendarWidget() {
   ];
 
   return (
-    <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
-      {/* Calendly-style header */}
-      <div className="p-4 border-b border-gray-100">
-        <div className="flex items-center gap-3">
-          {/* Left info pane */}
-          <div className="w-44 pr-4 border-r border-gray-100">
-            <div className="flex items-center gap-1 mb-2">
-              <Image
-                src="/images/assets/enfiqlogo.png"
-                alt="Enfiq Icon"
-                width={12}
-                height={14}
-                className="object-contain"
-              />
-              <span className="text-xs text-gray-400">enfiq.com</span>
-            </div>
-            <p className="font-bold text-sm text-[#121212]">30 Min Meeting</p>
-            <div className="flex items-center gap-1 mt-2">
-              <span className="text-xs text-gray-500">⏱ 30m</span>
-            </div>
-            <div className="flex items-center gap-1 mt-1">
-              <span className="text-xs text-gray-500">📹 Google Meet</span>
-            </div>
-            <div className="flex items-center gap-1 mt-1">
-              <span className="text-xs text-gray-500">🌍 Asia/Kolkata ▾</span>
-            </div>
-          </div>
-
-          {/* Calendar */}
-          <div className="flex-1">
-            <div className="flex items-center justify-between mb-3">
-              <span className="font-semibold text-sm text-[#121212]">December 2024</span>
-              <div className="flex gap-2">
-                <button className="text-gray-400 hover:text-gray-600">‹</button>
-                <button className="text-gray-400 hover:text-gray-600">›</button>
-              </div>
-            </div>
-            <div className="grid grid-cols-7 gap-0.5">
-              {days.map((d) => (
-                <div key={d} className="text-center text-xs text-gray-400 font-medium py-1">
-                  {d}
-                </div>
-              ))}
-              {calDays.flat().map((day, i) => (
-                <div
-                  key={i}
-                  className={`text-center text-xs py-1.5 rounded-full cursor-pointer ${
-                    day === 27
-                      ? "bg-[#D41717] text-white font-bold"
-                      : day === 30
-                      ? "border border-[#D41717] text-[#D41717] font-medium"
-                      : day
-                      ? "hover:bg-gray-100 text-gray-700"
-                      : ""
-                  }`}
-                >
-                  {day || ""}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Time slots */}
-          <div className="w-24 flex flex-col gap-1 overflow-y-auto max-h-52">
-            <div className="flex gap-1 mb-2 text-xs">
-              <button className="px-2 py-0.5 rounded border border-gray-200 text-gray-500">12h</button>
-              <button className="px-2 py-0.5 rounded bg-[#D41717] text-white">24h</button>
-            </div>
-            <p className="text-xs text-[#D41717] font-medium mb-1">Fri 27</p>
-            {times.map((t) => (
-              <button
-                key={t}
-                className="w-full text-xs border border-gray-200 rounded py-1 text-gray-600 hover:border-[#D41717] hover:text-[#D41717] transition-colors text-center"
-              >
-                {t}
-              </button>
-            ))}
+    <div className="bg-white border border-gray-200 rounded-[32px] shadow-[0_30px_80px_rgba(15,23,42,0.08)] overflow-hidden">
+      <div className="p-6 border-b border-gray-200">
+        <div className="flex items-center justify-between gap-4">
+          <div />
+          <button className="text-sm font-semibold bg-[#F8F8F8] border border-gray-200 rounded-full px-5 py-2 text-[#121212] shadow-sm">
+            Book a Call
+          </button>
+          <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-500">
+            <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
+            Overlay my calendar
           </div>
         </div>
-
-        {/* Cal.com label */}
-        <p className="text-center text-xs text-gray-400 mt-4">Cal.com</p>
       </div>
 
-      {/* Contact info at bottom of widget */}
-      <div className="p-4 flex items-center justify-center gap-8">
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <span className="w-7 h-7 bg-red-50 rounded-full flex items-center justify-center text-xs">@</span>
-          team@enfiq.com
-        </div>
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <span className="w-7 h-7 bg-red-50 rounded-full flex items-center justify-center text-xs">📞</span>
-          49987 78675
+      <div className="p-6">
+        <div>
+          <Cal
+            namespace="30min"
+            calLink="enfiq/30min"
+            style={{ width: "100%", height: "600px" }}
+            config={{
+              layout: "month_view",
+            }}
+          />
         </div>
       </div>
+
     </div>
   );
 }
@@ -219,23 +163,15 @@ function ContactForm() {
 
 export default function ContactPage() {
   return (
-    <div className="pt-16">
-      {/* ── BOOK A CALL SECTION ── */}
-      <section className="max-w-3xl mx-auto px-6 pt-10 pb-6">
-        <div className="text-center mb-6">
-          <span className="text-xs font-medium bg-white border border-gray-200 px-4 py-1.5 rounded-full text-gray-600">
-            Book a Call
-          </span>
-        </div>
+    <div className="pt-16 bg-[#F4F5F7] min-h-screen">
+      <section className="max-w-6xl mx-auto px-6 py-14">
         <CalendarWidget />
       </section>
 
-      {/* ── CONTACT FORM ── */}
-      <section className="border-t border-gray-100 mt-6">
+      <section className="border-t border-gray-200">
         <ContactForm />
       </section>
 
-      {/* ── FAQ ── */}
       <FAQAccordion />
     </div>
   );

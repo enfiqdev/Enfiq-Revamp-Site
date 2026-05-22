@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FAQItem {
   question: string;
@@ -30,11 +31,11 @@ const gridBg = {
   backgroundColor: "#F8F8F8",
 
   backgroundImage: `
-    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)
+    linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
   `,
 
-  backgroundSize: "56px 56px",
+  backgroundSize: "40px 40px",
 };
 export default function FAQAccordion() {
   const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
@@ -80,19 +81,24 @@ export default function FAQAccordion() {
               <div key={i} className="flex flex-col gap-4 w-full">
                 {/* Question Row (Right aligned) */}
                 <div className="flex w-full justify-end">
-                  <button
+                  <motion.button
                     onClick={() => toggleItem(i)}
                     className="flex items-center gap-3 group outline-none"
                     aria-expanded={isOpen}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
                   >
-                    <span
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 15 }}
                       className={`flex-shrink-0 w-[44px] h-[44px] rounded-[436px] flex items-center justify-center text-lg transition-colors duration-300 ${isOpen
                         ? "bg-[#2A2A2A] text-white font-light"
                         : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
                         }`}
                     >
                       {isOpen ? "−" : "+"}
-                    </span>
+                    </motion.span>
                     <span
                       className={`text-[16px] font-normal px-[24px] py-[16px] rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] rounded-br-[0px] transition-colors duration-300 ${isOpen
                         ? "bg-[#2A2A2A] text-white"
@@ -102,31 +108,55 @@ export default function FAQAccordion() {
                     >
                       {faq.question}
                     </span>
-                  </button>
+                  </motion.button>
                 </div>
 
                 {/* Answer Row (Left aligned) */}
-                {isOpen && (
-                  <div className="flex w-full justify-start">
-                    <div className="flex gap-4 items-center pr-12">
-                      {/* Icon */}
-                      <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-white shadow-sm border border-gray-100">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#D41717" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
-                        </svg>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0, scale: 0.95 }}
+                      animate={{ height: "auto", opacity: 1, scale: 1 }}
+                      exit={{ height: 0, opacity: 0, scale: 0.95 }}
+                      transition={{
+                        height: { type: "spring", stiffness: 350, damping: 25 },
+                        opacity: { duration: 0.2 },
+                        scale: { type: "spring", stiffness: 350, damping: 20 }
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <div className="flex w-full justify-start pt-[8px]">
+                        <div className="flex gap-[16px] items-end">
+                          {/* ENFIQ Symbol */}
+                          <div className="w-[38px] h-[38px] rounded-[25.3px] border border-[#EAEAEA] bg-white flex items-center justify-center shadow-sm shrink-0">
+                            <Image
+                              src="/images/assets/enfiqlogo.png"
+                              alt="Enfiq"
+                              width={38}
+                              height={38}
+                              className="object-contain"
+                            />
+                          </div>
+
+                          {/* Answer Bubble */}
+                          <div className="bg-[#FFFFFF] border-[1px] border-[#E9E9E9] rounded-[24px] p-6 shadow-sm max-w-[420px]">
+                            <p
+                              className="text-[#000000]"
+                              style={{
+                                fontFamily: "'Inter', sans-serif",
+                                fontWeight: 400,
+                                fontSize: "14px",
+                                lineHeight: "23.8px",
+                              }}
+                            >
+                              {faq.answer}
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                      {/* Answer Bubble */}
-                      <div className="bg-[#FFFFFF] border-[0.5px] border-[#EAEAEA] rounded-[24px] p-6 shadow-sm max-w-[420px]">
-                        <p
-                          className="text-[#121212]"
-                          style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: "14px", lineHeight: "24px" }}
-                        >
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

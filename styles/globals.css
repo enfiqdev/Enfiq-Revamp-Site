@@ -6,21 +6,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @layer base {
-  :root {
+:root {
     --color-primary: #D41717;
     --color-dark: #121212;
     --color-bg: #FAFAFA;
   }
 
-  html {
+  body {
+    overflow-x: hidden;
+  }
+
+html {
     font-family: 'DM Sans', system-ui, sans-serif;
     background-color: var(--color-bg);
     color: var(--color-dark);
     -webkit-font-smoothing: antialiased;
     cursor: url('/cursor.svg') 4 4, auto;
+    overflow-x: hidden;
   }
 
-  a, button, input, [role="button"], label, select, textarea {
+  a,
+  button,
+  input,
+  [role="button"],
+  label,
+  select,
+  textarea {
     cursor: url('/cursor.svg') 4 4, pointer !important;
   }
 
@@ -31,23 +42,20 @@
 }
 
 @layer utilities {
+
   /* Grid dot/line overlay pattern */
   .grid-pattern {
     background-image:
-      repeating-linear-gradient(
-        0deg,
+      repeating-linear-gradient(0deg,
         transparent,
         transparent 39px,
         rgba(0, 0, 0, 0.04) 39px,
-        rgba(0, 0, 0, 0.04) 40px
-      ),
-      repeating-linear-gradient(
-        90deg,
+        rgba(0, 0, 0, 0.04) 40px),
+      repeating-linear-gradient(90deg,
         transparent,
         transparent 39px,
         rgba(0, 0, 0, 0.04) 39px,
-        rgba(0, 0, 0, 0.04) 40px
-      );
+        rgba(0, 0, 0, 0.04) 40px);
   }
 
   /* Glassmorphism navbar */
@@ -68,26 +76,39 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #d1d5db;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
 }
 
 /* Custom Infinite Marquee Animations */
 @keyframes marquee-ltr {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 @keyframes marquee-rtl {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee-ltr {
@@ -99,9 +120,17 @@
 }
 
 @keyframes float {
-  0% { transform: translateY(0px) rotate(-4.44deg); }
-  50% { transform: translateY(-10px) rotate(-4.44deg); }
-  100% { transform: translateY(0px) rotate(-4.44deg); }
+  0% {
+    transform: translateY(0px) rotate(-4.44deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(-4.44deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(-4.44deg);
+  }
 }
 
 .animate-float {

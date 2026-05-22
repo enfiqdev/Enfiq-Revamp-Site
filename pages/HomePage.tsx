@@ -199,6 +199,33 @@ function ServiceStickerCollage({ className }: { className?: string }) {
   );
 }
 
+const testimonials = [
+  {
+    name: "Bhushan",
+    company: "Reeler AI",
+    img: "/images/assets/ReelerFrame.png",
+    text: "Enfiq built a landing page for us and did exactly that. They took our ideas and turned them into a reality for our brand. The creativity and their attention to detail..."
+  },
+  {
+    name: "White Oak",
+    company: "Wealth Management Company",
+    img: "/images/assets/whiteOAKLogo.png",
+    text: "Enfiq's designs are truly exceptional! The creativity and attention to detail in their work set them apart. Their ability to understand my vision and design accordingly is impressive."
+  },
+  {
+    name: "White Oak",
+    company: "Wealth Management Company",
+    img: "/images/assets/whiteOAKLogo.png",
+    text: "Enfiq's designs are truly exceptional! The creativity and attention to detail in their work set them apart. Their ability to understand my vision and design accordingly is impressive."
+  },
+  {
+    name: "Civil labs",
+    company: "Civil Contracting",
+    img: "/images/assets/civiLogo (1).png",
+    text: "ENFIQ took our business to the next level with a stunning new website. Their design skills and attention to detail made a big difference in our brand visibility and customer engagement. We're thrilled with the result and highly recommend their services to any business looking to grow online!"
+  }
+];
+
 export default function HomePage() {
   const marqueeRef = React.useRef<HTMLDivElement>(null);
   const targetRate = React.useRef(1);
@@ -245,10 +272,10 @@ export default function HomePage() {
       <div className="relative w-full flex justify-center pt-20 pb-10">
         {/* Subtle Small Grid Background */}
         <div
-          className="absolute inset-0 z-0 pointer-events-none"
+          className="absolute top-[-120px] left-0 right-0 bottom-0 z-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px)`,
-            backgroundSize: '24px 24px',
+            backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
             WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 30%, #000 40%, transparent 100%)',
             maskImage: 'radial-gradient(ellipse 80% 80% at 50% 30%, #000 40%, transparent 100%)'
           }}
@@ -342,7 +369,7 @@ export default function HomePage() {
 
 
           <h1
-            className="max-w-[949px] w-full mx-auto flex flex-col items-center text-center text-[64px] leading-[83.2px] text-[#000000] font-normal tracking-normal mb-6 transition-all duration-300"
+            className="max-w-[949px] w-full mx-auto flex flex-col items-center text-center text-[40px] sm:text-[56px] md:text-[64px] leading-[1.1] sm:leading-[1.15] md:leading-[83.2px] text-[#000000] font-normal tracking-normal mb-6 transition-all duration-300"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <div className="flex flex-wrap justify-center">
@@ -351,11 +378,20 @@ export default function HomePage() {
                   key={`p1-${i}`}
                   className="relative inline-block cursor-default group/char"
                 >
-                  <span className="invisible font-bold whitespace-pre">
+                  <span className="invisible font-semibold whitespace-pre">
                     {char}
                   </span>
 
-                  <span className="absolute left-1/2 top-0 -translate-x-1/2 whitespace-pre text-[#000000] font-normal transition-all duration-300 group-hover/char:font-bold">
+                  <span
+                    className="
+            absolute left-1/2 top-0 -translate-x-1/2
+            whitespace-pre text-[#000000]
+            font-medium
+            transition-all duration-500 ease-out
+            group-hover/char:scale-[1.04]
+            group-hover/char:font-semibold
+          "
+                  >
                     {char}
                   </span>
                 </span>
@@ -368,11 +404,20 @@ export default function HomePage() {
                   key={`p2-${i}`}
                   className="relative inline-block cursor-default group/char"
                 >
-                  <span className="invisible font-bold whitespace-pre">
+                  <span className="invisible font-semibold whitespace-pre">
                     {char}
                   </span>
 
-                  <span className="absolute left-1/2 top-0 -translate-x-1/2 whitespace-pre text-[#000000] transition-all duration-300 group-hover/char:font-bold">
+                  <span
+                    className="
+            absolute left-1/2 top-0 -translate-x-1/2
+            whitespace-pre text-[#000000]
+            font-medium
+            transition-all duration-500 ease-out
+            group-hover/char:scale-[1.04]
+            group-hover/char:font-semibold
+          "
+                  >
                     {char}
                   </span>
                 </span>
@@ -475,10 +520,17 @@ export default function HomePage() {
             {/* Left: copy + CTA */}
             <div className="shrink-0 lg:w-[32%] lg:max-w-sm lg:pt-1 text-center lg:text-left">
               <h3
-                className="w-[268px] h-[90px] text-[32px] leading-[44.8px] text-[#121212] mb-4 mx-auto lg:mx-0"
-                style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}
+                className="w-[268px] text-[32px] leading-[44.8px] text-[#121212] mb-[8px] mx-auto lg:mx-0"
+                style={{
+                  fontFamily: "'Instrument Sans', sans-serif",
+                  fontWeight: 400,
+                  letterSpacing: "0px",
+                }}
               >
-                Where your ideas find <span style={{ fontFamily: "'Instrument Sans', sans-serif", fontWeight: 400 }}>direction</span>
+                Where your ideas find{" "}
+                <span style={{ fontWeight: 700 }}>
+                  direction
+                </span>
               </h3>
               <p
                 className="w-[365px] h-[48px] text-[16px] leading-[24px] text-[#707070] mb-8 mx-auto lg:mx-0"
@@ -999,68 +1051,57 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-
       {/* ── TESTIMONIALS ── */}
       <section className="py-12 overflow-hidden w-full max-w-[1440px] mx-auto px-6 xl:px-[108.5px]">
+
+        {/* Heading */}
         <div className="w-full text-center mb-10 flex flex-col items-center">
+
           <span
-            className="inline-flex items-center justify-center rounded-[12424px] border border-[#DDDDDD] bg-white px-[16px] py-[8px] mb-4 text-[#707070] hover:text-black transition-colors duration-300"
+            className="inline-flex items-center justify-center rounded-[12424px] border border-[#DDDDDD] bg-white px-[16px] py-[8px] mb-4 hover:text-black transition-colors duration-300"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
               fontSize: "14px",
               lineHeight: "100%",
-              letterSpacing: "0%",
-              color: "#707070"
+              letterSpacing: "0px",
+              color: "#707070",
             }}
           >
             Our Testimonials
           </span>
+
           <h2
-            className="w-[669px] h-[45px] text-[32px] text-[#000000] text-center"
-            style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, lineHeight: "44.8px", letterSpacing: "0%" }}
+            className="w-[669px] text-[32px] text-[#000000] text-center"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 600,
+              lineHeight: "44.8px",
+              letterSpacing: "0px",
+            }}
           >
             Trusted by Founders and Teams Worldwide
           </h2>
+
         </div>
 
+        {/* Marquee Wrapper */}
         <div
           className="flex flex-col gap-[16px] w-full relative overflow-hidden"
           style={{
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            maskImage:
+              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
           }}
         >
-          {/* Row 1: Moves LTR (Right) */}
+
+          {/* ROW 1 */}
           <div className="flex w-max animate-marquee-ltr">
             {[1, 2, 3].map((groupIndex) => (
               <div key={groupIndex} className="flex gap-[16px] pr-[16px]">
-                {[
-                  {
-                    name: "Bhushan",
-                    company: "Reeler AI",
-                    img: "/images/assets/ReelerAi.png",
-                    text: "Enfiq built a landing page for us and did exactly that. They took our ideas and turned them into a reality for our brand. The creativity and their attention to detail..."
-                  },
-                  {
-                    name: "White Oak",
-                    company: "Wealth Management Company",
-                    img: "/images/assets/whiteOAK.png",
-                    text: "Enfiq's designs are truly exceptional! The creativity and attention to detail in their work set them apart. Their ability to understand my vision and design accordingly is impressive."
-                  },
-                  {
-                    name: "White Oak",
-                    company: "Wealth Management Company",
-                    img: "/images/assets/whiteOAK.png",
-                    text: "Enfiq's designs are truly exceptional! The creativity and attention to detail in their work set them apart. Their ability to understand my vision and design accordingly is impressive."
-                  },
-                  {
-                    name: "Civil labs",
-                    company: "Civil Contracting",
-                    img: "/images/assets/civillabs.png",
-                    text: "ENFIQ took our business to the next level with a stunning new website. Their design skills and attention to detail made a big difference in our brand visibility and customer engagement. We're thrilled with the result and highly recommend their services to any business looking to grow online!"
-                  }
-                ].map((t, i) => (
+
+                {testimonials.map((t, i) => (
                   <div
                     key={`${groupIndex}-${i}`}
                     className="w-[400px] shrink-0 bg-white rounded-[15px] border border-[#EAEAEA] transition-shadow hover:shadow-sm"
@@ -1068,57 +1109,87 @@ export default function HomePage() {
                       paddingTop: "20px",
                       paddingRight: "20px",
                       paddingBottom: "18.8px",
-                      paddingLeft: "20px"
+                      paddingLeft: "20px",
                     }}
                   >
-                    <div className="flex items-center gap-3.5 mb-4">
-                      <div className="w-11 h-11 relative rounded-full overflow-hidden shrink-0 border border-gray-100 bg-white">
-                        <Image src={t.img} alt={t.name} fill className="object-contain" />
+
+                    {/* Header */}
+                    <div className="flex items-start gap-[16px] mb-[8.66px]">
+
+                      {/* Logo */}
+                      <div
+                        className={`relative overflow-hidden shrink-0 bg-white ${t.name === "White Oak"
+                          ? "w-[56px] h-[56px] rounded-[2918px]"
+                          : "w-[56px] h-[56px] rounded-[12px]"
+                          }`}
+                      >
+                        <Image
+                          src={t.img}
+                          alt={t.name}
+                          fill
+                          className="object-contain"
+                        />
                       </div>
-                      <div>
-                        <p className="font-bold text-[15px] text-[#121212] leading-tight">{t.name}</p>
-                        <p className="text-[12px] font-medium text-gray-500 mt-0.5">{t.company}</p>
+
+                      {/* Text */}
+                      <div className="flex flex-col">
+
+                        <p
+                          className="text-[#000000]"
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 500,
+                            fontSize: "16px",
+                            lineHeight: "19.2px",
+                            letterSpacing: "0px",
+                          }}
+                        >
+                          {t.name}
+                        </p>
+
+                        <p
+                          className="mt-[4px] text-[#000000]"
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: "16px",
+                            lineHeight: "19.2px",
+                            letterSpacing: "0px",
+                          }}
+                        >
+                          {t.company}
+                        </p>
+
                       </div>
                     </div>
-                    <p className="text-[12.5px] sm:text-[13px] text-[#121212] leading-relaxed font-medium">
+
+                    {/* Description */}
+                    <p
+                      className="text-[#000000]"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 500,
+                        fontSize: "14px",
+                        lineHeight: "16.8px",
+                        letterSpacing: "0px",
+                      }}
+                    >
                       {t.text}
                     </p>
+
                   </div>
                 ))}
+
               </div>
             ))}
           </div>
 
-          {/* Row 2: Moves RTL (Left) */}
+          {/* ROW 2 */}
           <div className="flex w-max animate-marquee-rtl">
             {[1, 2, 3].map((groupIndex) => (
               <div key={groupIndex} className="flex gap-[16px] pr-[16px]">
-                {[
-                  {
-                    name: "Bhushan",
-                    company: "Reeler AI",
-                    img: "/images/assets/ReelerAi.png",
-                    text: "Enfiq built a landing page for us and did exactly that. They took our ideas and turned them into a reality for our brand. The creativity and their attention to detail..."
-                  },
-                  {
-                    name: "White Oak",
-                    company: "Wealth Management Company",
-                    img: "/images/assets/whiteOAK.png",
-                    text: "Enfiq's designs are truly exceptional! The creativity and attention to detail in their work set them apart. Their ability to understand my vision and design accordingly is impressive."
-                  },
-                  {
-                    name: "White Oak",
-                    company: "Wealth Management Company",
-                    img: "/images/assets/whiteOAK.png",
-                    text: "Enfiq's designs are truly exceptional! The creativity and attention to detail in their work set them apart. Their ability to understand my vision and design accordingly is impressive."
-                  },
-                  {
-                    name: "Civil labs",
-                    company: "Civil Contracting",
-                    img: "/images/assets/civillabs.png",
-                    text: "ENFIQ took our business to the next level with a stunning new website. Their design skills and attention to detail made a big difference in our brand visibility and customer engagement. We're thrilled with the result and highly recommend their services to any business looking to grow online!"
-                  }
-                ].map((t, i) => (
+
+                {testimonials.map((t, i) => (
                   <div
                     key={`${groupIndex}-${i}`}
                     className="w-[400px] shrink-0 bg-white rounded-[15px] border border-[#EAEAEA] transition-shadow hover:shadow-sm"
@@ -1126,26 +1197,81 @@ export default function HomePage() {
                       paddingTop: "20px",
                       paddingRight: "20px",
                       paddingBottom: "18.8px",
-                      paddingLeft: "20px"
+                      paddingLeft: "20px",
                     }}
                   >
-                    <div className="flex items-center gap-3.5 mb-4">
-                      <div className="w-11 h-11 relative rounded-full overflow-hidden shrink-0 border border-gray-100 bg-white">
-                        <Image src={t.img} alt={t.name} fill className="object-contain" />
+
+                    {/* Header */}
+                    <div className="flex items-start gap-[16px] mb-[8.66px]">
+
+                      {/* Logo */}
+                      <div
+                        className={`relative overflow-hidden shrink-0 bg-white ${t.name === "White Oak"
+                          ? "w-[56px] h-[56px] rounded-[2918px]"
+                          : "w-[56px] h-[56px] rounded-[12px]"
+                          }`}
+                      >
+                        <Image
+                          src={t.img}
+                          alt={t.name}
+                          fill
+                          className="object-contain"
+                        />
                       </div>
-                      <div>
-                        <p className="font-bold text-[15px] text-[#121212] leading-tight">{t.name}</p>
-                        <p className="text-[12px] font-medium text-gray-500 mt-0.5">{t.company}</p>
+
+                      {/* Text */}
+                      <div className="flex flex-col">
+
+                        <p
+                          className="text-[#000000]"
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 500,
+                            fontSize: "16px",
+                            lineHeight: "19.2px",
+                            letterSpacing: "0px",
+                          }}
+                        >
+                          {t.name}
+                        </p>
+
+                        <p
+                          className="mt-[4px] text-[#000000]"
+                          style={{
+                            fontFamily: "'Inter', sans-serif",
+                            fontWeight: 400,
+                            fontSize: "16px",
+                            lineHeight: "19.2px",
+                            letterSpacing: "0px",
+                          }}
+                        >
+                          {t.company}
+                        </p>
+
                       </div>
                     </div>
-                    <p className="text-[12.5px] sm:text-[13px] text-[#121212] leading-relaxed font-medium">
+
+                    {/* Description */}
+                    <p
+                      className="text-[#000000]"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 500,
+                        fontSize: "14px",
+                        lineHeight: "16.8px",
+                        letterSpacing: "0px",
+                      }}
+                    >
                       {t.text}
                     </p>
+
                   </div>
                 ))}
+
               </div>
             ))}
           </div>
+
         </div>
       </section>
 

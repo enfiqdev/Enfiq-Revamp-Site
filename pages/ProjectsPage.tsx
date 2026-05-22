@@ -22,6 +22,8 @@ interface Project {
   tags: string[];
   category: string;
   bg: string;
+  logo: string;
+  image: string;
 }
 
 const projects: Project[] = [
@@ -34,6 +36,8 @@ const projects: Project[] = [
     tags: ["Design", "Framer Development", "On-Page SEO"],
     category: "Web Development",
     bg: "#EEF5FF",
+    logo: "/images/assets/tartanHQLogo.png",
+    image: "/images/assets/card1.png",
   },
   {
     id: 2,
@@ -44,60 +48,12 @@ const projects: Project[] = [
     tags: ["Design", "Framer Development", "On-Page SEO"],
     category: "Design",
     bg: "#EEF5FF",
-  },
-  {
-    id: 3,
-    name: "ReelerAI",
-    type: "AI Product Design",
-    description:
-      "End-to-end AI-powered design partner for marketing teams, enabling faster campaign production with intelligent automation and brand consistency.",
-    tags: ["Design", "No-code Development", "SEO"],
-    category: "No-code Development",
-    bg: "#F0F8F0",
-  },
-  {
-    id: 4,
-    name: "Newslettr",
-    type: "SaaS Platform",
-    description:
-      "Your All-in-One Platform for Personalized Newsletters. Built for creators and businesses who want to grow their audience with tailored content.",
-    tags: ["Web Development", "n8n Automation"],
-    category: "Web Development",
-    bg: "#FFF3E8",
+    logo: "/images/assets/tartanHQLogo.png",
+    image: "/images/assets/card1.png",
   },
 ];
 
-// Grid background pattern
-const gridBg = {
-  backgroundColor: "#F8F8F8",
 
-  backgroundImage: `
-    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px)
-  `,
-
-  backgroundSize: "56px 56px",
-};
-
-// Placeholder for project image
-function ProjectImage({ bg, label }: { bg: string; label: string }) {
-  return (
-    <div
-      className="w-full h-full rounded-xl flex items-center justify-center"
-      style={{ background: bg }}
-    >
-      <div className="text-center">
-        <p className="text-sm font-bold text-gray-600">{label}</p>
-        <p className="text-xs text-gray-400 mt-1">
-          Unified APIs And Agents
-        </p>
-        <p className="text-xs font-semibold text-[#D41717]">
-          For All Product Integrations
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -112,7 +68,7 @@ export default function ProjectsPage() {
       );
 
   return (
-    <div className="pt-[64px]" style={gridBg}>
+    <div className="pt-[64px] bg-[#F8F8F8]">
 
       {/* ── PAGE HEADER ── */}
       <section className="max-w-[560px] mx-auto px-6 text-center flex flex-col items-center">
@@ -149,85 +105,138 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── FILTER BAR ── */}
-      <section className="max-w-3xl mx-auto px-6 pb-12 pt-[32px]">
-        <div className="flex flex-wrap gap-2 justify-center">
+      <section className="max-w-[560px] mx-auto px-6 pt-[48px] pb-[64px]">
+        <div className="flex flex-wrap gap-[6px] justify-start">
+
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-medium border transition-all ${activeCategory === cat
-                  ? "bg-[#121212] text-white border-[#121212]"
-                  : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
+              className={`inline-flex items-center justify-center gap-[6px]
+        px-[8px] py-[4px]
+        rounded-[8px]
+        border-[1px]
+        transition-all duration-300
+        w-fit
+        ${activeCategory === cat
+                  ? "border-[#D41717] text-[#D41717] bg-white"
+                  : "border-[#707070] text-[#707070] bg-white hover:text-black"
                 }`}
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "14px",
+                lineHeight: "100%",
+                letterSpacing: "0px",
+              }}
             >
+
               {cat === "All" && (
                 <svg
-                  width="12"
-                  height="12"
+                  width="14"
+                  height="14"
                   viewBox="0 0 24 24"
-                  fill="currentColor"
+                  fill="none"
                 >
-                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M12 5V19M5 12H19"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
                 </svg>
               )}
+
               {cat}
+
             </button>
           ))}
+
         </div>
       </section>
 
       {/* ── PROJECT LIST ── */}
-      <section className="max-w-5xl mx-auto px-6 pb-16 space-y-12">
+      <section className="w-full max-w-[828px] mx-auto md:px-0 px-6 pb-24 flex flex-col gap-[64px] items-center">
         {filtered.map((project, index) => {
           const isEven = index % 2 === 0;
 
           return (
             <div
               key={project.id}
-              className={`flex flex-col md:flex-row gap-8 items-center ${isEven ? "" : "md:flex-row-reverse"
+              className={`w-full flex flex-col md:flex-row gap-[37px] items-center ${isEven ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
             >
-
               {/* Text side */}
-              <div className="flex-1">
-
-                {/* Project title */}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 bg-[#D41717]/10 rounded-lg flex items-center justify-center">
-                    <div className="w-4 h-4 bg-[#D41717] rounded-sm" />
+              <div className="w-full md:w-[425px] shrink-0 flex flex-col items-start text-left">
+                {/* Project title & logo */}
+                <div className="flex items-center gap-[12px] h-[34px] mb-[16px]">
+                  <div className="w-[30px] h-[30px] relative overflow-hidden flex shrink-0 items-center justify-center border-[0.5px] border-[#D5D5D5] rounded-[6px] bg-[#FFFFFF]">
+                    <Image
+                      src={project.logo}
+                      alt={`${project.name} Logo`}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
 
-                  <h2 className="text-xl font-black text-[#121212]">
-                    {project.name} — {project.type}
+                  <h2
+                    className="text-[24px] font-medium text-[#000000] leading-[33.6px]"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {project.name} - {project.type}
                   </h2>
                 </div>
 
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                {/* Description */}
+                <p
+                  className="text-[16px] text-[#707070] leading-[22.4px] mb-[16px]"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    letterSpacing: "0px",
+                  }}
+                >
                   {project.description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-[8px]">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs border border-gray-200 px-3 py-1 rounded-full text-gray-600 bg-white"
+                      className="inline-flex items-center justify-center rounded-[33px] border-[1px] border-[#707070]/[0.3] bg-white px-[16px] py-[2px] text-[14px] font-normal text-[#707070] leading-[21px] h-[25px]"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-
               </div>
 
               {/* Image side */}
-              <div className="flex-1 h-52 w-full rounded-2xl overflow-hidden border border-gray-100 shadow-sm bg-white">
-                <ProjectImage
-                  bg={project.bg}
-                  label={project.name}
+              <div className="relative w-full md:w-[366px] h-[256px] shrink-0 border-[0.5px] border-[#CCCCCE] rounded-[8px] overflow-hidden bg-white group cursor-pointer transition-all duration-300 hover:border-[#D41717]">
+                <Image
+                  src={project.image}
+                  alt={`${project.name} screenshot`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="366px"
                 />
+                {/* Arrow icon button */}
+                <div className="absolute top-[10px] right-[10px] z-10 flex w-[42px] h-[42px] items-center justify-center rounded-[22.83px] border-[0.59px] border-[#707070]/[0.3] bg-white p-[9.36px] transition-colors duration-300 group-hover:border-[#D41717]">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-full h-full text-[#121212] transition-colors duration-300 group-hover:text-[#D41717]"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 17L17 7M17 7H9M17 7V15" />
+                  </svg>
+                </div>
               </div>
-
             </div>
           );
         })}

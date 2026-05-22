@@ -164,7 +164,9 @@ function BlogCard({ post }: { post: BlogPost }) {
 
 export default function BlogsPage() {
   const [activeCategory, setActiveCategory] = useState("Designing / Branding");
-  const [visibleCount, setVisibleCount] = useState(9);
+  // fixed: show 9 blog cards in a 3x3 grid
+  const visibleCount = 9;
+
 
   return (
     <div className="pt-16">
@@ -220,26 +222,15 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      {/* ── BLOG GRID (3-column) ── */}
+      {/* ── BLOG GRID (9 in 3x3) ── */}
       <section className="max-w-5xl mx-auto px-6 pb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {allPosts.slice(0, visibleCount).map((post) => (
-            <BlogCard key={post.id} post={post} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {allPosts.slice(0, 9).map((post) => (
+            <BlogCard key={`${post.id}-${post.title}`} post={post} />
           ))}
         </div>
-
-        {/* Load More */}
-        {visibleCount < allPosts.length && (
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={() => setVisibleCount((v) => v + 6)}
-              className="border border-gray-200 text-gray-700 font-medium px-6 py-2.5 rounded-full hover:bg-gray-50 transition-colors text-sm"
-            >
-              Load More
-            </button>
-          </div>
-        )}
       </section>
+
 
       {/* ── SUBSCRIBE SECTION ── */}
       <section className="max-w-4xl mx-auto px-6 py-12 mb-12">
