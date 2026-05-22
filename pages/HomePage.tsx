@@ -1138,7 +1138,7 @@ export default function HomePage() {
                           className="text-[#000000]"
                           style={{
                             fontFamily: "'Inter', sans-serif",
-                            fontWeight: 500,
+                            fontWeight: 700,
                             fontSize: "16px",
                             lineHeight: "19.2px",
                             letterSpacing: "0px",
@@ -1168,7 +1168,7 @@ export default function HomePage() {
                       className="text-[#000000]"
                       style={{
                         fontFamily: "'Inter', sans-serif",
-                        fontWeight: 500,
+                        fontWeight: 520,
                         fontSize: "14px",
                         lineHeight: "16.8px",
                         letterSpacing: "0px",
@@ -1226,7 +1226,7 @@ export default function HomePage() {
                           className="text-[#000000]"
                           style={{
                             fontFamily: "'Inter', sans-serif",
-                            fontWeight: 500,
+                            fontWeight: 700,
                             fontSize: "16px",
                             lineHeight: "19.2px",
                             letterSpacing: "0px",
@@ -1256,7 +1256,7 @@ export default function HomePage() {
                       className="text-[#000000]"
                       style={{
                         fontFamily: "'Inter', sans-serif",
-                        fontWeight: 500,
+                        fontWeight: 520,
                         fontSize: "14px",
                         lineHeight: "16.8px",
                         letterSpacing: "0px",
