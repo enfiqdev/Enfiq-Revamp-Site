@@ -376,7 +376,7 @@ export default function HomePage() {
               {"Your Product".split("").map((char, i) => (
                 <span
                   key={`p1-${i}`}
-                  className="relative inline-block cursor-default group/char"
+                  className="relative inline-flex px-[0.5px] cursor-default group/char"
                 >
                   <span className="invisible font-semibold whitespace-pre">
                     {char}
@@ -387,7 +387,7 @@ export default function HomePage() {
             absolute left-1/2 top-0 -translate-x-1/2
             whitespace-pre text-[#000000]
             font-medium
-            transition-all duration-500 ease-out
+            transition-all duration-300 ease-out
             group-hover/char:scale-[1.04]
             group-hover/char:font-semibold
           "
@@ -402,7 +402,7 @@ export default function HomePage() {
               {"Delivered Right".split("").map((char, i) => (
                 <span
                   key={`p2-${i}`}
-                  className="relative inline-block cursor-default group/char"
+                  className="relative inline-flex px-[0.5px] cursor-default group/char"
                 >
                   <span className="invisible font-semibold whitespace-pre">
                     {char}
@@ -413,7 +413,7 @@ export default function HomePage() {
             absolute left-1/2 top-0 -translate-x-1/2
             whitespace-pre text-[#000000]
             font-medium
-            transition-all duration-500 ease-out
+            transition-all duration-300 ease-out
             group-hover/char:scale-[1.04]
             group-hover/char:font-semibold
           "
@@ -651,7 +651,7 @@ export default function HomePage() {
         <div className="w-full max-w-[1144px] mx-auto flex flex-col items-center mb-[40px]">
 
           <span
-            className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#707070] hover:text-black transition-colors duration-300"
+            className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000] hover:text-black transition-colors duration-300"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
@@ -763,7 +763,7 @@ export default function HomePage() {
       <section className="w-full max-w-[1144px] mx-auto px-[24px] xl:px-0 pt-[40px]">
         <div className="text-center mb-10">
           <span
-            className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#707070] hover:text-black transition-colors duration-300"
+            className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000] hover:text-black transition-colors duration-300"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
@@ -796,7 +796,7 @@ export default function HomePage() {
               <div className="flex flex-row items-center gap-[8px]">
                 <div className="relative w-[30px] h-[30px] flex shrink-0 items-center justify-center border-[0.5px] border-[#D5D5D5] rounded-[6px] bg-[#FFFFFF] overflow-hidden">
                   <div className="relative w-full h-full">
-                    <Image src="/images/assets/VS/DomainCompLogo.png" alt="Domain Comp Logo" fill className="object-contain" />
+                    <Image src="/images/assets/whiteOAK/DomainCompLogo.png" alt="Domain Comp Logo" fill className="object-contain" />
                   </div>
                 </div>
                 <span className="text-[24px] font-normal text-[#000000] leading-[33.6px]" style={{ fontFamily: "'Inter', sans-serif" }}>Domain Comp</span>
@@ -826,7 +826,7 @@ export default function HomePage() {
               <div className="flex flex-row items-center gap-[8px]">
                 <div className="relative w-[30px] h-[30px] flex shrink-0 items-center justify-center border-[0.5px] border-[#D5D5D5] rounded-[6px] bg-[#FFFFFF] overflow-hidden">
                   <div className="relative w-full h-full">
-                    <Image src="/images/assets/VS/phiVirateLogo.png" alt="Phi Variate Logo" fill className="object-contain" />
+                    <Image src="/images/assets/whiteOAK/phiVirateLogo.png" alt="Phi Variate Logo" fill className="object-contain" />
                   </div>
                 </div>
                 <span className="text-[24px] font-normal text-[#000000] leading-[33.6px]" style={{ fontFamily: "'Inter', sans-serif" }}>Phi Variate</span>
@@ -845,7 +845,7 @@ export default function HomePage() {
       <section className="w-full max-w-[1440px] mx-auto px-6 xl:px-[148px] py-10">
         <div className="w-full max-w-[1144px] mx-auto text-center mb-10">
           <span
-            className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#707070] hover:text-black transition-colors duration-300"
+            className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000] hover:text-black transition-colors duration-300"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
@@ -879,7 +879,7 @@ export default function HomePage() {
               title: "Fast MVP\nDevelopment",
               desc: "We help startups and businesses launch MVPs quickly using Framer and modern tech, so you can test ideas and reach users faster.",
               icon: "i2",
-              hoverIcon: "cube2",
+              hoverIcon: "cube02",
               iconWidth: "106px",
               iconHeight: "106px",
               iconRight: "22px",
@@ -902,7 +902,7 @@ export default function HomePage() {
             >
               {/* Dynamic Border via Drop Shadow on Masked Shape */}
               <div
-                className="absolute inset-0 transition-all duration-300 [filter:drop-shadow(1px_0_0_#707070)_drop-shadow(-1px_0_0_#707070)_drop-shadow(0_1px_0_#707070)_drop-shadow(0_-1px_0_#707070)] group-hover:[filter:drop-shadow(1px_0_0_#D41717)_drop-shadow(-1px_0_0_#D41717)_drop-shadow(0_1px_0_#D41717)_drop-shadow(0_-1px_0_#D41717)_drop-shadow(4px_4px_0_#D41717)]"
+                className="absolute inset-0 transition-all duration-300 [filter:drop-shadow(1px_0_0_#C4C4C4)_drop-shadow(-1px_0_0_#C4C4C4)_drop-shadow(0_1px_0_#C4C4C4)_drop-shadow(0_-1px_0_#C4C4C4)] group-hover:[filter:drop-shadow(1px_0_0_#D41717)_drop-shadow(-1px_0_0_#D41717)_drop-shadow(0_1px_0_#D41717)_drop-shadow(0_-1px_0_#D41717)_drop-shadow(4px_4px_0_#D41717)]"
               >
                 <div
                   className="w-full h-full bg-[#EFEFEF]"
@@ -920,7 +920,7 @@ export default function HomePage() {
               </div>
 
               {/* Card Content */}
-              <div className="absolute inset-0 p-[24px_32px] flex flex-col justify-between">
+              <div className="absolute inset-0 p-[24px_32px] flex flex-col">
                 <h3
                   className={`text-[32px] text-[#000000] leading-[44.8px] font-light group-hover:font-normal transition-all duration-300 ${card.titleDims}`}
                   style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0%' }}
@@ -961,7 +961,7 @@ export default function HomePage() {
                 </div>
 
                 <p
-                  className="w-[290px] h-[96px] text-[16px] text-[#707070] font-normal leading-[24px] text-left transition-colors duration-300 group-hover:text-[#000000]"
+                  className="absolute left-[32px] bottom-[32px] w-[290px] h-[96px] text-[16px] text-[#707070] font-normal leading-[24px] text-left transition-colors duration-300 group-hover:text-[#000000]"
                   style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}
                 >
                   {card.desc}
@@ -974,7 +974,16 @@ export default function HomePage() {
 
       {/* ── TRUSTED BY ── */}
       <section className="py-12 overflow-hidden w-full max-w-[1440px] mx-auto px-6 xl:px-[108.5px]">
-        <p className="text-center text-xs text-gray-400 uppercase tracking-widest mb-8 md:mb-10">
+        <p
+          className="text-center mb-8 md:mb-10 text-[#000000]"
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "100%",
+            letterSpacing: "0px",
+          }}
+        >
           Trusted by 20+ Brands
         </p>
 
@@ -1065,7 +1074,7 @@ export default function HomePage() {
               fontSize: "14px",
               lineHeight: "100%",
               letterSpacing: "0px",
-              color: "#707070",
+              color: "#000000",
             }}
           >
             Our Testimonials
@@ -1281,7 +1290,16 @@ export default function HomePage() {
       {/* ── BLOGS ── */}
       <section className="max-w-[1248px] mx-auto px-6 py-12">
         <div className="text-center mb-10">
-          <span className="inline-flex items-center rounded-full border border-gray-200 bg-white px-4 py-1.5 text-[11px] font-medium text-gray-600 mb-4">
+          <span
+            className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000]"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "14px",
+              lineHeight: "100%",
+              letterSpacing: "0px",
+            }}
+          >
             Our Blogs
           </span>
           <h2
