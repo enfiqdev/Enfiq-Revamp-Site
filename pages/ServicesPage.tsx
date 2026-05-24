@@ -92,31 +92,31 @@ const formatBullet = (bullet: string) => {
     "UX/UI design": { bold: "UX/UI", regular: " design" },
     "Web & product visuals": { bold: "Web & product", regular: " visuals" },
     "High-fidelity prototyping": { bold: "High-fidelity", regular: " prototyping" },
-    
+
     // 02 Scalable Development Solutions
     "Web application development": { bold: "Web application", regular: " development" },
     "Mobile app development": { bold: "Mobile app", regular: " development" },
     "Backend & API development": { bold: "Backend & API", regular: " development" },
     "Custom dashboards & software": { bold: "Custom dashboards &", regular: " software" },
-    
+
     // 03 No-Code Development Solutions
     "Custom Framer & WP development": { bold: "Custom Framer & WP", regular: " development" },
     "Responsive design for all devices": { bold: "Responsive design", regular: " for all devices" },
     "CMS setup & content management": { bold: "CMS setup &", regular: " content management" },
     "Landing pages, blogs & business sites": { bold: "Landing pages, blogs &", regular: " business sites" },
-    
+
     // 04 SEO & Growth Optimization
     "On-page & off-page SEO": { bold: "On-page & off-page", regular: " SEO" },
     "Technical SEO audits": { bold: "Technical SEO", regular: " audits" },
     "Keyword research & strategy": { bold: "Keyword research &", regular: " strategy" },
     "Content optimization": { bold: "Content", regular: " optimization" },
-    
+
     // 05 Video Editing & Visual Storytelling
     "Social media reels & shorts": { bold: "Social media", regular: " reels & shorts" },
     "YouTube video editing": { bold: "YouTube", regular: " video editing" },
     "Promo & brand videos": { bold: "Promo & brand", regular: " videos" },
     "Motion graphics & titles": { bold: "Motion graphics &", regular: " titles" },
-    
+
     // 06 Workflow Automation with n8n
     "Business process automation": { bold: "Business process", regular: " automation" },
     "Lead, CRM & sales workflows": { bold: "Lead, CRM &", regular: " sales workflows" },
@@ -132,7 +132,7 @@ const formatBullet = (bullet: string) => {
       </>
     );
   }
-  
+
   // Fallback: bold first two words, make the rest regular
   const words = bullet.split(" ");
   if (words.length <= 2) {
@@ -271,18 +271,30 @@ function ContactForm() {
 
 export default function ServicesPage() {
   return (
-    <div className="pt-16">
+    <div className="pt-[64px]">
       {/* ── PAGE HEADER ── */}
-      <section className="max-w-3xl mx-auto px-6 pt-16 pb-10 text-center">
-        <h1 
-          className="text-4xl md:text-5xl font-black text-[#121212] mb-4"
-          style={{ fontFamily: "'Inter', sans-serif", fontWeight: 900 }}
+      <section className="max-w-3xl mx-auto px-6 pb-[64px] text-center">
+        <h1
+          className="w-[560px] mx-auto text-center text-[#121212] mb-4"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 600,
+            fontSize: "32px",
+            lineHeight: "44.8px",
+            letterSpacing: "0px",
+          }}
         >
           Our Services
         </h1>
-        <p 
-          className="text-[#707070] text-sm max-w-md mx-auto"
-          style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
+        <p
+          className="w-[560px] mx-auto text-center text-[#707070]"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "24px",
+            letterSpacing: "0px",
+          }}
         >
           We offer advanced chatbot development to enhance engagement and streamline communication,
           with tailored solutions and 24/7 support.
@@ -292,8 +304,8 @@ export default function ServicesPage() {
       {/* ── SERVICE LIST ── */}
       <section className="max-w-[1248px] mx-auto px-6 flex flex-col gap-[61.84px] py-[69.81px]">
         {services.map((service) => (
-          <div 
-            key={service.num} 
+          <div
+            key={service.num}
             className="flex flex-col xl:flex-row items-start justify-between w-full max-w-[1144px] mx-auto gap-[60.31px]"
           >
             {/* Left Wrapper (Number + Content) */}
@@ -301,8 +313,8 @@ export default function ServicesPage() {
               {/* Number Column */}
               <div className="flex flex-col w-[56px] shrink-0 items-center -mt-[14px]">
                 <div className="flex items-center justify-center w-[56px] h-[77px] shrink-0">
-                  <span 
-                    className="text-[64px] leading-[76.8px] text-[#D41717] font-normal tracking-normal" 
+                  <span
+                    className="text-[64px] leading-[76.8px] text-[#D41717] font-normal tracking-normal"
                     style={{ fontFamily: "'Instrument Serif', serif" }}
                   >
                     {service.num}
@@ -312,8 +324,8 @@ export default function ServicesPage() {
                   <line x1="1" y1="0" x2="1" y2="178" stroke="#CCCCCE" strokeWidth="1.5" strokeDasharray="8 6" />
                 </svg>
                 <div className="flex items-center justify-center w-[56px] h-[77px] shrink-0">
-                  <span 
-                    className="text-[64px] leading-[76.8px] text-[#CCCCCE] font-normal tracking-normal" 
+                  <span
+                    className="text-[64px] leading-[76.8px] text-[#CCCCCE] font-normal tracking-normal"
                     style={{ fontFamily: "'Instrument Serif', serif" }}
                   >
                     06

@@ -110,7 +110,7 @@ const getBlogCardData = (tag: string) => {
     case "No-code Development":
     default:
       return {
-        image: "/images/assets/nocode.png",
+        image: "/images/assets/blogNoCode.png",
         tagIcon: (
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
@@ -173,7 +173,7 @@ function BlogCard({ post }: { post: BlogPost }) {
   const { image, tagIcon } = getBlogCardData(post.tag);
   return (
     <div
-      className="flex flex-col w-[380px] h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer"
+      className="flex flex-col w-full max-w-[380px] min-h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer hover:-translate-y-1 hover:border-[#D41717] hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
     >
       {/* 1. IMAGE FRAME */}
       <div className="relative w-[358px] h-[171px] rounded-[8px] overflow-hidden shrink-0 bg-gray-50 border-[0.5px] border-gray-100">
@@ -230,26 +230,46 @@ export default function BlogsPage() {
   const [activeCategory, setActiveCategory] = useState("Designing / Branding");
 
   return (
-    <div className="pt-16">
+    <div className="pt-16]">
       {/* ── PAGE HEADER ── */}
-      <section className="max-w-3xl mx-auto px-6 pt-16 pb-8 text-center">
-        <h1 className="text-4xl md:text-5xl font-black text-[#121212] mb-4">
+      <section className="w-[560px] mx-auto pt-[48px] pb-[48px] flex flex-col items-center gap-[12px] text-center">
+        <h1
+          className="w-[598px] h-[45px] text-center text-[#000000]"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 600,
+            fontSize: "32px",
+            lineHeight: "44.8px",
+            letterSpacing: "0px",
+          }}
+        >
           Read some quality studies
         </h1>
-        <p className="text-[#707070] text-sm max-w-md mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
+        <p
+          className="w-[520px] text-center text-[#707070] mx-auto"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "24px",
+            letterSpacing: "0px",
+          }}
+        >
           We offer advanced chatbot development to enhance engagement and streamline communication,
           with tailored solutions and 24/7 support.
         </p>
       </section>
 
       {/* ── SEARCH + FILTERS ── */}
-      <section className="max-w-3xl mx-auto px-6 pb-10 flex flex-col items-center gap-[16px]">
+      <section className="w-full max-w-[560px] mx-auto flex flex-col items-center gap-[16px] pb-[64px]">
         {/* Search bar */}
-        <div className="relative w-full max-w-[600px]">
+        {/* Search bar */}
+        <div className="relative w-full h-[42px]">
+
           <svg
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-            width="16"
-            height="16"
+            className="absolute left-[16px] top-1/2 -translate-y-1/2 text-[#707070]"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -258,35 +278,75 @@ export default function BlogsPage() {
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.35-4.35" />
           </svg>
+
           <input
             type="text"
             placeholder="Search"
-            className="w-full border border-[#EBEBEB] rounded-full pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-gray-400 transition-colors"
+            className="w-full h-full border border-[#7070704D] rounded-[49px] bg-white pl-[45px] pr-[8px] text-[16px] text-[#707070] placeholder:text-black/30 transition-all duration-300 hover:border-black hover:text-black focus:border-black focus:text-black focus:outline-none"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "24px",
+              letterSpacing: "0px",
+              color: "#707070",
+            }}
           />
+
         </div>
 
         {/* Category filters */}
-        <div className="flex flex-wrap gap-2 justify-center max-w-[700px]">
+        {/* Category filters */}
+        <div className="w-full flex flex-wrap gap-x-[6px] gap-y-[8px]">
+
           {categories.map((cat) => {
             const isSelected = activeCategory === cat;
             const color = isSelected ? "#D41717" : "#707070";
+
             return (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                  isSelected
-                    ? "bg-white text-[#D41717] border-[#D41717]"
-                    : "bg-white text-[#707070] border-gray-200 hover:border-gray-400"
-                }`}
+                className="
+    group
+    inline-flex
+    items-center
+    h-[29px]
+    gap-[4px]
+    px-[8px]
+    py-[4px]
+    rounded-[8px]
+    border
+    border-[#D4D4D4]
+    bg-white
+    text-[#707070]
+    hover:text-[#D41717]
+    hover:border-[#D41717]
+    transition-all
+    duration-200
+  "
               >
+
                 <span className="flex items-center justify-center shrink-0">
-                  {getCategoryIcon(cat, color)}
+                  {getCategoryIcon(cat, "currentColor")}
                 </span>
-                <span>{cat}</span>
+
+                <span
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 500,
+                    fontSize: "12px",
+                    lineHeight: "21px",
+                    letterSpacing: "0px",
+                  }}
+                >
+                  {cat}
+                </span>
+
               </button>
             );
           })}
+
         </div>
       </section>
 
@@ -300,14 +360,24 @@ export default function BlogsPage() {
       </section>
 
       {/* ── LOAD MORE BUTTON ── */}
-      <div className="flex justify-center mt-6 mb-16">
-        <button className="border border-[#EBEBEB] text-[#121212] font-semibold px-8 py-2.5 rounded-full hover:bg-gray-50 transition-colors text-sm">
+      <div className="flex justify-center mt-6 mb-0">
+        <button
+          className="border border-[#DDDDDD] rounded-full px-[24px] py-[12px] bg-white hover:bg-gray-50 transition-colors"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 400,
+            fontSize: "20px",
+            lineHeight: "100%",
+            letterSpacing: "0px",
+            color: "#000000",
+          }}
+        >
           Load More
         </button>
       </div>
 
       {/* ── SUBSCRIBE SECTION ── */}
-      <section className="max-w-[1248px] mx-auto px-6 py-12 mb-12">
+      <section className="max-w-[1248px] mx-auto px-6 py-[40px]">
         <div className="bg-white border border-[#EBEBEB] rounded-2xl p-10 text-center shadow-sm flex flex-col items-center">
           <span
             className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#707070]"
@@ -321,29 +391,42 @@ export default function BlogsPage() {
           >
             Subscribe Us
           </span>
+          {/*gap between the heading and the paragraph  mb-[32px]*/}
           <h2
-            className="text-[32px] leading-[44.8px] font-semibold text-[#000000] mt-2 mb-3"
+            className="text-[32px] leading-[44.8px] font-semibold text-[#000000] mt-2 mb-[32px]"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Subscribe to Our Insights
           </h2>
           <p
-            className="text-[#707070] text-[16px] leading-[24px] max-w-xl mx-auto mb-8"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="w-[873px] h-[64px] mx-auto text-center mb-8 text-[#323232]"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 500,
+              fontSize: "24px",
+              lineHeight: "32px",
+              letterSpacing: "-0.6px",
+            }}
           >
-            Stay ahead of the curve with exclusive tips, industry insights, and expert advice. Sign
-            up today and elevate your website development knowledge!
+            Stay ahead of the curve with exclusive tips, industry insights, and expert advice.
+            Sign up today and elevate your website development knowledge!
           </p>
-          <div className="flex items-center gap-3 w-full max-w-md mx-auto">
+          <div className="flex items-center gap-4 w-full max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your mail"
-              className="flex-1 h-[48px] border border-[#DDDDDD] rounded-full px-5 text-sm focus:outline-none focus:border-gray-400 transition-colors"
+              className="flex-1 h-[48px] border border-[#DDDDDD] rounded-full px-5 text-[16px] placeholder:text-black/30 focus:outline-none focus:border-gray-400 transition-colors"
               style={{ fontFamily: "'Inter', sans-serif" }}
             />
             <button
-              className="h-[48px] bg-[#D41717] text-white text-sm font-semibold px-6 rounded-full hover:bg-black transition-colors whitespace-nowrap shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="h-[48px] bg-[#D41717] text-white px-[24px] rounded-full whitespace-nowrap transition-colors hover:bg-[#B91212] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 500,
+                fontSize: "20px",
+                lineHeight: "100%",
+                letterSpacing: "0px",
+              }}
             >
               Subscribe Now
             </button>

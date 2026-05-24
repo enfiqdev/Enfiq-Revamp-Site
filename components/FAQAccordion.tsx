@@ -35,18 +35,19 @@ const gridBg: React.CSSProperties = {
   `,
   backgroundSize: "10px 10px",
 };
+
 export default function FAQAccordion() {
   const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
 
   const toggleItem = (i: number) => {
     setOpenIndices((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(i)) {
-        newSet.delete(i);
+      const next = new Set(prev);
+      if (next.has(i)) {
+        next.delete(i);
       } else {
-        newSet.add(i);
+        next.add(i);
       }
-      return newSet;
+      return next;
     });
   };
 
@@ -72,94 +73,102 @@ export default function FAQAccordion() {
           </h2>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6 w-full">
           {faqs.map((faq, i) => {
             const isOpen = openIndices.has(i);
+
             return (
-              <div key={i} className="flex flex-col gap-4 w-full">
-                {/* Question Row (Right aligned) */}
+              <div key={i} className="flex flex-col gap-3 w-full">
+
+                {/* ── QUESTION BUBBLE (right side — like a sent message) ── */}
                 <div className="flex w-full justify-end">
                   <motion.button
                     onClick={() => toggleItem(i)}
                     className="flex items-center gap-3 group outline-none"
                     aria-expanded={isOpen}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    whileTap={{ scale: 0.97 }}
                   >
+                    {/* +/− toggle */}
                     <motion.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                      className={`flex-shrink-0 w-[44px] h-[44px] rounded-[436px] flex items-center justify-center text-lg transition-colors duration-300 ${isOpen
-                        ? "bg-[#2A2A2A] text-white font-light"
-                        : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
-                        }`}
+                      transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                      className={`flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center text-lg font-light transition-colors duration-300 ${
+                        isOpen
+                          ? "bg-[#2A2A2A] text-white"
+                          : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
+                      }`}
                     >
                       {isOpen ? "−" : "+"}
                     </motion.span>
+
+                    {/* Question bubble — slides in from right like a sent message */}
                     <motion.span
-                      key={isOpen ? "open" : "closed"}
-                      className={`text-[16px] font-normal px-[24px] py-[16px] rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px] rounded-br-[0px] transition-colors duration-300 ${isOpen
-                        ? "bg-[#2A2A2A] text-white"
-                        : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
-                        }`}
-                      style={{ fontFamily: "'Inter', sans-serif", transformOrigin: "bottom right" }}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 180, damping: 12 }}
+                      layout
+                      className={`text-[15px] font-normal px-[20px] py-[14px] rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[4px] shadow-sm transition-colors duration-300 ${
+                        isOpen
+                          ? "bg-[#2A2A2A] text-white"
+                          : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
+                      }`}
+                      style={{ fontFamily: "'Inter', sans-serif", maxWidth: "440px" }}
+                      initial={{ opacity: 0, x: 40, scale: 0.85 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 20, delay: i * 0.08 }}
                     >
                       {faq.question}
                     </motion.span>
                   </motion.button>
                 </div>
 
-                {/* Answer Row (Left aligned) */}
-                <AnimatePresence initial={false}>
+                {/* ── ANSWER BUBBLE (left side — like a received message, pops in instantly) ── */}
+                <AnimatePresence>
                   {isOpen && (
                     <motion.div
-                      initial={{ opacity: 0, scale: 0, height: 0 }}
-                      animate={{ height: "auto", opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0, height: 0 }}
+                      key={`answer-${i}`}
+                      className="flex w-full justify-start"
+                      initial={{ opacity: 0, x: -32, scale: 0.82 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: -16, scale: 0.88 }}
                       style={{ transformOrigin: "bottom left" }}
-                      transition={{
-                        height: { type: "spring", stiffness: 350, damping: 25 },
-                        opacity: { duration: 0.15 },
-                        scale: { type: "spring", stiffness: 180, damping: 12 }
-                      }}
-                      className="overflow-hidden"
+                      transition={{ type: "spring", stiffness: 300, damping: 24 }}
                     >
-                      <div className="flex w-full justify-start pt-[8px]">
-                        <div className="flex gap-[16px] items-end">
-                          {/* ENFIQ Symbol */}
-                          <div className="w-[38px] h-[38px] rounded-[25.3px] border border-[#EAEAEA] bg-white flex items-center justify-center shadow-sm shrink-0">
-                            <Image
-                              src="/images/assets/enfiqlogo.png"
-                              alt="Enfiq"
-                              width={38}
-                              height={38}
-                              className="object-contain"
-                            />
-                          </div>
+                      <div className="flex gap-[12px] items-end">
 
-                          {/* Answer Bubble */}
-                          <div className="bg-[#FFFFFF] border-[1px] border-[#E9E9E9] rounded-[24px] p-6 shadow-sm max-w-[420px]">
-                            <p
-                              className="text-[#000000]"
-                              style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontWeight: 400,
-                                fontSize: "14px",
-                                lineHeight: "23.8px",
-                              }}
-                            >
-                              {faq.answer}
-                            </p>
-                          </div>
+                        {/* Enfiq avatar */}
+                        <motion.div
+                          className="w-[36px] h-[36px] rounded-full border border-[#EAEAEA] bg-white flex items-center justify-center shadow-sm shrink-0"
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ type: "spring", stiffness: 320, damping: 18, delay: 0.04 }}
+                        >
+                          <Image
+                            src="/images/assets/enfiqlogo.png"
+                            alt="Enfiq"
+                            width={36}
+                            height={36}
+                            className="object-contain rounded-full"
+                          />
+                        </motion.div>
+
+                        {/* Answer bubble */}
+                        <div className="bg-[#FFFFFF] border border-[#E9E9E9] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-[20px] px-5 py-4 shadow-sm max-w-[420px]">
+                          <p
+                            className="text-[#000000]"
+                            style={{
+                              fontFamily: "'Inter', sans-serif",
+                              fontWeight: 400,
+                              fontSize: "14px",
+                              lineHeight: "23.8px",
+                            }}
+                          >
+                            {faq.answer}
+                          </p>
                         </div>
+
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
+
               </div>
             );
           })}
