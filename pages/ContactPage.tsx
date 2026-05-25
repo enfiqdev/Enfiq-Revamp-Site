@@ -34,7 +34,12 @@ function CalendarWidget() {
   ];
 
   return (
-    <div className="bg-white border border-gray-200 rounded-[32px] shadow-[0_30px_80px_rgba(15,23,42,0.08)] overflow-hidden">
+    <div
+      className="bg-[#F3F4F6] rounded-[16px] overflow-hidden"
+      style={{
+        border: "1px solid #707070",
+      }}
+    >
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center justify-between gap-4">
           <div />
@@ -71,7 +76,7 @@ function ContactForm() {
     <div className="max-w-2xl mx-auto px-6 py-12">
       <div className="text-center mb-8">
         <span
-          className="inline-flex items-center justify-center border border-[#DDDDDD] rounded-full px-[16px] py-[8px] bg-white"
+          className="inline-flex items-center justify-center border-[1px] border-[#707070] rounded-full px-[16px] py-[8px] bg-white"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 400,
@@ -299,34 +304,7 @@ function ContactForm() {
         </div>
 
 
-        <div>
-          <label
-            className="mb-[6px] block text-[16px] text-[#000000]"
-            style={{
-              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
-              fontWeight: 400,
-              lineHeight: "22.4px",
-              letterSpacing: "0%",
-            }}
-          >
-            Message
-          </label>
 
-          <textarea
-            rows={5}
-            className="w-full h-[125px] rounded-[12px] px-[14px] py-[10px] bg-[#F3F4F6] resize-none focus:outline-none"
-            style={{
-              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
-              fontWeight: 400,
-              fontSize: "16px",
-              lineHeight: "22.4px",
-              letterSpacing: "0%",
-              color: "#000000",
-              border: "1px solid #4C4C4C33",
-              boxShadow: "0px 1px 2px #1018280D",
-            }}
-          />
-        </div>
 
         <button
           type="submit"
