@@ -70,91 +70,344 @@ function ContactForm() {
   return (
     <div className="max-w-2xl mx-auto px-6 py-12">
       <div className="text-center mb-8">
-        <span className="text-xs font-medium bg-white border border-gray-200 px-4 py-1.5 rounded-full text-gray-600">
+        <span
+          className="inline-flex items-center justify-center border border-[#DDDDDD] rounded-full px-[16px] py-[8px] bg-white"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 400,
+            fontSize: "14px",
+            lineHeight: "100%",
+            letterSpacing: "0px",
+            color: "#000000",
+          }}
+        >
           Contact us Form
         </span>
-        <h2 className="text-3xl font-black text-[#121212] mt-4 mb-2">Get in touch</h2>
-        <p className="text-gray-500 text-sm">
+        <h2
+          className="text-[32px] leading-[44.8px] font-semibold text-[#000000] mt-4 mb-[32px]"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+          }}
+        >
+          Get in touch
+        </h2>
+        <p
+          className="text-[#323232] text-[24px] leading-[32px] text-center mb-[32px]"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 500,
+            letterSpacing: "-0.6px",
+          }}
+        >
           We&apos;d love to hear from you. Please fill out this form.
         </p>
       </div>
 
-      <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+      {/*gap is 16 px*/}
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}
+      >
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="text-xs text-gray-600 mb-1 block">First name</label>
+            <label
+              className="mb-[6px] block text-[16px] text-[#000000]"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+              }}
+            >
+              First name
+            </label>
+
             <input
               type="text"
               placeholder="First name"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
+              className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                border: "1px solid #4C4C4C33",
+                color: "#000000",
+              }}
             />
           </div>
           <div>
-            <label className="text-xs text-gray-600 mb-1 block">Last name</label>
+            <label
+              className="mb-[6px] block text-[16px] text-[#000000]"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+              }}
+            >
+              Last name
+            </label>
             <input
               type="text"
               placeholder="Last name"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
+              className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                border: "1px solid #4C4C4C33",
+                color: "#000000",
+              }}
             />
           </div>
         </div>
 
         <div>
-          <label className="text-xs text-gray-600 mb-1 block">Email</label>
+          <label
+            className="mb-[6px] block text-[16px] text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
+            Email
+          </label>
           <input
             type="email"
             placeholder="you@company.com"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
+            className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+              borderColor: "rgba(76,76,76,0.2)",
+              color: "#000000",
+              boxShadow: "0px 1px 2px rgba(16,24,40,0.05)",
+            }}
           />
         </div>
-
         <div>
-          <label className="text-xs text-gray-600 mb-1 block">Phone number</label>
-          <div className="flex gap-2">
-            <select className="border border-gray-200 rounded-lg px-2 py-2.5 text-sm focus:outline-none w-20">
-              <option>US</option>
-              <option>IN</option>
-              <option>UK</option>
-            </select>
+          <label
+            className="mb-[6px] block text-[16px] text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
+            Phone number
+          </label>
+
+          <div
+            className="flex items-center h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6]"
+            style={{
+              border: "1px solid #4C4C4C33",
+              boxShadow: "0px 1px 2px #1018280D",
+            }}
+          >
+            {/* Country Code */}
+            <div className="relative flex items-center">
+              <select
+                className="appearance-none bg-transparent pr-[24px] focus:outline-none"
+                style={{
+                  fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "16px",
+                  lineHeight: "22.4px",
+                  letterSpacing: "0%",
+                  color: "#000000",
+                }}
+              >
+                <option>US</option>
+                <option>IN</option>
+                <option>UK</option>
+              </select>
+
+              <svg
+                className="absolute right-0 pointer-events-none"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <path
+                  d="M5 7.5L10 12.5L15 7.5"
+                  stroke="black"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* Phone Number */}
             <input
               type="tel"
               placeholder="+1 (555) 000-0000"
-              className="flex-1 border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
+              className="flex-1 bg-transparent focus:outline-none ml-[16px]"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                color: "#000000",
+              }}
             />
           </div>
         </div>
 
         <div>
-          <label className="text-xs text-gray-600 mb-1 block">Message</label>
+          <label
+            className="mb-[6px] block text-[16px] text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
+            message
+          </label>
           <textarea
             rows={5}
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors resize-none"
+            className="w-full h-[125px] rounded-[12px] px-[14px] py-[10px] bg-[#F3F4F6] resize-none focus:outline-none"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+              color: "#000000",
+              border: "1px solid #4C4C4C33",
+              boxShadow: "0px 1px 2px #1018280D",
+            }}
           />
         </div>
 
-        <div className="flex items-center gap-2">
-          <input type="checkbox" id="privacy2" className="accent-[#D41717]" />
-          <label htmlFor="privacy2" className="text-xs text-gray-500">
-            You agree to our friendly privacy policy.
+
+        <div>
+          <label
+            className="mb-[6px] block text-[16px] text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
+            Message
           </label>
+
+          <textarea
+            rows={5}
+            className="w-full h-[125px] rounded-[12px] px-[14px] py-[10px] bg-[#F3F4F6] resize-none focus:outline-none"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+              color: "#000000",
+              border: "1px solid #4C4C4C33",
+              boxShadow: "0px 1px 2px #1018280D",
+            }}
+          />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-[#D41717] text-white font-semibold py-3 rounded-full hover:bg-[#B21313] transition-colors"
+          className="w-full h-[48px] rounded-[77px] px-[24px] py-[12px] text-white transition-colors"
+          style={{
+            backgroundColor: "#D41717",
+            fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+            fontWeight: 500,
+            fontSize: "16px",
+            lineHeight: "22.4px",
+            letterSpacing: "0%",
+            boxShadow: "inset 0px 4px 6px 2px #FFFFFF4D",
+          }}
         >
           Get in touch
         </button>
 
-        <div className="flex items-center justify-center gap-8 pt-2">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <span className="w-7 h-7 bg-red-50 rounded-full flex items-center justify-center text-xs">@</span>
-            team@enfiq.com
+        <div className="flex items-center justify-center gap-[48px] mt-[32px]">
+
+          {/* EMAIL */}
+          <div className="flex items-center gap-[10px]">
+
+            <div
+              className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+              style={{
+                border: "1px solid #7070704D",
+              }}
+            >
+              <img
+                src="/images/assets/@.png"
+                alt="mail"
+                className="w-[24px] h-[24px]"
+              />
+            </div>
+
+            <span
+              style={{
+                fontFamily: "'Instrument Sans', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                color: "#323232",
+              }}
+            >
+              team@enfiq.com
+            </span>
+
           </div>
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <span className="w-7 h-7 bg-red-50 rounded-full flex items-center justify-center text-xs">📞</span>
-            49987 78675
+
+          {/* PHONE */}
+          <div className="flex items-center gap-[10px]">
+
+            <div
+              className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+              style={{
+                border: "1px solid #7070704D",
+              }}
+            >
+              <img
+                src="/images/assets/contactSymbol.png"
+                alt="phone"
+                className="w-[24px] h-[24px]"
+              />
+            </div>
+
+            <span
+              style={{
+                fontFamily: "'Instrument Sans', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                color: "#323232",
+              }}
+            >
+              49987 78675
+            </span>
+
           </div>
+
         </div>
       </form>
     </div>
@@ -163,7 +416,7 @@ function ContactForm() {
 
 export default function ContactPage() {
   return (
-    <div className="pt-16 bg-[#F4F5F7] min-h-screen">
+    <div className="pt-16 bg-[#FDFDFD] min-h-screen">
       <section className="max-w-6xl mx-auto px-6 py-14">
         <CalendarWidget />
       </section>

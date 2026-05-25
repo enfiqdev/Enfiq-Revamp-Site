@@ -266,13 +266,13 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="pt-16">
+    <div>
 
       {/* ── HERO ── */}
-      <div className="relative w-full flex justify-center pt-20 pb-10">
+      <div className="relative w-full flex justify-center pt-0 pb-10">
         {/* Subtle Small Grid Background */}
         <div
-          className="absolute top-[-120px] left-0 right-0 bottom-0 z-0 pointer-events-none"
+          className="absolute top-[-110px] left-0 right-0 bottom-0 z-0 pointer-events-none"
           style={{
             backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)`,
             backgroundSize: '10px 10px',
@@ -1340,7 +1340,7 @@ export default function HomePage() {
               )
             },
             {
-              image: "/images/assets/nocode.png",
+              image: "/images/assets/blogNoCode.png",
               date: "Nov 9, 2024",
               readTime: "4 min read",
               title: "No-Code vs Full-Stack Dev: The Best Choice for Your Startup...",

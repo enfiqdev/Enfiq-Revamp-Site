@@ -54,6 +54,83 @@ const projects: Project[] = [
 ];
 
 
+/** Maps a tag label to the matching 16×16 icon used in the filter pills */
+function TagIcon({ tag, className = "" }: { tag: string; className?: string }) {
+  const cls = `shrink-0 ${className}`;
+
+  // Design / Framer Development → pencil/ruler icon
+  if (tag === "Design" || tag === "Framer Development") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
+        <path d="M3 21L9 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M14.5 4.5L19.5 9.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M12 7L17 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M7 12L12 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Web Development
+  if (tag === "Web Development") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
+        <path d="M8 7L3 12L8 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M16 7L21 12L16 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // No-code Development
+  if (tag === "No-code Development") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
+        <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M9 9L15 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Mobile Development
+  if (tag === "Mobile Development") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
+        <path d="M8 7L3 12L8 17" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M16 7L21 12L16 17" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // n8n Automation → sparkle/star
+  if (tag === "n8n Automation") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
+        <path d="M12 3L14.5 8.5L20 11L14.5 13.5L12 19L9.5 13.5L4 11L9.5 8.5L12 3Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // SEO / On-Page SEO → magnifying glass
+  if (tag === "SEO" || tag === "On-Page SEO") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
+        <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="1.8" />
+        <path d="M20 20L16.5 16.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // All / fallback → infinity loop
+  if (tag === "All") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
+        <path d="M8 12H16M12 8V16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+        <path d="M7 7C4 7 2 9 2 12C2 15 4 17 7 17C9 17 10.5 16 12 14C13.5 12 15 11 17 11C20 11 22 13 22 16C22 19 20 21 17 21" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  return null;
+}
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -113,7 +190,7 @@ export default function ProjectsPage() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`inline-flex items-center justify-center gap-[6px]
+              className={`group/pill inline-flex items-center justify-center gap-[6px]
         px-[8px] py-[4px]
         rounded-[8px]
         border-[1px]
@@ -121,7 +198,7 @@ export default function ProjectsPage() {
         w-fit
         ${activeCategory === cat
                   ? "border-[#D41717] text-[#D41717] bg-white"
-                  : "border-[#707070] text-[#707070] bg-white hover:text-black"
+                  : "border-[#707070] text-[#707070] bg-white hover:border-[#D41717] hover:text-[#D41717]"
                 }`}
               style={{
                 fontFamily: "'Inter', sans-serif",
@@ -132,142 +209,78 @@ export default function ProjectsPage() {
               }}
             >
 
-              {/* Icons */}
+              {/* All — coded infinity SVG */}
               {cat === "All" && (
                 <svg
                   width="16"
                   height="16"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 50 26"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   className="shrink-0"
                 >
                   <path
-                    d="M8 12H16M12 8V16"
+                    d="M13 3C7.477 3 3 7.477 3 13C3 18.523 7.477 23 13 23C16.5 23 20.5 20.5 25 16C29.5 11.5 33.5 3 37 3C42.523 3 47 7.477 47 13C47 18.523 42.523 23 37 23C33.5 23 29.5 20.5 25 16C20.5 11.5 16.5 3 13 3Z"
                     stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M7 7C4 7 2 9 2 12C2 15 4 17 7 17C9 17 10.5 16 12 14C13.5 12 15 11 17 11C20 11 22 13 22 16C22 19 20 21 17 21"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
+                    strokeWidth="3.5"
                     strokeLinecap="round"
                   />
                 </svg>
               )}
 
+              {/* Design — Figma image icon */}
               {cat === "Design" && (
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="shrink-0"
-                >
-                  <path
-                    d="M3 21L9 15"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+                  <Image
+                    src="/images/assets/cube3.png"
+                    alt="Design icon"
+                    width={16}
+                    height={16}
+                    className="object-contain w-full h-full"
                   />
-                  <path
-                    d="M14.5 4.5L19.5 9.5"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M12 7L17 12"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M7 12L12 17"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                </svg>
+                </span>
               )}
 
+              {/* Web Development — VSCode image icon */}
               {cat === "Web Development" && (
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="shrink-0"
-                >
-                  <path
-                    d="M8 7L3 12L8 17"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+                  <Image
+                    src="/images/assets/cube02.png"
+                    alt="Web Development icon"
+                    width={16}
+                    height={16}
+                    className="object-contain w-full h-full"
                   />
-                  <path
-                    d="M16 7L21 12L16 17"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                </span>
               )}
 
+              {/* No-code Development — Notion image icon */}
               {cat === "No-code Development" && (
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="shrink-0"
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="8"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+                  <Image
+                    src="/images/assets/cube1.png"
+                    alt="No-code Development icon"
+                    width={16}
+                    height={16}
+                    className="object-contain w-full h-full"
                   />
-                  <path
-                    d="M9 9L15 15"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              )}
-              {cat === "Mobile Development" && (
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="shrink-0"
-                >
-                  <path
-                    d="M8 7L3 12L8 17"
-                    stroke="currentColor"
-                    strokeWidth="1.3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M16 7L21 12L16 17"
-                    stroke="currentColor"
-                    strokeWidth="1.3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                </span>
               )}
 
+              {/* Mobile Development — VSCode image icon (same stack) */}
+              {cat === "Mobile Development" && (
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+                  <Image
+                    src="/images/assets/devicon-plain_vscode.png"
+                    alt="Mobile Development icon"
+                    width={16}
+                    height={16}
+                    className="object-contain w-full h-full"
+                  />
+                </span>
+              )}
+
+              {/* n8n Automation — sparkle SVG (no n8n asset exists) */}
               {cat === "n8n Automation" && (
                 <svg
                   width="16"
@@ -286,6 +299,7 @@ export default function ProjectsPage() {
                 </svg>
               )}
 
+              {/* SEO — magnifying glass SVG */}
               {cat === "SEO" && (
                 <svg
                   width="16"
@@ -368,9 +382,10 @@ export default function ProjectsPage() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center justify-center rounded-[33px] border-[1px] border-[#707070]/[0.3] bg-white px-[16px] py-[2px] text-[14px] font-normal text-[#707070] leading-[21px] h-[25px]"
+                      className="inline-flex items-center gap-[5px] rounded-[33px] border-[1px] border-[#707070]/[0.3] bg-white px-[16px] py-[2px] text-[14px] font-normal text-[#707070] leading-[21px] h-[25px]"
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
+                      <TagIcon tag={tag} />
                       {tag}
                     </span>
                   ))}
