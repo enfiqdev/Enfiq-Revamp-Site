@@ -232,6 +232,11 @@ export default function HomePage() {
   const currentRate = React.useRef(1);
   const rafId = React.useRef<number>();
 
+  const testimonialsRef = React.useRef<HTMLDivElement>(null);
+  const testimonialTargetRate = React.useRef(1);
+  const testimonialCurrentRate = React.useRef(1);
+  const testimonialRafId = React.useRef<number>();
+
   const updateRate = React.useCallback(() => {
     const diff = targetRate.current - currentRate.current;
     if (Math.abs(diff) < 0.01) {
@@ -247,8 +252,27 @@ export default function HomePage() {
     }
   }, []);
 
+  const updateTestimonialRate = React.useCallback(() => {
+    const diff = testimonialTargetRate.current - testimonialCurrentRate.current;
+    if (Math.abs(diff) < 0.01) {
+      testimonialCurrentRate.current = testimonialTargetRate.current;
+    } else {
+      testimonialCurrentRate.current += diff * 0.05;
+      testimonialRafId.current = requestAnimationFrame(updateTestimonialRate);
+    }
+    if (testimonialsRef.current) {
+      const anims: Animation[] = [];
+      testimonialsRef.current.querySelectorAll("*").forEach((el) => {
+        anims.push(...el.getAnimations());
+      });
+      anims.forEach((anim) => {
+        anim.playbackRate = testimonialCurrentRate.current;
+      });
+    }
+  }, []);
+
   const handleMouseEnter = () => {
-    targetRate.current = 0.2;
+    targetRate.current = 0.5;
     if (rafId.current) cancelAnimationFrame(rafId.current);
     rafId.current = requestAnimationFrame(updateRate);
   };
@@ -259,9 +283,22 @@ export default function HomePage() {
     rafId.current = requestAnimationFrame(updateRate);
   };
 
+  const handleTestimonialMouseEnter = () => {
+    testimonialTargetRate.current = 0.5;
+    if (testimonialRafId.current) cancelAnimationFrame(testimonialRafId.current);
+    testimonialRafId.current = requestAnimationFrame(updateTestimonialRate);
+  };
+
+  const handleTestimonialMouseLeave = () => {
+    testimonialTargetRate.current = 1;
+    if (testimonialRafId.current) cancelAnimationFrame(testimonialRafId.current);
+    testimonialRafId.current = requestAnimationFrame(updateTestimonialRate);
+  };
+
   React.useEffect(() => {
     return () => {
       if (rafId.current) cancelAnimationFrame(rafId.current);
+      if (testimonialRafId.current) cancelAnimationFrame(testimonialRafId.current);
     };
   }, []);
 
@@ -274,17 +311,19 @@ export default function HomePage() {
         <div
           className="absolute top-[-110px] left-0 right-0 bottom-0 z-0 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(to right, #E4E4E480 1px, transparent 1px), linear-gradient(to bottom, #E4E4E4 1px, transparent 1px)`,
             backgroundSize: '10px 10px',
             WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 30%, #000 40%, transparent 100%)',
             maskImage: 'radial-gradient(ellipse 80% 80% at 50% 30%, #000 40%, transparent 100%)'
           }}
         ></div>
-        <section className="max-w-5xl w-full mx-auto px-6 text-center relative z-10">
+        {/*hero  section height*/}
+        <section className="max-w-5xl w-full mx-auto px-6 text-center relative z-10 min-h-[300px] pt-[172px]">
 
 
           {/* Floating chat bubble */}
-          <div className="absolute top-30 right-8 hidden md:flex flex-col items-end -rotate-[18deg] animate-float pointer-events-none">
+          <div className="absolute top-[120px] right-[-100px] hidden md:flex flex-col items-end rotate-[-20deg] animate-float pointer-events-none">
+            {/*to move the entire grouped section*/}
             <div className="bg-white border border-[#121212] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium">
               Need to start a SaaS company?
             </div>
@@ -293,14 +332,14 @@ export default function HomePage() {
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-sm -rotate-12 -ml-2">
                 <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#121212" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
               </svg>
-              <div className="bg-[#121212] text-white text-xs px-3 py-1.5 rounded-full mt-0.5 shadow-md font-medium">
+              <div className="bg-[#121212] text-white text-xs px-3 py-1.5 rounded-full  -mt-[9px] ml-[40px] rotate-[13deg] shadow-md font-medium">
                 Naijil
               </div>
             </div>
           </div>
 
           {/* Floating website modification bubble */}
-          <div className="absolute left-[20px] top-[350px] hidden md:flex flex-col items-start -rotate-[4.44deg] z-20 animate-float pointer-events-none">
+          <div className="absolute right-[850px] top-[350px] hidden md:flex flex-col items-start -rotate-[-164deg] z-20 animate-float pointer-events-none">
 
             {/* Main bubble */}
             <div className="h-[40px] rounded-full border-[1.47px] border-[#FF0000] bg-white px-[20px] flex items-center justify-center whitespace-nowrap shadow-sm">
@@ -319,7 +358,7 @@ export default function HomePage() {
             </div>
 
             {/* Cursor + name */}
-            <div className="flex flex-col items-start ml-[42px] -mt-[6px] relative z-20">
+            <div className="flex flex-col items-start ml-[42px] -mt-[10px] relative z-20">
 
               {/* Cursor */}
               <svg
@@ -341,8 +380,9 @@ export default function HomePage() {
               </svg>
 
               {/* Name tag */}
+              {/*shifting the position of the pill using mt, ml and rotation*/}
               <div
-                className="flex items-center justify-center bg-[#D41717] rounded-[68px] shadow-sm"
+                className="flex items-center justify-center bg-[#D41717] rounded-[68px] shadow-sm ml-[18px] -mt-[12px] rotate-[5deg]"
                 style={{
                   width: "65px",
                   height: "29px",
@@ -439,7 +479,7 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-4 flex-wrap relative">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-black transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+              className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
             >
               <span className="w-[117px] h-[24px] text-[16px] leading-[24px] whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
                 Book a free call
@@ -518,7 +558,9 @@ export default function HomePage() {
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-12 xl:gap-14">
             {/* Left: copy + CTA */}
-            <div className="shrink-0 lg:w-[32%] lg:max-w-sm lg:pt-1 text-center lg:text-left">
+            {/* pt- controls the equal level of text and image */}
+            {/*mb-8 give 32px and 8px specifically the gap between the button and the subheading*/}
+            <div className="shrink-0 lg:w-[32%] lg:max-w-sm lg:pt-0 text-center lg:text-left">
               <h3
                 className="w-[268px] text-[32px] leading-[44.8px] text-[#121212] mb-[8px] mx-auto lg:mx-0"
                 style={{
@@ -533,14 +575,14 @@ export default function HomePage() {
                 </span>
               </h3>
               <p
-                className="w-[365px] h-[48px] text-[16px] leading-[24px] text-[#707070] mb-8 mx-auto lg:mx-0"
+                className="w-[365px] h-[48px] text-[16px] leading-[24px] text-[#707070] mb-[80x] mx-auto lg:mx-0"
                 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}
               >
                 A proven record of delivering our services across 10 industries over 7 years
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-black transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+                className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
               >
                 <span className="w-[117px] h-[24px] text-[16px] leading-[24px] text-[#FFFFFF]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}>
                   Book a free call
@@ -736,7 +778,7 @@ export default function HomePage() {
         <div className="flex justify-center w-full mt-[40px]">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-black transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+            className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
           >
             <span className="w-[117px] h-[24px] text-[16px] leading-[24px] text-[#FFFFFF]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}>
               Book a free call
@@ -1038,7 +1080,7 @@ export default function HomePage() {
         <div className="flex justify-center mt-10 md:mt-12 px-6">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-black transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+            className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
           >
             <span className="w-[117px] h-[24px] text-[16px] leading-[24px] text-[#FFFFFF]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}>
               Book a free call
@@ -1096,6 +1138,9 @@ export default function HomePage() {
 
         {/* Marquee Wrapper */}
         <div
+          ref={testimonialsRef}
+          onMouseEnter={handleTestimonialMouseEnter}
+          onMouseLeave={handleTestimonialMouseLeave}
           className="flex flex-col gap-[16px] w-full relative overflow-hidden"
           style={{
             WebkitMaskImage:
@@ -1421,7 +1466,8 @@ export default function HomePage() {
 
       {/* ── FINAL CTA ── */}
       <section className="max-w-[1150px] mx-auto px-6 py-12 mb-10">
-        <div className="bg-[#F8F9FA] rounded-[40px] px-6 py-16 md:py-20 flex flex-col items-center text-center gap-[32px]">
+        {/*changed the bg from #F8F9FA to #F4F4F4*/}
+        <div className="bg-[#F4F4F4] rounded-[40px] px-6 py-16 md:py-20 flex flex-col items-center text-center gap-[32px]">
           <span
             className="inline-flex items-center justify-center w-[132px] h-[33px] rounded-[12424px] border border-[#DDDDDD] bg-[#FFFFFF]"
             style={{
@@ -1488,7 +1534,7 @@ export default function HomePage() {
                 }}
               />
               <button
-                className="inline-flex items-center justify-center gap-[16px] rounded-[77px] bg-[#D41717] px-[24px] py-[12px] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+                className="inline-flex items-center justify-center gap-[16px] rounded-[77px] bg-[#D41717] px-[24px] py-[12px] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] hover:bg-black transition-colors"
               >
                 <span
                   className="w-[93px] h-[24px] text-center text-[16px] leading-[24px] tracking-normal text-[#FFFFFF] whitespace-nowrap"

@@ -308,9 +308,8 @@ function ContactForm() {
 
         <button
           type="submit"
-          className="w-full h-[48px] rounded-[77px] px-[24px] py-[12px] text-white transition-colors"
+          className="w-full h-[48px] rounded-[77px] px-[24px] py-[12px] text-white bg-[#D41717] hover:bg-black transition-colors"
           style={{
-            backgroundColor: "#D41717",
             fontFamily: "'Instrument Sans', 'Inter', sans-serif",
             fontWeight: 500,
             fontSize: "16px",
