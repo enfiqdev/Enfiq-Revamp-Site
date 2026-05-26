@@ -30,9 +30,9 @@ const faqs: FAQItem[] = [
 const gridBg: React.CSSProperties = {
   backgroundColor: "#F8F8F8",
   backgroundImage: `
-    linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
-  `,
+  linear-gradient(#E4E4E480 1px, transparent 1px),
+  linear-gradient(90deg, #E4E4E480 1px, transparent 1px)
+`,
   backgroundSize: "10px 10px",
 };
 
@@ -92,11 +92,10 @@ export default function FAQAccordion() {
                     <motion.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                      className={`flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center text-lg font-light transition-colors duration-300 ${
-                        isOpen
-                          ? "bg-[#2A2A2A] text-white"
-                          : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
-                      }`}
+                      className={`flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center text-lg font-light transition-colors duration-300 ${isOpen
+                        ? "bg-[#2A2A2A] text-white"
+                        : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
+                        }`}
                     >
                       {isOpen ? "−" : "+"}
                     </motion.span>
@@ -104,11 +103,10 @@ export default function FAQAccordion() {
                     {/* Question bubble — slides in from right like a sent message */}
                     <motion.span
                       layout
-                      className={`text-[15px] font-normal px-[20px] py-[14px] rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[4px] shadow-sm transition-colors duration-300 ${
-                        isOpen
-                          ? "bg-[#2A2A2A] text-white"
-                          : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
-                      }`}
+                      className={`text-[15px] font-normal px-[20px] py-[14px] rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[4px] shadow-sm transition-colors duration-300 ${isOpen
+                        ? "bg-[#2A2A2A] text-white"
+                        : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
+                        }`}
                       style={{ fontFamily: "'Inter', sans-serif", maxWidth: "440px" }}
                       initial={{ opacity: 0, x: 40, scale: 0.85 }}
                       animate={{ opacity: 1, x: 0, scale: 1 }}

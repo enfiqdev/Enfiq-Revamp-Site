@@ -328,9 +328,27 @@ function ContactForm() {
             }}
           />
         </div>
-
-
-
+        {/* Privacy Policy */}
+        <div className="mt-[16px] mb-[32px] flex items-center gap-[12px]">
+          <input
+            type="checkbox"
+            id="privacy2"
+            className="w-[20px] h-[20px] rounded-[6px] border border-[#000000] bg-[#F3F4F6] checked:bg-[#D41717] checked:border-[#D41717] cursor-pointer shrink-0 appearance-none flex items-center justify-center after:content-[''] checked:after:block checked:after:w-[6px] checked:after:h-[11px] checked:after:border-r-2 checked:after:border-b-2 checked:after:border-white checked:after:rotate-45 checked:after:-mt-[1px] checked:after:mr-[0.5px]"
+          />
+          <label
+            htmlFor="privacy2"
+            className="text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
+            You agree to our friendly privacy policy.
+          </label>
+        </div>
 
         <button
           type="submit"

@@ -88,40 +88,40 @@ const services: Service[] = [
 const formatBullet = (bullet: string) => {
   const mapping: { [key: string]: { bold: string; regular: string } } = {
     // 01 Creative Design Services
-    "Brand identity design": { bold: "Brand identity", regular: " design" },
-    "UX/UI design": { bold: "UX/UI", regular: " design" },
-    "Web & product visuals": { bold: "Web & product", regular: " visuals" },
-    "High-fidelity prototyping": { bold: "High-fidelity", regular: " prototyping" },
+    "Brand identity design": { bold: "Brand identity design", regular: "" },
+    "UX/UI design": { bold: "UX/UI design", regular: "" },
+    "Web & product visuals": { bold: "Web & product visuals", regular: "" },
+    "High-fidelity prototyping": { bold: "High-fidelity prototyping", regular: "" },
 
     // 02 Scalable Development Solutions
-    "Web application development": { bold: "Web application", regular: " development" },
-    "Mobile app development": { bold: "Mobile app", regular: " development" },
-    "Backend & API development": { bold: "Backend & API", regular: " development" },
-    "Custom dashboards & software": { bold: "Custom dashboards &", regular: " software" },
+    "Web application development": { bold: "Web application development", regular: "" },
+    "Mobile app development": { bold: "Mobile app development", regular: "" },
+    "Backend & API development": { bold: "Backend & API development", regular: "" },
+    "Custom dashboards & software": { bold: "Custom dashboards & software", regular: "" },
 
     // 03 No-Code Development Solutions
-    "Custom Framer & WP development": { bold: "Custom Framer & WP", regular: " development" },
-    "Responsive design for all devices": { bold: "Responsive design", regular: " for all devices" },
-    "CMS setup & content management": { bold: "CMS setup &", regular: " content management" },
-    "Landing pages, blogs & business sites": { bold: "Landing pages, blogs &", regular: " business sites" },
+    "Custom Framer & WP development": { bold: "Custom Framer & WP development", regular: "" },
+    "Responsive design for all devices": { bold: "Responsive design for all devices", regular: "" },
+    "CMS setup & content management": { bold: "CMS setup & content management", regular: "" },
+    "Landing pages, blogs & business sites": { bold: "Landing pages, blogs & business sites", regular: "" },
 
     // 04 SEO & Growth Optimization
-    "On-page & off-page SEO": { bold: "On-page & off-page", regular: " SEO" },
-    "Technical SEO audits": { bold: "Technical SEO", regular: " audits" },
-    "Keyword research & strategy": { bold: "Keyword research &", regular: " strategy" },
-    "Content optimization": { bold: "Content", regular: " optimization" },
+    "On-page & off-page SEO": { bold: "On-page & off-page SEO", regular: "" },
+    "Technical SEO audits": { bold: "Technical SEO audits", regular: "" },
+    "Keyword research & strategy": { bold: "Keyword research & strategy", regular: "" },
+    "Content optimization": { bold: "Content optimization", regular: "" },
 
     // 05 Video Editing & Visual Storytelling
-    "Social media reels & shorts": { bold: "Social media", regular: " reels & shorts" },
-    "YouTube video editing": { bold: "YouTube", regular: " video editing" },
-    "Promo & brand videos": { bold: "Promo & brand", regular: " videos" },
-    "Motion graphics & titles": { bold: "Motion graphics &", regular: " titles" },
+    "Social media reels & shorts": { bold: "Social media reels & shorts", regular: "" },
+    "YouTube video editing": { bold: "YouTube video editing", regular: "" },
+    "Promo & brand videos": { bold: "Promo & brand videos", regular: "" },
+    "Motion graphics & titles": { bold: "Motion graphics & titles", regular: "" },
 
     // 06 Workflow Automation with n8n
-    "Business process automation": { bold: "Business process", regular: " automation" },
-    "Lead, CRM & sales workflows": { bold: "Lead, CRM &", regular: " sales workflows" },
-    "Custom triggers, logic & alerts": { bold: "Custom triggers, logic &", regular: " alerts" },
-    "API & app integrations": { bold: "API & app", regular: " integrations" },
+    "Business process automation": { bold: "Business process automation", regular: "" },
+    "Lead, CRM & sales workflows": { bold: "Lead, CRM & sales workflows", regular: "" },
+    "Custom triggers, logic & alerts": { bold: "Custom triggers, logic & alerts", regular: "" },
+    "API & app integrations": { bold: "API & app integrations", regular: "" },
   };
 
   const match = mapping[bullet];
@@ -145,127 +145,343 @@ const formatBullet = (bullet: string) => {
   );
 };
 
-// Contact form for services page
+// Contact form — exact code from ContactPage.tsx
 function ContactForm() {
   return (
-    <section className="max-w-2xl mx-auto px-6 py-16">
+    <div className="max-w-2xl mx-auto px-6 py-12 ">
       <div className="text-center mb-8">
         <span
-          className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#707070]"
+          className="inline-flex items-center justify-center border-[1px] border-[#DDDDDD] rounded-full px-[16px] py-[8px] bg-white"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 400,
             fontSize: "14px",
             lineHeight: "100%",
             letterSpacing: "0px",
+            color: "#000000",
           }}
         >
           Contact us Form
         </span>
         <h2
-          className="text-[32px] leading-[44.8px] font-semibold text-[#000000] mt-2 mb-3"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="text-[32px] leading-[44.8px] font-semibold text-[#000000] mt-4 mb-[32px]"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+          }}
         >
           Get in touch
         </h2>
         <p
-          className="text-[#707070] text-[16px] leading-[24px] max-w-xl mx-auto mb-8"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="text-[#323232] text-[24px] leading-[32px] text-center mb-[32px]"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 500,
+            letterSpacing: "-0.6px",
+          }}
         >
           We&apos;d love to hear from you. Please fill out this form.
         </p>
       </div>
 
-      <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+      {/*gap is 16 px*/}
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}
+      >
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="text-xs text-gray-600 mb-1 block" style={{ fontFamily: "'Inter', sans-serif" }}>First name</label>
+            <label
+              className="mb-[6px] block text-[16px] text-[#000000]"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+              }}
+            >
+              First name
+            </label>
+
             <input
               type="text"
               placeholder="First name"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                border: "1px solid #4C4C4C33",
+                color: "#000000",
+              }}
             />
           </div>
           <div>
-            <label className="text-xs text-gray-600 mb-1 block" style={{ fontFamily: "'Inter', sans-serif" }}>Last name</label>
+            <label
+              className="mb-[6px] block text-[16px] text-[#000000]"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+              }}
+            >
+              Last name
+            </label>
             <input
               type="text"
               placeholder="Last name"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                border: "1px solid #4C4C4C33",
+                color: "#000000",
+              }}
             />
           </div>
         </div>
 
         <div>
-          <label className="text-xs text-gray-600 mb-1 block" style={{ fontFamily: "'Inter', sans-serif" }}>Email</label>
+          <label
+            className="mb-[6px] block text-[16px] text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
+            Email
+          </label>
           <input
             type="email"
             placeholder="you@company.com"
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+              borderColor: "rgba(76,76,76,0.2)",
+              color: "#000000",
+              boxShadow: "0px 1px 2px rgba(16,24,40,0.05)",
+            }}
           />
         </div>
-
         <div>
-          <label className="text-xs text-gray-600 mb-1 block" style={{ fontFamily: "'Inter', sans-serif" }}>Phone number</label>
-          <div className="flex gap-2">
-            <select className="border border-gray-200 rounded-lg px-2 py-2.5 text-sm focus:outline-none w-20" style={{ fontFamily: "'Inter', sans-serif" }}>
-              <option>US</option>
-              <option>IN</option>
-              <option>UK</option>
-            </select>
+          <label
+            className="mb-[6px] block text-[16px] text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
+            Phone number
+          </label>
+
+          <div
+            className="flex items-center h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6]"
+            style={{
+              border: "1px solid #4C4C4C33",
+              boxShadow: "0px 1px 2px #1018280D",
+            }}
+          >
+            {/* Country Code */}
+            <div className="relative flex items-center">
+              <select
+                className="appearance-none bg-transparent pr-[24px] focus:outline-none"
+                style={{
+                  fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "16px",
+                  lineHeight: "22.4px",
+                  letterSpacing: "0%",
+                  color: "#000000",
+                }}
+              >
+                <option>US</option>
+                <option>IN</option>
+                <option>UK</option>
+              </select>
+
+              <svg
+                className="absolute right-0 pointer-events-none"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <path
+                  d="M5 7.5L10 12.5L15 7.5"
+                  stroke="black"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* Phone Number */}
             <input
               type="tel"
               placeholder="+1 (555) 000-0000"
-              className="flex-1 border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors"
-              style={{ fontFamily: "'Inter', sans-serif" }}
+              className="flex-1 bg-transparent focus:outline-none ml-[16px]"
+              style={{
+                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                color: "#000000",
+              }}
             />
           </div>
         </div>
 
         <div>
-          <label className="text-xs text-gray-600 mb-1 block" style={{ fontFamily: "'Inter', sans-serif" }}>Message</label>
+          <label
+            className="mb-[6px] block text-[16px] text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
+            message
+          </label>
           <textarea
-            rows={4}
-            className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#D41717] transition-colors resize-none"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            rows={5}
+            className="w-full h-[125px] rounded-[12px] px-[14px] py-[10px] bg-[#F3F4F6] resize-none focus:outline-none"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+              color: "#000000",
+              border: "1px solid #4C4C4C33",
+              boxShadow: "0px 1px 2px #1018280D",
+            }}
           />
         </div>
 
-        <div className="flex items-center gap-2">
-          <input type="checkbox" id="privacy" className="accent-[#D41717]" />
-          <label htmlFor="privacy" className="text-xs text-gray-500" style={{ fontFamily: "'Inter', sans-serif" }}>
+        {/* Privacy Policy */}
+        <div className="mt-[16px] mb-[32px] flex items-center gap-[12px]">
+          <input
+            type="checkbox"
+            id="privacy"
+            className="w-[20px] h-[20px] rounded-[6px] border border-[#000000] bg-[#F3F4F6] checked:bg-[#D41717] checked:border-[#D41717] cursor-pointer shrink-0 appearance-none flex items-center justify-center after:content-[''] checked:after:block checked:after:w-[6px] checked:after:h-[11px] checked:after:border-r-2 checked:after:border-b-2 checked:after:border-white checked:after:rotate-45 checked:after:-mt-[1px] checked:after:mr-[0.5px]"
+          />
+          <label
+            htmlFor="privacy"
+            className="text-[#000000]"
+            style={{
+              fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+            }}
+          >
             You agree to our friendly privacy policy.
           </label>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-[#D41717] text-white font-semibold py-3 rounded-full hover:bg-black transition-colors"
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className="w-full h-[48px] rounded-[77px] px-[24px] py-[12px] text-white bg-[#D41717] hover:bg-black transition-colors"
+          style={{
+            fontFamily: "'Instrument Sans', 'Inter', sans-serif",
+            fontWeight: 500,
+            fontSize: "16px",
+            lineHeight: "22.4px",
+            letterSpacing: "0%",
+            boxShadow: "inset 0px 4px 6px 2px #FFFFFF4D",
+          }}
         >
           Get in touch
         </button>
 
-        {/* Contact info */}
-        <div className="flex items-center justify-center gap-8 pt-4">
-          <div className="flex items-center gap-2 text-sm text-gray-600" style={{ fontFamily: "'Inter', sans-serif" }}>
-            <span className="w-7 h-7 bg-red-50 rounded-full flex items-center justify-center text-[#D41717] font-semibold">
-              @
+        <div className="flex items-center justify-center gap-[48px] mt-[32px]">
+
+          {/* EMAIL */}
+          <div className="flex items-center gap-[10px]">
+
+            <div
+              className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+              style={{
+                border: "1px solid #7070704D",
+              }}
+            >
+              <img
+                src="/images/assets/@.png"
+                alt="mail"
+                className="w-[24px] h-[24px]"
+              />
+            </div>
+
+            <span
+              style={{
+                fontFamily: "'Instrument Sans', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                color: "#323232",
+              }}
+            >
+              team@enfiq.com
             </span>
-            team@enfiq.com
+
           </div>
-          <div className="flex items-center gap-2 text-sm text-gray-600" style={{ fontFamily: "'Inter', sans-serif" }}>
-            <span className="w-7 h-7 bg-red-50 rounded-full flex items-center justify-center text-[#D41717]">
-              📞
+
+          {/* PHONE */}
+          <div className="flex items-center gap-[10px]">
+
+            <div
+              className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+              style={{
+                border: "1px solid #7070704D",
+              }}
+            >
+              <img
+                src="/images/assets/contactSymbol.png"
+                alt="phone"
+                className="w-[24px] h-[24px]"
+              />
+            </div>
+
+            <span
+              style={{
+                fontFamily: "'Instrument Sans', sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "22.4px",
+                letterSpacing: "0%",
+                color: "#323232",
+              }}
+            >
+              49987 78675
             </span>
-            49987 78675
+
           </div>
+
         </div>
       </form>
-    </section>
+    </div>
   );
 }
 
@@ -306,35 +522,65 @@ export default function ServicesPage() {
         {services.map((service) => (
           <div
             key={service.num}
-            className="flex flex-col xl:flex-row items-start justify-between w-full max-w-[1144px] mx-auto gap-[60.31px]"
+            className="flex flex-col xl:flex-row items-center xl:items-stretch justify-between w-full max-w-[1144px] mx-auto gap-[60.31px] xl:h-[448px]"
           >
-            {/* Left Wrapper (Number + Content) */}
-            <div className="flex flex-row gap-[41px] items-start flex-1 min-w-[320px] md:min-w-[450px]">
-              {/* Number Column */}
-              <div className="flex flex-col w-[56px] shrink-0 items-center -mt-[14px]">
-                <div className="flex items-center justify-center w-[56px] h-[77px] shrink-0">
+            {/* Left Wrapper — relative ,so number column is absolute inside it. */}
+            <div className="relative flex flex-row items-center flex-1 min-w-[320px] md:min-w-[450px] w-full xl:h-full">
+
+              {/* ── NUMBER COLUMN: absolute top-0 bottom-0, fills exact height of left wrapper ── */}
+              <div className="absolute top-0 bottom-0 left-0 flex flex-col items-center justify-between" style={{ width: "54.11px" }}>
+
+                {/* Top 61.84px / 74.21px lh / container 54.11×75 */}
+                <div className="flex items-center justify-center shrink-0" style={{ width: "54.11px", height: "75px" }}>
                   <span
-                    className="text-[64px] leading-[76.8px] text-[#D41717] font-normal tracking-normal"
-                    style={{ fontFamily: "'Instrument Serif', serif" }}
+                    style={{
+                      fontFamily: "'Instrument Serif', serif",
+                      fontWeight: 400,
+                      fontSize: "61.84px",
+                      lineHeight: "74.21px",
+                      color: "#D41717",
+                    }}
                   >
                     {service.num}
                   </span>
                 </div>
-                <svg width="2" height="178" viewBox="0 0 2 178" fill="none" className="shrink-0" aria-hidden>
-                  <line x1="1" y1="0" x2="1" y2="178" stroke="#CCCCCE" strokeWidth="1.5" strokeDasharray="8 6" />
-                </svg>
-                <div className="flex items-center justify-center w-[56px] h-[77px] shrink-0">
+
+                {/* Dashed line — flex-1 fills all space between the two numbers */}
+                <div className="flex-1 w-full flex justify-center overflow-hidden">
+                  <svg width="2" className="h-full" aria-hidden preserveAspectRatio="none">
+                    <line
+                      x1="1"
+                      y1="0"
+                      x2="1"
+                      y2="100%"
+                      stroke="#707070"
+                      strokeWidth="1.5"
+                      strokeDasharray="8 6"
+                    />
+                  </svg>
+                </div>
+
+                {/* Bottom number 06 — same container */}
+                <div className="flex items-center justify-center shrink-0" style={{ width: "54.11px", height: "75px" }}>
                   <span
-                    className="text-[64px] leading-[76.8px] text-[#CCCCCE] font-normal tracking-normal"
-                    style={{ fontFamily: "'Instrument Serif', serif" }}
+                    style={{
+                      fontFamily: "'Instrument Serif', serif",
+                      fontWeight: 400,
+                      fontSize: "61.84px",
+                      lineHeight: "74.21px",
+                      color: "#707070",
+                    }}
                   >
                     06
                   </span>
                 </div>
               </div>
 
+              {/* space 54.11px for number col + 39.61px gap before content and the number column */}
+              <div style={{ width: "54.11px", marginRight: "39.61px" }} className="shrink-0" />
+
               {/* Content Column */}
-              <div className="flex-1 flex flex-col pl-[24px] border-l border-[#D41717]/[0.3] gap-[16px] py-[6px]">
+              <div className="flex-1 flex flex-col gap-[16px] py-[6px]">
                 <h3
                   className="text-[#000000]"
                   style={{
@@ -348,8 +594,8 @@ export default function ServicesPage() {
                   {service.title}
                 </h3>
                 <p
-                  className="text-[#707070] text-[15px] leading-[22.4px]"
-                  style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
+                  className="text-[#707070] text-[15.46px] leading-[21.64px]"
+                  style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0%", fontWeight: 400 }}
                 >
                   {service.description}
                 </p>
@@ -362,6 +608,7 @@ export default function ServicesPage() {
                         style={{
                           fontFamily: "'Inter', sans-serif",
                           fontSize: "19.32px",
+                          fontWeight: 700,
                           lineHeight: "27.05px",
                           letterSpacing: "0%",
                         }}
@@ -374,15 +621,20 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            {/* Right Image Container */}
-            <div className="relative w-full xl:w-[560px] h-[332px] rounded-[17.73px] overflow-hidden shrink-0 shadow-sm border border-gray-100 mt-6 xl:mt-0">
-              <Image
-                src="/images/assets/pinkSticker.png"
-                alt={service.title}
-                fill
-                className="object-cover"
-                sizes="560px"
-              />
+            {/* Right Image Container — 448px tall on desktop, centers the 332px image vertically */}
+            <div className="relative w-full xl:w-[560px] xl:h-full flex items-center justify-center shrink-0">
+              <div
+                className="relative w-full h-[332px] rounded-[16px] overflow-hidden shadow-sm"
+                style={{ maxWidth: "560px" }}
+              >
+                <Image
+                  src="/images/assets/pinkSticker.png"
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  sizes="560px"
+                />
+              </div>
             </div>
           </div>
         ))}
