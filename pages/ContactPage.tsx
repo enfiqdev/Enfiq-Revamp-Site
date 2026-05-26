@@ -43,8 +43,34 @@ function CalendarWidget() {
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center justify-between gap-4">
           <div />
-          <button className="text-sm font-semibold bg-[#F8F8F8] border border-gray-200 rounded-full px-5 py-2 text-[#121212] shadow-sm">
-            Book a Call
+          <button className="group relative overflow-hidden text-sm font-semibold bg-[#F8F8F8] border border-gray-200 rounded-full px-5 py-2 text-[#121212] shadow-sm hover:bg-gray-100 transition-all duration-300">
+            <div className="relative h-[20px] overflow-hidden">
+              {/* First Text */}
+              <span
+                className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-[#121212] whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                }}
+              >
+                Book a Call
+              </span>
+
+              {/* Second Text */}
+              <span
+                className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-20px] text-[#121212] whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                }}
+              >
+                Book a Call
+              </span>
+            </div>
           </button>
           <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-500">
             <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />

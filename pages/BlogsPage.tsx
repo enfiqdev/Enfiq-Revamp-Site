@@ -362,17 +362,35 @@ export default function BlogsPage() {
       {/* ── LOAD MORE BUTTON ── */}
       <div className="flex justify-center mt-6 mb-0">
         <button
-          className="border border-[#DDDDDD] rounded-full px-[24px] py-[12px] bg-white hover:bg-gray-50 transition-colors"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 400,
-            fontSize: "20px",
-            lineHeight: "100%",
-            letterSpacing: "0px",
-            color: "#000000",
-          }}
+          className="group relative overflow-hidden border border-[#DDDDDD] rounded-full px-[24px] py-[12px] bg-white hover:bg-gray-50 transition-all duration-300"
         >
-          Load More
+          <div className="relative h-[20px] overflow-hidden">
+            {/* First Text */}
+            <span
+              className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-black whitespace-nowrap"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "20px",
+                lineHeight: "20px",
+              }}
+            >
+              Load More
+            </span>
+
+            {/* Second Text */}
+            <span
+              className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-20px] text-black whitespace-nowrap"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "20px",
+                lineHeight: "20px",
+              }}
+            >
+              Load More
+            </span>
+          </div>
         </button>
       </div>
 
@@ -419,16 +437,35 @@ export default function BlogsPage() {
               style={{ fontFamily: "'Inter', sans-serif" }}
             />
             <button
-              className="h-[48px] bg-[#D41717] text-white px-[24px] rounded-full whitespace-nowrap transition-colors hover:bg-[#B91212] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 500,
-                fontSize: "20px",
-                lineHeight: "100%",
-                letterSpacing: "0px",
-              }}
+              className="group relative overflow-hidden h-[48px] bg-[#D41717] text-white px-[24px] rounded-full whitespace-nowrap transition-all duration-300 hover:bg-[#B91212] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
             >
-              Subscribe Now
+              <div className="relative h-[20px] overflow-hidden">
+                {/* First Text */}
+                <span
+                  className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-white whitespace-nowrap"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 500,
+                    fontSize: "20px",
+                    lineHeight: "20px",
+                  }}
+                >
+                  Subscribe Now
+                </span>
+
+                {/* Second Text */}
+                <span
+                  className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-20px] text-white whitespace-nowrap"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 500,
+                    fontSize: "20px",
+                    lineHeight: "20px",
+                  }}
+                >
+                  Subscribe Now
+                </span>
+              </div>
             </button>
           </div>
         </div>

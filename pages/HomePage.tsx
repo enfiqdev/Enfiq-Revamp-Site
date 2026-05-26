@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -322,7 +322,7 @@ export default function HomePage() {
 
 
           {/* Floating chat bubble */}
-          <div className="absolute top-[120px] right-[-100px] hidden md:flex flex-col items-end rotate-[-20deg] animate-float pointer-events-none">
+          <div className="absolute top-[120px] right-[-100px] hidden md:flex flex-col items-end rotate-[1deg] animate-float pointer-events-none">
             {/*to move the entire grouped section*/}
             <div className="bg-white border border-[#121212] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium">
               Need to start a SaaS company?
@@ -479,11 +479,35 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-4 flex-wrap relative">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+              className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
             >
-              <span className="w-[117px] h-[24px] text-[16px] leading-[24px] whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
-                Book a free call
-              </span>
+              <div className="relative h-[24px] overflow-hidden">
+                {/* First Text */}
+                <span
+                  className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    lineHeight: "24px",
+                  }}
+                >
+                  Book a free call
+                </span>
+
+                {/* Second Text */}
+                <span
+                  className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    lineHeight: "24px",
+                  }}
+                >
+                  Book a free call
+                </span>
+              </div>
               <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
                 <svg
                   viewBox="0 0 24 24"
@@ -501,11 +525,40 @@ export default function HomePage() {
             </Link>
             <Link
               href="/projects"
-              className="border border-gray-200 text-gray-700 font-medium px-6 py-3 rounded-full hover:border-black hover:text-black hover:bg-transparent transition-colors"
+              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-white px-6 py-3 transition-all duration-300 hover:border-black"
             >
-              View our Work
-            </Link>
+              <div className="relative h-[24px] overflow-hidden">
 
+                {/* First Text */}
+                <span
+                  className="flex h-[24px] items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] group-hover:text-black whitespace-nowrap text-[#707070]"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    lineHeight: "24px",
+                    letterSpacing: "0%",
+                  }}
+                >
+                  View Our Work
+                </span>
+
+                {/* Second Text */}
+                <span
+                  className="absolute left-0 top-[24px] flex h-[24px] w-full items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] group-hover:text-black whitespace-nowrap text-[#707070]"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    lineHeight: "24px",
+                    letterSpacing: "0%",
+                  }}
+                >
+                  View Our Work
+                </span>
+
+              </div>
+            </Link>
           </div>
 
         </section>
@@ -582,11 +635,35 @@ export default function HomePage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+                className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
               >
-                <span className="w-[117px] h-[24px] text-[16px] leading-[24px] text-[#FFFFFF]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}>
-                  Book a free call
-                </span>
+                <div className="relative h-[24px] overflow-hidden">
+                  {/* First Text */}
+                  <span
+                    className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      lineHeight: "24px",
+                    }}
+                  >
+                    Book a free call
+                  </span>
+
+                  {/* Second Text */}
+                  <span
+                    className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      lineHeight: "24px",
+                    }}
+                  >
+                    Book a free call
+                  </span>
+                </div>
                 <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
                   <svg
                     viewBox="0 0 24 24"
@@ -709,26 +786,51 @@ export default function HomePage() {
           </h2>
         </div>
 
-        <div className="flex flex-col xl:flex-row items-start justify-center w-full max-w-[1144px] mx-auto gap-[64px] xl:gap-[23.28px]">
+        <div className="flex flex-col xl:flex-row items-stretch justify-center w-full max-w-[1144px] mx-auto gap-[64px] xl:gap-0">
 
           {/* Left Content Wrapper */}
-          <div className="flex flex-row w-full xl:w-[500px] shrink-0 gap-[41px] items-start">
-            {/* Number Column */}
-            <div className="flex flex-col w-[56px] shrink-0 items-center -mt-[22px]">
-              <div className="flex items-center justify-center w-[56px] h-[77px] shrink-0">
-                <span className="text-[64px] leading-[76.8px] text-[#707070] font-normal tracking-normal" style={{ fontFamily: "'Instrument Serif', serif" }}>01</span>
+          {/* Changed to relative so we can cleanly control the vertical baseline alignment */}
+          <div className="relative flex flex-row w-full xl:w-[523.28px] shrink-0 gap-[41px] items-center xl:h-[484px]">
+
+            {/* ==================== EXACT NUMBER COLUMN CORRECTION ==================== */}
+            {/* Uses absolute positioning inside the flex row to cleanly map from the header top down to the list base */}
+            <div className="absolute top-0 bottom-0 left-0 flex flex-col w-[56px] shrink-0 items-center justify-between">
+
+              {/* Number 01 */}
+              {/* Scaled line-height to 0.7 to pull the visual baseline up to perfectly align with the top of the H3 text */}
+              <div className="flex items-center justify-center w-[56px] h-[34px] shrink-0">
+                <span className="text-[64px] text-[#707070] font-normal tracking-normal" style={{ fontFamily: "'Instrument Serif', serif", lineHeight: '0.7' }}>01</span>
               </div>
-              <svg width="2" height="304" viewBox="0 0 2 304" fill="none" className="shrink-0" aria-hidden>
-                <line x1="1" y1="0" x2="1" y2="304" stroke="#707070" strokeWidth="1" strokeDasharray="30 20" />
-              </svg>
-              <div className="flex items-center justify-center w-[56px] h-[77px] shrink-0">
-                <span className="text-[64px] leading-[76.8px] text-[#D41717] font-normal tracking-normal" style={{ fontFamily: "'Instrument Serif', serif" }}>06</span>
+
+              {/* Dynamic Stretched Line */}
+              {/* flex-grow automatically scales the dashed line to fill the precise empty gap */}
+              <div className="flex-1 w-full flex justify-center my-4">
+                <svg width="2" height="100%" className="h-full shrink-0" aria-hidden="true">
+                  <line
+                    x1="1"
+                    y1="0"
+                    x2="1"
+                    y2="100%"
+                    stroke="#707070"
+                    strokeWidth={1}
+                    strokeDasharray="14 14"
+                  />
+                </svg>
+              </div>
+
+              {/* Number 06 */}
+              {/* Boxed to align neatly right below the final list bullet element */}
+              <div className="flex items-center justify-center w-[56px] h-[34px] shrink-0">
+                <span className="text-[64px] text-[#D41717] font-normal tracking-normal" style={{ fontFamily: "'Instrument Serif', serif", lineHeight: '0.7' }}>06</span>
               </div>
             </div>
+            {/* Dummy spacer element ensures your content column layout retains its original 41px gap spacing */}
+            <div className="w-[56px] shrink-0" />
+            {/* ==================== END NUMBER COLUMN CORRECTION ==================== */}
 
             {/* Content */}
             <div className="flex flex-col flex-1">
-              <div className="flex flex-col w-[403px] gap-[16px] mb-[24px]">
+              <div className="flex flex-col w-[403px] gap-[16px] mb-[20px]">
                 <h3
                   className="w-[403px] h-[34px] text-[24px] font-normal text-[#000000] leading-[33.6px] tracking-normal"
                   style={{ fontFamily: "'Inter', sans-serif" }}
@@ -762,15 +864,16 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
-
           {/* Right Image */}
-          <div className="relative w-full xl:w-[620.72px] h-[368px] rounded-[17.73px] overflow-hidden shrink-0 mt-[20px] xl:mt-0">
-            <Image
-              src="/images/assets/pinkSticker.png"
-              alt="Services Overview"
-              fill
-              className="object-cover"
-            />
+          <div className="relative w-full xl:w-[620.72px] xl:h-[484px] flex items-center justify-center shrink-0 mt-[20px] xl:mt-0">
+            <div className="relative w-full h-[368px] rounded-[17.73px] overflow-hidden">
+              <Image
+                src="/images/assets/pinkSticker.png"
+                alt="Services Overview"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
 
         </div>
@@ -778,11 +881,35 @@ export default function HomePage() {
         <div className="flex justify-center w-full mt-[40px]">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+            className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
           >
-            <span className="w-[117px] h-[24px] text-[16px] leading-[24px] text-[#FFFFFF]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}>
-              Book a free call
-            </span>
+            <div className="relative h-[24px] overflow-hidden">
+              {/* First Text */}
+              <span
+                className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "24px",
+                }}
+              >
+                Book a free call
+              </span>
+
+              {/* Second Text */}
+              <span
+                className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "24px",
+                }}
+              >
+                Book a free call
+              </span>
+            </div>
             <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
               <svg
                 viewBox="0 0 24 24"
@@ -1080,11 +1207,35 @@ export default function HomePage() {
         <div className="flex justify-center mt-10 md:mt-12 px-6">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+            className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
           >
-            <span className="w-[117px] h-[24px] text-[16px] leading-[24px] text-[#FFFFFF]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}>
-              Book a free call
-            </span>
+            <div className="relative h-[24px] overflow-hidden">
+              {/* First Text */}
+              <span
+                className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "24px",
+                }}
+              >
+                Book a free call
+              </span>
+
+              {/* Second Text */}
+              <span
+                className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "16px",
+                  lineHeight: "24px",
+                }}
+              >
+                Book a free call
+              </span>
+            </div>
             <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
               <svg
                 viewBox="0 0 24 24"
@@ -1457,9 +1608,35 @@ export default function HomePage() {
         <div className="flex justify-center mt-10">
           <Link
             href="/blogs"
-            className="border border-gray-200 text-[#121212] font-semibold px-8 py-2.5 rounded-full hover:bg-gray-50 transition-colors text-sm"
+            className="group relative overflow-hidden border border-gray-200 text-[#121212] px-8 py-2.5 rounded-full hover:bg-gray-50 hover:border-black transition-all duration-300 text-sm font-semibold"
           >
-            Read More
+            <div className="relative h-[20px] overflow-hidden">
+              {/* First Text */}
+              <span
+                className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-[#121212] whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                }}
+              >
+                Read More
+              </span>
+
+              {/* Second Text */}
+              <span
+                className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-20px] text-[#121212] whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  lineHeight: "20px",
+                }}
+              >
+                Read More
+              </span>
+            </div>
           </Link>
         </div>
       </section>

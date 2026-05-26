@@ -179,7 +179,7 @@ export default function FAQAccordion() {
           <p className="text-[16px] text-[#121212] font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>Can't find your answer?</p>
           <a
             href="mailto:team@enfiq.com"
-            className="flex items-center bg-[#D41717] rounded-[77px] hover:bg-[#B21313] transition-colors shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+            className="group relative overflow-hidden flex items-center bg-[#D41717] rounded-[77px] hover:bg-[#B21313] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
             style={{
               paddingTop: "10px",
               paddingRight: "10px",
@@ -188,16 +188,33 @@ export default function FAQAccordion() {
               gap: "16px",
             }}
           >
-            <span
-              className="text-white"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 500,
-                fontSize: "16px",
-              }}
-            >
-              Send us a Mail
-            </span>
+            <div className="relative h-[24px] overflow-hidden">
+              {/* First Text */}
+              <span
+                className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 500,
+                  fontSize: "16px",
+                  lineHeight: "24px",
+                }}
+              >
+                Send us a Mail
+              </span>
+
+              {/* Second Text */}
+              <span
+                className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 500,
+                  fontSize: "16px",
+                  lineHeight: "24px",
+                }}
+              >
+                Send us a Mail
+              </span>
+            </div>
             <div className="w-[24px] h-[24px] rounded-full bg-white flex items-center justify-center shrink-0 mt-[1px]">
               <span
                 style={{
