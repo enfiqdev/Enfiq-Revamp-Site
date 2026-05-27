@@ -29,15 +29,15 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="w-full flex justify-center pt-[32px] relative z-50">
-      <div className="w-[1144px] h-[44px] flex items-center justify-between">
+    <header className="w-full flex flex-col items-center pt-[32px] relative z-50">
+      <div className="w-full max-w-[1144px] px-6 h-[44px] flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image
             src="/images/assets/enfiq.png"
             alt="Enfiq Logo"
             width={138.16}
             height={40}
-            className="object-contain  h-[40px] w-auto"
+            className="object-contain h-[40px] w-auto"
             priority
           />
         </Link>
@@ -91,10 +91,10 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`md:hidden absolute top-[84px] left-1/2 -translate-x-1/2 w-full max-w-[1144px] px-6 overflow-hidden transition-all duration-300 ease-in-out z-50 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}
       >
-        <div className="mx-4 mb-4 bg-white rounded-2xl shadow-lg border border-gray-100 py-6 px-6 flex flex-col items-center gap-5">
+        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 py-6 px-6 flex flex-col items-center gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.href}

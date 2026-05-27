@@ -299,7 +299,7 @@ function ContactForm() {
             }}
           >
             {/* Country Code */}
-            <div className="relative flex items-center">
+            <div className="relative flex items-center shrink-0">
               <select
                 className="appearance-none bg-transparent pr-[24px] focus:outline-none"
                 style={{
@@ -337,7 +337,7 @@ function ContactForm() {
             <input
               type="tel"
               placeholder="+1 (555) 000-0000"
-              className="flex-1 bg-transparent focus:outline-none ml-[16px]"
+              className="flex-1 min-w-0 bg-transparent focus:outline-none ml-[16px]"
               style={{
                 fontFamily: "'Instrument Sans', 'Inter', sans-serif",
                 fontWeight: 400,
@@ -415,13 +415,13 @@ function ContactForm() {
           Get in touch
         </button>
 
-        <div className="flex items-center justify-center gap-[48px] mt-[32px]">
+        <div className="flex flex-row items-center justify-center gap-[12px] sm:gap-[48px] mt-[32px] w-full flex-nowrap">
 
           {/* EMAIL */}
-          <div className="flex items-center gap-[10px]">
+          <div className="flex items-center gap-[6px] sm:gap-[10px] shrink-0">
 
             <div
-              className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+              className="w-[40px] h-[40px] sm:w-[56px] sm:h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF] shrink-0"
               style={{
                 border: "1px solid #7070704D",
               }}
@@ -429,15 +429,15 @@ function ContactForm() {
               <img
                 src="/images/assets/@.png"
                 alt="mail"
-                className="w-[24px] h-[24px]"
+                className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
               />
             </div>
 
             <span
+              className="text-[13px] xs:text-[14px] sm:text-[16px]"
               style={{
                 fontFamily: "'Instrument Sans', sans-serif",
                 fontWeight: 400,
-                fontSize: "16px",
                 lineHeight: "22.4px",
                 letterSpacing: "0%",
                 color: "#323232",
@@ -449,10 +449,10 @@ function ContactForm() {
           </div>
 
           {/* PHONE */}
-          <div className="flex items-center gap-[10px]">
+          <div className="flex items-center gap-[6px] sm:gap-[10px] shrink-0">
 
             <div
-              className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+              className="w-[40px] h-[40px] sm:w-[56px] sm:h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF] shrink-0"
               style={{
                 border: "1px solid #7070704D",
               }}
@@ -460,15 +460,15 @@ function ContactForm() {
               <img
                 src="/images/assets/contactSymbol.png"
                 alt="phone"
-                className="w-[24px] h-[24px]"
+                className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
               />
             </div>
 
             <span
+              className="text-[13px] xs:text-[14px] sm:text-[16px]"
               style={{
                 fontFamily: "'Instrument Sans', sans-serif",
                 fontWeight: 400,
-                fontSize: "16px",
                 lineHeight: "22.4px",
                 letterSpacing: "0%",
                 color: "#323232",
@@ -491,7 +491,7 @@ export default function ServicesPage() {
       {/* ── PAGE HEADER ── */}
       <section className="max-w-3xl mx-auto px-6 pb-[64px] text-center">
         <h1
-          className="w-[560px] mx-auto text-center text-[#121212] mb-4"
+          className="w-full max-w-[560px] mx-auto text-center text-[#121212] mb-4"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 600,
@@ -503,7 +503,7 @@ export default function ServicesPage() {
           Our Services
         </h1>
         <p
-          className="w-[560px] mx-auto text-center text-[#707070]"
+          className="w-full max-w-[560px] mx-auto text-center text-[#707070] px-4"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 400,
@@ -524,11 +524,38 @@ export default function ServicesPage() {
             key={service.num}
             className="flex flex-col xl:flex-row items-center xl:items-stretch justify-between w-full max-w-[1144px] mx-auto gap-[60.31px] xl:h-[448px]"
           >
+            {/* Horizontal mobile-only numbers header */}
+            <div className="flex xl:hidden items-center justify-center w-full gap-4 mb-2">
+              <span
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontWeight: 400,
+                  fontSize: "48px",
+                  lineHeight: "1",
+                  color: "#D41717",
+                }}
+              >
+                {service.num}
+              </span>
+              <div className="flex-1 max-w-[120px] border-b border-dashed border-[#707070]" />
+              <span
+                style={{
+                  fontFamily: "'Instrument Serif', serif",
+                  fontWeight: 400,
+                  fontSize: "48px",
+                  lineHeight: "1",
+                  color: "#707070",
+                }}
+              >
+                06
+              </span>
+            </div>
+
             {/* Left Wrapper — relative ,so number column is absolute inside it. */}
-            <div className="relative flex flex-row items-center flex-1 min-w-[320px] md:min-w-[450px] w-full xl:h-full">
+            <div className="relative flex flex-row items-center flex-1 min-w-0 w-full xl:min-w-[450px] xl:h-full">
 
               {/* ── NUMBER COLUMN: absolute top-0 bottom-0, fills exact height of left wrapper ── */}
-              <div className="absolute top-0 bottom-0 left-0 flex flex-col items-center justify-between" style={{ width: "54.11px" }}>
+              <div className="hidden xl:flex absolute top-0 bottom-0 left-0 flex-col items-center justify-between" style={{ width: "54.11px" }}>
 
                 {/* Top 61.84px / 74.21px lh / container 54.11×75 */}
                 <div className="flex items-center justify-center shrink-0" style={{ width: "54.11px", height: "75px" }}>
@@ -577,10 +604,10 @@ export default function ServicesPage() {
               </div>
 
               {/* space 54.11px for number col + 39.61px gap before content and the number column */}
-              <div style={{ width: "54.11px", marginRight: "39.61px" }} className="shrink-0" />
+              <div style={{ width: "54.11px", marginRight: "39.61px" }} className="shrink-0 hidden xl:block" />
 
               {/* Content Column */}
-              <div className="flex-1 flex flex-col gap-[16px] py-[6px]">
+              <div className="flex-1 flex flex-col gap-[16px] py-[6px] w-full text-center xl:text-left items-center xl:items-start">
                 <h3
                   className="text-[#000000]"
                   style={{
@@ -599,10 +626,10 @@ export default function ServicesPage() {
                 >
                   {service.description}
                 </p>
-                <ul className="flex flex-col gap-[8px] mt-[8px]">
+                <ul className="flex flex-col gap-[8px] mt-[8px] w-fit text-left">
                   {service.bullets.map((bullet) => (
-                    <li key={bullet} className="flex flex-row items-center gap-[12px] h-[28px]">
-                      <span className="w-[8px] h-[8px] bg-[#D41717] rounded-full shrink-0" />
+                    <li key={bullet} className="flex flex-row items-start gap-[12px] min-h-[28px] h-auto py-0.5">
+                      <span className="w-[8px] h-[8px] bg-[#D41717] rounded-full shrink-0 mt-[10px]" />
                       <span
                         className="text-[#000000]"
                         style={{
@@ -624,7 +651,7 @@ export default function ServicesPage() {
             {/* Right Image Container — 448px tall on desktop, centers the 332px image vertically */}
             <div className="relative w-full xl:w-[560px] xl:h-full flex items-center justify-center shrink-0">
               <div
-                className="relative w-full h-[332px] rounded-[16px] overflow-hidden shadow-sm"
+                className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[332px] rounded-[16px] overflow-hidden shadow-sm"
                 style={{ maxWidth: "560px" }}
               >
                 <Image
@@ -633,7 +660,8 @@ export default function ServicesPage() {
                   fill
                   className="object-cover"
                   sizes="560px"
-                />
+                >
+                </Image>
               </div>
             </div>
           </div>

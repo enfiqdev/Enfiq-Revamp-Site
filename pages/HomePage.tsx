@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -465,7 +465,7 @@ export default function HomePage() {
             </div>
           </h1>
           <p
-            className="w-[949px] h-[24px] text-center text-[#707070] mb-8 mx-auto"
+            className="w-full max-w-[949px] md:h-[24px] text-center text-[#707070] mb-8 mx-auto px-4"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
@@ -613,9 +613,9 @@ export default function HomePage() {
             {/* Left: copy + CTA */}
             {/* pt- controls the equal level of text and image */}
             {/*mb-8 give 32px and 8px specifically the gap between the button and the subheading*/}
-            <div className="shrink-0 lg:w-[32%] lg:max-w-sm lg:pt-0 text-center lg:text-left">
+            <div className="shrink-0 lg:w-[32%] lg:max-w-sm lg:pt-0 text-center lg:text-left w-full">
               <h3
-                className="w-[268px] text-[32px] leading-[44.8px] text-[#121212] mb-[8px] mx-auto lg:mx-0"
+                className="w-full max-w-[268px] text-[32px] leading-[44.8px] text-[#121212] mb-[8px] mx-auto lg:mx-0"
                 style={{
                   fontFamily: "'Instrument Sans', sans-serif",
                   fontWeight: 400,
@@ -628,14 +628,14 @@ export default function HomePage() {
                 </span>
               </h3>
               <p
-                className="w-[365px] h-[48px] text-[16px] leading-[24px] text-[#707070] mb-[80x] mx-auto lg:mx-0"
+                className="w-full max-w-[365px] md:h-[48px] text-[16px] leading-[24px] text-[#707070] mb-[8px] mx-auto lg:mx-0"
                 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}
               >
                 A proven record of delivering our services across 10 industries over 7 years
               </p>
               <Link
                 href="/contact"
-                className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+                className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] mb-8"
               >
                 <div className="relative h-[24px] overflow-hidden">
                   {/* First Text */}
@@ -682,8 +682,8 @@ export default function HomePage() {
             </div>
 
             {/* Right: 2—2 project grid */}
-            <div className="min-w-0 flex-1 lg:max-w-[62%]">
-              <div className="grid grid-cols-2 gap-x-[24px] gap-y-[32px]">
+            <div className="min-w-0 flex-1 lg:max-w-[62%] w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[24px] gap-y-[32px]">
                 {projects.slice(0, 4).map((proj, i) => (
                   <Link
                     href="/projects"
@@ -788,13 +788,40 @@ export default function HomePage() {
 
         <div className="flex flex-col xl:flex-row items-stretch justify-center w-full max-w-[1144px] mx-auto gap-[64px] xl:gap-0">
 
+          {/* Horizontal mobile-only numbers header */}
+          <div className="flex xl:hidden items-center justify-center w-full gap-4 mb-2">
+            <span
+              style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontWeight: 400,
+                fontSize: "48px",
+                lineHeight: "1",
+                color: "#707070",
+              }}
+            >
+              01
+            </span>
+            <div className="flex-1 max-w-[120px] border-b border-dashed border-[#707070]" />
+            <span
+              style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontWeight: 400,
+                fontSize: "48px",
+                lineHeight: "1",
+                color: "#D41717",
+              }}
+            >
+              06
+            </span>
+          </div>
+
           {/* Left Content Wrapper */}
           {/* Changed to relative so we can cleanly control the vertical baseline alignment */}
-          <div className="relative flex flex-row w-full xl:w-[523.28px] shrink-0 gap-[41px] items-center xl:h-[484px]">
+          <div className="relative flex flex-col xl:flex-row w-full xl:w-[523.28px] shrink-0 gap-0 xl:gap-[41px] items-center xl:items-stretch xl:h-[484px]">
 
             {/* ==================== EXACT NUMBER COLUMN CORRECTION ==================== */}
             {/* Uses absolute positioning inside the flex row to cleanly map from the header top down to the list base */}
-            <div className="absolute top-0 bottom-0 left-0 flex flex-col w-[56px] shrink-0 items-center justify-between">
+            <div className="hidden xl:flex absolute top-0 bottom-0 left-0 flex-col w-[56px] shrink-0 items-center justify-between">
 
               {/* Number 01 */}
               {/* Scaled line-height to 0.7 to pull the visual baseline up to perfectly align with the top of the H3 text */}
@@ -825,27 +852,27 @@ export default function HomePage() {
               </div>
             </div>
             {/* Dummy spacer element ensures your content column layout retains its original 41px gap spacing */}
-            <div className="w-[56px] shrink-0" />
+            <div className="w-[56px] shrink-0 hidden xl:block" />
             {/* END NUMBER COLUMN CORRECTION  */}
 
             {/* Content */}
-            <div className="flex flex-col flex-1">
-              <div className="flex flex-col w-[403px] gap-[16px] mb-[20px]">
+            <div className="flex flex-col flex-1 w-full items-center xl:items-start text-center xl:text-left">
+              <div className="flex flex-col w-full max-w-[403px] gap-[16px] mb-[20px] items-center xl:items-start">
                 <h3
-                  className="w-[403px] h-[34px] text-[24px] font-normal text-[#000000] leading-[33.6px] tracking-normal"
+                  className="w-full max-w-[403px] md:h-[34px] text-[24px] font-normal text-[#000000] leading-[33.6px] tracking-normal"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   Comprehensive Digital Solutions
                 </h3>
                 <p
-                  className="w-[403px] h-[90px] text-[16px] font-normal text-[#707070] leading-[22.4px] tracking-normal"
+                  className="w-full max-w-[403px] md:h-[90px] text-[16px] font-normal text-[#707070] leading-[22.4px] tracking-normal px-4 xl:px-0"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   Our holistic approach combines creativity, technical expertise, and strategic growth to build scalable digital experiences that elevate your brand and streamline your operations.
                 </p>
               </div>
 
-              <ul className="flex flex-col w-[325px] gap-[8px]">
+              <ul className="flex flex-col w-fit max-w-[325px] gap-[8px] text-left">
                 {[
                   "Creative UI/UX design",
                   "Custom Website development",
@@ -854,8 +881,8 @@ export default function HomePage() {
                   "Smart workflow automation",
                   "Professional video editing",
                 ].map((bullet) => (
-                  <li key={bullet} className="flex flex-row items-center w-fit h-[28px] gap-[8px]">
-                    <span className="w-[10px] h-[10px] bg-[#D41717] rounded-full shrink-0" />
+                  <li key={bullet} className="flex flex-row items-start gap-[12px] min-h-[28px] h-auto py-0.5">
+                    <span className="w-[8px] h-[8px] bg-[#D41717] rounded-full shrink-0 mt-[10px]" />
                     <span className="font-bold text-[20px] text-[#000000] leading-[28px] tracking-normal" style={{ fontFamily: "'Inter', sans-serif" }}>
                       {bullet}
                     </span>
@@ -865,8 +892,8 @@ export default function HomePage() {
             </div>
           </div>
           {/* Right Image */}
-          <div className="relative w-full xl:w-[620.72px] xl:h-[484px] flex items-center justify-center shrink-0 mt-[20px] xl:mt-0">
-            <div className="relative w-full h-[368px] rounded-[17.73px] overflow-hidden">
+          <div className="relative w-full xl:w-[620.72px] xl:h-[484px] flex items-center justify-center shrink-0 mt-[20px] xl:mt-0 px-6 xl:px-0">
+            <div className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[320px] xl:h-[368px] rounded-[17.73px] overflow-hidden shadow-sm">
               <Image
                 src="/images/assets/pinkSticker.png"
                 alt="Services Overview"
@@ -1660,7 +1687,7 @@ export default function HomePage() {
             Our Contact us
           </span>
           <h2
-            className="w-[484px] h-[45px] text-center text-[32px] leading-[44.8px] tracking-normal text-[#000000]"
+            className="w-full max-w-[484px] md:h-[45px] text-center text-[32px] leading-[44.8px] tracking-normal text-[#000000] px-4 md:px-0"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 600,
@@ -1669,7 +1696,7 @@ export default function HomePage() {
             Start Your Next Project With Us
           </h2>
           <p
-            className="w-[729px] h-[64px] flex items-center justify-center text-center text-[24px] leading-[32px] text-[#323232]"
+            className="w-full max-w-[729px] md:h-[64px] flex items-center justify-center text-center text-[18px] sm:text-[24px] leading-[32px] text-[#323232] px-6 md:px-0"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 500,
@@ -1680,11 +1707,11 @@ export default function HomePage() {
             Contact us today to get started. Your future customers are waiting.
           </p>
 
-          <form className="w-full max-w-[560px] flex flex-col gap-4">
+          <form className="w-full max-w-[560px] flex flex-col gap-4 px-4 items-center">
             <textarea
               placeholder="Message"
               rows={4}
-              className="w-[580px] h-[100px] rounded-[16px] border border-[#DDDDDD] bg-[#FFFFFF] resize-none outline-none shadow-none"
+              className="w-full max-w-[580px] h-[100px] rounded-[16px] border border-[#DDDDDD] bg-[#FFFFFF] resize-none outline-none shadow-none"
               style={{
                 padding: "15px",
                 fontFamily: "'Inter', sans-serif",
@@ -1695,12 +1722,12 @@ export default function HomePage() {
               }}
             />
 
-            <div className="flex items-center gap-[16px] w-[580px]">
+            <div className="flex flex-col sm:flex-row items-center gap-[16px] w-full max-w-[580px]">
 
               <input
                 type="email"
                 placeholder="Enter your mail"
-                className="flex-1 h-[48.67px] rounded-[50px] border border-[#DDDDDD] bg-[#FFFFFF] outline-none shadow-none"
+                className="w-full sm:flex-1 h-[48.67px] rounded-[50px] border border-[#DDDDDD] bg-[#FFFFFF] outline-none shadow-none"
                 style={{
                   padding: "15px",
                   fontFamily: "'Inter', sans-serif",
@@ -1711,7 +1738,7 @@ export default function HomePage() {
                 }}
               />
               <button
-                className="inline-flex items-center justify-center gap-[16px] rounded-[77px] bg-[#D41717] px-[24px] py-[12px] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] hover:bg-black transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-[16px] rounded-[77px] bg-[#D41717] px-[24px] py-[12px] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] hover:bg-black transition-colors shrink-0"
               >
                 <span
                   className="w-[93px] h-[24px] text-center text-[16px] leading-[24px] tracking-normal text-[#FFFFFF] whitespace-nowrap"

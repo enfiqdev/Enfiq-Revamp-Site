@@ -54,7 +54,7 @@ export default function FAQAccordion() {
   return (
     <section className="py-16 px-4">
       <div
-        className="w-full max-w-[828px] mx-auto rounded-[24px] border-[1.5px] border-[#D41717] px-[32px] md:px-[64px] py-[32px] relative overflow-hidden flex flex-col gap-[64px] bg-white"
+        className="w-full max-w-[828px] mx-auto rounded-[24px] border-[1.5px] border-[#D41717] px-[16px] sm:px-[32px] md:px-[64px] py-[24px] sm:py-[32px] relative overflow-hidden flex flex-col gap-[64px] bg-white"
         style={gridBg}
       >
         {/* Header Group */}
@@ -66,8 +66,8 @@ export default function FAQAccordion() {
             Frequently Ask Questions
           </span>
           <h2
-            className="text-center text-[#000000] w-[579px] h-[45px]"
-            style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: "32px", lineHeight: "1.2" }}
+            className="text-center text-[#000000] w-full max-w-[579px] md:h-[45px]"
+            style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: "clamp(22px, 5.5vw, 32px)", lineHeight: "1.2" }}
           >
             Clear Answers to Common Questions
           </h2>
@@ -173,11 +173,11 @@ export default function FAQAccordion() {
         </div>
 
         {/* Footer row */}
-        <div className="flex items-center justify-between w-full mt-4">
-          <p className="text-[16px] text-[#121212] font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>Can't find your answer?</p>
+        <div className="flex flex-col sm:flex-row items-center justify-between w-full mt-4 gap-4 text-center sm:text-left">
+          <p className="text-[15px] sm:text-[16px] text-[#121212] font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>Can't find your answer?</p>
           <a
             href="mailto:team@enfiq.com"
-            className="group relative overflow-hidden flex items-center bg-[#D41717] rounded-[77px] hover:bg-[#B21313] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+            className="group relative overflow-hidden flex items-center bg-[#D41717] rounded-[77px] hover:bg-[#B21313] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] shrink-0"
             style={{
               paddingTop: "10px",
               paddingRight: "10px",
@@ -197,7 +197,7 @@ export default function FAQAccordion() {
                   lineHeight: "24px",
                 }}
               >
-                Send us a Mail
+                Book a free call
               </span>
 
               {/* Second Text */}
@@ -210,21 +210,21 @@ export default function FAQAccordion() {
                   lineHeight: "24px",
                 }}
               >
-                Send us a Mail
+                Book a free call
               </span>
             </div>
             <div className="w-[24px] h-[24px] rounded-full bg-white flex items-center justify-center shrink-0 mt-[1px]">
-              <span
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 600,
-                  fontSize: "16px",
-                  lineHeight: "16px",
-                  color: "#D41717",
-                }}
+              <svg
+                viewBox="0 0 24 24"
+                className="w-[12px] h-[12px] text-[#D41717]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                @
-              </span>
+                <path d="M7 17L17 7M17 7H9M17 7V15" />
+              </svg>
             </div>
           </a>
         </div>

@@ -86,88 +86,76 @@ const allPosts: BlogPost[] = [
   },
 ];
 
+const categoryImages = {
+  "Designing / Branding": {
+    before: "/images/assets/vv.png",
+    after: "/images/assets/v2.png",
+  },
+  "No-code Development": {
+    before: "/images/assets/NC.png",
+    after: "/images/assets/NCH.png",
+  },
+  "Full Stack Development": {
+    before: "/images/assets/fullStack.png",
+    after: "/images/assets/fullStackHover.png",
+  },
+  "SEO": {
+    before: "/images/assets/seoSearch.png",
+    after: "/images/assets/seoHover.png",
+  },
+  "TrendFIQ": {
+    before: "/images/assets/trend (1).png",
+    after: "/images/assets/trendHover.png",
+  },
+  "From the Desk of ENFIQ": {
+    before: "/images/assets/enfiqDesk.png",
+    after: "/images/assets/enfiqDeskHover.png",
+  },
+};
+
 const getBlogCardData = (tag: string) => {
+  const images = categoryImages[tag as keyof typeof categoryImages];
   switch (tag) {
     case "Designing / Branding":
       return {
         image: "/images/assets/UX.png",
-        tagIcon: (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-          </svg>
-        )
+        tagIcon: images ? (
+          <Image
+            src={images.after}
+            alt={tag}
+            width={16}
+            height={16}
+          />
+        ) : null
       };
     case "SEO":
       return {
         image: "/images/assets/enfiqFrame.png",
-        tagIcon: (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        )
+        tagIcon: images ? (
+          <Image
+            src={images.after}
+            alt={tag}
+            width={16}
+            height={16}
+          />
+        ) : null
       };
     case "No-code Development":
     default:
       return {
         image: "/images/assets/blogNoCode.png",
-        tagIcon: (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
-          </svg>
-        )
+        tagIcon: images ? (
+          <Image
+            src={images.after}
+            alt={tag}
+            width={16}
+            height={16}
+          />
+        ) : null
       };
   }
 };
 
-const getCategoryIcon = (category: string, color: string) => {
-  switch (category) {
-    case "Designing / Branding":
-      return (
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-        </svg>
-      );
-    case "No-code Development":
-      return (
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
-        </svg>
-      );
-    case "Full Stack Development":
-      return (
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="16 18 22 12 16 6"></polyline>
-          <polyline points="8 6 2 12 8 18"></polyline>
-        </svg>
-      );
-    case "SEO":
-      return (
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      );
-    case "TrendFIQ":
-      return (
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-          <polyline points="17 6 23 6 23 12"></polyline>
-        </svg>
-      );
-    case "From the Desk of ENFIQ":
-      return (
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 20h9"></path>
-          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-        </svg>
-      );
-    default:
-      return null;
-  }
-};
 
 function BlogCard({ post }: { post: BlogPost }) {
   const { image, tagIcon } = getBlogCardData(post.tag);
@@ -176,7 +164,7 @@ function BlogCard({ post }: { post: BlogPost }) {
       className="flex flex-col w-full max-w-[380px] min-h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer hover:-translate-y-1 hover:border-[#D41717] hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
     >
       {/* 1. IMAGE FRAME */}
-      <div className="relative w-[358px] h-[171px] rounded-[8px] overflow-hidden shrink-0 bg-gray-50 border-[0.5px] border-gray-100">
+      <div className="relative w-full aspect-[358/171] rounded-[8px] overflow-hidden shrink-0 bg-gray-50 border-[0.5px] border-gray-100">
         <Image
           src={image}
           alt={post.title}
@@ -187,7 +175,7 @@ function BlogCard({ post }: { post: BlogPost }) {
       </div>
 
       {/* 2. CONTENT FRAME */}
-      <div className="flex flex-col justify-between h-full w-[358px]">
+      <div className="flex flex-col justify-between h-full w-full">
         <div className="flex flex-col gap-[8px]">
           {/* A) Meta row */}
           <div className="flex justify-between items-center w-full">
@@ -232,9 +220,10 @@ export default function BlogsPage() {
   return (
     <div className="pt-16]">
       {/* ── PAGE HEADER ── */}
-      <section className="w-[560px] mx-auto pt-[48px] pb-[48px] flex flex-col items-center gap-[12px] text-center">
+      <section className="w-full max-w-[560px] px-4 mx-auto pt-[48px] pb-[48px] flex flex-col items-center gap-[12px] text-center">
+
         <h1
-          className="w-[598px] h-[45px] text-center text-[#000000]"
+          className="w-full max-w-[598px] text-center text-[#000000]"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 600,
@@ -245,8 +234,9 @@ export default function BlogsPage() {
         >
           Read some quality studies
         </h1>
+
         <p
-          className="w-[520px] text-center text-[#707070] mx-auto"
+          className="w-full max-w-[520px] text-center text-[#707070] mx-auto px-2"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 400,
@@ -258,6 +248,7 @@ export default function BlogsPage() {
           We offer advanced chatbot development to enhance engagement and streamline communication,
           with tailored solutions and 24/7 support.
         </p>
+
       </section>
 
       {/* ── SEARCH + FILTERS ── */}
@@ -301,34 +292,54 @@ export default function BlogsPage() {
 
           {categories.map((cat) => {
             const isSelected = activeCategory === cat;
-            const color = isSelected ? "#D41717" : "#707070";
+            const images = categoryImages[cat as keyof typeof categoryImages];
 
             return (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className="
-    group
-    inline-flex
-    items-center
-    h-[29px]
-    gap-[4px]
-    px-[8px]
-    py-[4px]
-    rounded-[8px]
-    border
-    border-[#D4D4D4]
-    bg-white
-    text-[#707070]
-    hover:text-[#D41717]
-    hover:border-[#D41717]
-    transition-all
-    duration-200
-  "
+                  group
+                  inline-flex
+                  items-center
+                  h-[29px]
+                  gap-[4px]
+                  px-[8px]
+                  py-[4px]
+                  rounded-[8px]
+                  border
+                  border-[#D4D4D4]
+                  bg-white
+                  text-[#707070]
+                  hover:text-[#D41717]
+                  hover:border-[#D41717]
+                  transition-all
+                  duration-200
+                "
               >
-
-                <span className="flex items-center justify-center shrink-0">
-                  {getCategoryIcon(cat, "currentColor")}
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+                  {images && (
+                    <>
+                      <Image
+                        src={images.before}
+                        alt={cat}
+                        width={16}
+                        height={16}
+                        className={`object-contain w-full h-full ${
+                          isSelected ? "hidden" : "block group-hover:hidden"
+                        }`}
+                      />
+                      <Image
+                        src={images.after}
+                        alt={cat}
+                        width={16}
+                        height={16}
+                        className={`object-contain w-full h-full ${
+                          isSelected ? "block" : "hidden group-hover:block"
+                        }`}
+                      />
+                    </>
+                  )}
                 </span>
 
                 <span
@@ -342,7 +353,6 @@ export default function BlogsPage() {
                 >
                   {cat}
                 </span>
-
               </button>
             );
           })}
@@ -351,7 +361,7 @@ export default function BlogsPage() {
       </section>
 
       {/* ── BLOG GRID (9 in 3x3) ── */}
-      <section className="max-w-[1248px] mx-auto px-6 pb-12">
+      <section className="max-w-[1248px] mx-auto px-4 md:px-6 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] justify-items-center">
           {allPosts.slice(0, 9).map((post) => (
             <BlogCard key={`${post.id}-${post.title}`} post={post} />
@@ -417,7 +427,7 @@ export default function BlogsPage() {
             Subscribe to Our Insights
           </h2>
           <p
-            className="w-[873px] h-[64px] mx-auto text-center mb-8 text-[#323232]"
+            className="w-full max-w-[873px] mx-auto text-center mb-8 text-[#323232] px-2"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 500,
@@ -429,7 +439,7 @@ export default function BlogsPage() {
             Stay ahead of the curve with exclusive tips, industry insights, and expert advice.
             Sign up today and elevate your website development knowledge!
           </p>
-          <div className="flex items-center gap-4 w-full max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your mail"
@@ -437,7 +447,7 @@ export default function BlogsPage() {
               style={{ fontFamily: "'Inter', sans-serif" }}
             />
             <button
-              className="group relative overflow-hidden h-[48px] bg-[#D41717] text-white px-[24px] rounded-full whitespace-nowrap transition-all duration-300 hover:bg-[#B91212] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
+              className="group relative w-full sm:w-auto overflow-hidden h-[48px] bg-[#D41717] text-white px-[20px] sm:px-[24px] rounded-full whitespace-nowrap transition-all duration-300 hover:bg-[#B91212] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
             >
               <div className="relative h-[20px] overflow-hidden">
                 {/* First Text */}

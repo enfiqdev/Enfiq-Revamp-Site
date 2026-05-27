@@ -37,7 +37,7 @@ const projects: Project[] = [
     category: "Web Development",
     bg: "#EEF5FF",
     logo: "/images/assets/tartanHQLogo.png",
-    image: "/images/assets/card1.png",
+    image: "/images/assets/card.png",
   },
   {
     id: 2,
@@ -49,87 +49,40 @@ const projects: Project[] = [
     category: "Design",
     bg: "#EEF5FF",
     logo: "/images/assets/tartanHQLogo.png",
-    image: "/images/assets/card1.png",
+    image: "/images/assets/card.png",
   },
 ];
 
 
-/** Maps a tag label to the matching 16×16 icon used in the filter pills */
 function TagIcon({ tag, className = "" }: { tag: string; className?: string }) {
   const cls = `shrink-0 ${className}`;
+  let src = "";
 
-  // Design / Framer Development → pencil/ruler icon
   if (tag === "Design" || tag === "Framer Development") {
-    return (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
-        <path d="M3 21L9 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M14.5 4.5L19.5 9.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M12 7L17 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M7 12L12 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    );
+    src = "/images/assets/v1.png";
+  } else if (tag === "Web Development" || tag === "Mobile Development") {
+    src = "/images/assets/fullStack.png";
+  } else if (tag === "No-code Development") {
+    src = "/images/assets/NC.png";
+  } else if (tag === "n8n Automation") {
+    src = "/images/assets/n8nIcon.png";
+  } else if (tag === "SEO" || tag === "On-Page SEO") {
+    src = "/images/assets/seoSearch.png";
+  } else if (tag === "All") {
+    src = "/images/assets/AllIcon.png";
   }
 
-  // Web Development
-  if (tag === "Web Development") {
-    return (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
-        <path d="M8 7L3 12L8 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M16 7L21 12L16 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    );
-  }
+  if (!src) return null;
 
-  // No-code Development
-  if (tag === "No-code Development") {
-    return (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
-        <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M9 9L15 15" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  // Mobile Development
-  if (tag === "Mobile Development") {
-    return (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
-        <path d="M8 7L3 12L8 17" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M16 7L21 12L16 17" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    );
-  }
-
-  // n8n Automation → sparkle/star
-  if (tag === "n8n Automation") {
-    return (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
-        <path d="M12 3L14.5 8.5L20 11L14.5 13.5L12 19L9.5 13.5L4 11L9.5 8.5L12 3Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-      </svg>
-    );
-  }
-
-  // SEO / On-Page SEO → magnifying glass
-  if (tag === "SEO" || tag === "On-Page SEO") {
-    return (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
-        <circle cx="11" cy="11" r="6" stroke="currentColor" strokeWidth="1.8" />
-        <path d="M20 20L16.5 16.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  // All / fallback → infinity loop
-  if (tag === "All") {
-    return (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={cls}>
-        <path d="M8 12H16M12 8V16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M7 7C4 7 2 9 2 12C2 15 4 17 7 17C9 17 10.5 16 12 14C13.5 12 15 11 17 11C20 11 22 13 22 16C22 19 20 21 17 21" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  return null;
+  return (
+    <Image
+      src={src}
+      alt={tag}
+      width={16}
+      height={16}
+      className={cls}
+    />
+  );
 }
 
 export default function ProjectsPage() {
@@ -202,127 +155,220 @@ export default function ProjectsPage() {
                 }`}
               style={{
                 fontFamily: "'Inter', sans-serif",
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: "14px",
-                lineHeight: "100%",
+                lineHeight: "21px",
                 letterSpacing: "0px",
               }}
             >
 
-              {/* All — coded infinity SVG */}
+              {/* All — coded infinity*/}
               {cat === "All" && (
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 50 26"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="shrink-0"
-                >
-                  <path
-                    d="M13 3C7.477 3 3 7.477 3 13C3 18.523 7.477 23 13 23C16.5 23 20.5 20.5 25 16C29.5 11.5 33.5 3 37 3C42.523 3 47 7.477 47 13C47 18.523 42.523 23 37 23C33.5 23 29.5 20.5 25 16C20.5 11.5 16.5 3 13 3Z"
-                    stroke="currentColor"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+
+                  {/* Default Gray Image */}
+                  <Image
+                    src="/images/assets/A1.png"
+                    alt="all-coded icon"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full absolute inset-0
+        ${activeCategory === cat
+                        ? "opacity-0"
+                        : "opacity-100 group-hover/pill:opacity-0"
+                      }`}
                   />
-                </svg>
+
+                  {/* Hover / Active Red Image */}
+                  <Image
+                    src="/images/assets/allHover.png"
+                    alt="all-coded icon active"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full absolute inset-0
+        ${activeCategory === cat
+                        ? "opacity-100"
+                        : "opacity-0 group-hover/pill:opacity-100"
+                      }`}
+                  />
+
+                </span>
               )}
 
-              {/* Design — Figma image icon */}
+              {/* Design — on and after hover images */}
               {cat === "Design" && (
                 <span className="relative shrink-0 w-[16px] h-[16px] block">
+
+                  {/* Default Gray Image */}
                   <Image
-                    src="/images/assets/cube3.png"
+                    src="/images/assets/v1.png"
                     alt="Design icon"
                     width={16}
                     height={16}
-                    className="object-contain w-full h-full"
+                    className={`object-contain w-full h-full block
+      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
                   />
-                </span>
-              )}
 
-              {/* Web Development — VSCode image icon */}
-              {cat === "Web Development" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
+                  {/* Hover / Active Red Image */}
                   <Image
-                    src="/images/assets/cube02.png"
-                    alt="Web Development icon"
+                    src="/images/assets/v2.png"
+                    alt="Design icon active"
                     width={16}
                     height={16}
-                    className="object-contain w-full h-full"
+                    className={`object-contain w-full h-full
+      ${activeCategory === cat
+                        ? "block"
+                        : "hidden group-hover/pill:block"
+                      }`}
                   />
+
                 </span>
               )}
 
+              {cat === "Web Development" && (
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+
+                  {/* Default Gray Image */}
+                  <Image
+                    src="/images/assets/fullStack.png"
+                    alt="web development icon"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full block
+      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
+                  />
+
+                  {/* Hover / Active Red Image */}
+                  <Image
+                    src="/images/assets/fullStackHover.png"
+                    alt="Web development icon active"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full
+      ${activeCategory === cat
+                        ? "block"
+                        : "hidden group-hover/pill:block"
+                      }`}
+                  />
+
+                </span>
+              )}
               {/* No-code Development — Notion image icon */}
               {cat === "No-code Development" && (
                 <span className="relative shrink-0 w-[16px] h-[16px] block">
+
+                  {/* Default Gray Image */}
                   <Image
-                    src="/images/assets/cube1.png"
+                    src="/images/assets/NC.png"
                     alt="No-code Development icon"
                     width={16}
                     height={16}
-                    className="object-contain w-full h-full"
+                    className={`object-contain w-full h-full block
+      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
                   />
-                </span>
-              )}
 
-              {/* Mobile Development — VSCode image icon (same stack) */}
-              {cat === "Mobile Development" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
+                  {/* Hover / Active Red Image */}
                   <Image
-                    src="/images/assets/devicon-plain_vscode.png"
-                    alt="Mobile Development icon"
+                    src="/images/assets/NCH.png"
+                    alt="No-code development icon active"
                     width={16}
                     height={16}
-                    className="object-contain w-full h-full"
+                    className={`object-contain w-full h-full
+      ${activeCategory === cat
+                        ? "block"
+                        : "hidden group-hover/pill:block"
+                      }`}
                   />
+
                 </span>
               )}
 
-              {/* n8n Automation — sparkle SVG (no n8n asset exists) */}
-              {cat === "n8n Automation" && (
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="shrink-0"
-                >
-                  <path
-                    d="M12 3L14.5 8.5L20 11L14.5 13.5L12 19L9.5 13.5L4 11L9.5 8.5L12 3Z"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinejoin="round"
+              {cat === "Mobile Development" && (
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+
+                  {/* Default Gray Image */}
+                  <Image
+                    src="/images/assets/fullStack.png"
+                    alt="Mobile development icon"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full block
+      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
                   />
-                </svg>
+
+                  {/* Hover / Active Red Image */}
+                  <Image
+                    src="/images/assets/fullStackHover.png"
+                    alt="Mobile development icon active"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full
+      ${activeCategory === cat
+                        ? "block"
+                        : "hidden group-hover/pill:block"
+                      }`}
+                  />
+
+                </span>
+              )}
+              {/* n8n Automation — sparkle SVG*/}
+              {cat === "n8n Automation" && (
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+
+                  {/* Default Gray Image */}
+                  <Image
+                    src="/images/assets/n8nIcon.png"
+                    alt=" n8n Automation icon"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full block
+      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
+                  />
+
+                  {/* Hover / Active Red Image */}
+                  <Image
+                    src="/images/assets/n8nHover.png"
+                    alt="n8n Automation icon active"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full
+      ${activeCategory === cat
+                        ? "block"
+                        : "hidden group-hover/pill:block"
+                      }`}
+                  />
+
+                </span>
               )}
 
               {/* SEO — magnifying glass SVG */}
               {cat === "SEO" && (
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="shrink-0"
-                >
-                  <circle
-                    cx="11"
-                    cy="11"
-                    r="6"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
+                <span className="relative shrink-0 w-[16px] h-[16px] block">
+
+                  {/* Default Gray Image */}
+                  <Image
+                    src="/images/assets/seoSearch.png"
+                    alt=" n8n Automation icon"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full block
+      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
                   />
-                  <path
-                    d="M20 20L16.5 16.5"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
+
+                  {/* Hover / Active Red Image */}
+                  <Image
+                    src="/images/assets/seoHover.png"
+                    alt="n8n Automation icon active"
+                    width={16}
+                    height={16}
+                    className={`object-contain w-full h-full
+      ${activeCategory === cat
+                        ? "block"
+                        : "hidden group-hover/pill:block"
+                      }`}
                   />
-                </svg>
+
+                </span>
               )}
 
               {cat}
@@ -378,17 +424,25 @@ export default function ProjectsPage() {
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-[8px]">
+                <div className="flex flex-nowrap gap-[8px] overflow-x-auto">
+
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-[5px] rounded-[33px] border-[1px] border-[#707070]/[0.3] bg-white px-[16px] py-[2px] text-[14px] font-normal text-[#707070] leading-[21px] h-[25px]"
-                      style={{ fontFamily: "'Inter', sans-serif" }}
+                      className="inline-flex items-center whitespace-nowrap rounded-[33px] border border-[#707070]/30 bg-white px-[16px] py-[2px]"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontWeight: 400,
+                        fontSize: "14px",
+                        lineHeight: "21px",
+                        letterSpacing: "0%",
+                        color: "#707070",
+                      }}
                     >
-                      <TagIcon tag={tag} />
                       {tag}
                     </span>
                   ))}
+
                 </div>
               </div>
 

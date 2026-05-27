@@ -35,63 +35,122 @@ function CalendarWidget() {
 
   return (
     <div
-      className="bg-[#F3F4F6] rounded-[16px] overflow-hidden"
-      style={{
-        border: "1px solid #707070",
-      }}
+      className="max-w-[1200px] w-full mx-auto bg-[#F3F4F6] rounded-[16px] overflow-hidden border border-[#707070] flex flex-col items-center pt-[40px] pb-[40px] px-4 md:px-[40px]"
     >
-      <div className="p-6 border-b border-gray-200">
-        <div className="flex items-center justify-between gap-4">
-          <div />
-          <button className="group relative overflow-hidden text-sm font-semibold bg-[#F8F8F8] border border-gray-200 rounded-full px-5 py-2 text-[#121212] shadow-sm hover:bg-gray-100 transition-all duration-300">
-            <div className="relative h-[20px] overflow-hidden">
-              {/* First Text */}
-              <span
-                className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-[#121212] whitespace-nowrap"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 600,
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                }}
-              >
-                Book a Call
-              </span>
-
-              {/* Second Text */}
-              <span
-                className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-20px] text-[#121212] whitespace-nowrap"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 600,
-                  fontSize: "14px",
-                  lineHeight: "20px",
-                }}
-              >
-                Book a Call
-              </span>
-            </div>
-          </button>
-          <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-500">
-            <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
-            Overlay my calendar
-          </div>
-        </div>
-      </div>
-
-      <div className="p-6">
-        <div>
-          <Cal
-            namespace="30min"
-            calLink="enfiq/30min"
-            style={{ width: "100%", height: "600px" }}
-            config={{
-              layout: "month_view",
+      {/* Book a Call Button */}
+      <button
+        className="
+          group relative overflow-hidden
+          inline-flex items-center justify-center
+          rounded-[12424px]
+          border border-[#DDDDDD]
+          bg-[#F8F8F8]
+          h-[33px] px-[16px]
+          transition-all duration-300
+          hover:border-black
+        "
+      >
+        <div className="relative h-[20px] overflow-hidden">
+          {/* First Text */}
+          <span
+            className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-[#121212] whitespace-nowrap"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "14px",
+              lineHeight: "100%",
+              letterSpacing: "0px",
             }}
-          />
+          >
+            Book a Call
+          </span>
+
+          {/* Second Text */}
+          <span
+            className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-[#121212] whitespace-nowrap"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 400,
+              fontSize: "14px",
+              lineHeight: "100%",
+              letterSpacing: "0px",
+            }}
+          >
+            Book a Call
+          </span>
         </div>
+      </button>
+
+      {/* Calendar container with 32px gap */}
+      <div className="w-full mt-[32px] flex justify-center [&_iframe]:w-full [&_iframe]:min-h-[700px]">
+        <Cal
+          namespace="30min"
+          calLink="enfiq/30min"
+          style={{ width: "100%", height: "700px" }}
+          config={{
+            layout: "month_view",
+          }}
+        />
       </div>
 
+      {/* CONTACT INFO FOOTER IN THE FRAME */}
+      <div className="flex flex-wrap items-center justify-center gap-x-[48px] gap-y-[16px] mt-[32px] w-full px-4">
+        {/* EMAIL */}
+        <div className="flex items-center gap-[10px]">
+          <div
+            className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+            style={{
+              border: "1px solid #7070704D",
+            }}
+          >
+            <img
+              src="/images/assets/@.png"
+              alt="mail"
+              className="w-[24px] h-[24px]"
+            />
+          </div>
+          <span
+            style={{
+              fontFamily: "'Instrument Sans', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+              color: "#323232",
+            }}
+          >
+            team@enfiq.com
+          </span>
+        </div>
+
+        {/* PHONE */}
+        <div className="flex items-center gap-[10px]">
+          <div
+            className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+            style={{
+              border: "1px solid #7070704D",
+            }}
+          >
+            <img
+              src="/images/assets/contactSymbol.png"
+              alt="phone"
+              className="w-[24px] h-[24px]"
+            />
+          </div>
+          <span
+            style={{
+              fontFamily: "'Instrument Sans', sans-serif",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22.4px",
+              letterSpacing: "0%",
+              color: "#323232",
+            }}
+          >
+            49987 78675
+          </span>
+        </div>
+      </div>
     </div>
   );
 }

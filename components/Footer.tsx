@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="relative w-full overflow-hidden bg-[#222222]">
 
       {/* LEFT VECTOR */}
-      <div className="pointer-events-none absolute left-[-320px] top-1/2 -translate-y-1/2 opacity-100">
+      <div className="pointer-events-none absolute left-[-420px] md:left-[-320px] top-1/2 -translate-y-1/2 opacity-100">
         <Image
           src="/images/assets/vector.png"
           alt=""
@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="relative z-10 w-full px-[48px] pt-[72px]">
+      <div className="relative z-10 w-full px-[20px] md:px-[48px] pt-[72px]">
 
         {/* TOP TEXT */}
         <div className="flex flex-col items-center">
@@ -145,16 +145,141 @@ const Footer = () => {
         />
 
         {/* BOTTOM ROW */}
-        <div className="mt-[32px] flex items-center justify-between">
+        {/* BOTTOM ROW */}
+        <div className="mt-[32px] flex flex-col items-center">
+
+          {/* DESKTOP NAVIGATION */}
+          <div className="hidden md:flex flex-wrap justify-center gap-x-[32px] gap-y-[16px]">
+            <Link
+              href="/projects"
+              className="text-[#898989] hover:text-white transition-colors"
+              style={{
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+              }}
+            >
+              Projects
+            </Link>
+            <Link
+              href="/blogs"
+              className="text-[#898989] hover:text-white transition-colors"
+              style={{
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+              }}
+            >
+              Blogs
+            </Link>
+            <Link
+              href="/contact"
+              className="text-[#898989] hover:text-white transition-colors"
+              style={{
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+              }}
+            >
+              Contact Us
+            </Link>
+            <Link
+              href="/terms"
+              className="text-[#898989] hover:text-white transition-colors"
+              style={{
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+              }}
+            >
+              Terms of Use
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-[#898989] hover:text-white transition-colors"
+              style={{
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "22.4px",
+              }}
+            >
+              Privacy Policy
+            </Link>
+          </div>
+
+          {/* MOBILE NAVIGATION */}
+          <div className="flex md:hidden flex-col items-center gap-y-[16px] w-full">
+            {/* Row 1 */}
+            <div className="flex justify-center gap-x-[32px]">
+              <Link
+                href="/projects"
+                className="text-[#898989] hover:text-white transition-colors"
+                style={{
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "22.4px",
+                }}
+              >
+                Projects
+              </Link>
+              <Link
+                href="/blogs"
+                className="text-[#898989] hover:text-white transition-colors"
+                style={{
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "22.4px",
+                }}
+              >
+                Blogs
+              </Link>
+            </div>
+            {/* Row 2 */}
+            <div className="flex flex-wrap justify-center gap-x-[20px] gap-y-[12px] px-4 text-center">
+              <Link
+                href="/contact"
+                className="text-[#898989] hover:text-white transition-colors"
+                style={{
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "22.4px",
+                }}
+              >
+                Contact Us
+              </Link>
+              <Link
+                href="/terms"
+                className="text-[#898989] hover:text-white transition-colors"
+                style={{
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "22.4px",
+                }}
+              >
+                Terms of Use
+              </Link>
+              <Link
+                href="/privacy"
+                className="text-[#898989] hover:text-white transition-colors"
+                style={{
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "22.4px",
+                }}
+              >
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
 
           {/* COPYRIGHT */}
           <p
+            className="mt-[24px] text-center"
             style={{
               fontFamily: "Instrument Sans, sans-serif",
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "22.4px",
-              letterSpacing: "0%",
               color: "#898989",
             }}
           >
@@ -168,102 +293,31 @@ const Footer = () => {
                 lineHeight: "24px",
                 letterSpacing: "-0.32px",
                 color: "#898989",
-                verticalAlign: "middle",
               }}
             >
               ENFIQ
             </span>
           </p>
 
-          {/* NAVIGATION */}
-          <div className="flex items-center gap-[24px]">
-
-            <Link
-              href="/projects"
-              className="text-[#898989] hover:text-white transition-colors"
-              style={{
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "22.4px",
-                letterSpacing: "0%"
-              }}
-            >
-              Projects
-            </Link>
-
-            <Link
-              href="/blogs"
-              className="text-[#898989] hover:text-white transition-colors"
-              style={{
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "22.4px",
-                letterSpacing: "0%"
-              }}
-            >
-              Blogs
-            </Link>
-
-            <Link
-              href="/contact"
-              className="text-[#898989] hover:text-white transition-colors"
-              style={{
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "22.4px",
-                letterSpacing: "0%"
-              }}
-            >
-              Contact Us
-            </Link>
-
-            <Link
-              href="/terms"
-              className="text-[#898989] hover:text-white transition-colors"
-              style={{
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "22.4px",
-                letterSpacing: "0%"
-              }}
-            >
-              Terms of Use
-            </Link>
-
-            <Link
-              href="/privacy"
-              className="text-[#898989] hover:text-white transition-colors"
-              style={{
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "22.4px",
-                letterSpacing: "0%"
-              }}
-            >
-              Privacy Policy
-            </Link>
-
-          </div>
         </div>
-      </div>
+        {/* HUGE ENFIQ TEXT */}
+        <div className="relative z-0 mt-[48px] flex justify-center overflow-hidden">
 
-      {/* HUGE ENFIQ TEXT */}
-      <div className="relative z-0 mt-[48px] flex justify-center overflow-hidden">
+          <h1
+            style={{
+              fontFamily: "Pavelt",
+              fontWeight: 400,
+              fontSize: "clamp(120px, 28vw, 300px)",
+              lineHeight: "100%",
+              letterSpacing: "0%",
+              color: "#70707026",
+              textAlign: "center",
+            }}
+          >
+            ENFIQ
+          </h1>
 
-        <h1
-          style={{
-            fontFamily: "Pavelt",
-            fontWeight: 400,
-            fontSize: "300px",
-            lineHeight: "100%",
-            letterSpacing: "0%",
-            color: "#70707026",
-            textAlign: "center",
-          }}
-        >
-          ENFIQ
-        </h1>
-
+        </div>
       </div>
     </footer>
   );
