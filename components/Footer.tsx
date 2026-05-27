@@ -305,7 +305,7 @@ const Footer = () => {
 
           <h1
             style={{
-              fontFamily: "Pavelt",
+              fontFamily: "'Pavelt','sans-serif'",
               fontWeight: 400,
               fontSize: "clamp(120px, 28vw, 300px)",
               lineHeight: "100%",
