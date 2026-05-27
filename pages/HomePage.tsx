@@ -1053,7 +1053,7 @@ export default function HomePage() {
             Why choose us
           </span>
           <h2
-            className="w-[550px] h-[45px] mx-auto text-center text-[32px] leading-[44.8px] tracking-normal font-semibold text-[#000000]"
+            className="w-full max-w-[275px] md:w-[550px] h-auto md:h-[45px] mx-auto text-center text-[16px] md:text-[32px] leading-[24px] md:leading-[44.8px] tracking-normal font-semibold text-[#000000]"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Built for Speed, Quality, and Growth
@@ -1301,11 +1301,9 @@ export default function HomePage() {
           </span>
 
           <h2
-            className="w-[669px] text-[32px] text-[#000000] text-center"
+            className="w-full max-w-[669px] md:w-[669px] h-auto md:h-[45px] text-center text-[22px] md:text-[32px] leading-[30px] md:leading-[44.8px] font-semibold text-[#000000] mx-auto px-4"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              lineHeight: "44.8px",
               letterSpacing: "0px",
             }}
           >
@@ -1526,7 +1524,7 @@ export default function HomePage() {
             Our Blogs
           </span>
           <h2
-            className="w-[549px] h-[45px] text-center text-[32px] leading-[44.8px] tracking-normal text-[#000000] mx-auto"
+            className="w-full max-w-[549px] md:w-[549px] h-auto md:h-[45px] text-center text-[24px] md:text-[32px] leading-[32px] md:leading-[44.8px] tracking-normal text-[#000000] mx-auto"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 600,

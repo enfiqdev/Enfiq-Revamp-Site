@@ -439,11 +439,11 @@ export default function BlogsPage() {
             Stay ahead of the curve with exclusive tips, industry insights, and expert advice.
             Sign up today and elevate your website development knowledge!
           </p>
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md mx-auto px-4 sm:px-0">
             <input
               type="email"
               placeholder="Enter your mail"
-              className="flex-1 h-[48px] border border-[#DDDDDD] rounded-full px-5 text-[16px] placeholder:text-black/30 focus:outline-none focus:border-gray-400 transition-colors"
+              className="w-full sm:flex-1 h-[48px] border border-[#DDDDDD] rounded-full px-5 text-[16px] placeholder:text-black/30 focus:outline-none focus:border-gray-400 transition-colors"
               style={{ fontFamily: "'Inter', sans-serif" }}
             />
             <button

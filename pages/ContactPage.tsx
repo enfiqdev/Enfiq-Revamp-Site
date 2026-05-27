@@ -82,11 +82,11 @@ function CalendarWidget() {
       </button>
 
       {/* Calendar container with 32px gap */}
-      <div className="w-full mt-[32px] flex justify-center [&_iframe]:w-full [&_iframe]:min-h-[700px]">
+      <div className="w-full h-[500px] md:h-[700px] mt-[32px] flex justify-center [&_iframe]:w-full [&_iframe]:h-full">
         <Cal
           namespace="30min"
           calLink="enfiq/30min"
-          style={{ width: "100%", height: "700px" }}
+          style={{ width: "100%", height: "100%" }}
           config={{
             layout: "month_view",
           }}
@@ -94,11 +94,11 @@ function CalendarWidget() {
       </div>
 
       {/* CONTACT INFO FOOTER IN THE FRAME */}
-      <div className="flex flex-wrap items-center justify-center gap-x-[48px] gap-y-[16px] mt-[32px] w-full px-4">
+      <div className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-[48px] gap-y-3 mt-[32px] w-full px-2 sm:px-4">
         {/* EMAIL */}
-        <div className="flex items-center gap-[10px]">
+        <div className="flex items-center gap-[6px] sm:gap-[10px]">
           <div
-            className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+            className="w-[42px] h-[42px] sm:w-[56px] sm:h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF] shrink-0"
             style={{
               border: "1px solid #7070704D",
             }}
@@ -106,14 +106,14 @@ function CalendarWidget() {
             <img
               src="/images/assets/@.png"
               alt="mail"
-              className="w-[24px] h-[24px]"
+              className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
             />
           </div>
           <span
+            className="text-[14px] sm:text-[16px]"
             style={{
               fontFamily: "'Instrument Sans', sans-serif",
               fontWeight: 400,
-              fontSize: "16px",
               lineHeight: "22.4px",
               letterSpacing: "0%",
               color: "#323232",
@@ -124,9 +124,9 @@ function CalendarWidget() {
         </div>
 
         {/* PHONE */}
-        <div className="flex items-center gap-[10px]">
+        <div className="flex items-center gap-[6px] sm:gap-[10px]">
           <div
-            className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+            className="w-[42px] h-[42px] sm:w-[56px] sm:h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF] shrink-0"
             style={{
               border: "1px solid #7070704D",
             }}
@@ -134,14 +134,14 @@ function CalendarWidget() {
             <img
               src="/images/assets/contactSymbol.png"
               alt="phone"
-              className="w-[24px] h-[24px]"
+              className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
             />
           </div>
           <span
+            className="text-[14px] sm:text-[16px]"
             style={{
               fontFamily: "'Instrument Sans', sans-serif",
               fontWeight: 400,
-              fontSize: "16px",
               lineHeight: "22.4px",
               letterSpacing: "0%",
               color: "#323232",
@@ -424,13 +424,13 @@ function ContactForm() {
           Get in touch
         </button>
 
-        <div className="flex items-center justify-center gap-[48px] mt-[32px]">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-[48px] gap-y-3 mt-[32px] w-full px-2 sm:px-4">
 
           {/* EMAIL */}
-          <div className="flex items-center gap-[10px]">
+          <div className="flex items-center gap-[6px] sm:gap-[10px]">
 
             <div
-              className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+              className="w-[42px] h-[42px] sm:w-[56px] sm:h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF] shrink-0"
               style={{
                 border: "1px solid #7070704D",
               }}
@@ -438,15 +438,15 @@ function ContactForm() {
               <img
                 src="/images/assets/@.png"
                 alt="mail"
-                className="w-[24px] h-[24px]"
+                className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
               />
             </div>
 
             <span
+              className="text-[14px] sm:text-[16px]"
               style={{
                 fontFamily: "'Instrument Sans', sans-serif",
                 fontWeight: 400,
-                fontSize: "16px",
                 lineHeight: "22.4px",
                 letterSpacing: "0%",
                 color: "#323232",
@@ -458,10 +458,10 @@ function ContactForm() {
           </div>
 
           {/* PHONE */}
-          <div className="flex items-center gap-[10px]">
+          <div className="flex items-center gap-[6px] sm:gap-[10px]">
 
             <div
-              className="w-[56px] h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF]"
+              className="w-[42px] h-[42px] sm:w-[56px] sm:h-[56px] rounded-full flex items-center justify-center bg-[#EFEFEF] shrink-0"
               style={{
                 border: "1px solid #7070704D",
               }}
@@ -469,15 +469,15 @@ function ContactForm() {
               <img
                 src="/images/assets/contactSymbol.png"
                 alt="phone"
-                className="w-[24px] h-[24px]"
+                className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px]"
               />
             </div>
 
             <span
+              className="text-[14px] sm:text-[16px]"
               style={{
                 fontFamily: "'Instrument Sans', sans-serif",
                 fontWeight: 400,
-                fontSize: "16px",
                 lineHeight: "22.4px",
                 letterSpacing: "0%",
                 color: "#323232",
