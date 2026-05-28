@@ -322,7 +322,7 @@ export default function HomePage() {
 
 
           {/* Floating chat bubble */}
-          <div className="absolute top-[120px] right-[-100px] hidden md:flex flex-col items-end -rotate-[-3deg] animate-float pointer-events-none">
+          <div className="absolute top-[120px] right-[-100px] hidden md:flex flex-col items-end -rotate-[-30deg] animate-float pointer-events-none">
             {/*to move the entire grouped section*/}
             <div className="bg-white border border-[#121212] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium">
               Need to start a SaaS company?

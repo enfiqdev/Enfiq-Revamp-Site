@@ -3,6 +3,8 @@
 import React, { useEffect } from "react";
 import FAQAccordion from "../components/FAQAccordion";
 import Cal, { getCalApi } from "@calcom/embed-react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 // Calendar mock component
 function CalendarWidget() {
@@ -32,6 +34,8 @@ function CalendarWidget() {
     "00:00", "00:30", "09:00", "09:30", "10:00",
     "10:30", "11:00", "11:30", "15:00",
   ];
+
+
 
   return (
     <div
@@ -157,6 +161,63 @@ function CalendarWidget() {
 
 // Contact form
 function ContactForm() {
+
+  const [formData, setFormData] = React.useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = async (
+    e: React.FormEvent
+  ) => {
+    e.preventDefault();
+
+    try {
+
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbxpfmwad1nKychrtbtl6JQglJ4Dr1n4G7kHVJjXC2TpG8pZ04KqfNRgsBhNFCODqQj2/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert("Message sent!");
+
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+
+      } else {
+        alert("Something went wrong");
+      }
+
+    } catch (error) {
+      console.error("FULL ERROR:", error);
+      alert("Error submitting form");
+    }
+  };
+
+  const countryCodes = [
+    { code: "+1", country: "US" },
+    { code: "+91", country: "IN" },
+    { code: "+44", country: "UK" },
+    { code: "+61", country: "AU" },
+    { code: "+971", country: "UAE" },
+  ];
   return (
     <div className="max-w-2xl mx-auto px-6 py-12">
       <div className="text-center mb-8">
@@ -195,7 +256,7 @@ function ContactForm() {
 
       {/*gap is 16 px*/}
       <form
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={handleSubmit}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -219,6 +280,13 @@ function ContactForm() {
             <input
               type="text"
               placeholder="First name"
+              value={formData.firstName}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  firstName: e.target.value,
+                })
+              }
               className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
               style={{
                 fontFamily: "'Instrument Sans', 'Inter', sans-serif",
@@ -246,6 +314,13 @@ function ContactForm() {
             <input
               type="text"
               placeholder="Last name"
+              value={formData.lastName}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  lastName: e.target.value,
+                })
+              }
               className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
               style={{
                 fontFamily: "'Instrument Sans', 'Inter', sans-serif",
@@ -275,6 +350,13 @@ function ContactForm() {
           <input
             type="email"
             placeholder="you@company.com"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                email: e.target.value,
+              })
+            }
             className="w-full h-[47px] rounded-[12px] px-[16px] py-[12px] bg-[#F3F4F6] border focus:outline-none focus:border-[#D41717] transition-colors"
             style={{
               fontFamily: "'Instrument Sans', 'Inter', sans-serif",
@@ -308,55 +390,32 @@ function ContactForm() {
               boxShadow: "0px 1px 2px #1018280D",
             }}
           >
-            {/* Country Code */}
-            <div className="relative flex items-center">
-              <select
-                className="appearance-none bg-transparent pr-[24px] focus:outline-none"
-                style={{
-                  fontFamily: "'Instrument Sans', 'Inter', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "16px",
-                  lineHeight: "22.4px",
-                  letterSpacing: "0%",
-                  color: "#000000",
-                }}
-              >
-                <option>US</option>
-                <option>IN</option>
-                <option>UK</option>
-              </select>
 
-              <svg
-                className="absolute right-0 pointer-events-none"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-              >
-                <path
-                  d="M5 7.5L10 12.5L15 7.5"
-                  stroke="black"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            {/* Phone Number */}
-            <input
-              type="tel"
+            <PhoneInput
               placeholder="+1 (555) 000-0000"
-              className="flex-1 bg-transparent focus:outline-none ml-[16px]"
-              style={{
-                fontFamily: "'Instrument Sans', 'Inter', sans-serif",
-                fontWeight: 400,
+              country={"in"}
+              enableSearch={true}
+              value={formData.phone}
+              onChange={(phone) =>
+                setFormData({
+                  ...formData,
+                  phone,
+                })
+              }
+              containerClass="!flex-1"
+              buttonClass="!border-0 !bg-transparent"
+              inputStyle={{
+                width: "100%",
+                height: "47px",
+                background: "transparent",
+                border: "none",
+                boxShadow: "none",
+                paddingLeft: "48px",
                 fontSize: "16px",
-                lineHeight: "22.4px",
-                letterSpacing: "0%",
-                color: "#000000",
               }}
             />
+
+
           </div>
         </div>
 
@@ -374,6 +433,13 @@ function ContactForm() {
           </label>
           <textarea
             rows={5}
+            value={formData.message}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                message: e.target.value,
+              })
+            }
             className="w-full h-[125px] rounded-[12px] px-[14px] py-[10px] bg-[#F3F4F6] resize-none focus:outline-none"
             style={{
               fontFamily: "'Instrument Sans', 'Inter', sans-serif",
