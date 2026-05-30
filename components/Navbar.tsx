@@ -19,6 +19,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,8 +30,29 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="w-full flex flex-col items-center pt-[32px] relative z-50">
-      <div className="w-full max-w-[1144px] px-6 h-[44px] flex items-center justify-between">
+    <header className={`w-full flex flex-col items-center fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+      scrolled ? "pt-4" : "pt-[32px]"
+    }`}>
+      {/* 
+        Note: The background opacity and backdrop blur are dynamically bound to CSS variables
+        defined in styles/globals.css. You can easily adjust them there:
+        - --nav-bg-scrolled: transparency/color when scrolled
+        - --nav-bg-initial: transparency/color at the very top
+        - --nav-blur-scrolled: blur amount when scrolled
+        - --nav-blur-initial: blur amount at the very top
+      */}
+      <div
+        className={`w-full flex items-center justify-between relative transition-all duration-500 ease-in-out ${
+          scrolled
+            ? "w-[calc(100%-2rem)] md:w-full md:max-w-[900px] h-[54px] rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.04] px-8"
+            : "w-full max-w-[1144px] h-[44px] rounded-none border-transparent px-6"
+        }`}
+        style={{
+          backgroundColor: scrolled ? "var(--nav-bg-scrolled)" : "var(--nav-bg-initial)",
+          backdropFilter: scrolled ? "blur(var(--nav-blur-scrolled))" : "blur(var(--nav-blur-initial))",
+          WebkitBackdropFilter: scrolled ? "blur(var(--nav-blur-scrolled))" : "blur(var(--nav-blur-initial))",
+        }}
+      >
         <Link href="/" className="flex items-center">
           <Image
             src="/images/assets/enfiq.png"
@@ -43,7 +65,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -91,7 +113,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden absolute top-[84px] left-1/2 -translate-x-1/2 w-full max-w-[1144px] px-6 overflow-hidden transition-all duration-300 ease-in-out z-50 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        className={`md:hidden absolute top-full left-1/2 -translate-x-1/2 w-full max-w-[1144px] px-6 mt-3 overflow-hidden transition-all duration-300 ease-in-out z-50 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}
       >
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 py-6 px-6 flex flex-col items-center gap-5">

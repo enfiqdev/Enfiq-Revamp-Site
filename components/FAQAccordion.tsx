@@ -78,7 +78,11 @@ export default function FAQAccordion() {
             const isOpen = openIndices.has(i);
 
             return (
-              <div key={i} className="flex flex-col gap-3 w-full">
+             <motion.div
+  layout
+  key={i}
+  className="flex flex-col gap-3 w-full"
+>
 
                 {/* ── QUESTION BUBBLE (right side — like a sent message) ── */}
                 <div className="flex w-full justify-end">
@@ -121,14 +125,22 @@ export default function FAQAccordion() {
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
-                      key={`answer-${i}`}
-                      className="flex w-full justify-start"
-                      initial={{ opacity: 0, x: -32, scale: 0.82 }}
-                      animate={{ opacity: 1, x: 0, scale: 1 }}
-                      exit={{ opacity: 0, x: -16, scale: 0.88 }}
-                      style={{ transformOrigin: "bottom left" }}
-                      transition={{ type: "spring", stiffness: 300, damping: 24 }}
-                    >
+  layout
+  key={`answer-${i}`}
+  className="flex w-full justify-start"
+  initial={{ opacity: 0, x: -32, scale: 0.82 }}
+  animate={{ opacity: 1, x: 0, scale: 1 }}
+  exit={{ opacity: 0, x: -16, scale: 0.88 }}
+  style={{ transformOrigin: "bottom left" }}
+  transition={{
+    layout: {
+      type: "spring",
+      stiffness: 500,
+      damping: 38,
+    },
+    opacity: { duration: 0.15 },
+  }}
+>
                       <div className="flex gap-[12px] items-end">
 
                         {/* Enfiq avatar */}
@@ -167,7 +179,7 @@ export default function FAQAccordion() {
                   )}
                 </AnimatePresence>
 
-              </div>
+              </motion.div>
             );
           })}
         </div>

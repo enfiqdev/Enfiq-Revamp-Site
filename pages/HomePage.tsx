@@ -4,6 +4,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FAQAccordion from "../components/FAQAccordion";
+import SpeedQualityCard from "../components/SpeedQualityCard";
+import TestimonialCard from "../components/TestimonialCard";
+import Button from "../components/Button";
+
 
 const partners = ["Framer", "Notion", "Voiceflow", "furlough"];
 
@@ -233,8 +237,8 @@ export default function HomePage() {
   const rafId = React.useRef<number>();
 
   const testimonialsRef = React.useRef<HTMLDivElement>(null);
-  const testimonialTargetRate = React.useRef(1);
-  const testimonialCurrentRate = React.useRef(1);
+  const testimonialTargetRate = React.useRef(1.4);
+  const testimonialCurrentRate = React.useRef(1.4);
   const testimonialRafId = React.useRef<number>();
 
   const updateRate = React.useCallback(() => {
@@ -290,7 +294,7 @@ export default function HomePage() {
   };
 
   const handleTestimonialMouseLeave = () => {
-    testimonialTargetRate.current = 1;
+    testimonialTargetRate.current = 1.4;
     if (testimonialRafId.current) cancelAnimationFrame(testimonialRafId.current);
     testimonialRafId.current = requestAnimationFrame(updateTestimonialRate);
   };
@@ -477,88 +481,8 @@ export default function HomePage() {
             Your revenue, Elevated. Let&apos;s build a path to success together.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap relative">
-            <Link
-              href="/contact"
-              className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
-            >
-              <div className="relative h-[24px] overflow-hidden">
-                {/* First Text */}
-                <span
-                  className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "24px",
-                  }}
-                >
-                  Book a free call
-                </span>
-
-                {/* Second Text */}
-                <span
-                  className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "24px",
-                  }}
-                >
-                  Book a free call
-                </span>
-              </div>
-              <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-[26px] w-[26px]"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden
-                >
-                  <path d="M7 17L17 7M17 7H9M17 7V15" />
-                </svg>
-              </span>
-            </Link>
-            <Link
-              href="/projects"
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-white px-6 py-3 transition-all duration-300 hover:border-black"
-            >
-              <div className="relative h-[24px] overflow-hidden">
-
-                {/* First Text */}
-                <span
-                  className="flex h-[24px] items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] group-hover:text-black whitespace-nowrap text-[#707070]"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "24px",
-                    letterSpacing: "0%",
-                  }}
-                >
-                  View Our Work
-                </span>
-
-                {/* Second Text */}
-                <span
-                  className="absolute left-0 top-[24px] flex h-[24px] w-full items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] group-hover:text-black whitespace-nowrap text-[#707070]"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "24px",
-                    letterSpacing: "0%",
-                  }}
-                >
-                  View Our Work
-                </span>
-
-              </div>
-            </Link>
+            <Button href="/contact" text="Book a free call" />
+            <Button href="/projects" text="View Our Work" variant="secondary" />
           </div>
 
         </section>
@@ -633,52 +557,7 @@ export default function HomePage() {
               >
                 A proven record of delivering our services across 10 industries over 7 years
               </p>
-              <Link
-                href="/contact"
-                className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] mb-8"
-              >
-                <div className="relative h-[24px] overflow-hidden">
-                  {/* First Text */}
-                  <span
-                    className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontWeight: 400,
-                      fontSize: "16px",
-                      lineHeight: "24px",
-                    }}
-                  >
-                    Book a free call
-                  </span>
-
-                  {/* Second Text */}
-                  <span
-                    className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontWeight: 400,
-                      fontSize: "16px",
-                      lineHeight: "24px",
-                    }}
-                  >
-                    Book a free call
-                  </span>
-                </div>
-                <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-[26px] w-[26px]"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden
-                  >
-                    <path d="M7 17L17 7M17 7H9M17 7V15" />
-                  </svg>
-                </span>
-              </Link>
+              <Button href="/contact" text="Book a free call" className="mb-8" />
             </div>
 
             {/* Right: 2—2 project grid */}
@@ -692,7 +571,7 @@ export default function HomePage() {
                     className="flex flex-col gap-[24px] w-full group"
                   >
                     <article
-                      className="relative w-full overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer hover:border-[#D41717] hover:shadow-[4px_4px_0px_0px_#D41717] aspect-[366/256]"
+                      className="relative w-full overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717] aspect-[366/256]"
                     >
                       <Image
                         src={vsProjectScreenshots[i]}
@@ -767,7 +646,7 @@ export default function HomePage() {
 
       {/* ── SERVICES ── */}
       <section className="w-full max-w-[1440px] mx-auto pt-[40px] pb-[40px] px-[24px] xl:px-[148px]">
-        <div className="w-full max-w-[1144px] mx-auto flex flex-col items-center mb-[40px]">
+        <div className="w-full max-w-[1144px] mx-auto flex flex-col items-center mb-[64px]">
 
           <span
             className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000] hover:text-black transition-colors duration-300"
@@ -817,7 +696,7 @@ export default function HomePage() {
 
           {/* Left Content Wrapper */}
           {/* Changed to relative so we can cleanly control the vertical baseline alignment */}
-          <div className="relative flex flex-col xl:flex-row w-full xl:w-[523.28px] shrink-0 gap-0 xl:gap-[41px] items-center xl:items-stretch xl:h-[484px]">
+          <div className="relative flex flex-col xl:flex-row w-full xl:w-[523.28px] shrink-0 gap-0 xl:gap-[41px] items-start xl:items-stretch xl:h-[484px]">
 
             {/* ==================== EXACT NUMBER COLUMN CORRECTION ==================== */}
             {/* Uses absolute positioning inside the flex row to cleanly map from the header top down to the list base */}
@@ -856,8 +735,8 @@ export default function HomePage() {
             {/* END NUMBER COLUMN CORRECTION  */}
 
             {/* Content */}
-            <div className="flex flex-col flex-1 w-full items-center xl:items-start text-center xl:text-left">
-              <div className="flex flex-col w-full max-w-[403px] gap-[16px] mb-[20px] items-center xl:items-start">
+            <div className="flex flex-col flex-1 w-full items-start text-left pt-0 xl:pt-[58px]">
+              <div className="flex flex-col w-full max-w-[403px] gap-[16px] mb-[20px] items-start">
                 <h3
                   className="w-full max-w-[403px] md:h-[34px] text-[24px] font-normal text-[#000000] leading-[33.6px] tracking-normal"
                   style={{ fontFamily: "'Inter', sans-serif" }}
@@ -906,52 +785,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex justify-center w-full mt-[40px]">
-          <Link
-            href="/contact"
-            className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
-          >
-            <div className="relative h-[24px] overflow-hidden">
-              {/* First Text */}
-              <span
-                className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                }}
-              >
-                Book a free call
-              </span>
-
-              {/* Second Text */}
-              <span
-                className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                }}
-              >
-                Book a free call
-              </span>
-            </div>
-            <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
-              <svg
-                viewBox="0 0 24 24"
-                className="h-[26px] w-[26px]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden
-              >
-                <path d="M7 17L17 7M17 7H9M17 7V15" />
-              </svg>
-            </span>
-          </Link>
+          <Button href="/contact" text="Book a free call" />
         </div>
       </section>
 
@@ -977,7 +811,7 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row gap-[23px]">
           {/* Card 1 */}
           <div className="flex flex-col gap-[24px] w-full xl:w-[560px] group">
-            <article className="relative w-full h-[350px] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer hover:border-[#D41717] hover:shadow-[4px_4px_0px_0px_#D41717]">
+            <article className="relative w-full h-[350px] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
               <Image src="/images/assets/whiteOAK/domComp.png" alt="Domain Comp" fill sizes="(max-width: 1024px) 45vw, 560px" className="object-cover object-top" />
               <Link
                 href="#"
@@ -1007,7 +841,7 @@ export default function HomePage() {
 
           {/* Card 2 */}
           <div className="flex flex-col gap-[24px] w-full xl:w-[560px] group">
-            <article className="relative w-full h-[350px] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer hover:border-[#D41717] hover:shadow-[4px_4px_0px_0px_#D41717]">
+            <article className="relative w-full h-[350px] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
               <Image src="/images/assets/phiV.png" alt="Phi Variate" fill sizes="(max-width: 1024px) 45vw, 560px" className="object-cover object-top" />
               <Link
                 href="#"
@@ -1052,12 +886,15 @@ export default function HomePage() {
           >
             Why choose us
           </span>
-          <h2
-            className="w-full max-w-[275px] md:w-[550px] h-auto md:h-[45px] mx-auto text-center text-[16px] md:text-[32px] leading-[24px] md:leading-[44.8px] tracking-normal font-semibold text-[#000000]"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Built for Speed, Quality, and Growth
-          </h2>
+        <h2
+  className="w-full max-w-[550px] mx-auto text-center text-[32px] leading-[44.8px] font-semibold text-[#000000]"
+  style={{
+    fontFamily: "'Inter', sans-serif",
+    letterSpacing: "0px",
+  }}
+>
+  Built for Speed, Quality, and Growth
+</h2>
         </div>
         <div className="w-full max-w-[1144px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center">
           {[
@@ -1092,78 +929,17 @@ export default function HomePage() {
               titleDims: "w-[239px] h-[90px]"
             },
           ].map((card, index) => (
-            <div
+            <SpeedQualityCard
               key={index}
-              className="relative w-full max-w-[365px] h-[409px] group cursor-pointer"
-            >
-              {/* Dynamic Border via Drop Shadow on Masked Shape */}
-              <div
-                className="absolute inset-0 transition-all duration-300 [filter:drop-shadow(1px_0_0_#C4C4C4)_drop-shadow(-1px_0_0_#C4C4C4)_drop-shadow(0_1px_0_#C4C4C4)_drop-shadow(0_-1px_0_#C4C4C4)] group-hover:[filter:drop-shadow(1px_0_0_#D41717)_drop-shadow(-1px_0_0_#D41717)_drop-shadow(0_1px_0_#D41717)_drop-shadow(0_-1px_0_#D41717)_drop-shadow(4px_4px_0_#D41717)]"
-              >
-                <div
-                  className="w-full h-full bg-[#EFEFEF]"
-                  style={{
-                    WebkitMaskImage: `url('/images/assets/maskcard.png')`,
-                    WebkitMaskSize: 'contain',
-                    WebkitMaskPosition: 'center',
-                    WebkitMaskRepeat: 'no-repeat',
-                    maskImage: `url('/images/assets/maskcard.png')`,
-                    maskSize: 'contain',
-                    maskPosition: 'center',
-                    maskRepeat: 'no-repeat',
-                  }}
-                />
-              </div>
-
-              {/* Card Content */}
-              <div className="absolute inset-0 p-[24px_32px] flex flex-col">
-                <h3
-                  className={`text-[32px] text-[#000000] leading-[44.8px] font-light group-hover:font-normal transition-all duration-300 ${card.titleDims}`}
-                  style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0%' }}
-                >
-                  {card.title.split('\n').map((line, j) => (
-                    <React.Fragment key={j}>
-                      {line}
-                      {j === 0 && <br />}
-                    </React.Fragment>
-                  ))}
-                </h3>
-
-                {/* Icon */}
-                <div
-                  className="absolute top-[50%] -translate-y-[50%]"
-                  style={{
-                    width: card.iconWidth,
-                    height: card.iconHeight,
-                    right: card.iconRight
-                  }}
-                >
-                  <div className="absolute inset-0 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
-                    <Image
-                      src={`/images/assets/${card.icon}.png`}
-                      alt="icon"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                    <Image
-                      src={`/images/assets/${card.hoverIcon}.png`}
-                      alt="icon hover"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
-
-                <p
-                  className="absolute left-[32px] bottom-[32px] w-[290px] h-[96px] text-[16px] text-[#707070] font-normal leading-[24px] text-left transition-colors duration-300 group-hover:text-[#000000]"
-                  style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}
-                >
-                  {card.desc}
-                </p>
-              </div>
-            </div>
+              title={card.title}
+              desc={card.desc}
+              icon={card.icon}
+              hoverIcon={card.hoverIcon}
+              iconWidth={card.iconWidth}
+              iconHeight={card.iconHeight}
+              iconRight={card.iconRight}
+              titleDims={card.titleDims}
+            />
           ))}
         </div>
       </section>
@@ -1232,52 +1008,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex justify-center mt-10 md:mt-12 px-6">
-          <Link
-            href="/contact"
-            className="group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)]"
-          >
-            <div className="relative h-[24px] overflow-hidden">
-              {/* First Text */}
-              <span
-                className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                }}
-              >
-                Book a free call
-              </span>
-
-              {/* Second Text */}
-              <span
-                className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                }}
-              >
-                Book a free call
-              </span>
-            </div>
-            <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
-              <svg
-                viewBox="0 0 24 24"
-                className="h-[26px] w-[26px]"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden
-              >
-                <path d="M7 17L17 7M17 7H9M17 7V15" />
-              </svg>
-            </span>
-          </Link>
+          <Button href="/contact" text="Book a free call" />
         </div>
       </section>
       {/* ── TESTIMONIALS ── */}
@@ -1301,7 +1032,7 @@ export default function HomePage() {
           </span>
 
           <h2
-            className="w-full max-w-[669px] md:w-[669px] h-auto md:h-[45px] text-center text-[22px] md:text-[32px] leading-[30px] md:leading-[44.8px] font-semibold text-[#000000] mx-auto px-4"
+            className="w-full max-w-[669px] md:w-[669px] whitespace-nowrap h-auto md:h-[45px] text-center text-[22px] md:text-[32px] leading-[30px] md:leading-[44.8px] font-semibold text-[#000000] mx-auto px-4"
             style={{
               fontFamily: "'Inter', sans-serif",
               letterSpacing: "0px",
@@ -1330,86 +1061,9 @@ export default function HomePage() {
           <div className="flex w-max animate-marquee-ltr">
             {[1, 2, 3].map((groupIndex) => (
               <div key={groupIndex} className="flex gap-[16px] pr-[16px]">
-
                 {testimonials.map((t, i) => (
-                  <div
-                    key={`${groupIndex}-${i}`}
-                    className="w-[400px] shrink-0 bg-white rounded-[15px] border border-[#EAEAEA] transition-shadow hover:shadow-sm"
-                    style={{
-                      paddingTop: "20px",
-                      paddingRight: "20px",
-                      paddingBottom: "18.8px",
-                      paddingLeft: "20px",
-                    }}
-                  >
-
-                    {/* Header */}
-                    <div className="flex items-start gap-[16px] mb-[8.66px]">
-
-                      {/* Logo */}
-                      <div
-                        className={`relative overflow-hidden shrink-0 bg-white ${t.name === "White Oak"
-                          ? "w-[56px] h-[56px] rounded-[2918px]"
-                          : "w-[56px] h-[56px] rounded-[12px]"
-                          }`}
-                      >
-                        <Image
-                          src={t.img}
-                          alt={t.name}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-
-                      {/* Text */}
-                      <div className="flex flex-col">
-
-                        <p
-                          className="text-[#000000]"
-                          style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontWeight: 700,
-                            fontSize: "16px",
-                            lineHeight: "19.2px",
-                            letterSpacing: "0px",
-                          }}
-                        >
-                          {t.name}
-                        </p>
-
-                        <p
-                          className="mt-[4px] text-[#000000]"
-                          style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontWeight: 400,
-                            fontSize: "16px",
-                            lineHeight: "19.2px",
-                            letterSpacing: "0px",
-                          }}
-                        >
-                          {t.company}
-                        </p>
-
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p
-                      className="text-[#000000]"
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontWeight: 520,
-                        fontSize: "14px",
-                        lineHeight: "16.8px",
-                        letterSpacing: "0px",
-                      }}
-                    >
-                      {t.text}
-                    </p>
-
-                  </div>
+                  <TestimonialCard key={`${groupIndex}-${i}`} testimonial={t} />
                 ))}
-
               </div>
             ))}
           </div>
@@ -1418,86 +1072,9 @@ export default function HomePage() {
           <div className="flex w-max animate-marquee-rtl">
             {[1, 2, 3].map((groupIndex) => (
               <div key={groupIndex} className="flex gap-[16px] pr-[16px]">
-
                 {testimonials.map((t, i) => (
-                  <div
-                    key={`${groupIndex}-${i}`}
-                    className="w-[400px] shrink-0 bg-white rounded-[15px] border border-[#EAEAEA] transition-shadow hover:shadow-sm"
-                    style={{
-                      paddingTop: "20px",
-                      paddingRight: "20px",
-                      paddingBottom: "18.8px",
-                      paddingLeft: "20px",
-                    }}
-                  >
-
-                    {/* Header */}
-                    <div className="flex items-start gap-[16px] mb-[8.66px]">
-
-                      {/* Logo */}
-                      <div
-                        className={`relative overflow-hidden shrink-0 bg-white ${t.name === "White Oak"
-                          ? "w-[56px] h-[56px] rounded-[2918px]"
-                          : "w-[56px] h-[56px] rounded-[12px]"
-                          }`}
-                      >
-                        <Image
-                          src={t.img}
-                          alt={t.name}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-
-                      {/* Text */}
-                      <div className="flex flex-col">
-
-                        <p
-                          className="text-[#000000]"
-                          style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontWeight: 700,
-                            fontSize: "16px",
-                            lineHeight: "19.2px",
-                            letterSpacing: "0px",
-                          }}
-                        >
-                          {t.name}
-                        </p>
-
-                        <p
-                          className="mt-[4px] text-[#000000]"
-                          style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontWeight: 400,
-                            fontSize: "16px",
-                            lineHeight: "19.2px",
-                            letterSpacing: "0px",
-                          }}
-                        >
-                          {t.company}
-                        </p>
-
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p
-                      className="text-[#000000]"
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontWeight: 520,
-                        fontSize: "14px",
-                        lineHeight: "16.8px",
-                        letterSpacing: "0px",
-                      }}
-                    >
-                      {t.text}
-                    </p>
-
-                  </div>
+                  <TestimonialCard key={`${groupIndex}-${i}`} testimonial={t} />
                 ))}
-
               </div>
             ))}
           </div>
@@ -1576,7 +1153,7 @@ export default function HomePage() {
           ].map((blog, i) => (
             <div
               key={i}
-              className="flex flex-col w-[380px] h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer hover:-translate-y-1 hover:border-[#D41717] hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
+              className="flex flex-col w-[380px] h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer md:hover:-translate-y-1 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
             >
               {/* 1. IMAGE FRAME */}
               <div className="relative w-[358px] h-[171px] rounded-[8px] overflow-hidden shrink-0 bg-gray-50 border-[0.5px] border-gray-100">

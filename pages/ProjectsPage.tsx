@@ -98,7 +98,7 @@ export default function ProjectsPage() {
       );
 
   return (
-    <div className="pt-[64px] bg-[#F8F8F8]">
+    <div className="pt-[112px] bg-[#F8F8F8]">
 
       {/* ── PAGE HEADER ── */}
       <section className="max-w-[560px] mx-auto px-6 text-center flex flex-col items-center">
@@ -447,7 +447,7 @@ export default function ProjectsPage() {
               </div>
 
               {/* Image side */}
-              <div className="relative w-full md:w-[366px] h-[256px] shrink-0 border-[0.5px] border-[#CCCCCE] rounded-[8px] overflow-hidden bg-white group cursor-pointer transition-all duration-300 hover:border-[#D41717] hover:shadow-[4px_4px_0px_0px_#D41717]">
+              <div className="relative w-full md:w-[366px] h-[256px] shrink-0 border-[0.5px] border-[#CCCCCE] rounded-[8px] overflow-hidden bg-white group cursor-pointer transition-all duration-300 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
                 <Image
                   src={project.image}
                   alt={`${project.name} screenshot`}

@@ -161,7 +161,7 @@ function BlogCard({ post }: { post: BlogPost }) {
   const { image, tagIcon } = getBlogCardData(post.tag);
   return (
     <div
-      className="flex flex-col w-full max-w-[380px] min-h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer hover:-translate-y-1 hover:border-[#D41717] hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
+      className="flex flex-col w-full max-w-[380px] min-h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer md:hover:-translate-y-1 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
     >
       {/* 1. IMAGE FRAME */}
       <div className="relative w-full aspect-[358/171] rounded-[8px] overflow-hidden shrink-0 bg-gray-50 border-[0.5px] border-gray-100">
@@ -218,7 +218,7 @@ export default function BlogsPage() {
   const [activeCategory, setActiveCategory] = useState("Designing / Branding");
 
   return (
-    <div className="pt-16]">
+    <div className="pt-[112px]">
       {/* ── PAGE HEADER ── */}
       <section className="w-full max-w-[560px] px-4 mx-auto pt-[48px] pb-[48px] flex flex-col items-center gap-[12px] text-center">
 

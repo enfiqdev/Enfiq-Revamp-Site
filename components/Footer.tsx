@@ -133,16 +133,23 @@ const Footer = () => {
 
           </div>
         </div>
-
-        {/* DIVIDER */}
-        <div
-          className="w-full"
-          style={{
-            marginTop: "64px",
-            borderTop: "1px solid rgba(137,137,137,0.2)",
-            transform: "rotate(-180deg)",
-          }}
-        />
+{/* DIVIDER */}
+<div className="flex justify-center w-full">
+  <div
+    className="
+      w-full
+      max-w-[350px]
+      sm:max-w-[520px]
+      md:max-w-[720px]
+      lg:max-w-[1144px]
+    "
+    style={{
+      marginTop: "64px",
+      borderTop: "1px solid rgba(137,137,137,0.2)",
+      transform: "rotate(-180deg)",
+    }}
+  />
+</div>
 
         {/* BOTTOM ROW */}
         {/* BOTTOM ROW */}
@@ -301,21 +308,22 @@ const Footer = () => {
 
         </div>
         {/* HUGE ENFIQ TEXT */}
-        <div className="relative z-0 mt-[48px] flex justify-center overflow-hidden">
-
-          <h1
-            style={{
-              fontFamily: "'Pavelt', sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(120px, 28vw, 300px)",
-              lineHeight: "100%",
-              letterSpacing: "0%",
-              color: "#70707026",
-              textAlign: "center",
-            }}
-          >
-            ENFIQ
-          </h1>
+       <div className="relative z-0 mt-[48px] flex justify-center overflow-hidden leading-none">
+       <h1
+  style={{
+    fontFamily: "'Pavelt', sans-serif",
+    fontWeight: 400,
+    fontSize: "clamp(120px, 28vw, 300px)",
+    lineHeight: "0.8", // reduce extra bottom space
+    letterSpacing: "0%",
+    color: "#70707026",
+    textAlign: "center",
+    margin: 0, // IMPORTANT
+    padding: 0,
+  }}
+>
+  ENFIQ
+</h1>
 
         </div>
       </div>
