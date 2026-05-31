@@ -16,7 +16,7 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    left-[-90px]
+    left-[-35px]
     sm:left-[-140px]
     md:left-[-320px]
 
@@ -50,7 +50,7 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    right-[-90px]
+    right-[-35px]
     sm:right-[-140px]
     md:right-[-320px]
 
@@ -348,14 +348,15 @@ const Footer = () => {
         </div>
         {/* HUGE ENFIQ TEXT */}
       {/* HUGE ENFIQ TEXT */}
-<div className="relative z-0 mt-[28px] md:mt-[48px] flex justify-center leading-none px-2">
+{/* HUGE ENFIQ TEXT */}
+<div className="relative z-0 mt-[20px] md:mt-[48px] flex justify-center overflow-hidden h-[88px] md:h-auto">
 
   <h1
     style={{
       fontFamily: "'Pavelt', sans-serif",
       fontWeight: 400,
       fontSize: "clamp(102px, 24vw, 300px)",
-      lineHeight: "0.82",
+      lineHeight: "0.72",
       letterSpacing: "0%",
       color: "#70707026",
       textAlign: "center",

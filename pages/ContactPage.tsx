@@ -65,33 +65,32 @@ function CalendarWidget() {
         </span>
       </div>
 
-      {/* Calendar container with 32px gap */}
-      {/* CALENDAR SECTION */}
-<div className="w-full mt-[24px] md:mt-[32px] flex justify-center overflow-hidden">
+    {/* CALENDAR SECTION */}
+<div className="w-full mt-[24px] md:mt-[32px] flex justify-center">
   <div
     className="
       w-full
-      max-w-[760px]
-      h-[620px]
-      md:h-[700px]
+      max-w-[820px]
+      px-[6px]
+      md:px-0
+      h-[680px]
+      md:h-[760px]
       overflow-hidden
       rounded-[12px]
     "
   >
-    <div className="scale-[0.78] md:scale-100 origin-top">
-      <Cal
-        namespace="30min"
-        calLink="enfiq/30min"
-        style={{
-          width: "100%",
-          height: "700px",
-          border: "0",
-        }}
-        config={{
-          layout: "month_view",
-        }}
-      />
-    </div>
+    <Cal
+      namespace="30min"
+      calLink="enfiq/30min"
+      style={{
+        width: "100%",
+        height: "100%",
+        border: "0",
+      }}
+      config={{
+        layout: "month_view",
+      }}
+    />
   </div>
 </div>
 
