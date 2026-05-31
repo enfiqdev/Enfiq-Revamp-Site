@@ -39,63 +39,61 @@ function CalendarWidget() {
 
   return (
     <div
-      className="max-w-[1200px] w-full mx-auto bg-[#F3F4F6] rounded-[16px] overflow-hidden border border-[#707070] flex flex-col items-center pt-[40px] pb-[40px] px-4 md:px-[40px]"
+      className="max-w-[1200px] w-full mx-auto bg-[#F3F4F6] rounded-[16px] overflow-visible border border-[#707070] flex flex-col items-center pt-[40px] pb-[40px] px-4 md:px-[40px]"
     >
-      {/* Book a Call Button */}
-      <button
+      {/* Book a Call Label */}
+      <div
         className="
-          group relative overflow-hidden
           inline-flex items-center justify-center
           rounded-[12424px]
           border border-[#DDDDDD]
           bg-[#F8F8F8]
           h-[33px] px-[16px]
-          transition-all duration-300
-          hover:border-black
         "
       >
-        <div className="relative h-[20px] overflow-hidden">
-          {/* First Text */}
-          <span
-            className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-[#121212] whitespace-nowrap"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 400,
-              fontSize: "14px",
-              lineHeight: "100%",
-              letterSpacing: "0px",
-            }}
-          >
-            Book a Call
-          </span>
-
-          {/* Second Text */}
-          <span
-            className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-[#121212] whitespace-nowrap"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 400,
-              fontSize: "14px",
-              lineHeight: "100%",
-              letterSpacing: "0px",
-            }}
-          >
-            Book a Call
-          </span>
-        </div>
-      </button>
+        <span
+          className="whitespace-nowrap text-[#121212] text-center"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 400,
+            fontSize: "14px",
+            lineHeight: "100%",
+            letterSpacing: "0px",
+          }}
+        >
+          Book a Call
+        </span>
+      </div>
 
       {/* Calendar container with 32px gap */}
-      <div className="w-full h-[500px] md:h-[700px] mt-[32px] flex justify-center [&_iframe]:w-full [&_iframe]:h-full">
-        <Cal
-          namespace="30min"
-          calLink="enfiq/30min"
-          style={{ width: "100%", height: "100%" }}
-          config={{
-            layout: "month_view",
-          }}
-        />
-      </div>
+      {/* CALENDAR SECTION */}
+<div className="w-full mt-[24px] md:mt-[32px] flex justify-center overflow-hidden">
+  <div
+    className="
+      w-full
+      max-w-[760px]
+      h-[620px]
+      md:h-[700px]
+      overflow-hidden
+      rounded-[12px]
+    "
+  >
+    <div className="scale-[0.78] md:scale-100 origin-top">
+      <Cal
+        namespace="30min"
+        calLink="enfiq/30min"
+        style={{
+          width: "100%",
+          height: "700px",
+          border: "0",
+        }}
+        config={{
+          layout: "month_view",
+        }}
+      />
+    </div>
+  </div>
+</div>
 
       {/* CONTACT INFO FOOTER IN THE FRAME */}
       <div className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-[48px] gap-y-3 mt-[32px] w-full px-2 sm:px-4">
@@ -456,7 +454,7 @@ function ContactForm() {
       
         <button
           type="submit"
-          className="w-full h-[48px] rounded-[77px] px-[24px] py-[12px] text-white bg-[#D41717] hover:bg-black transition-colors"
+          className="group relative w-full h-[48px] rounded-[77px] px-[24px] py-[12px] text-white bg-[#D41717] hover:bg-black transition-colors flex items-center justify-center"
           style={{
             fontFamily: "'Instrument Sans', 'Inter', sans-serif",
             fontWeight: 500,
@@ -466,7 +464,16 @@ function ContactForm() {
             boxShadow: "inset 0px 4px 6px 2px #FFFFFF4D",
           }}
         >
-          Get in touch
+          <div className="relative h-[24px] overflow-hidden flex items-center justify-center">
+            {/* First Text */}
+            <span className="flex h-[24px] items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] whitespace-nowrap">
+              Get in touch
+            </span>
+            {/* Second Text */}
+            <span className="absolute left-0 top-[24px] flex h-[24px] w-full items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] whitespace-nowrap">
+              Get in touch
+            </span>
+          </div>
         </button>
 
         <div className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-[48px] gap-y-3 mt-[32px] w-full px-2 sm:px-4">

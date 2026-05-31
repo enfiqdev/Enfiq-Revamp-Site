@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Button from "../components/Button";
 
 const navLinks = [
   { label: "Projects", href: "/projects" },
@@ -85,9 +86,18 @@ export default function Navbar() {
         {/* Desktop CTA Button */}
         <Link
           href="/contact"
-          className="hidden md:inline-flex bg-[#D41717] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-black transition-colors"
+          className="group relative hidden md:inline-flex items-center justify-center bg-[#D41717] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-black transition-colors"
         >
-          Get Started
+          <div className="relative h-[20px] overflow-hidden flex items-center justify-center">
+            {/* First Text */}
+            <span className="flex h-[20px] items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[20px] whitespace-nowrap">
+              Get Started
+            </span>
+            {/* Second Text */}
+            <span className="absolute left-0 top-[20px] flex h-[20px] w-full items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[20px] whitespace-nowrap">
+              Get Started
+            </span>
+          </div>
         </Link>
 
         {/* Mobile Hamburger Button */}
@@ -130,9 +140,18 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}
-            className="bg-[#D41717] text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-black transition-colors mt-1"
+            className="group relative inline-flex items-center justify-center bg-[#D41717] text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-black transition-colors mt-1"
           >
-            Get Started
+            <div className="relative h-[20px] overflow-hidden flex items-center justify-center">
+              {/* First Text */}
+              <span className="flex h-[20px] items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[20px] whitespace-nowrap">
+                Get Started
+              </span>
+              {/* Second Text */}
+              <span className="absolute left-0 top-[20px] flex h-[20px] w-full items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[20px] whitespace-nowrap">
+                Get Started
+              </span>
+            </div>
           </Link>
         </div>
       </div>

@@ -5,9 +5,16 @@ type Props = {
   text: string;
   variant?: "primary" | "secondary";
   className?: string;
+  hoverClassName?: string;
 };
 
-export default function Button({ href, text, variant = "primary", className = "" }: Props) {
+export default function Button({
+  href,
+  text,
+  variant = "primary",
+  className = "",
+  hoverClassName = "hover:bg-[#B91212]",
+}: Props) {
   if (variant === "secondary") {
     return (
       <Link
@@ -17,7 +24,7 @@ export default function Button({ href, text, variant = "primary", className = ""
         <div className="relative h-[24px] overflow-hidden">
           {/* First Text */}
           <span
-            className="flex h-[24px] items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] group-hover:text-black whitespace-nowrap text-[#707070]"
+            className="flex h-[24px] items-center justify-center whitespace-nowrap text-[#707070] transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] group-hover:text-black"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
@@ -31,7 +38,7 @@ export default function Button({ href, text, variant = "primary", className = ""
 
           {/* Second Text */}
           <span
-            className="absolute left-0 top-[24px] flex h-[24px] w-full items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] group-hover:text-black whitespace-nowrap text-[#707070]"
+            className="absolute left-0 top-[24px] flex h-[24px] w-full items-center justify-center whitespace-nowrap text-[#707070] transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px] group-hover:text-black"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 400,
@@ -50,12 +57,12 @@ export default function Button({ href, text, variant = "primary", className = ""
   return (
     <Link
       href={href}
-      className={`group relative overflow-hidden inline-flex items-center gap-[16px] bg-[#D41717] text-white pl-[24px] pr-[10px] py-[10px] rounded-full hover:bg-[#B91212] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] ${className}`}
+      className={`group relative inline-flex items-center gap-[16px] overflow-hidden rounded-full bg-[#D41717] pl-[24px] pr-[10px] py-[10px] text-white transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] ${hoverClassName} ${className}`}
     >
       <div className="relative h-[24px] overflow-hidden">
         {/* First Text */}
         <span
-          className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[24px] text-white whitespace-nowrap"
+          className="flex h-[24px] items-center justify-center whitespace-nowrap text-white transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px]"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 400,
@@ -68,7 +75,7 @@ export default function Button({ href, text, variant = "primary", className = ""
 
         {/* Second Text */}
         <span
-          className="absolute left-0 top-[24px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-24px] text-white whitespace-nowrap"
+          className="absolute left-0 top-[24px] flex h-[24px] w-full items-center justify-center whitespace-nowrap text-white transition-transform duration-300 ease-in-out group-hover:-translate-y-[24px]"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 400,
@@ -79,10 +86,11 @@ export default function Button({ href, text, variant = "primary", className = ""
           {text}
         </span>
       </div>
+
       <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
         <svg
           viewBox="0 0 24 24"
-          className="h-[26px] w-[26px]"
+          className="h-[18px] w-[18px]"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"

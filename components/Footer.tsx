@@ -8,34 +8,73 @@ const Footer = () => {
   return (
     <footer className="relative w-full overflow-hidden bg-[#222222]">
 
-      {/* LEFT VECTOR */}
-      <div className="pointer-events-none absolute left-[-420px] md:left-[-320px] top-1/2 -translate-y-1/2 opacity-100">
-        <Image
-          src="/images/assets/vector.png"
-          alt=""
-          width={488.69}
-          height={526.19}
-          className="object-contain"
-          style={{
-            transform: "rotate(-90deg) scaleX(-1)",
-          }}
-        />
-      </div>
+     {/* LEFT VECTOR */}
+<div
+  className="
+    pointer-events-none
+    absolute
+    top-1/2
+    -translate-y-1/2
 
-      {/* RIGHT VECTOR */}
-      <div className="pointer-events-none absolute right-[-320px] top-1/2 -translate-y-1/2 opacity-100">
-        <Image
-          src="/images/assets/vector.png"
-          alt=""
-          width={488.69}
-          height={526.19}
-          className="object-contain"
-          style={{
-            transform: "rotate(-90deg) scaleX(-1)",
-          }}
-        />
-      </div>
+    left-[-90px]
+    sm:left-[-140px]
+    md:left-[-320px]
 
+    opacity-100
+  "
+>
+  <Image
+    src="/images/assets/vector.png"
+    alt=""
+    width={488.69}
+    height={526.19}
+    className="
+      object-contain
+      w-[140px]
+      sm:w-[180px]
+      md:w-[488.69px]
+      h-auto
+      opacity-40 md:opacity-100
+    "
+    style={{
+      transform: "rotate(-90deg) scaleX(-1)",
+    }}
+  />
+</div>
+
+{/* RIGHT VECTOR */}
+<div
+  className="
+    pointer-events-none
+    absolute
+    top-1/2
+    -translate-y-1/2
+
+    right-[-90px]
+    sm:right-[-140px]
+    md:right-[-320px]
+
+    opacity-100
+  "
+>
+  <Image
+    src="/images/assets/vector.png"
+    alt=""
+    width={488.69}
+    height={526.19}
+    className="
+      object-contain
+      w-[140px]
+      sm:w-[180px]
+      md:w-[488.69px]
+      h-auto
+      opacity-40 md:opacity-100
+    "
+    style={{
+      transform: "rotate(-90deg) scaleX(-1)",
+    }}
+  />
+</div>
       {/* MAIN CONTENT */}
       <div className="relative z-10 w-full px-[20px] md:px-[48px] pt-[72px]">
 
@@ -308,24 +347,27 @@ const Footer = () => {
 
         </div>
         {/* HUGE ENFIQ TEXT */}
-       <div className="relative z-0 mt-[48px] flex justify-center overflow-hidden leading-none">
-       <h1
-  style={{
-    fontFamily: "'Pavelt', sans-serif",
-    fontWeight: 400,
-    fontSize: "clamp(120px, 28vw, 300px)",
-    lineHeight: "0.8", // reduce extra bottom space
-    letterSpacing: "0%",
-    color: "#70707026",
-    textAlign: "center",
-    margin: 0, // IMPORTANT
-    padding: 0,
-  }}
->
-  ENFIQ
-</h1>
+      {/* HUGE ENFIQ TEXT */}
+<div className="relative z-0 mt-[28px] md:mt-[48px] flex justify-center leading-none px-2">
 
-        </div>
+  <h1
+    style={{
+      fontFamily: "'Pavelt', sans-serif",
+      fontWeight: 400,
+      fontSize: "clamp(102px, 24vw, 300px)",
+      lineHeight: "0.82",
+      letterSpacing: "0%",
+      color: "#70707026",
+      textAlign: "center",
+      margin: 0,
+      padding: 0,
+      width: "100%",
+    }}
+  >
+    ENFIQ
+  </h1>
+
+</div>
       </div>
     </footer>
   );

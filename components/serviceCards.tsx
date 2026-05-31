@@ -75,8 +75,7 @@ const formatBullet = (bullet: string) => {
 
 export default function ServiceCard({ service }: Props) {
   return (
-    <div className="flex flex-col xl:flex-row items-center xl:items-stretch justify-between w-full max-w-[1144px] mx-auto gap-[60.31px] xl:h-[448px]">
-
+  <div className="flex flex-col xl:flex-row items-start xl:items-stretch justify-between w-full max-w-[1144px] mx-auto gap-[32px] sm:gap-[40px] xl:gap-[60.31px] xl:h-[448px]">
       {/* Mobile Numbers */}
       <div className="flex xl:hidden items-center justify-center w-full gap-4 mb-2">
         <span

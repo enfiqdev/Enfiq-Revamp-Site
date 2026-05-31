@@ -411,6 +411,53 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Mobile Black Bubble (Naijil) */}
+          <div className="absolute top-[115px] right-[16px] xs:right-[24px] sm:right-[32px] md:hidden flex flex-col items-end rotate-[-2.68deg] animate-float pointer-events-none z-20">
+            {/* Main bubble */}
+            <div 
+              className="bg-white rounded-[48.8px] border-[0.72px] border-[#0C0B0B] flex items-center justify-center whitespace-nowrap shadow-sm"
+              style={{
+                width: "194.47px",
+                height: "28.7px",
+                padding: "5.74px 11.48px",
+                gap: "7.18px",
+              }}
+            >
+              <span
+                className="text-[#707070]"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 400,
+                  fontSize: "11px",
+                  lineHeight: "1",
+                  letterSpacing: "0%",
+                }}
+              >
+                Need to start a SaaS company?
+              </span>
+            </div>
+
+            {/* Cursor + Name Tag */}
+            <div className="flex flex-col items-center mr-10 -mt-1 relative z-20">
+              <svg 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="drop-shadow-sm -rotate-12 -ml-2"
+                aria-hidden
+              >
+                <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#0C0B0B" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
+              </svg>
+              <div 
+                className="bg-[#0C0B0B] text-white text-[8px] px-2 py-0.5 rounded-full -mt-[7px] ml-[24px] rotate-[13deg] shadow-md font-medium"
+              >
+                Naijil
+              </div>
+            </div>
+          </div>
+
 
           <h1
             className="max-w-[949px] w-full mx-auto flex flex-col items-center text-center text-[40px] sm:text-[56px] md:text-[64px] leading-[1.1] sm:leading-[1.15] md:leading-[83.2px] text-[#000000] font-normal tracking-normal mb-6 transition-all duration-300"
@@ -483,6 +530,59 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-4 flex-wrap relative">
             <Button href="/contact" text="Book a free call" />
             <Button href="/projects" text="View Our Work" variant="secondary" />
+
+            {/* Mobile Orange Bubble (Bhavya) - positioned exactly below the first button */}
+            <div className="absolute top-[68px] left-[8px] xs:left-[16px] sm:left-[32px] md:hidden flex flex-col items-start rotate-[4.44deg] animate-float pointer-events-none z-20">
+              {/* Main bubble */}
+              <div 
+                className="bg-white rounded-[48.32px] border-[0.71px] border-[#D41717] flex items-center justify-center whitespace-nowrap shadow-sm"
+                style={{
+                  width: "177.66px",
+                  height: "28.43px",
+                  padding: "5.69px 11.37px",
+                  gap: "7.11px",
+                }}
+              >
+                <span
+                  className="text-[#707070]"
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: "10.5px",
+                    lineHeight: "1",
+                    letterSpacing: "0%",
+                  }}
+                >
+                  Need to modify the website?
+                </span>
+              </div>
+
+              {/* Cursor + Name Tag */}
+              <div className="flex flex-col items-start ml-[28px] -mt-[6px] relative z-20">
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 28 28" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="drop-shadow-sm"
+                  aria-hidden
+                >
+                  <path 
+                    d="M4 4.5L22 11.5C23.5 12 23.5 14 22 14.5L14.5 17L12 24.5C11.5 26 9.5 26 9 24.5L3 6C2.5 4.5 4 3 5 3.5L4 4.5Z" 
+                    fill="#D41717" 
+                    stroke="white" 
+                    strokeWidth="2.5" 
+                    strokeLinejoin="round" 
+                  />
+                </svg>
+                <div 
+                  className="bg-[#D41717] text-white text-[8px] px-2 py-0.5 rounded-full -mt-[8px] ml-[12px] rotate-[5deg] shadow-md font-medium"
+                >
+                  Bhavya
+                </div>
+              </div>
+            </div>
           </div>
 
         </section>
@@ -1312,19 +1412,12 @@ export default function HomePage() {
                   color: "#000000",
                 }}
               />
-              <button
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-[16px] rounded-[77px] bg-[#D41717] px-[24px] py-[12px] shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] hover:bg-black transition-colors shrink-0"
-              >
-                <span
-                  className="w-[93px] h-[24px] text-center text-[16px] leading-[24px] tracking-normal text-[#FFFFFF] whitespace-nowrap"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 400,
-                  }}
-                >
-                  Get in touch
-                </span>
-              </button>
+            <Button
+  href="/contact"
+  text="Get in touch"
+  hoverClassName="hover:bg-black"
+  className="w-full sm:w-auto px-[24px] py-[12px] rounded-[77px] shrink-0"
+/>
             </div>
           </form>
         </div>
