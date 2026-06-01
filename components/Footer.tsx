@@ -16,7 +16,7 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    left-[-20px]
+    left-[-90px]
     sm:left-[-140px]
     md:left-[-320px]
 
@@ -34,7 +34,7 @@ const Footer = () => {
       sm:w-[180px]
       md:w-[488.69px]
       h-auto
-      opacity-100
+      opacity-40 md:opacity-100
     "
     style={{
       transform: "rotate(-90deg) scaleX(-1)",
@@ -50,7 +50,7 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    right-[-20px]
+    right-[-90px]
     sm:right-[-140px]
     md:right-[-320px]
 
@@ -68,7 +68,7 @@ const Footer = () => {
       sm:w-[180px]
       md:w-[488.69px]
       h-auto
-      opacity-100
+      opacity-40 md:opacity-100
     "
     style={{
       transform: "rotate(-90deg) scaleX(-1)",
@@ -76,7 +76,7 @@ const Footer = () => {
   />
 </div>
       {/* MAIN CONTENT */}
-      <div className="relative z-10 w-full px-[20px] md:px-[48px] pt-[72px]">
+      <div className="relative z-10 w-full px-[20px] md:px-[48px] pt-[72px] pb-[40px] md:pb-0">
 
         {/* TOP TEXT */}
         <div className="flex flex-col items-center">
