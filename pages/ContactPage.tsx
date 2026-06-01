@@ -75,7 +75,8 @@ function CalendarWidget() {
       md:px-0
       h-[680px]
       md:h-[760px]
-      overflow-hidden
+      overflow-auto
+      md:overflow-hidden
       rounded-[12px]
     "
   >
