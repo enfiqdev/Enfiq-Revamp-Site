@@ -780,7 +780,20 @@ export default function HomePage() {
             >
               01
             </span>
-            <div className="flex-1 max-w-[120px] border-b border-dashed border-[#707070]" />
+            <div className="flex-1 max-w-[120px] flex flex-row items-center justify-between px-1">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="
+                    h-[2px]
+                    w-[12px]
+                    bg-[#707070]
+                    rounded-full
+                    transition-all duration-300
+                  "
+                />
+              ))}
+            </div>
             <span
               style={{
                 fontFamily: "'Instrument Serif', serif",

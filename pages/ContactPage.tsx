@@ -168,45 +168,41 @@ function ContactForm() {
   });
 
   const handleSubmit = async (
-    e: React.FormEvent
-  ) => {
-    e.preventDefault();
+  e: React.FormEvent
+) => {
+  e.preventDefault();
 
-    try {
-
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxpfmwad1nKychrtbtl6JQglJ4Dr1n4G7kHVJjXC2TpG8pZ04KqfNRgsBhNFCODqQj2/exec",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      const data = await response.json();
-
-      if (data.success) {
-        alert("Message sent!");
-
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-
-      } else {
-        alert("Something went wrong");
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbxpfmwad1nKychrtbtl6JQglJ4Dr1n4G7kHVJjXC2TpG8pZ04KqfNRgsBhNFCODqQj2/exec",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(formData),
       }
+    );
 
-    } catch (error) {
-      console.error("FULL ERROR:", error);
-      alert("Error submitting form");
-    }
-  };
+    const result = await response.text();
+
+    console.log("Response:", result);
+
+    alert("Message sent!");
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+
+  } catch (error) {
+    console.error("FULL ERROR:", error);
+    alert("Error submitting form");
+  }
+};
 
   const countryCodes = [
     { code: "+1", country: "US" },

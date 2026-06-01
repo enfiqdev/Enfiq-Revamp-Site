@@ -88,7 +88,7 @@ const allPosts: BlogPost[] = [
 
 const categoryImages = {
   "Designing / Branding": {
-    before: "/images/assets/vv.png",
+    before: "/images/assets/v1.png",
     after: "/images/assets/v2.png",
   },
   "No-code Development": {
@@ -287,7 +287,6 @@ export default function BlogsPage() {
         </div>
 
         {/* Category filters */}
-        {/* Category filters */}
         <div className="w-full flex flex-wrap gap-x-[6px] gap-y-[8px]">
 
           {categories.map((cat) => {
@@ -298,7 +297,7 @@ export default function BlogsPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className="
+                className={`
                   group
                   inline-flex
                   items-center
@@ -308,14 +307,15 @@ export default function BlogsPage() {
                   py-[4px]
                   rounded-[8px]
                   border
-                  border-[#D4D4D4]
                   bg-white
-                  text-[#707070]
-                  hover:text-[#D41717]
-                  hover:border-[#D41717]
                   transition-all
                   duration-200
-                "
+                  ${
+                    isSelected
+                      ? "border-[#D41717] text-[#D41717]"
+                      : "border-[#D4D4D4] text-[#707070] hover:text-[#D41717] hover:border-[#D41717]"
+                  }
+                `}
               >
                 <span className="relative shrink-0 w-[16px] h-[16px] block">
                   {images && (
