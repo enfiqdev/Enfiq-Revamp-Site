@@ -16,7 +16,7 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    left-[-35px]
+    left-[-20px]
     sm:left-[-140px]
     md:left-[-320px]
 
@@ -34,7 +34,7 @@ const Footer = () => {
       sm:w-[180px]
       md:w-[488.69px]
       h-auto
-      opacity-40 md:opacity-100
+      opacity-100
     "
     style={{
       transform: "rotate(-90deg) scaleX(-1)",
@@ -50,7 +50,7 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    right-[-35px]
+    right-[-20px]
     sm:right-[-140px]
     md:right-[-320px]
 
@@ -68,7 +68,7 @@ const Footer = () => {
       sm:w-[180px]
       md:w-[488.69px]
       h-auto
-      opacity-40 md:opacity-100
+      opacity-100
     "
     style={{
       transform: "rotate(-90deg) scaleX(-1)",
@@ -349,7 +349,7 @@ const Footer = () => {
         {/* HUGE ENFIQ TEXT */}
       {/* HUGE ENFIQ TEXT */}
 {/* HUGE ENFIQ TEXT */}
-<div className="relative z-0 mt-[20px] md:mt-[48px] flex justify-center overflow-hidden h-[88px] md:h-auto">
+<div className="relative z-0 mt-[20px] md:mt-[48px] flex justify-center overflow-visible h-auto">
 
   <h1
     style={{
