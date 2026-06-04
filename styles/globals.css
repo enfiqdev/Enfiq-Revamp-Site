@@ -20,7 +20,7 @@
     --color-bg: #FAFAFA;
 
     /* Custom variables to control navbar transparency & backdrop-blur */
-    --nav-bg-scrolled: rgba(255, 255, 255, 0.85); /* Customize the scrolled navbar background color and opacity */
+    --nav-bg-scrolled: rgba(255, 255, 255, 0.8); /* Customize the scrolled navbar background color and opacity */
     --nav-bg-initial: rgba(255, 255, 255, 0.0);   /* Customize the initial navbar background color and opacity */
     --nav-blur-scrolled: 12px;                    /* Customize the scrolled backdrop blur intensity */
     --nav-blur-initial: 0px;                      /* Customize the initial backdrop blur intensity */

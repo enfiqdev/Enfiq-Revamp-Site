@@ -322,11 +322,17 @@ export default function HomePage() {
           }}
         ></div>
         {/*hero  section height*/}
-        <section className="max-w-5xl w-full mx-auto px-6 text-center relative z-10 min-h-[300px] pt-[172px]">
+       <section className="
+           max-w-5xl w-full mx-auto px-6 text-center relative z-10
+           min-h-[400px]
+           md:min-h-[550px]
+           lg:min-h-[300px]
+           pt-[172px]
+          ">
 
 
-          {/* Floating chat bubble */}
-          <div className="absolute top-[120px] right-[-100px] hidden md:flex flex-col items-end -rotate-[-30deg] animate-float pointer-events-none">
+          {/* Floating chat bubble - Desktop */}
+          <div className="absolute top-[140px] right-[-30px] lg:right-[-100px] hidden lg:flex flex-col items-end -rotate-[-30deg] animate-float pointer-events-none">
             {/*to move the entire grouped section*/}
             <div className="bg-white border border-[#121212] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium">
               Need to start a SaaS company?
@@ -342,9 +348,23 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Floating website modification bubble */}
-          <div className="absolute right-[850px] top-[350px] hidden md:flex flex-col items-start -rotate-[-164deg] z-20 animate-float pointer-events-none">
+          {/* Floating chat bubble - Tablet/Mobile */}
+          <div className="absolute top-[110px] right-[40px] sm:right-[30px] md:right-[50px] lg:hidden flex flex-col items-end -rotate-[-30deg] animate-float pointer-events-none z-20">
+            <div className="bg-white border border-[#121212] rounded-full px-3 py-1.5 text-xs text-gray-600 shadow-sm relative z-10 font-medium whitespace-nowrap">
+              Need to start a SaaS company?
+            </div>
+            <div className="flex flex-col items-center mr-8 -mt-0.5 relative z-20">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[16px] h-[16px] drop-shadow-sm -rotate-12 -ml-1">
+                <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#121212" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
+              </svg>
+              <div className="bg-[#121212] text-white text-[10px] px-2 py-1 rounded-full -mt-2 ml-[20px] rotate-[13deg] shadow-md font-medium">
+                Naijil
+              </div>
+            </div>
+          </div>
 
+          {/* Floating website modification bubble - Desktop */}
+          <div className="absolute right-[40px] md:right-[80px] lg:right-[850px] top-[620px] md:top-[640px] lg:top-[500px] hidden lg:flex flex-col items-start -rotate-[-164deg] z-20 animate-float pointer-events-none">
             {/* Main bubble */}
             <div className="h-[40px] rounded-full border-[1.47px] border-[#FF0000] bg-white px-[20px] flex items-center justify-center whitespace-nowrap shadow-sm">
               <span
@@ -363,7 +383,6 @@ export default function HomePage() {
 
             {/* Cursor + name */}
             <div className="flex flex-col items-start ml-[42px] -mt-[10px] relative z-20">
-
               {/* Cursor */}
               <svg
                 width="28"
@@ -384,7 +403,6 @@ export default function HomePage() {
               </svg>
 
               {/* Name tag */}
-              {/*shifting the position of the pill using mt, ml and rotation*/}
               <div
                 className="flex items-center justify-center bg-[#D41717] rounded-[68px] shadow-sm ml-[18px] -mt-[12px] rotate-[5deg]"
                 style={{
@@ -406,54 +424,6 @@ export default function HomePage() {
                 >
                   Bhavya
                 </span>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Mobile Black Bubble (Naijil) */}
-          <div className="absolute top-[115px] right-[16px] xs:right-[24px] sm:right-[32px] md:hidden flex flex-col items-end rotate-[-2.68deg] animate-float pointer-events-none z-20">
-            {/* Main bubble */}
-            <div 
-              className="bg-white rounded-[48.8px] border-[0.72px] border-[#0C0B0B] flex items-center justify-center whitespace-nowrap shadow-sm"
-              style={{
-                width: "194.47px",
-                height: "28.7px",
-                padding: "5.74px 11.48px",
-                gap: "7.18px",
-              }}
-            >
-              <span
-                className="text-[#707070]"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 400,
-                  fontSize: "11px",
-                  lineHeight: "1",
-                  letterSpacing: "0%",
-                }}
-              >
-                Need to start a SaaS company?
-              </span>
-            </div>
-
-            {/* Cursor + Name Tag */}
-            <div className="flex flex-col items-center mr-10 -mt-1 relative z-20">
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="drop-shadow-sm -rotate-12 -ml-2"
-                aria-hidden
-              >
-                <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#0C0B0B" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
-              </svg>
-              <div 
-                className="bg-[#0C0B0B] text-white text-[8px] px-2 py-0.5 rounded-full -mt-[7px] ml-[24px] rotate-[13deg] shadow-md font-medium"
-              >
-                Naijil
               </div>
             </div>
           </div>
@@ -530,9 +500,11 @@ export default function HomePage() {
           <div className="flex items-center justify-center gap-4 flex-wrap relative">
             <Button href="/contact" text="Book a free call" />
             <Button href="/projects" text="View Our Work" variant="secondary" />
+          </div>
 
-            {/* Mobile Orange Bubble (Bhavya) - positioned exactly below the first button */}
-            <div className="absolute top-[68px] left-[8px] xs:left-[16px] sm:left-[32px] md:hidden flex flex-col items-start rotate-[4.44deg] animate-float pointer-events-none z-20">
+          {/* Orange Bubble (Bhavya) for Tablet & Mobile - positioned between CTA and Our Proud Partners */}
+          <div className="lg:hidden flex justify-start w-full mt-10 mb-2 pl-[3px] sm:pl-[8px] md:pl-[18px]">
+            <div className="relative flex flex-col items-start rotate-[-4.44deg] animate-float pointer-events-none z-20">
               {/* Main bubble */}
               <div 
                 className="bg-white rounded-[48.32px] border-[0.71px] border-[#D41717] flex items-center justify-center whitespace-nowrap shadow-sm"
@@ -584,7 +556,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
         </section>
       </div>
 
@@ -768,7 +739,7 @@ export default function HomePage() {
         <div className="flex flex-col xl:flex-row items-stretch justify-center w-full max-w-[1144px] mx-auto gap-[64px] xl:gap-0">
 
           {/* Horizontal mobile-only numbers header */}
-          <div className="flex xl:hidden items-center justify-center w-full gap-4 mb-2">
+          <div className="flex xl:hidden items-center justify-between w-full max-w-[620.72px] mx-auto px-6 mb-2">
             <span
               style={{
                 fontFamily: "'Instrument Serif', serif",
@@ -780,17 +751,15 @@ export default function HomePage() {
             >
               01
             </span>
-            <div className="flex-1 max-w-[120px] flex flex-row items-center justify-between px-1">
-              {Array.from({ length: 6 }).map((_, i) => (
+            <div className="flex-1 max-w-[200px] sm:max-w-[320px] md:max-w-[400px] flex flex-row items-center justify-between px-4">
+              {[10, 16, 24, 32, 48, 80].map((width, i, arr) => (
                 <div
                   key={i}
-                  className="
-                    h-[2px]
-                    w-[12px]
-                    bg-[#707070]
-                    rounded-full
-                    transition-all duration-300
-                  "
+                  className="h-[2px] rounded-full transition-all duration-300"
+                  style={{
+                    width: `${width}px`,
+                    backgroundColor: i === arr.length - 1 ? "#D41717" : "#707070",
+                  }}
                 />
               ))}
             </div>
@@ -809,7 +778,7 @@ export default function HomePage() {
 
           {/* Left Content Wrapper */}
           {/* Changed to relative so we can cleanly control the vertical baseline alignment */}
-          <div className="relative flex flex-col xl:flex-row w-full xl:w-[523.28px] shrink-0 gap-0 xl:gap-[41px] items-start xl:items-stretch xl:h-[484px]">
+          <div className="relative flex flex-col xl:flex-row w-full xl:w-[523.28px] shrink-0 gap-0 xl:gap-[41px] items-start xl:items-stretch xl:h-[484px] px-6 xl:px-0 mx-auto max-w-[620.72px] xl:max-w-none">
 
             {/* ==================== EXACT NUMBER COLUMN CORRECTION ==================== */}
             {/* Uses absolute positioning inside the flex row to cleanly map from the header top down to the list base */}
@@ -823,20 +792,18 @@ export default function HomePage() {
 
               {/* Dynamic Stretched Line */}
               {/* flex-grow automatically scales the dashed line to fill the precise empty gap */}
-              <div className="flex-1 w-full flex justify-center my-4">
-                <svg width="2" height="100%" className="h-full shrink-0" aria-hidden="true">
-                  <line
-                    x1="1"
-                    y1="0"
-                    x2="1"
-                    y2="100%"
-                    stroke="#707070"
-                    strokeWidth={1}
-                    strokeDasharray="14 14"
-                  />
-                </svg>
-              </div>
-
+          <div className="flex-1 w-full flex flex-col items-center justify-between py-8">
+  {[6, 10, 20, 30, 40, 75].map((height, i, arr) => (
+    <div
+      key={i}
+      className="w-[2px] rounded-full transition-all duration-300"
+      style={{
+        height: `${height}px`,
+        backgroundColor: i === arr.length - 1 ? "#D41717" : "#707070",
+      }}
+    />
+  ))}
+</div>
               {/* Number 06 */}
               {/* Boxed to align neatly right below the final list bullet element */}
               <div className="flex items-center justify-center w-[56px] h-[34px] shrink-0">
@@ -884,7 +851,7 @@ export default function HomePage() {
             </div>
           </div>
           {/* Right Image */}
-          <div className="relative w-full xl:w-[620.72px] xl:h-[484px] flex items-center justify-center shrink-0 mt-[20px] xl:mt-0 px-6 xl:px-0">
+         <div className="relative w-full xl:w-[620.72px] xl:h-[484px] flex items-center justify-center shrink-0 mt-0 px-6 xl:px-0">
             <div className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[320px] xl:h-[368px] rounded-[17.73px] overflow-hidden shadow-sm">
               <Image
                 src="/images/assets/pinkSticker.png"

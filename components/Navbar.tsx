@@ -42,10 +42,11 @@ export default function Navbar() {
         - --nav-blur-scrolled: blur amount when scrolled
         - --nav-blur-initial: blur amount at the very top
       */}
+      {/*tha pl[20px] is the left padding arounf the enfiq logo and the padding around the get started pr is 10px UPDATED*/}
       <div
         className={`w-full flex items-center justify-between relative transition-all duration-500 ease-in-out ${
-          scrolled
-            ? "w-[calc(100%-2rem)] md:w-full md:max-w-[900px] h-[54px] rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.04] px-8"
+          scrolled 
+            ? "w-[calc(100%-2rem)] md:w-full md:max-w-[900px] h-[54px] rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.04] pl-[20px] pr-[10px]"
             : "w-full max-w-[1144px] h-[44px] rounded-none border-transparent px-6"
         }`}
         style={{
@@ -107,15 +108,15 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7.5px]" : ""
+            className={`block w-6 h-[2.5px] bg-[#000000] rounded-full transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7.5px]" : ""
               }`}
           />
           <span
-            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
+            className={`block w-6 h-[2.5px] bg-[#000000] rounded-full transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
               }`}
           />
           <span
-            className={`block w-6 h-[2.5px] bg-[#D41717] rounded-full transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
+            className={`block w-6 h-[2.5px] bg-[#000000] rounded-full transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7.5px]" : ""
               }`}
           />
         </button>

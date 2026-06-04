@@ -98,7 +98,7 @@ export default function ServicesPage() {
     <div className="pt-[112px]">
 
       {/* PAGE HEADER */}
-      <section className="max-w-3xl mx-auto px-6 pb-[64px] text-center">
+      <section className="max-w-3xl mx-auto px-6 pb-6 sm:pb-[64px] text-center">
 
         <h1
           className="w-full max-w-[560px] mx-auto text-center text-[#121212] mb-4"
@@ -130,7 +130,7 @@ export default function ServicesPage() {
       </section>
 
       {/* SERVICE LIST */}
-      <section className="max-w-[1248px] mx-auto px-6 flex flex-col gap-[61.84px] py-[69.81px]">
+      <section className="max-w-[1248px] mx-auto px-6 flex flex-col gap-[61.84px] pt-8 pb-[69.81px] sm:py-[69.81px]">
 
         {services.map((service) => (
           <ServiceCard

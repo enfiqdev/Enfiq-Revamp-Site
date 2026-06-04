@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="relative w-full overflow-hidden bg-[#222222]">
 
-     {/* LEFT VECTOR */}
+    {/* LEFT VECTOR */}
 <div
   className="
     pointer-events-none
@@ -16,11 +16,12 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    left-[-90px]
+    left-[-30px]
     sm:left-[-140px]
     md:left-[-320px]
 
     opacity-100
+    z-0
   "
 >
   <Image
@@ -30,11 +31,11 @@ const Footer = () => {
     height={526.19}
     className="
       object-contain
-      w-[140px]
+      w-[180px]
       sm:w-[180px]
       md:w-[488.69px]
       h-auto
-      opacity-40 md:opacity-100
+      opacity-70 md:opacity-100
     "
     style={{
       transform: "rotate(-90deg) scaleX(-1)",
@@ -50,11 +51,12 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    right-[-90px]
+    right-[-30px]
     sm:right-[-140px]
     md:right-[-320px]
 
     opacity-100
+    z-0
   "
 >
   <Image
@@ -64,11 +66,11 @@ const Footer = () => {
     height={526.19}
     className="
       object-contain
-      w-[140px]
+      w-[180px]
       sm:w-[180px]
       md:w-[488.69px]
       h-auto
-      opacity-40 md:opacity-100
+      opacity-70 md:opacity-100
     "
     style={{
       transform: "rotate(-90deg) scaleX(-1)",
@@ -101,7 +103,7 @@ const Footer = () => {
           <div className="mt-[40px] flex items-center gap-[8px]">
 
             {/* LINKEDIN */}
-            <a href="#">
+            <a href="https://www.linkedin.com/company/enfiq" target="_blank" rel="noopener noreferrer" className="hover:opacity-85 transition-opacity">
               <Image
                 src="/images/assets/linkdin.png"
                 alt="LinkedIn"
@@ -111,7 +113,7 @@ const Footer = () => {
             </a>
 
             {/* TWITTER */}
-            <a href="#">
+            <a href="https://x.com/EnfiqOfficial" target="_blank" rel="noopener noreferrer" className="hover:opacity-85 transition-opacity">
               <Image
                 src="/images/assets/twitter.png"
                 alt="Twitter"
@@ -121,7 +123,7 @@ const Footer = () => {
             </a>
 
             {/* MEDIUM */}
-            <a href="#">
+            <a href="https://medium.com/@enfiq" target="_blank" rel="noopener noreferrer" className="hover:opacity-85 transition-opacity">
               <Image
                 src="/images/assets/medium.png"
                 alt="Medium"
@@ -131,7 +133,7 @@ const Footer = () => {
             </a>
 
             {/* INSTAGRAM */}
-            <a href="#">
+            <a href="https://www.instagram.com/enfiqofficial" target="_blank" rel="noopener noreferrer" className="hover:opacity-85 transition-opacity">
               <Image
                 src="/images/assets/insta.png"
                 alt="Instagram"
@@ -141,7 +143,7 @@ const Footer = () => {
             </a>
 
             {/* WHATSAPP */}
-            <a href="#">
+            <a href="https://wa.me/914998778675" target="_blank" rel="noopener noreferrer" className="hover:opacity-85 transition-opacity">
               <Image
                 src="/images/assets/whatsapp.png"
                 alt="WhatsApp"
@@ -151,7 +153,7 @@ const Footer = () => {
             </a>
 
             {/* AT SIGN */}
-            <a href="#">
+            <a href="mailto:team@enfiq.com" className="hover:opacity-85 transition-opacity">
               <Image
                 src="/images/assets/at-sign.png"
                 alt="At Sign"
@@ -161,7 +163,7 @@ const Footer = () => {
             </a>
 
             {/* CAL */}
-            <a href="#">
+            <a href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" className="hover:opacity-85 transition-opacity">
               <Image
                 src="/images/assets/cal.png"
                 alt="Cal"
@@ -191,7 +193,7 @@ const Footer = () => {
 </div>
 
         {/* BOTTOM ROW */}
-        {/* BOTTOM ROW */}
+        
         <div className="mt-[32px] flex flex-col items-center">
 
           {/* DESKTOP NAVIGATION */}
@@ -346,17 +348,16 @@ const Footer = () => {
           </p>
 
         </div>
-        {/* HUGE ENFIQ TEXT */}
       {/* HUGE ENFIQ TEXT */}
-{/* HUGE ENFIQ TEXT */}
-<div className="relative z-0 mt-[20px] md:mt-[48px] flex justify-center overflow-visible h-auto">
+<div className="relative z-0 mt-[20px] md:mt-[48px] flex justify-center leading-none">
 
   <h1
+    className="translate-y-[18px] md:translate-y-[30px]"
     style={{
       fontFamily: "'Pavelt', sans-serif",
       fontWeight: 400,
       fontSize: "clamp(102px, 24vw, 300px)",
-      lineHeight: "0.72",
+      lineHeight: "0.78",
       letterSpacing: "0%",
       color: "#70707026",
       textAlign: "center",

@@ -77,7 +77,7 @@ export default function ServiceCard({ service }: Props) {
   return (
   <div className="flex flex-col xl:flex-row items-start xl:items-stretch justify-between w-full max-w-[1144px] mx-auto gap-[32px] sm:gap-[40px] xl:gap-[60.31px] xl:h-[448px]">
       {/* Mobile Numbers */}
-      <div className="flex xl:hidden items-center justify-center w-full gap-4 mb-2">
+      <div className="flex xl:hidden items-center justify-between w-full max-w-[560px] mx-auto px-4 mb-2">
         <span
           style={{
             fontFamily: "'Instrument Serif', serif",
@@ -90,17 +90,21 @@ export default function ServiceCard({ service }: Props) {
           {service.num}
         </span>
 
-        <div className="flex-1 max-w-[120px] flex flex-row items-center justify-between px-1">
-          {Array.from({ length: 6 }).map((_, i) => (
+        <div className="flex-1 max-w-[200px] sm:max-w-[300px] md:max-w-[360px] flex flex-row items-center justify-between px-4">
+          {[
+            "w-[28px] sm:w-[75px]",
+            "w-[18px] sm:w-[40px]",
+            "w-[12px] sm:w-[30px]",
+            "w-[8px] sm:w-[20px]",
+            "w-[6px] sm:w-[10px]",
+            "w-[4px] sm:w-[6px]",
+          ].map((widthClass, i) => (
             <div
               key={i}
-              className="
-                h-[2px]
-                w-[12px]
-                bg-[#707070]
-                rounded-full
-                transition-all duration-300
-              "
+              className={`h-[2px] rounded-full shrink-0 transition-all duration-300 ${widthClass}`}
+              style={{
+                backgroundColor: i === 0 ? "#D41717" : "#707070",
+              }}
             />
           ))}
         </div>
@@ -119,7 +123,7 @@ export default function ServiceCard({ service }: Props) {
       </div>
 
       {/* Left Wrapper */}
-      <div className="relative flex flex-row items-center flex-1 min-w-0 w-full xl:min-w-[450px] xl:h-full">
+      <div className="relative flex flex-row items-center flex-1 min-w-0 w-full xl:min-w-[450px] xl:h-full max-w-[560px] mx-auto px-4 xl:max-w-none xl:px-0">
 
         {/* Desktop Number Column */}
         <div
@@ -144,18 +148,16 @@ export default function ServiceCard({ service }: Props) {
               {service.num}
             </span>
           </div>
-
-  <div className="flex-1 w-full flex flex-col items-center justify-between py-2 sm:py-3 md:py-4">
-  {Array.from({ length: 6 }).map((_, i) => (
+{/*the idth ofthe dashes are modified in descending order*/}
+<div className="flex-1 w-full flex flex-col items-center justify-between py-2 sm:py-3 md:py-4">
+  {[75, 40, 30, 20, 10, 6].map((height, i) => (
     <div
       key={i}
-      className="
-        w-[2px]
-        h-[12px] sm:h-[16px] md:h-[20px] lg:h-[22px]
-        bg-[#707070]
-        rounded-full
-        transition-all duration-300
-      "
+      className="w-[2px] rounded-full transition-all duration-300"
+      style={{
+        height: `${height}px`,
+        backgroundColor: i === 0 ? "#D41717" : "#707070",
+      }}
     />
   ))}
 </div>
@@ -189,7 +191,7 @@ export default function ServiceCard({ service }: Props) {
         />
 
         {/* Content */}
-        <div className="flex-1 flex flex-col gap-[16px] py-[6px] w-full text-left items-start">
+        <div className="flex-1 flex flex-col gap-[10px] xl:gap-[16px] py-[6px] w-full text-left items-start">
 
           <h3
             className="text-[#000000]"
@@ -215,7 +217,7 @@ export default function ServiceCard({ service }: Props) {
             {service.description}
           </p>
 
-          <ul className="flex flex-col gap-[8px] mt-[8px] w-fit text-left">
+          <ul className="flex flex-col gap-[8px] mt-[2px] xl:mt-[8px] w-fit text-left">
             {service.bullets.map((bullet) => (
               <li
                 key={bullet}
@@ -242,22 +244,22 @@ export default function ServiceCard({ service }: Props) {
       </div>
 
       {/* Right Image */}
-      <div className="relative w-full xl:w-[560px] xl:h-full flex items-center justify-center shrink-0">
-
-        <div
-          className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[332px] rounded-[16px] overflow-hidden shadow-sm"
-          style={{ maxWidth: "560px" }}
-        >
-          <Image
-            src="/images/assets/pinkSticker.png"
-            alt={service.title}
-            fill
-            className="object-cover"
-            sizes="560px"
-          />
-        </div>
-
-      </div>
+      <div
+  className="relative w-full xl:w-[560px] xl:h-full flex items-center justify-center shrink-0 mt-[4px] xl:mt-0 px-4 xl:px-0"
+>
+  <div
+    className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[332px] rounded-[16px] overflow-hidden shadow-sm"
+    style={{ maxWidth: "560px" }}
+  >
+    <Image
+      src="/images/assets/pinkSticker.png"
+      alt={service.title}
+      fill
+      className="object-cover"
+      sizes="560px"
+    />
+  </div>
+</div>
     </div>
   );
 }

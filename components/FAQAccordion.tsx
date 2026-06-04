@@ -141,26 +141,31 @@ export default function FAQAccordion() {
     opacity: { duration: 0.15 },
   }}
 >
-                      <div className="flex gap-[12px] items-end">
+    <div className="flex gap-[12px] items-end">
 
-                        {/* Enfiq avatar */}
-                        <motion.div
-                          className="w-[36px] h-[36px] rounded-full border border-[#EAEAEA] bg-white flex items-center justify-center shadow-sm shrink-0"
-                          initial={{ scale: 0, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          transition={{ type: "spring", stiffness: 320, damping: 18, delay: 0.04 }}
-                        >
-                          <Image
-                            src="/images/assets/enfiqlogo.png"
-                            alt="Enfiq"
-                            width={36}
-                            height={36}
+    {/* Enfiq avatar */}
+       <motion.div
+        className="w-[36px] h-[36px] rounded-full border border-[#EAEAEA] bg-white flex items-center justify-center shadow-sm shrink-0"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 320, damping: 18, delay: 0.04 }}
+        >
+        <Image
+            src="/images/assets/enfiqlogo.png"
+              alt="Enfiq"
+             width={36}
+          height={36}
                             className="object-contain rounded-full"
                           />
                         </motion.div>
 
                         {/* Answer bubble */}
-                        <div className="bg-[#FFFFFF] border border-[#E9E9E9] rounded-tl-[4px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-[20px] px-5 py-4 shadow-sm max-w-[420px]">
+                        <div className="bg-[#FFFFFF] border border-[#E9E9E9] 
+                        rounded-tl-[0px] 
+                        rounded-tr-[24px]
+                       rounded-br-[24px] 
+                       rounded-bl-[24px] 
+                       px-5 py-4 shadow-sm max-w-[420px]">
                           <p
                             className="text-[#000000]"
                             style={{
