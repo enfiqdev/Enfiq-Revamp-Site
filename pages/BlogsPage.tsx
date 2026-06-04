@@ -252,7 +252,7 @@ export default function BlogsPage() {
       </section>
 
       {/* ── SEARCH + FILTERS ── */}
-      <section className="w-full max-w-[560px] mx-auto flex flex-col items-center gap-[16px] pb-[64px]">
+      <section className="w-full max-w-[560px] mx-auto px-4 flex flex-col items-center gap-[16px] pb-[64px]">
         {/* Search bar */}
         {/* Search bar */}
         <div className="relative w-full h-[42px]">

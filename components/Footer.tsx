@@ -16,8 +16,8 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    left-[-30px]
-    sm:left-[-140px]
+    left-[-110px]
+    sm:left-[-80px]
     md:left-[-320px]
 
     opacity-100
@@ -31,8 +31,8 @@ const Footer = () => {
     height={526.19}
     className="
       object-contain
-      w-[180px]
-      sm:w-[180px]
+      w-[150px]
+      sm:w-[220px]
       md:w-[488.69px]
       h-auto
       opacity-70 md:opacity-100
@@ -51,8 +51,8 @@ const Footer = () => {
     top-1/2
     -translate-y-1/2
 
-    right-[-30px]
-    sm:right-[-140px]
+    right-[-110px]
+    sm:right-[-80px]
     md:right-[-320px]
 
     opacity-100
@@ -66,8 +66,8 @@ const Footer = () => {
     height={526.19}
     className="
       object-contain
-      w-[180px]
-      sm:w-[180px]
+      w-[150px]
+      sm:w-[220px]
       md:w-[488.69px]
       h-auto
       opacity-70 md:opacity-100
@@ -78,7 +78,7 @@ const Footer = () => {
   />
 </div>
       {/* MAIN CONTENT */}
-      <div className="relative z-10 w-full px-[20px] md:px-[48px] pt-[72px] pb-[40px] md:pb-0">
+      <div className="relative z-10 w-full px-[20px] md:px-[48px] pt-[72px] pb-0">
 
         {/* TOP TEXT */}
         <div className="flex flex-col items-center">

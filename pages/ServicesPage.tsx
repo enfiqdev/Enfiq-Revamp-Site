@@ -2,6 +2,7 @@
 
 import React from "react";
 import ServiceCard from "../components/serviceCards";
+import ContactForm from "../components/ContactForm";
 
 interface Service {
   num: string;
@@ -84,15 +85,6 @@ const services: Service[] = [
     ],
   },
 ];
-
-function ContactForm() {
-  return (
-    <div>
-      {/* KEEP YOUR EXISTING CONTACT FORM CODE HERE */}
-    </div>
-  );
-}
-
 export default function ServicesPage() {
   return (
     <div className="pt-[112px]">
