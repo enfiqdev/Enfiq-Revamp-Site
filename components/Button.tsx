@@ -6,6 +6,7 @@ type Props = {
   variant?: "primary" | "secondary";
   className?: string;
   hoverClassName?: string;
+  showArrow?: boolean;
 };
 
 export default function Button({
@@ -14,6 +15,7 @@ export default function Button({
   variant = "primary",
   className = "",
   hoverClassName = "hover:bg-[#B91212]",
+  showArrow = true,
 }: Props) {
   if (variant === "secondary") {
     return (
@@ -54,10 +56,12 @@ export default function Button({
     );
   }
 
+  const paddingClass = showArrow ? "pl-[24px] pr-[10px] py-[10px]" : "px-[24px] py-[12px] justify-center";
+
   return (
     <Link
       href={href}
-      className={`group relative inline-flex items-center gap-[16px] overflow-hidden rounded-full bg-[#D41717] pl-[24px] pr-[10px] py-[10px] text-white transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] ${hoverClassName} ${className}`}
+      className={`group relative inline-flex items-center gap-[16px] overflow-hidden rounded-full bg-[#D41717] text-white transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] ${paddingClass} ${hoverClassName} ${className}`}
     >
       <div className="relative h-[24px] overflow-hidden">
         {/* First Text */}
@@ -87,20 +91,22 @@ export default function Button({
         </span>
       </div>
 
-      <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
-        <svg
-          viewBox="0 0 24 24"
-          className="h-[18px] w-[18px]"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden
-        >
-          <path d="M7 17L17 7M17 7H9M17 7V15" />
-        </svg>
-      </span>
+      {showArrow && (
+        <span className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full bg-white text-[#D41717] shadow-sm">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-[18px] w-[18px]"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
+            <path d="M7 17L17 7M17 7H9M17 7V15" />
+          </svg>
+        </span>
+      )}
     </Link>
   );
 }

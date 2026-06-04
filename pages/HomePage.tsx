@@ -752,12 +752,18 @@ export default function HomePage() {
               01
             </span>
             <div className="flex-1 max-w-[200px] sm:max-w-[320px] md:max-w-[400px] flex flex-row items-center justify-between px-4">
-              {[10, 16, 24, 32, 48, 80].map((width, i, arr) => (
+              {[
+                "w-[4px] sm:w-[6px]",
+                "w-[6px] sm:w-[10px]",
+                "w-[8px] sm:w-[20px]",
+                "w-[12px] sm:w-[30px]",
+                "w-[18px] sm:w-[40px]",
+                "w-[28px] sm:w-[75px]",
+              ].map((widthClass, i, arr) => (
                 <div
                   key={i}
-                  className="h-[2px] rounded-full transition-all duration-300"
+                  className={`h-[2px] rounded-full shrink-0 transition-all duration-300 ${widthClass}`}
                   style={{
-                    width: `${width}px`,
                     backgroundColor: i === arr.length - 1 ? "#D41717" : "#707070",
                   }}
                 />
@@ -1393,11 +1399,12 @@ export default function HomePage() {
                 }}
               />
             <Button
-  href="/contact"
-  text="Get in touch"
-  hoverClassName="hover:bg-black"
-  className="w-full sm:w-auto px-[24px] py-[12px] rounded-[77px] shrink-0"
-/>
+              href="/contact"
+              text="Get in touch"
+              hoverClassName="hover:bg-black"
+              showArrow={false}
+              className="w-full sm:w-auto px-[24px] py-[12px] rounded-[77px] shrink-0"
+            />
             </div>
           </form>
         </div>

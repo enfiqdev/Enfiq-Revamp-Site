@@ -15,11 +15,11 @@ const Footer = () => {
     absolute
     top-1/2
     -translate-y-1/2
-
-    left-[-110px]
-    sm:left-[-80px]
-    md:left-[-320px]
-
+ 
+    left-[-220px]
+    sm:left-[-280px]
+    md:left-[-450px]
+ 
     opacity-100
     z-0
   "
@@ -31,9 +31,9 @@ const Footer = () => {
     height={526.19}
     className="
       object-contain
-      w-[150px]
-      sm:w-[220px]
-      md:w-[488.69px]
+      w-[300px]
+      sm:w-[450px]
+      md:w-[620px]
       h-auto
       opacity-70 md:opacity-100
     "
@@ -50,11 +50,11 @@ const Footer = () => {
     absolute
     top-1/2
     -translate-y-1/2
-
-    right-[-110px]
-    sm:right-[-80px]
-    md:right-[-320px]
-
+ 
+    right-[-220px]
+    sm:right-[-280px]
+    md:right-[-450px]
+ 
     opacity-100
     z-0
   "
@@ -66,9 +66,9 @@ const Footer = () => {
     height={526.19}
     className="
       object-contain
-      w-[150px]
-      sm:w-[220px]
-      md:w-[488.69px]
+      w-[300px]
+      sm:w-[450px]
+      md:w-[620px]
       h-auto
       opacity-70 md:opacity-100
     "
