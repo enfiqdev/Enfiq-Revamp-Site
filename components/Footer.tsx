@@ -349,15 +349,20 @@ const Footer = () => {
 
         </div>
       {/* HUGE ENFIQ TEXT */}
-<div className="relative z-0 mt-[20px] md:mt-[48px] flex justify-center leading-none">
 
-  <h1
-    className="translate-y-[18px] md:translate-y-[30px]"
+  <div className="relative z-0 mt-[20px] md:mt-[48px] flex justify-center leading-none">
+
+  <div
+    className="
+      translate-y-0
+      md:translate-y-0
+      lg:translate-y-0
+    "
     style={{
       fontFamily: "'Pavelt', sans-serif",
       fontWeight: 400,
       fontSize: "clamp(102px, 24vw, 300px)",
-      lineHeight: "0.78",
+      lineHeight: "0.7",
       letterSpacing: "0%",
       color: "#70707026",
       textAlign: "center",
@@ -367,7 +372,7 @@ const Footer = () => {
     }}
   >
     ENFIQ
-  </h1>
+  </div>
 
 </div>
       </div>

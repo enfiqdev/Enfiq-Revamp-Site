@@ -992,7 +992,7 @@ export default function HomePage() {
               iconWidth: "106px",
               iconHeight: "106px",
               iconRight: "19.88px",
-              titleDims: "w-[301px] h-[90px]"
+              titleDims: "w-full max-w-[301px] min-h-[90px]"
             },
             {
               title: "Fast MVP\nDevelopment",
@@ -1002,7 +1002,7 @@ export default function HomePage() {
               iconWidth: "106px",
               iconHeight: "106px",
               iconRight: "22px",
-              titleDims: "w-[301px] h-[90px]"
+              titleDims: "w-full max-w-[301px] min-h-[90px]"
             },
             {
               title: "End-to-End\nProject Delivery",
@@ -1012,7 +1012,7 @@ export default function HomePage() {
               iconWidth: "106px",
               iconHeight: "106px",
               iconRight: "22.16px",
-              titleDims: "w-[239px] h-[90px]"
+              titleDims: "w-full max-w-[239px] min-h-[90px]"
             },
           ].map((card, index) => (
             <SpeedQualityCard

@@ -40,7 +40,7 @@ function CalendarWidget() {
     <div
       className="max-w-[1200px] w-full mx-auto bg-[#F3F4F6] rounded-[16px] overflow-visible border border-[#707070] flex flex-col items-center pt-[40px] pb-[40px] px-4 md:px-[40px]"
     >
-      {/* Book a Call Label */}
+      {/* Book a Call improved to Label */}
       <div
         className="
           inline-flex items-center justify-center
@@ -65,7 +65,7 @@ function CalendarWidget() {
       </div>
 
     {/* CALENDAR SECTION */}
-<div className="w-full mt-[24px] md:mt-[32px] flex justify-center">
+<div className="w-full mt-[24px] md:mt-[20px] flex justify-center">
   <div
     className="
       w-full
@@ -73,7 +73,7 @@ function CalendarWidget() {
       px-[6px]
       md:px-0
       h-[680px]
-      md:h-[760px]
+      md:h-[600px]
       overflow-auto
       md:overflow-hidden
       rounded-[12px]

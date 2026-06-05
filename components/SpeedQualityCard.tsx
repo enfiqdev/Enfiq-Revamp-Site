@@ -22,7 +22,7 @@ export default function SpeedQualityCard({
   iconWidth = "106px",
   iconHeight = "106px",
   iconRight = "22px",
-  titleDims = "w-[301px] h-[90px]",
+  titleDims = "w-full max-w-[301px] min-h-[90px]",
 }: SpeedQualityCardProps) {
   return (
     <div className="relative w-full max-w-[365px] h-[409px] group cursor-pointer">
@@ -34,11 +34,11 @@ export default function SpeedQualityCard({
           className="w-full h-full bg-[#EFEFEF]"
           style={{
             WebkitMaskImage: `url('/images/assets/maskcard.png')`,
-            WebkitMaskSize: "contain",
+            WebkitMaskSize: "100% 100%",
             WebkitMaskPosition: "center",
             WebkitMaskRepeat: "no-repeat",
             maskImage: `url('/images/assets/maskcard.png')`,
-            maskSize: "contain",
+            maskSize: "100% 100%",
             maskPosition: "center",
             maskRepeat: "no-repeat",
           }}
@@ -90,7 +90,7 @@ export default function SpeedQualityCard({
 
         {/* Description - Black on mobile, gray on desktop initially, turns black on desktop hover */}
         <p
-          className="absolute left-[32px] bottom-[32px] w-[290px] h-[96px] text-[16px] text-[#000000] lg:text-[#707070] font-normal leading-[24px] text-left transition-colors duration-300 lg:group-hover:text-[#000000]"
+          className="absolute left-[32px] right-[32px] max-w-[290px] bottom-[32px] text-[16px] text-[#000000] lg:text-[#707070] font-normal leading-[24px] text-left transition-colors duration-300 lg:group-hover:text-[#000000]"
           style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: "0%" }}
         >
           {desc}
