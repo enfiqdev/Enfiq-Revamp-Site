@@ -7,6 +7,11 @@ import FAQAccordion from "../components/FAQAccordion";
 import SpeedQualityCard from "../components/SpeedQualityCard";
 import TestimonialCard from "../components/TestimonialCard";
 import Button from "../components/Button";
+import ProjectGridCard from "../components/ProjectGridCard";
+import ProductCard from "../components/ProductCard";
+import BlogCard from "../components/BlogCard";
+
+
 
 
 const partners = ["Framer", "Notion", "Voiceflow", "furlough"];
@@ -635,79 +640,11 @@ export default function HomePage() {
             <div className="min-w-0 flex-1 lg:max-w-[62%] w-full">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[24px] gap-y-[32px]">
                 {projects.slice(0, 4).map((proj, i) => (
-                  <Link
-                    href="/projects"
+                  <ProjectGridCard
                     key={proj.id}
-                    aria-label={`View ${proj.name}`}
-                    className="flex flex-col gap-[24px] w-full group"
-                  >
-                    <article
-                      className="relative w-full overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717] aspect-[366/256]"
-                    >
-                      <Image
-                        src={vsProjectScreenshots[i]}
-                        alt={`${proj.name} product screenshot`}
-                        fill
-                        sizes="(max-width: 1024px) 45vw, 320px"
-                        className="object-cover object-top"
-                      />
-                      <div className="absolute top-[10px] right-[10px] z-10 flex w-[42px] h-[42px] items-center justify-center rounded-[22.83px] border-[0.59px] border-[#707070]/[0.3] bg-white p-[9.36px] transition-colors duration-300 group-hover:border-[#D41717]">
-                        <svg
-                          viewBox="0 0 24 24"
-                          className="w-full h-full text-[#121212] transition-colors duration-300 group-hover:text-[#D41717]"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden
-                        >
-                          <path d="M7 17L17 7M17 7H9M17 7V15" />
-                        </svg>
-                      </div>
-                    </article>
-
-                    <div className="flex flex-col w-full gap-[8px]">
-                      <div className="flex flex-row items-center gap-[8px]">
-                        <div className="relative w-[30px] h-[30px] flex shrink-0 items-center justify-center border-[0.5px] border-[#D5D5D5] rounded-[6px] bg-[#FFFFFF] overflow-hidden">
-                          <div className="relative w-full h-full">
-                            <Image
-                              src={proj.logo}
-                              alt={`${proj.name} Logo`}
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                        </div>
-                        <span
-                          className="text-[24px] font-normal text-[#000000] leading-[33.6px]"
-                          style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                          {proj.name}
-                        </span>
-                      </div>
-
-                      <div className="flex flex-row flex-wrap items-center gap-[8px]">
-                        {proj.tags.map((tag) => {
-                          let widthClass = "w-auto";
-                          const t = tag.toUpperCase();
-                          if (t === "DESIGN") widthClass = "w-[78px]";
-                          else if (t === "DEVELOPMENT") widthClass = "w-[120px]";
-                          else if (t === "FRAMER DEVELOPMENT") widthClass = "w-[171px]";
-
-                          return (
-                            <span
-                              key={tag}
-                              className={`inline-flex items-center justify-center rounded-[33px] border border-[#707070]/[0.3] bg-white px-[16px] py-[2px] gap-[10px] text-[14px] font-normal text-[#707070] leading-[21px] group-hover:text-[#000000] transition-colors duration-300 h-[25px] ${widthClass}`}
-                              style={{ fontFamily: "'Inter', sans-serif" }}
-                            >
-                              {tag}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </Link>
+                    project={proj}
+                    screenshot={vsProjectScreenshots[i]}
+                  />
                 ))}
               </div>
             </div>
@@ -895,70 +832,27 @@ export default function HomePage() {
           </h2>
         </div>
         <div className="flex flex-col md:flex-row gap-[23px]">
-          {/* Card 1 */}
-          <div className="flex flex-col gap-[24px] w-full xl:w-[560px] group">
-            <article className="relative w-full h-[350px] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
-              <Image src="/images/assets/whiteOAK/domComp.png" alt="Domain Comp" fill sizes="(max-width: 1024px) 45vw, 560px" className="object-cover object-top" />
-              <Link
-                href="#"
-                className="absolute top-[10px] right-[10px] z-10 flex w-[42px] h-[42px] items-center justify-center rounded-[22.83px] border-[0.59px] border-[#707070]/[0.3] bg-white p-[9.36px] transition-colors duration-300 group-hover:border-[#D41717]"
-              >
-                <svg viewBox="0 0 24 24" className="w-full h-full text-[#121212] transition-colors duration-300 group-hover:text-[#D41717]" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M7 17L17 7M17 7H9M17 7V15" />
-                </svg>
-              </Link>
-            </article>
-            <div className="flex flex-col items-start gap-[8px]">
-              <div className="flex flex-row items-center gap-[8px]">
-                <div className="relative w-[30px] h-[30px] flex shrink-0 items-center justify-center border-[0.5px] border-[#D5D5D5] rounded-[6px] bg-[#FFFFFF] overflow-hidden">
-                  <div className="relative w-full h-full">
-                    <Image src="/images/assets/whiteOAK/DomainCompLogo.png" alt="Domain Comp Logo" fill className="object-contain" />
-                  </div>
-                </div>
-                <span className="text-[24px] font-normal text-[#000000] leading-[33.6px]" style={{ fontFamily: "'Inter', sans-serif" }}>Domain Comp</span>
-              </div>
-              <div className="flex flex-row flex-wrap items-center gap-[8px]">
-                <span className="inline-flex items-center justify-center rounded-[33px] border border-[#707070]/[0.3] bg-white px-[16px] py-[2px] gap-[10px] text-[14px] font-normal text-[#707070] leading-[21px] transition-colors duration-300 h-[25px] w-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Domain Comparator
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="flex flex-col gap-[24px] w-full xl:w-[560px] group">
-            <article className="relative w-full h-[350px] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
-              <Image src="/images/assets/phiV.png" alt="Phi Variate" fill sizes="(max-width: 1024px) 45vw, 560px" className="object-cover object-top" />
-              <Link
-                href="#"
-                className="absolute top-[10px] right-[10px] z-10 flex w-[42px] h-[42px] items-center justify-center rounded-[22.83px] border-[0.59px] border-[#707070]/[0.3] bg-white p-[9.36px] transition-colors duration-300 group-hover:border-[#D41717]"
-              >
-                <svg viewBox="0 0 24 24" className="w-full h-full text-[#121212] transition-colors duration-300 group-hover:text-[#D41717]" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M7 17L17 7M17 7H9M17 7V15" />
-                </svg>
-              </Link>
-            </article>
-            <div className="flex flex-col items-start gap-[8px]">
-              <div className="flex flex-row items-center gap-[8px]">
-                <div className="relative w-[30px] h-[30px] flex shrink-0 items-center justify-center border-[0.5px] border-[#D5D5D5] rounded-[6px] bg-[#FFFFFF] overflow-hidden">
-                  <div className="relative w-full h-full">
-                    <Image src="/images/assets/whiteOAK/phiVirateLogo.png" alt="Phi Variate Logo" fill className="object-contain" />
-                  </div>
-                </div>
-                <span className="text-[24px] font-normal text-[#000000] leading-[33.6px]" style={{ fontFamily: "'Inter', sans-serif" }}>Phi Variate</span>
-              </div>
-              <div className="flex flex-row flex-wrap items-center gap-[8px]">
-                <span className="inline-flex items-center justify-center rounded-[33px] border border-[#707070]/[0.3] bg-white px-[16px] py-[2px] gap-[10px] text-[14px] font-normal text-[#707070] leading-[21px] transition-colors duration-300 h-[25px] w-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Martech SaaS
-                </span>
-              </div>
-            </div>
-          </div>
+          <ProductCard
+            title="Domain Comp"
+            tag="Domain Comparator"
+            logo="/images/assets/whiteOAK/DomainCompLogo.png"
+            logoAlt="Domain Comp Logo"
+            image="/images/assets/whiteOAK/domComp.png"
+            imageAlt="Domain Comp"
+          />
+          <ProductCard
+            title="Phi Variate"
+            tag="Martech SaaS"
+            logo="/images/assets/whiteOAK/phiVirateLogo.png"
+            logoAlt="Phi Variate Logo"
+            image="/images/assets/phiV.png"
+            imageAlt="Phi Variate"
+          />
         </div>
       </section>
 
       {/* ── WHY US ── */}
-      <section className="w-full max-w-[1440px] mx-auto px-6 xl:px-[148px] py-10">
+      <section className="w-full max-w-[1440px] mx-auto px-6 xl:px-[148px] py-[40px]">
         <div className="w-full max-w-[1144px] mx-auto text-center mb-10">
           <span
             className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000] hover:text-black transition-colors duration-300"
@@ -1237,60 +1131,18 @@ export default function HomePage() {
               )
             }
           ].map((blog, i) => (
-            <div
+            <BlogCard
               key={i}
-              className="flex flex-col w-[380px] h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer md:hover:-translate-y-1 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
-            >
-              {/* 1. IMAGE FRAME */}
-              <div className="relative w-[358px] h-[171px] rounded-[8px] overflow-hidden shrink-0 bg-gray-50 border-[0.5px] border-gray-100">
-                <Image
-                  src={blog.image}
-                  alt={blog.title}
-                  fill
-                  className="object-contain"
-                  sizes="358px"
-                />
-              </div>
-
-              {/* 2. CONTENT FRAME */}
-              <div className="flex flex-col justify-between h-full w-[358px]">
-
-                <div className="flex flex-col gap-[8px]">
-                  {/* A) Meta row */}
-                  <div className="flex justify-between items-center w-full">
-                    <span className="text-[12px] font-medium text-[#121212]">{blog.date}</span>
-                    <span className="text-[12px] font-medium text-[#121212]">{blog.readTime}</span>
-                  </div>
-
-                  {/* B) Blog title */}
-                  <h3
-                    className="text-[#121212] line-clamp-2"
-                    style={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontWeight: 600,
-                      fontSize: "20px",
-                      lineHeight: "100%",
-                      letterSpacing: "0.5%"
-                    }}
-                  >
-                    {blog.title}
-                  </h3>
-                </div>
-
-                {/* C) Category tag pill */}
-                <div className="flex items-end mb-[2px]">
-                  <div className="flex items-center rounded-[8px] border border-[#D41717] bg-[#FFFFFF] px-[8px] py-[4px] gap-[4px]">
-                    <div className="text-[#D41717] flex items-center justify-center">
-                      {blog.tagIcon}
-                    </div>
-                    <span className="text-[#D41717] text-[11px] font-semibold leading-none whitespace-nowrap mt-px">
-                      {blog.tagText}
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
+              title={blog.title}
+              date={blog.date}
+              readTime={blog.readTime}
+              image={blog.image}
+              tagText={blog.tagText}
+              tagIcon={blog.tagIcon}
+              containerClass="flex flex-col w-[380px] h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer md:hover:-translate-y-1 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
+              imageContainerClass="relative w-[358px] h-[171px] rounded-[8px] overflow-hidden shrink-0 bg-gray-50 border-[0.5px] border-gray-100"
+              contentContainerClass="flex flex-col justify-between h-full w-[358px]"
+            />
           ))}
         </div>
         <div className="flex justify-center mt-10">

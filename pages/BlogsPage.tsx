@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import BlogCard from "../components/BlogCard";
+
 
 const categories = [
   "Designing / Branding",
@@ -157,65 +159,13 @@ const getBlogCardData = (tag: string) => {
 };
 
 
-function BlogCard({ post }: { post: BlogPost }) {
-  const { image, tagIcon } = getBlogCardData(post.tag);
-  return (
-    <div
-      className="flex flex-col w-full max-w-[380px] min-h-[319px] rounded-[16px] border-[1px] border-[#000000] bg-[#FFFFFF] p-[10px] overflow-hidden gap-[10px] cursor-pointer md:hover:-translate-y-1 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717] transition-all duration-300"
-    >
-      {/* 1. IMAGE FRAME */}
-      <div className="relative w-full aspect-[358/171] rounded-[8px] overflow-hidden shrink-0 bg-gray-50 border-[0.5px] border-gray-100">
-        <Image
-          src={image}
-          alt={post.title}
-          fill
-          className="object-contain"
-          sizes="358px"
-        />
-      </div>
-
-      {/* 2. CONTENT FRAME */}
-      <div className="flex flex-col justify-between h-full w-full">
-        <div className="flex flex-col gap-[8px]">
-          {/* A) Meta row */}
-          <div className="flex justify-between items-center w-full">
-            <span className="text-[12px] font-medium text-[#121212]">{post.date}</span>
-            <span className="text-[12px] font-medium text-[#121212]">{post.readTime}</span>
-          </div>
-
-          {/* B) Blog title */}
-          <h3
-            className="text-[#121212] line-clamp-2"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 600,
-              fontSize: "20px",
-              lineHeight: "100%",
-              letterSpacing: "0.5%"
-            }}
-          >
-            {post.title}
-          </h3>
-        </div>
-
-        {/* C) Category tag pill */}
-        <div className="flex items-end mb-[2px]">
-          <div className="flex items-center rounded-[8px] border border-[#D41717] bg-[#FFFFFF] px-[8px] py-[4px] gap-[4px]">
-            <div className="text-[#D41717] flex items-center justify-center">
-              {tagIcon}
-            </div>
-            <span className="text-[#D41717] text-[11px] font-semibold leading-none whitespace-nowrap mt-px">
-              {post.tag}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function BlogsPage() {
   const [activeCategory, setActiveCategory] = useState("Designing / Branding");
+  const [visibleCount, setVisibleCount] = useState(9);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
 
   return (
     <div className="pt-[112px]">
@@ -363,15 +313,28 @@ export default function BlogsPage() {
       {/* ── BLOG GRID (9 in 3x3) ── */}
       <section className="max-w-[1248px] mx-auto px-4 md:px-6 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] justify-items-center">
-          {allPosts.slice(0, 9).map((post) => (
-            <BlogCard key={`${post.id}-${post.title}`} post={post} />
-          ))}
+          {Array.from({ length: visibleCount }).map((_, index) => {
+            const post = allPosts[index % allPosts.length];
+            const { image, tagIcon } = getBlogCardData(post.tag);
+            return (
+              <BlogCard
+                key={`${post.id}-${index}-${post.title}`}
+                title={post.title}
+                date={post.date}
+                readTime={post.readTime}
+                image={image}
+                tagText={post.tag}
+                tagIcon={tagIcon}
+              />
+            );
+          })}
         </div>
       </section>
 
       {/* ── LOAD MORE BUTTON ── */}
       <div className="flex justify-center mt-6 mb-0">
         <button
+          onClick={handleLoadMore}
           className="group relative overflow-hidden border border-[#DDDDDD] rounded-full px-[24px] py-[12px] bg-white hover:bg-gray-50 transition-all duration-300"
         >
           <div className="relative h-[20px] overflow-hidden">
