@@ -193,7 +193,9 @@ export default function FAQAccordion() {
         <div className="flex flex-col sm:flex-row items-center justify-between w-full mt-4 gap-4 text-center sm:text-left">
           <p className="text-[15px] sm:text-[16px] text-[#121212] font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>Can't find your answer?</p>
           <a
-            href="mailto:team@enfiq.com"
+            href="https://cal.com/enfiq/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative overflow-hidden flex items-center bg-[#D41717] rounded-[77px] hover:bg-[#B21313] transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] shrink-0"
             style={{
               paddingTop: "10px",

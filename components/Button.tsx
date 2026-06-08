@@ -7,6 +7,8 @@ type Props = {
   className?: string;
   hoverClassName?: string;
   showArrow?: boolean;
+  target?: string;
+  rel?: string;
 };
 
 export default function Button({
@@ -16,11 +18,15 @@ export default function Button({
   className = "",
   hoverClassName = "hover:bg-[#B91212]",
   showArrow = true,
+  target,
+  rel,
 }: Props) {
   if (variant === "secondary") {
     return (
       <Link
         href={href}
+        target={target}
+        rel={rel}
         className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-white px-6 py-3 transition-all duration-300 hover:border-black ${className}`}
       >
         <div className="relative h-[24px] overflow-hidden">
@@ -61,6 +67,8 @@ export default function Button({
   return (
     <Link
       href={href}
+      target={target}
+      rel={rel}
       className={`group relative inline-flex items-center gap-[16px] overflow-hidden rounded-full bg-[#D41717] text-white transition-all duration-300 shadow-[inset_0px_4px_6px_2px_rgba(255,255,255,0.3)] ${paddingClass} ${hoverClassName} ${className}`}
     >
       <div className="relative h-[24px] overflow-hidden">

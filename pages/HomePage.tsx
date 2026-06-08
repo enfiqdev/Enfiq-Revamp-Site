@@ -343,11 +343,11 @@ export default function HomePage() {
               Need to start a SaaS company?
             </div>
             <div className="flex flex-col items-center mr-12 -mt-1 relative z-20">
-              {/* Custom cursor SVG pointing top-left */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-sm -rotate-12 -ml-2">
+              {/* Custom cursor SVG pointing top-right (flipped horizontally) */}
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-sm rotate-12 -mr-2 scale-x-[-1]">
                 <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#121212" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
               </svg>
-              <div className="bg-[#121212] text-white text-xs px-3 py-1.5 rounded-full  -mt-[9px] ml-[40px] rotate-[13deg] shadow-md font-medium">
+              <div className="bg-[#121212] text-white text-xs px-3 py-1.5 rounded-full -mt-[12px] mr-[49px] rotate-[-13deg] shadow-md font-medium">
                 Naijil
               </div>
             </div>
@@ -355,14 +355,14 @@ export default function HomePage() {
 
           {/* Floating chat bubble - Tablet/Mobile */}
           <div className="absolute top-[110px] right-[40px] sm:right-[30px] md:right-[50px] lg:hidden flex flex-col items-end -rotate-[-30deg] animate-float pointer-events-none z-20">
-            <div className="bg-white border border-[#121212] rounded-full px-3 py-1.5 text-xs text-gray-600 shadow-sm relative z-10 font-medium whitespace-nowrap">
+            <div className="bg-white border border-[#121212] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium whitespace-nowrap">
               Need to start a SaaS company?
             </div>
-            <div className="flex flex-col items-center mr-8 -mt-0.5 relative z-20">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[16px] h-[16px] drop-shadow-sm -rotate-12 -ml-1">
+            <div className="flex flex-col items-center mr-12 -mt-1 relative z-20">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-sm rotate-12 -mr-2 scale-x-[-1]">
                 <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#121212" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
               </svg>
-              <div className="bg-[#121212] text-white text-[10px] px-2 py-1 rounded-full -mt-2 ml-[20px] rotate-[13deg] shadow-md font-medium">
+              <div className="bg-[#121212] text-white text-xs px-3 py-1.5 rounded-full -mt-[12px] mr-[49px] rotate-[-13deg] shadow-md font-medium">
                 Naijil
               </div>
             </div>
@@ -371,64 +371,34 @@ export default function HomePage() {
           {/* Floating website modification bubble - Desktop */}
           <div className="absolute right-[40px] md:right-[80px] lg:right-[850px] top-[620px] md:top-[640px] lg:top-[500px] hidden lg:flex flex-col items-start -rotate-[-164deg] z-20 animate-float pointer-events-none">
             {/* Main bubble */}
-            <div className="h-[40px] rounded-full border-[1.47px] border-[#FF0000] bg-white px-[20px] flex items-center justify-center whitespace-nowrap shadow-sm">
-              <span
-                className="w-[218px] h-[24px] text-center text-[#707070]"
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontWeight: 400,
-                  fontSize: "16px",
-                  lineHeight: "24px",
-                  letterSpacing: "0%",
-                }}
-              >
-                Need to modify the website?
-              </span>
+            <div className="bg-white border border-[#D41717] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium whitespace-nowrap">
+              Need to modify the website?
             </div>
 
             {/* Cursor + name */}
-            <div className="flex flex-col items-start ml-[42px] -mt-[10px] relative z-20">
+            <div className="flex flex-col items-center ml-12 -mt-1 relative z-20">
               {/* Cursor */}
               <svg
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="drop-shadow-sm"
+                className="drop-shadow-sm -rotate-12 -ml-2"
                 aria-hidden
               >
                 <path
-                  d="M4 4.5L22 11.5C23.5 12 23.5 14 22 14.5L14.5 17L12 24.5C11.5 26 9.5 26 9 24.5L3 6C2.5 4.5 4 3 5 3.5L4 4.5Z"
+                  d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z"
                   fill="#D41717"
                   stroke="white"
-                  strokeWidth="2.5"
+                  strokeWidth="1.5"
                   strokeLinejoin="round"
                 />
               </svg>
 
               {/* Name tag */}
-              <div
-                className="flex items-center justify-center bg-[#D41717] rounded-[68px] shadow-sm ml-[18px] -mt-[12px] rotate-[5deg]"
-                style={{
-                  width: "65px",
-                  height: "29px",
-                  padding: "4px 8px",
-                  gap: "10px",
-                }}
-              >
-                <span
-                  className="text-white"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 500,
-                    fontSize: "10px",
-                    lineHeight: "10px",
-                    letterSpacing: "0%",
-                  }}
-                >
-                  Bhavya
-                </span>
+              <div className="bg-[#D41717] text-white text-xs px-3 py-1.5 rounded-full -mt-[12px] ml-[66px] rotate-[12deg] shadow-md font-medium">
+                Bhavya
               </div>
             </div>
           </div>
@@ -503,59 +473,38 @@ export default function HomePage() {
             Your revenue, Elevated. Let&apos;s build a path to success together.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap relative">
-            <Button href="/contact" text="Book a free call" />
+            <Button href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" text="Book a free call" />
             <Button href="/projects" text="View Our Work" variant="secondary" />
           </div>
 
           {/* Orange Bubble (Bhavya) for Tablet & Mobile - positioned between CTA and Our Proud Partners */}
-          <div className="lg:hidden flex justify-start w-full mt-10 mb-2 pl-[3px] sm:pl-[8px] md:pl-[18px]">
+          <div className="lg:hidden flex justify-start w-full mt-24 md:mt-44 mb-2 pl-[3px] sm:pl-[8px] md:pl-[18px]">
             <div className="relative flex flex-col items-start rotate-[-4.44deg] animate-float pointer-events-none z-20">
               {/* Main bubble */}
-              <div 
-                className="bg-white rounded-[48.32px] border-[0.71px] border-[#D41717] flex items-center justify-center whitespace-nowrap shadow-sm"
-                style={{
-                  width: "177.66px",
-                  height: "28.43px",
-                  padding: "5.69px 11.37px",
-                  gap: "7.11px",
-                }}
-              >
-                <span
-                  className="text-[#707070]"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 400,
-                    fontSize: "10.5px",
-                    lineHeight: "1",
-                    letterSpacing: "0%",
-                  }}
-                >
-                  Need to modify the website?
-                </span>
+              <div className="bg-white border border-[#D41717] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium whitespace-nowrap">
+                Need to modify the website?
               </div>
 
               {/* Cursor + Name Tag */}
-              <div className="flex flex-col items-start ml-[28px] -mt-[6px] relative z-20">
-                <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 28 28" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="drop-shadow-sm"
+              <div className="flex flex-col items-center ml-12 -mt-1 relative z-20">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="drop-shadow-sm -rotate-12 -ml-2"
                   aria-hidden
                 >
-                  <path 
-                    d="M4 4.5L22 11.5C23.5 12 23.5 14 22 14.5L14.5 17L12 24.5C11.5 26 9.5 26 9 24.5L3 6C2.5 4.5 4 3 5 3.5L4 4.5Z" 
-                    fill="#D41717" 
-                    stroke="white" 
-                    strokeWidth="2.5" 
-                    strokeLinejoin="round" 
+                  <path
+                    d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z"
+                    fill="#D41717"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
                   />
                 </svg>
-                <div 
-                  className="bg-[#D41717] text-white text-[8px] px-2 py-0.5 rounded-full -mt-[8px] ml-[12px] rotate-[5deg] shadow-md font-medium"
-                >
+                <div className="bg-[#D41717] text-white text-xs px-3 py-1.5 rounded-full -mt-[12px] ml-[66px] rotate-[12deg] shadow-md font-medium">
                   Bhavya
                 </div>
               </div>
@@ -633,7 +582,7 @@ export default function HomePage() {
               >
                 A proven record of delivering our services across 10 industries over 7 years
               </p>
-              <Button href="/contact" text="Book a free call" className="mb-8" />
+              <Button href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" text="Book a free call" className="mb-8" />
             </div>
 
             {/* Right: 2—2 project grid */}
@@ -808,7 +757,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex justify-center w-full mt-[40px]">
-          <Button href="/contact" text="Book a free call" />
+          <Button href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" text="Book a free call" />
         </div>
       </section>
 
@@ -988,7 +937,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex justify-center mt-10 md:mt-12 px-6">
-          <Button href="/contact" text="Book a free call" />
+          <Button href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" text="Book a free call" />
         </div>
       </section>
       {/* ── TESTIMONIALS ── */}

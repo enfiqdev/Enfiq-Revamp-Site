@@ -72,7 +72,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[16px] leading-[24px] text-[#000000] hover:text-[#121212] transition-colors"
+              className="text-[16px] leading-[24px] text-[#000000] hover:text-[#D41717] transition-colors"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 400,
@@ -86,7 +86,9 @@ export default function Navbar() {
 
         {/* Desktop CTA Button */}
         <Link
-          href="/contact"
+          href="https://cal.com/enfiq/30min"
+          target="_blank"
+          rel="noopener noreferrer"
           className="group relative hidden md:inline-flex items-center justify-center bg-[#D41717] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-black transition-colors"
         >
           <div className="relative h-[20px] overflow-hidden flex items-center justify-center">
@@ -139,7 +141,9 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href="https://cal.com/enfiq/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="group relative inline-flex items-center justify-center bg-[#D41717] text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-black transition-colors mt-1"
           >
