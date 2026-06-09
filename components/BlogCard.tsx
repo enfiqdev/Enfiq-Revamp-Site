@@ -1,5 +1,26 @@
 import React from "react";
 import Image from "next/image";
+import AnimatedText from "./AnimatedText";
+import CardWrapper from "./CardWrapper";
+import { motion } from "framer-motion";
+
+const popInVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.92,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 90,
+      damping: 14,
+    },
+  },
+};
 
 interface BlogCardProps {
   title: string;
@@ -25,7 +46,7 @@ export default function BlogCard({
   contentContainerClass = "flex flex-col justify-between h-full w-full",
 }: BlogCardProps) {
   return (
-    <div className={containerClass}>
+    <CardWrapper className={containerClass} variants={popInVariants}>
       {/* 1. IMAGE FRAME */}
       <div className={imageContainerClass}>
         <Image
@@ -47,7 +68,9 @@ export default function BlogCard({
           </div>
 
           {/* B) Blog title */}
-          <h3
+          <AnimatedText
+            as="h3"
+            text={title}
             className="text-[#121212] line-clamp-2"
             style={{
               fontFamily: "'Inter', sans-serif",
@@ -56,9 +79,7 @@ export default function BlogCard({
               lineHeight: "100%",
               letterSpacing: "0.5%",
             }}
-          >
-            {title}
-          </h3>
+          />
         </div>
 
         {/* C) Category tag pill */}
@@ -73,6 +94,6 @@ export default function BlogCard({
           </div>
         </div>
       </div>
-    </div>
+    </CardWrapper>
   );
 }

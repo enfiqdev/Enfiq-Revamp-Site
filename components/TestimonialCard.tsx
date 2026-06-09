@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import CardWrapper from "./CardWrapper";
 
 export interface Testimonial {
   name: string;
@@ -18,7 +19,7 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const { name, company, img, text } = testimonial;
 
   return (
-    <div
+    <CardWrapper
       className="w-[400px] shrink-0 bg-white rounded-[15px] border border-[#EAEAEA] transition-shadow hover:shadow-sm"
       style={{
         paddingTop: "20px",
@@ -88,6 +89,6 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
       >
         {text}
       </p>
-    </div>
+    </CardWrapper>
   );
 }

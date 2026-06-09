@@ -1,5 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import AnimatedHeading from "./AnimatedHeading";
+import AnimatedText from "./AnimatedText";
+
+import CardWrapper from "./CardWrapper";
 
 interface ProjectRowCardProps {
   project: {
@@ -19,7 +23,7 @@ export default function ProjectRowCard({
   isEven,
 }: ProjectRowCardProps) {
   return (
-    <div
+    <CardWrapper
       className={`w-full flex flex-col md:flex-row gap-[37px] items-start ${
         isEven ? "md:flex-row" : "md:flex-row-reverse"
       }`}
@@ -37,25 +41,25 @@ export default function ProjectRowCard({
             />
           </div>
 
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text={`${project.name} - ${project.type}`}
             className="text-[24px] font-medium text-[#000000] leading-[33.6px]"
             style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            {project.name} - {project.type}
-          </h2>
+          />
         </div>
 
         {/* Description */}
-        <p
+        <AnimatedText
+          as="p"
+          text={project.description}
           className="text-[16px] text-[#707070] leading-[22.4px] mb-[16px]"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 400,
             letterSpacing: "0px",
           }}
-        >
-          {project.description}
-        </p>
+        />
 
         {/* Tags */}
         <div className="flex flex-nowrap gap-[8px] overflow-x-auto">
@@ -102,6 +106,6 @@ export default function ProjectRowCard({
           </svg>
         </div>
       </div>
-    </div>
+    </CardWrapper>
   );
 }

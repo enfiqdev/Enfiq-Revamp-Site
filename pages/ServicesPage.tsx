@@ -3,6 +3,9 @@
 import React from "react";
 import ServiceCard from "../components/serviceCards";
 import ContactForm from "../components/ContactForm";
+import AnimatedHeading from "../components/AnimatedHeading";
+import AnimatedText from "../components/AnimatedText";
+import { StaggerContainer } from "../components/CardWrapper";
 
 interface Service {
   num: string;
@@ -92,7 +95,9 @@ export default function ServicesPage() {
       {/* PAGE HEADER */}
       <section className="max-w-3xl mx-auto px-6 pb-6 sm:pb-[64px] text-center">
 
-        <h1
+        <AnimatedHeading
+          as="h1"
+          text="Our Services"
           className="w-full max-w-[560px] mx-auto text-center text-[#121212] mb-4"
           style={{
             fontFamily: "'Inter', sans-serif",
@@ -101,11 +106,11 @@ export default function ServicesPage() {
             lineHeight: "44.8px",
             letterSpacing: "0px",
           }}
-        >
-          Our Services
-        </h1>
+        />
 
-        <p
+        <AnimatedText
+          as="p"
+          text="We offer advanced chatbot development to enhance engagement and streamline communication, with tailored solutions and 24/7 support."
           className="w-full max-w-[560px] mx-auto text-center text-[#707070] px-4"
           style={{
             fontFamily: "'Inter', sans-serif",
@@ -114,23 +119,20 @@ export default function ServicesPage() {
             lineHeight: "24px",
             letterSpacing: "0px",
           }}
-        >
-          We offer advanced chatbot development to enhance engagement and streamline communication,
-          with tailored solutions and 24/7 support.
-        </p>
+        />
 
       </section>
 
       {/* SERVICE LIST */}
       <section className="max-w-[1248px] mx-auto px-6 flex flex-col gap-[61.84px] pt-8 pb-[69.81px] sm:py-[69.81px]">
-
-        {services.map((service) => (
-          <ServiceCard
-            key={service.num}
-            service={service}
-          />
-        ))}
-
+        <div className="flex flex-col gap-[61.84px] w-full">
+          {services.map((service) => (
+            <ServiceCard
+              key={service.num}
+              service={service}
+            />
+          ))}
+        </div>
       </section>
 
       {/* CONTACT FORM */}

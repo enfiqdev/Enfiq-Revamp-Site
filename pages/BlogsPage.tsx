@@ -3,6 +3,60 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import BlogCard from "../components/BlogCard";
+import AnimatedHeading from "../components/AnimatedHeading";
+import AnimatedText from "../components/AnimatedText";
+import CardWrapper, { StaggerContainer } from "../components/CardWrapper";
+import { motion } from "framer-motion";
+
+const typewriterContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.04,
+    },
+  },
+};
+
+const typewriterCharVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.01,
+    },
+  },
+};
+
+function TypewriterHeading({ text, className, style }: { text: string; className?: string; style?: React.CSSProperties }) {
+  const words = text.split(" ");
+  return (
+    <motion.h1
+      variants={typewriterContainerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      className={className}
+      style={style}
+    >
+      {words.map((word, wordIndex) => (
+        <span key={wordIndex} className="inline-block whitespace-nowrap">
+          {word.split("").map((char, charIndex) => (
+            <motion.span key={charIndex} variants={typewriterCharVariants}>
+              {char}
+            </motion.span>
+          ))}
+          {wordIndex < words.length - 1 && (
+            <motion.span variants={typewriterCharVariants}>
+              {"\u00A0"}
+            </motion.span>
+          )}
+        </span>
+      ))}
+    </motion.h1>
+  );
+}
 
 
 const categories = [
@@ -172,7 +226,8 @@ export default function BlogsPage() {
       {/* ── PAGE HEADER ── */}
       <section className="w-full max-w-[560px] px-4 mx-auto pt-[48px] pb-[48px] flex flex-col items-center gap-[12px] text-center">
 
-        <h1
+        <TypewriterHeading
+          text="Read some quality studies"
           className="w-full max-w-[598px] text-center text-[#000000]"
           style={{
             fontFamily: "'Inter', sans-serif",
@@ -181,11 +236,11 @@ export default function BlogsPage() {
             lineHeight: "44.8px",
             letterSpacing: "0px",
           }}
-        >
-          Read some quality studies
-        </h1>
+        />
 
-        <p
+        <AnimatedText
+          as="p"
+          text="We offer advanced chatbot development to enhance engagement and streamline communication, with tailored solutions and 24/7 support."
           className="w-full max-w-[520px] text-center text-[#707070] mx-auto px-2"
           style={{
             fontFamily: "'Inter', sans-serif",
@@ -194,10 +249,7 @@ export default function BlogsPage() {
             lineHeight: "24px",
             letterSpacing: "0px",
           }}
-        >
-          We offer advanced chatbot development to enhance engagement and streamline communication,
-          with tailored solutions and 24/7 support.
-        </p>
+        />
 
       </section>
 
@@ -383,13 +435,15 @@ export default function BlogsPage() {
             Subscribe Us
           </span>
           {/*gap between the heading and the paragraph  mb-[32px]*/}
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text="Subscribe to Our Insights"
             className="text-[32px] leading-[44.8px] font-semibold text-[#000000] mt-2 mb-[32px]"
             style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Subscribe to Our Insights
-          </h2>
-          <p
+          />
+          <AnimatedText
+            as="p"
+            text="Stay ahead of the curve with exclusive tips, industry insights, and expert advice. Sign up today and elevate your website development knowledge!"
             className="w-full max-w-[873px] mx-auto text-center mb-8 text-[#323232] px-2"
             style={{
               fontFamily: "'Inter', sans-serif",
@@ -398,10 +452,7 @@ export default function BlogsPage() {
               lineHeight: "32px",
               letterSpacing: "-0.6px",
             }}
-          >
-            Stay ahead of the curve with exclusive tips, industry insights, and expert advice.
-            Sign up today and elevate your website development knowledge!
-          </p>
+          />
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md mx-auto px-4 sm:px-0">
             <input
               type="email"

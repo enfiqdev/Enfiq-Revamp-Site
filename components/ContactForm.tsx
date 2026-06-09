@@ -3,6 +3,8 @@
 import React from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import AnimatedHeading from "./AnimatedHeading";
+import AnimatedText from "./AnimatedText";
 
 const validatePhoneNumber = (phone: string, country: any): boolean => {
   const cleanPhone = phone.replace(/\D/g, "");
@@ -140,24 +142,24 @@ export default function ContactForm() {
         >
           Contact us Form
         </span>
-        <h2
+        <AnimatedHeading
+          as="h2"
+          text="Get in touch"
           className="text-[32px] leading-[44.8px] font-semibold text-[#000000] mt-4 mb-[32px]"
           style={{
             fontFamily: "'Inter', sans-serif",
           }}
-        >
-          Get in touch
-        </h2>
-        <p
+        />
+        <AnimatedText
+          as="p"
+          text="We'd love to hear from you. Please fill out this form."
           className="text-[#323232] text-[24px] leading-[32px] text-center mb-[32px]"
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 500,
             letterSpacing: "-0.6px",
           }}
-        >
-          We&apos;d love to hear from you. Please fill out this form.
-        </p>
+        />
       </div>
 
       <form

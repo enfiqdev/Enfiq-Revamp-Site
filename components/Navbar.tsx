@@ -126,7 +126,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`md:hidden absolute top-full left-1/2 -translate-x-1/2 w-full max-w-[1144px] px-6 mt-3 overflow-hidden transition-all duration-300 ease-in-out z-50 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        className={`md:hidden absolute top-full left-1/2 -translate-x-1/2 w-full max-w-[1144px] px-6 mt-3 transition-all duration-300 ease-in-out z-50 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}
       >
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 py-6 px-6 flex flex-col items-center gap-5">

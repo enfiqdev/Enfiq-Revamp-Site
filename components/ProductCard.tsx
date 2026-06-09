@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedText from "./AnimatedText";
+import CardWrapper from "./CardWrapper";
 
 interface ProductCardProps {
   title: string;
@@ -22,7 +24,7 @@ export default function ProductCard({
   href = "#",
 }: ProductCardProps) {
   return (
-    <div className="flex flex-col gap-[24px] w-full xl:w-[560px] group">
+    <CardWrapper className="flex flex-col gap-[24px] w-full xl:w-[560px] group">
       <article className="relative w-full h-[350px] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
         <Image
           src={image}
@@ -61,22 +63,22 @@ export default function ProductCard({
               />
             </div>
           </div>
-          <span
+          <AnimatedText
+            as="span"
+            text={title}
             className="text-[24px] font-normal text-[#000000] leading-[33.6px]"
             style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            {title}
-          </span>
+          />
         </div>
         <div className="flex flex-row flex-wrap items-center gap-[8px]">
-          <span
+          <AnimatedText
+            as="span"
+            text={tag}
             className="inline-flex items-center justify-center rounded-[33px] border border-[#707070]/[0.3] bg-white px-[16px] py-[2px] gap-[10px] text-[14px] font-normal text-[#707070] leading-[21px] transition-colors duration-300 h-[25px] w-auto"
             style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            {tag}
-          </span>
+          />
         </div>
       </div>
-    </div>
+    </CardWrapper>
   );
 }

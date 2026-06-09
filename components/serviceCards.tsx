@@ -1,6 +1,102 @@
 "use client";
 
 import Image from "next/image";
+import AnimatedText from "./AnimatedText";
+import CardWrapper from "./CardWrapper";
+import { motion } from "framer-motion";
+
+const topNumberVariants = {
+  hidden: {
+    opacity: 0.25,
+    y: 10,
+    letterSpacing: "0.05em",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    letterSpacing: "0em",
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 0.1,
+    },
+  },
+};
+
+const dashVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      delay: i * 0.08 + 0.3,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
+
+const bottomNumberVariants = {
+  hidden: {
+    opacity: 0.25,
+    y: 10,
+    letterSpacing: "0.05em",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    letterSpacing: "0em",
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 1.0,
+    },
+  },
+};
+
+const bulletContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const bulletItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+const stickerVariants = {
+  hidden: {
+    scale: 0.8,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 14,
+      delay: 0.6,
+    },
+  },
+};
 
 interface Service {
   num: string;
@@ -75,7 +171,7 @@ const formatBullet = (bullet: string) => {
 
 export default function ServiceCard({ service }: Props) {
   return (
-  <div className="flex flex-col xl:flex-row items-start xl:items-stretch justify-between w-full max-w-[1144px] mx-auto gap-[32px] sm:gap-[40px] xl:gap-[60.31px] xl:h-[448px]">
+    <CardWrapper className="flex flex-col xl:flex-row items-start xl:items-stretch justify-between w-full max-w-[1144px] mx-auto gap-[32px] sm:gap-[40px] xl:gap-[60.31px] xl:h-[448px]">
       {/* Mobile Numbers */}
       <div className="flex xl:hidden items-center justify-between w-full max-w-[560px] mx-auto px-4 mb-2">
         <span
@@ -136,7 +232,8 @@ export default function ServiceCard({ service }: Props) {
             className="flex items-center justify-center shrink-0"
             style={{ width: "54.11px", height: "75px" }}
           >
-            <span
+            <motion.span
+              variants={topNumberVariants}
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontWeight: 400,
@@ -146,13 +243,15 @@ export default function ServiceCard({ service }: Props) {
               }}
             >
               {service.num}
-            </span>
+            </motion.span>
           </div>
 {/*the idth ofthe dashes are modified in descending order*/}
 <div className="flex-1 w-full flex flex-col items-center justify-between py-2 sm:py-3 md:py-4">
   {[75, 40, 30, 20, 10, 6].map((height, i) => (
-    <div
+    <motion.div
       key={i}
+      custom={i}
+      variants={dashVariants}
       className="w-[2px] rounded-full transition-all duration-300"
       style={{
         height: `${height}px`,
@@ -167,7 +266,8 @@ export default function ServiceCard({ service }: Props) {
             className="flex items-center justify-center shrink-0"
             style={{ width: "54.11px", height: "75px" }}
           >
-            <span
+            <motion.span
+              variants={bottomNumberVariants}
               style={{
                 fontFamily: "'Instrument Serif', serif",
                 fontWeight: 400,
@@ -177,7 +277,7 @@ export default function ServiceCard({ service }: Props) {
               }}
             >
               06
-            </span>
+            </motion.span>
           </div>
         </div>
 
@@ -193,7 +293,9 @@ export default function ServiceCard({ service }: Props) {
         {/* Content */}
         <div className="flex-1 flex flex-col gap-[10px] xl:gap-[16px] py-[6px] w-full text-left items-start">
 
-          <h3
+          <AnimatedText
+            as="h3"
+            text={service.title}
             className="text-[#000000]"
             style={{
               fontFamily: "'Inter', sans-serif",
@@ -202,25 +304,30 @@ export default function ServiceCard({ service }: Props) {
               lineHeight: "32.46px",
               letterSpacing: "0%",
             }}
-          >
-            {service.title}
-          </h3>
+          />
 
-          <p
+          <AnimatedText
+            as="p"
+            text={service.description}
             className="text-[#707070] text-[15.46px] leading-[21.64px]"
             style={{
               fontFamily: "'Inter', sans-serif",
               letterSpacing: "0%",
               fontWeight: 400,
             }}
-          >
-            {service.description}
-          </p>
+          />
 
-          <ul className="flex flex-col gap-[8px] mt-[2px] xl:mt-[8px] w-fit text-left">
+          <motion.ul
+            variants={bulletContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="flex flex-col gap-[8px] mt-[2px] xl:mt-[8px] w-fit text-left"
+          >
             {service.bullets.map((bullet) => (
-              <li
+              <motion.li
                 key={bullet}
+                variants={bulletItemVariants}
                 className="flex flex-row items-start gap-[12px] min-h-[28px] h-auto py-0.5"
               >
                 <span className="w-[8px] h-[8px] bg-[#D41717] rounded-full shrink-0 mt-[10px]" />
@@ -237,29 +344,33 @@ export default function ServiceCard({ service }: Props) {
                 >
                   {formatBullet(bullet)}
                 </span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
       </div>
 
       {/* Right Image */}
-      <div
-  className="relative w-full xl:w-[560px] xl:h-full flex items-center justify-center shrink-0 mt-[4px] xl:mt-0 px-4 xl:px-0"
->
-  <div
-    className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[332px] rounded-[16px] overflow-hidden shadow-sm"
-    style={{ maxWidth: "560px" }}
-  >
-    <Image
-      src="/images/assets/pinkSticker.png"
-      alt={service.title}
-      fill
-      className="object-cover"
-      sizes="560px"
-    />
-  </div>
-</div>
-    </div>
+      <CardWrapper
+        enableHoverEffect={false}
+        className="relative w-full xl:w-[560px] xl:h-full flex items-center justify-center shrink-0 mt-[4px] xl:mt-0 px-4 xl:px-0"
+      >
+        <motion.div
+          variants={stickerVariants}
+          whileHover={{ scale: 1.04, transition: { type: "spring", stiffness: 400, damping: 20 } }}
+          whileTap={{ scale: 0.96 }}
+          className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[332px] rounded-[16px] overflow-hidden shadow-sm origin-center cursor-pointer"
+          style={{ maxWidth: "560px" }}
+        >
+          <Image
+            src="/images/assets/pinkSticker.png"
+            alt={service.title}
+            fill
+            className="object-cover"
+            sizes="560px"
+          />
+        </motion.div>
+      </CardWrapper>
+    </CardWrapper>
   );
 }

@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import AnimatedHeading from "./AnimatedHeading";
+import AnimatedText from "./AnimatedText";
 
 interface FAQItem {
   question: string;
@@ -65,12 +67,12 @@ export default function FAQAccordion() {
           >
             Frequently Ask Questions
           </span>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text="Clear Answers to Common Questions"
             className="text-center text-[#000000] w-full max-w-[579px] md:h-[45px]"
             style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: "clamp(22px, 5.5vw, 32px)", lineHeight: "1.2" }}
-          >
-            Clear Answers to Common Questions
-          </h2>
+          />
         </div>
 
         <div className="flex flex-col gap-6 w-full">
@@ -93,16 +95,18 @@ export default function FAQAccordion() {
                     whileTap={{ scale: 0.97 }}
                   >
                     {/* +/− toggle */}
-                    <motion.span
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                      className={`flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center text-lg font-light transition-colors duration-300 ${isOpen
+                  <motion.span
+                    layout
+                    whileTap={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    className={`flex-shrink-0 w-[40px] h-[40px] rounded-full flex items-center justify-center text-lg font-light transition-colors duration-300 ${
+                      isOpen
                         ? "bg-[#2A2A2A] text-white"
                         : "bg-[#E9E9E9] text-[#121212] group-hover:bg-[#2A2A2A] group-hover:text-white"
-                        }`}
-                    >
-                      {isOpen ? "−" : "+"}
-                    </motion.span>
+                    }`}
+                  >
+                    {isOpen ? "−" : "+"}
+                  </motion.span>
 
                     {/* Question bubble — slides in from right like a sent message */}
                     <motion.span
@@ -191,7 +195,12 @@ export default function FAQAccordion() {
 
         {/* Footer row */}
         <div className="flex flex-col sm:flex-row items-center justify-between w-full mt-4 gap-4 text-center sm:text-left">
-          <p className="text-[15px] sm:text-[16px] text-[#121212] font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>Can't find your answer?</p>
+          <AnimatedText
+            as="p"
+            text="Can't find your answer?"
+            className="text-[15px] sm:text-[16px] text-[#121212] font-medium"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          />
           <a
             href="https://cal.com/enfiq/30min"
             target="_blank"

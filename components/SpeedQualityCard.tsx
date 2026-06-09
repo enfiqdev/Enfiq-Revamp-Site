@@ -2,6 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
+import AnimatedText from "./AnimatedText";
+import CardWrapper from "./CardWrapper";
 
 export interface SpeedQualityCardProps {
   title: string;
@@ -25,7 +27,7 @@ export default function SpeedQualityCard({
   titleDims = "w-full max-w-[301px] min-h-[90px]",
 }: SpeedQualityCardProps) {
   return (
-    <div className="relative w-full max-w-[365px] h-[409px] group cursor-pointer">
+    <CardWrapper className="relative w-full max-w-[365px] h-[409px] group cursor-pointer">
       {/* Dynamic Border via Drop Shadow on Masked Shape */}
       <div
         className="absolute inset-0 transition-all duration-300 [filter:drop-shadow(1px_0_0_#D41717)_drop-shadow(-1px_0_0_#D41717)_drop-shadow(0_1px_0_#D41717)_drop-shadow(0_-1px_0_#D41717)_drop-shadow(4px_4px_0_#D41717)] lg:[filter:drop-shadow(1px_0_0_#C4C4C4)_drop-shadow(-1px_0_0_#C4C4C4)_drop-shadow(0_1px_0_#C4C4C4)_drop-shadow(0_-1px_0_#C4C4C4)] lg:group-hover:[filter:drop-shadow(1px_0_0_#D41717)_drop-shadow(-1px_0_0_#D41717)_drop-shadow(0_1px_0_#D41717)_drop-shadow(0_-1px_0_#D41717)_drop-shadow(4px_4px_0_#D41717)]"
@@ -47,17 +49,12 @@ export default function SpeedQualityCard({
 
       {/* Card Content */}
       <div className="absolute inset-0 p-[24px_32px] flex flex-col">
-        <h3
+        <AnimatedText
+          as="h3"
+          text={title.split("\n")}
           className={`text-[32px] text-[#000000] leading-[44.8px] font-normal lg:font-light lg:group-hover:font-normal transition-all duration-300 ${titleDims}`}
           style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "0%" }}
-        >
-          {title.split("\n").map((line, j) => (
-            <React.Fragment key={j}>
-              {line}
-              {j === 0 && <br />}
-            </React.Fragment>
-          ))}
-        </h3>
+        />
 
         {/* Icon */}
         <div
@@ -89,13 +86,13 @@ export default function SpeedQualityCard({
         </div>
 
         {/* Description - Black on mobile, gray on desktop initially, turns black on desktop hover */}
-        <p
+        <AnimatedText
+          as="p"
+          text={desc}
           className="absolute left-[32px] right-[32px] max-w-[290px] bottom-[32px] text-[16px] text-[#000000] lg:text-[#707070] font-normal leading-[24px] text-left transition-colors duration-300 lg:group-hover:text-[#000000]"
           style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: "0%" }}
-        >
-          {desc}
-        </p>
+        />
       </div>
-    </div>
+    </CardWrapper>
   );
 }

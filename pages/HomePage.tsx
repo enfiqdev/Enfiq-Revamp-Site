@@ -10,6 +10,103 @@ import Button from "../components/Button";
 import ProjectGridCard from "../components/ProjectGridCard";
 import ProductCard from "../components/ProductCard";
 import BlogCard from "../components/BlogCard";
+import AnimatedHeading from "../components/AnimatedHeading";
+import AnimatedText from "../components/AnimatedText";
+import CardWrapper, { StaggerContainer } from "../components/CardWrapper";
+import { motion } from "framer-motion";
+
+const topNumberVariants = {
+  hidden: {
+    opacity: 0.25,
+    y: 10,
+    letterSpacing: "0.05em",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    letterSpacing: "0em",
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 0.1,
+    },
+  },
+};
+
+const dashVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      delay: i * 0.08 + 0.3,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
+
+const bottomNumberVariants = {
+  hidden: {
+    opacity: 0.25,
+    y: 10,
+    letterSpacing: "0.05em",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    letterSpacing: "0em",
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 1.0,
+    },
+  },
+};
+
+const bulletContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const bulletItemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+const stickerVariants = {
+  hidden: {
+    scale: 0.8,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 14,
+      delay: 0.6,
+    },
+  },
+};
 
 
 
@@ -185,7 +282,8 @@ const serviceStickerLogos: { src: string; label: string; box: string }[] = [
 
 function ServiceStickerCollage({ className }: { className?: string }) {
   return (
-    <div
+    <CardWrapper
+      enableHoverEffect={false}
       className={`relative isolate overflow-hidden rounded-[1.75rem] bg-[#FFDDE3] shadow-sm ring-1 ring-black/[0.04] ${className ?? ""}`}
       aria-label="Tools and platforms we work with, including Figma, Notion, and VS Code"
     >
@@ -204,7 +302,7 @@ function ServiceStickerCollage({ className }: { className?: string }) {
           className="object-contain"
         />
       </div>
-    </div>
+    </CardWrapper>
   );
 }
 
@@ -404,63 +502,16 @@ export default function HomePage() {
           </div>
 
 
-          <h1
+          <AnimatedHeading
+            as="h1"
+            text={["Your Product", "Delivered Right"]}
+            enableHoverEffect={true}
             className="max-w-[949px] w-full mx-auto flex flex-col items-center text-center text-[40px] sm:text-[56px] md:text-[64px] leading-[1.1] sm:leading-[1.15] md:leading-[83.2px] text-[#000000] font-normal tracking-normal mb-6 transition-all duration-300"
             style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            <div className="flex flex-wrap justify-center">
-              {"Your Product".split("").map((char, i) => (
-                <span
-                  key={`p1-${i}`}
-                  className="relative inline-flex px-[0.5px] cursor-default group/char"
-                >
-                  <span className="invisible font-semibold whitespace-pre">
-                    {char}
-                  </span>
-
-                  <span
-                    className="
-            absolute left-1/2 top-0 -translate-x-1/2
-            whitespace-pre text-[#000000]
-            font-medium
-            transition-all duration-300 ease-out
-            group-hover/char:scale-[1.04]
-            group-hover/char:font-semibold
-          "
-                  >
-                    {char}
-                  </span>
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap justify-center">
-              {"Delivered Right".split("").map((char, i) => (
-                <span
-                  key={`p2-${i}`}
-                  className="relative inline-flex px-[0.5px] cursor-default group/char"
-                >
-                  <span className="invisible font-semibold whitespace-pre">
-                    {char}
-                  </span>
-
-                  <span
-                    className="
-            absolute left-1/2 top-0 -translate-x-1/2
-            whitespace-pre text-[#000000]
-            font-medium
-            transition-all duration-300 ease-out
-            group-hover/char:scale-[1.04]
-            group-hover/char:font-semibold
-          "
-                  >
-                    {char}
-                  </span>
-                </span>
-              ))}
-            </div>
-          </h1>
-          <p
+          />
+          <AnimatedText
+            as="p"
+            text="Your revenue, Elevated. Let's build a path to success together."
             className="w-full max-w-[949px] md:h-[24px] text-center text-[#707070] mb-8 mx-auto px-4"
             style={{
               fontFamily: "'Inter', sans-serif",
@@ -469,9 +520,7 @@ export default function HomePage() {
               lineHeight: "24px",
               letterSpacing: "0%",
             }}
-          >
-            Your revenue, Elevated. Let&apos;s build a path to success together.
-          </p>
+          />
           <div className="flex items-center justify-center gap-4 flex-wrap relative">
             <Button href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" text="Book a free call" />
             <Button href="/projects" text="View Our Work" variant="secondary" />
@@ -553,9 +602,11 @@ export default function HomePage() {
             >
               Our Projects
             </span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#121212] tracking-tight">
-              Ideas Turned Into Scalable Projects
-            </h2>
+            <AnimatedHeading
+              as="h2"
+              text="Ideas Turned Into Scalable Projects"
+              className="text-3xl md:text-4xl font-black text-[#121212] tracking-tight"
+            />
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-12 xl:gap-14">
@@ -563,31 +614,28 @@ export default function HomePage() {
             {/* pt- controls the equal level of text and image */}
             {/*mb-8 give 32px and 8px specifically the gap between the button and the subheading*/}
             <div className="shrink-0 lg:w-[32%] lg:max-w-sm lg:pt-0 text-center lg:text-left w-full">
-              <h3
-                className="w-full max-w-[268px] text-[32px] leading-[44.8px] text-[#121212] mb-[8px] mx-auto lg:mx-0"
+              <AnimatedText
+                as="h3"
+                text="Where your ideas find direction"
+                boldWords={["direction"]}
+                className="w-full max-w-[268px] text-[32px] leading-[44.8px] text-[#121212] mb-[8px] mx-auto lg:mx-0 font-normal"
                 style={{
                   fontFamily: "'Instrument Sans', sans-serif",
-                  fontWeight: 400,
                   letterSpacing: "0px",
                 }}
-              >
-                Where your ideas find{" "}
-                <span style={{ fontWeight: 700 }}>
-                  direction
-                </span>
-              </h3>
-              <p
+              />
+              <AnimatedText
+                as="p"
+                text="A proven record of delivering our services across 10 industries over 7 years"
                 className="w-full max-w-[365px] md:h-[48px] text-[16px] leading-[24px] text-[#707070] mb-[8px] mx-auto lg:mx-0"
                 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, letterSpacing: '0%' }}
-              >
-                A proven record of delivering our services across 10 industries over 7 years
-              </p>
+              />
               <Button href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" text="Book a free call" className="mb-8" />
             </div>
 
             {/* Right: 2—2 project grid */}
             <div className="min-w-0 flex-1 lg:max-w-[62%] w-full">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[24px] gap-y-[32px]">
+              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-x-[24px] gap-y-[32px]">
                 {projects.slice(0, 4).map((proj, i) => (
                   <ProjectGridCard
                     key={proj.id}
@@ -595,7 +643,7 @@ export default function HomePage() {
                     screenshot={vsProjectScreenshots[i]}
                   />
                 ))}
-              </div>
+              </StaggerContainer>
             </div>
           </div>
         </div>
@@ -617,9 +665,12 @@ export default function HomePage() {
           >
             Our Services
           </span>
-          <h2 className="text-[32px] md:text-[40px] font-semibold text-[#121212] tracking-tight" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Services Built to Grow Your Business
-          </h2>
+          <AnimatedHeading
+            as="h2"
+            text="Services Built to Grow Your Business"
+            className="text-[32px] md:text-[40px] font-semibold text-[#121212] tracking-tight"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          />
         </div>
 
         <div className="flex flex-col xl:flex-row items-stretch justify-center w-full max-w-[1144px] mx-auto gap-[64px] xl:gap-0">
@@ -674,34 +725,53 @@ export default function HomePage() {
 
             {/* ==================== EXACT NUMBER COLUMN CORRECTION ==================== */}
             {/* Uses absolute positioning inside the flex row to cleanly map from the header top down to the list base */}
-            <div className="hidden xl:flex absolute top-0 bottom-0 left-0 flex-col w-[56px] shrink-0 items-center justify-between">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="hidden xl:flex absolute top-0 bottom-0 left-0 flex-col w-[56px] shrink-0 items-center justify-between"
+            >
 
               {/* Number 01 */}
               {/* Scaled line-height to 0.7 to pull the visual baseline up to perfectly align with the top of the H3 text */}
               <div className="flex items-center justify-center w-[56px] h-[34px] shrink-0">
-                <span className="text-[64px] text-[#707070] font-normal tracking-normal" style={{ fontFamily: "'Instrument Serif', serif", lineHeight: '0.7' }}>01</span>
+                <motion.span
+                  variants={topNumberVariants}
+                  className="text-[64px] font-normal tracking-normal"
+                  style={{ fontFamily: "'Instrument Serif', serif", lineHeight: '0.7', color: "#707070" }}
+                >
+                  01
+                </motion.span>
               </div>
 
               {/* Dynamic Stretched Line */}
               {/* flex-grow automatically scales the dashed line to fill the precise empty gap */}
-          <div className="flex-1 w-full flex flex-col items-center justify-between py-8">
-  {[6, 10, 20, 30, 40, 75].map((height, i, arr) => (
-    <div
-      key={i}
-      className="w-[2px] rounded-full transition-all duration-300"
-      style={{
-        height: `${height}px`,
-        backgroundColor: i === arr.length - 1 ? "#D41717" : "#707070",
-      }}
-    />
-  ))}
-</div>
+              <div className="flex-1 w-full flex flex-col items-center justify-between py-8">
+                {[6, 10, 20, 30, 40, 75].map((height, i, arr) => (
+                  <motion.div
+                    key={i}
+                    custom={i}
+                    variants={dashVariants}
+                    className="w-[2px] rounded-full transition-all duration-300"
+                    style={{
+                      height: `${height}px`,
+                      backgroundColor: i === arr.length - 1 ? "#D41717" : "#707070",
+                    }}
+                  />
+                ))}
+              </div>
               {/* Number 06 */}
               {/* Boxed to align neatly right below the final list bullet element */}
               <div className="flex items-center justify-center w-[56px] h-[34px] shrink-0">
-                <span className="text-[64px] text-[#D41717] font-normal tracking-normal" style={{ fontFamily: "'Instrument Serif', serif", lineHeight: '0.7' }}>06</span>
+                <motion.span
+                  variants={bottomNumberVariants}
+                  className="text-[64px] font-normal tracking-normal"
+                  style={{ fontFamily: "'Instrument Serif', serif", lineHeight: '0.7', color: "#D41717" }}
+                >
+                  06
+                </motion.span>
               </div>
-            </div>
+            </motion.div>
             {/* Dummy spacer element ensures your content column layout retains its original 41px gap spacing */}
             <div className="w-[56px] shrink-0 hidden xl:block" />
             {/* END NUMBER COLUMN CORRECTION  */}
@@ -715,15 +785,21 @@ export default function HomePage() {
                 >
                   Comprehensive Digital Solutions
                 </h3>
-                <p
+                <AnimatedText
+                  as="p"
+                  text="Our holistic approach combines creativity, technical expertise, and strategic growth to build scalable digital experiences that elevate your brand and streamline your operations."
                   className="w-full max-w-[403px] md:h-[90px] text-[16px] font-normal text-[#707070] leading-[22.4px] tracking-normal px-4 xl:px-0"
                   style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  Our holistic approach combines creativity, technical expertise, and strategic growth to build scalable digital experiences that elevate your brand and streamline your operations.
-                </p>
+                />
               </div>
 
-              <ul className="flex flex-col w-fit max-w-[325px] gap-[8px] text-left">
+              <motion.ul
+                variants={bulletContainerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="flex flex-col w-fit max-w-[325px] gap-[8px] text-left"
+              >
                 {[
                   "Creative UI/UX design",
                   "Custom Website development",
@@ -732,27 +808,39 @@ export default function HomePage() {
                   "Smart workflow automation",
                   "Professional video editing",
                 ].map((bullet) => (
-                  <li key={bullet} className="flex flex-row items-start gap-[12px] min-h-[28px] h-auto py-0.5">
+                  <motion.li
+                    key={bullet}
+                    variants={bulletItemVariants}
+                    className="flex flex-row items-start gap-[12px] min-h-[28px] h-auto py-0.5"
+                  >
                     <span className="w-[8px] h-[8px] bg-[#D41717] rounded-full shrink-0 mt-[10px]" />
                     <span className="font-bold text-[20px] text-[#000000] leading-[28px] tracking-normal" style={{ fontFamily: "'Inter', sans-serif" }}>
                       {bullet}
                     </span>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </div>
           </div>
           {/* Right Image */}
-         <div className="relative w-full xl:w-[620.72px] xl:h-[484px] flex items-center justify-center shrink-0 mt-0 px-6 xl:px-0">
-            <div className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[320px] xl:h-[368px] rounded-[17.73px] overflow-hidden shadow-sm">
+          <CardWrapper
+            enableHoverEffect={false}
+            className="relative w-full xl:w-[620.72px] xl:h-[484px] flex items-center justify-center shrink-0 mt-0 px-6 xl:px-0"
+          >
+            <motion.div
+              variants={stickerVariants}
+              whileHover={{ scale: 1.04, transition: { type: "spring", stiffness: 400, damping: 20 } }}
+              whileTap={{ scale: 0.96 }}
+              className="relative w-full h-[180px] xs:h-[220px] sm:h-[280px] md:h-[320px] xl:h-[368px] rounded-[17.73px] overflow-hidden shadow-sm origin-center cursor-pointer"
+            >
               <Image
                 src="/images/assets/pinkSticker.png"
                 alt="Services Overview"
                 fill
                 className="object-cover"
               />
-            </div>
-          </div>
+            </motion.div>
+          </CardWrapper>
 
         </div>
 
@@ -776,11 +864,13 @@ export default function HomePage() {
           >
             Our Products
           </span>
-          <h2 className="text-3xl font-black text-[#121212]">
-            Tools Designed to Solve Real Problems
-          </h2>
+          <AnimatedHeading
+            as="h2"
+            text="Tools Designed to Solve Real Problems"
+            className="text-3xl font-black text-[#121212]"
+          />
         </div>
-        <div className="flex flex-col md:flex-row gap-[23px]">
+        <StaggerContainer className="flex flex-col md:flex-row gap-[23px]">
           <ProductCard
             title="Domain Comp"
             tag="Domain Comparator"
@@ -797,7 +887,7 @@ export default function HomePage() {
             image="/images/assets/phiV.png"
             imageAlt="Phi Variate"
           />
-        </div>
+        </StaggerContainer>
       </section>
 
       {/* ── WHY US ── */}
@@ -815,17 +905,17 @@ export default function HomePage() {
           >
             Why choose us
           </span>
-        <h2
-  className="w-full max-w-[550px] mx-auto text-center text-[32px] leading-[44.8px] font-semibold text-[#000000]"
-  style={{
-    fontFamily: "'Inter', sans-serif",
-    letterSpacing: "0px",
-  }}
->
-  Built for Speed, Quality, and Growth
-</h2>
+        <AnimatedHeading
+          as="h2"
+          text="Built for Speed, Quality, and Growth"
+          className="w-full max-w-[550px] mx-auto text-center text-[32px] leading-[44.8px] font-semibold text-[#000000]"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            letterSpacing: "0px",
+          }}
+        />
         </div>
-        <div className="w-full max-w-[1144px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center">
+        <StaggerContainer className="w-full max-w-[1144px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 justify-items-center">
           {[
             {
               title: "Scalable-Driven\nProduct Design",
@@ -870,7 +960,7 @@ export default function HomePage() {
               titleDims={card.titleDims}
             />
           ))}
-        </div>
+        </StaggerContainer>
       </section>
 
       {/* ── TRUSTED BY ── */}
@@ -942,73 +1032,74 @@ export default function HomePage() {
       </section>
       {/* ── TESTIMONIALS ── */}
       <section className="py-12 overflow-hidden w-full max-w-[1440px] mx-auto px-6 xl:px-[108.5px]">
+        <StaggerContainer className="w-full">
+          {/* Heading */}
+          <div className="w-full text-center mb-10 flex flex-col items-center">
 
-        {/* Heading */}
-        <div className="w-full text-center mb-10 flex flex-col items-center">
+            <span
+              className="inline-flex items-center justify-center rounded-[12424px] border border-[#DDDDDD] bg-white px-[16px] py-[8px] mb-4 hover:text-black transition-colors duration-300"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 400,
+                fontSize: "14px",
+                lineHeight: "100%",
+                letterSpacing: "0px",
+                color: "#000000",
+              }}
+            >
+              Our Testimonials
+            </span>
 
-          <span
-            className="inline-flex items-center justify-center rounded-[12424px] border border-[#DDDDDD] bg-white px-[16px] py-[8px] mb-4 hover:text-black transition-colors duration-300"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 400,
-              fontSize: "14px",
-              lineHeight: "100%",
-              letterSpacing: "0px",
-              color: "#000000",
-            }}
-          >
-            Our Testimonials
-          </span>
+            <AnimatedHeading
+              as="h2"
+              text="Trusted by Founders and Teams Worldwide"
+              className="w-full max-w-[700px] md:w-[700px] whitespace-nowrap h-auto md:h-[45px] text-center text-[22px] md:text-[32px] leading-[30px] md:leading-[44.8px] font-semibold text-[#000000] mx-auto px-4"
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "0px",
+              }}
+            />
 
-          <h2
-            className="w-full max-w-[669px] md:w-[669px] whitespace-nowrap h-auto md:h-[45px] text-center text-[22px] md:text-[32px] leading-[30px] md:leading-[44.8px] font-semibold text-[#000000] mx-auto px-4"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              letterSpacing: "0px",
-            }}
-          >
-            Trusted by Founders and Teams Worldwide
-          </h2>
-
-        </div>
-
-        {/* Marquee Wrapper */}
-        <div
-          ref={testimonialsRef}
-          onMouseEnter={handleTestimonialMouseEnter}
-          onMouseLeave={handleTestimonialMouseLeave}
-          className="flex flex-col gap-[16px] w-full relative overflow-hidden"
-          style={{
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-            maskImage:
-              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          }}
-        >
-
-          {/* ROW 1 */}
-          <div className="flex w-max animate-marquee-ltr">
-            {[1, 2, 3].map((groupIndex) => (
-              <div key={groupIndex} className="flex gap-[16px] pr-[16px]">
-                {testimonials.map((t, i) => (
-                  <TestimonialCard key={`${groupIndex}-${i}`} testimonial={t} />
-                ))}
-              </div>
-            ))}
           </div>
 
-          {/* ROW 2 */}
-          <div className="flex w-max animate-marquee-rtl">
-            {[1, 2, 3].map((groupIndex) => (
-              <div key={groupIndex} className="flex gap-[16px] pr-[16px]">
-                {testimonials.map((t, i) => (
-                  <TestimonialCard key={`${groupIndex}-${i}`} testimonial={t} />
-                ))}
-              </div>
-            ))}
-          </div>
+          {/* Marquee Wrapper */}
+          <div
+            ref={testimonialsRef}
+            onMouseEnter={handleTestimonialMouseEnter}
+            onMouseLeave={handleTestimonialMouseLeave}
+            className="flex flex-col gap-[16px] w-full relative overflow-hidden"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              maskImage:
+                "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            }}
+          >
 
-        </div>
+            {/* ROW 1 */}
+            <div className="flex w-max animate-marquee-ltr">
+              {[1, 2, 3].map((groupIndex) => (
+                <div key={groupIndex} className="flex gap-[16px] pr-[16px]">
+                  {testimonials.map((t, i) => (
+                    <TestimonialCard key={`${groupIndex}-${i}`} testimonial={t} />
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            {/* ROW 2 */}
+            <div className="flex w-max animate-marquee-rtl">
+              {[1, 2, 3].map((groupIndex) => (
+                <div key={groupIndex} className="flex gap-[16px] pr-[16px]">
+                  {testimonials.map((t, i) => (
+                    <TestimonialCard key={`${groupIndex}-${i}`} testimonial={t} />
+                  ))}
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </StaggerContainer>
       </section>
 
       {/* ── FAQ ── */}
@@ -1029,15 +1120,15 @@ export default function HomePage() {
           >
             Our Blogs
           </span>
-          <h2
-            className="w-full max-w-[549px] md:w-[549px] h-auto md:h-[45px] text-center text-[24px] md:text-[32px] leading-[32px] md:leading-[44.8px] tracking-normal text-[#000000] mx-auto"
+          <AnimatedHeading
+            as="h2"
+            text="What We’re Learning While Building"
+            className="w-full max-w-[700px] md:w-[700px] h-auto md:h-[45px] text-center text-[24px] md:text-[32px] leading-[32px] md:leading-[44.8px] tracking-normal text-[#000000] mx-auto whitespace-nowrap"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 600,
             }}
-          >
-            What We’re Learning While Building
-          </h2>
+          />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] justify-items-center">
           {[
@@ -1148,15 +1239,15 @@ export default function HomePage() {
           >
             Our Contact us
           </span>
-          <h2
+          <AnimatedHeading
+            as="h2"
+            text="Start Your Next Project With Us"
             className="w-full max-w-[484px] md:h-[45px] text-center text-[32px] leading-[44.8px] tracking-normal text-[#000000] px-4 md:px-0"
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 600,
             }}
-          >
-            Start Your Next Project With Us
-          </h2>
+          />
           <p
             className="w-full max-w-[729px] md:h-[64px] flex items-center justify-center text-center text-[18px] sm:text-[24px] leading-[32px] text-[#323232] px-6 md:px-0"
             style={{

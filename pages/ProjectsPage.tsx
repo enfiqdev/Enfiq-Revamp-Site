@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import FAQAccordion from "../components/FAQAccordion";
 import ProjectRowCard from "../components/ProjectRowCard";
+import AnimatedHeading from "../components/AnimatedHeading";
+import AnimatedText from "../components/AnimatedText";
+import { StaggerContainer } from "../components/CardWrapper";
 
 
 const categories = [
@@ -105,7 +108,9 @@ export default function ProjectsPage() {
       {/* ── PAGE HEADER ── */}
       <section className="max-w-[560px] mx-auto px-6 text-center flex flex-col items-center">
 
-        <h1
+        <AnimatedHeading
+          as="h1"
+          text="Our Projects"
           className="w-full text-center"
           style={{
             fontFamily: "'Inter', sans-serif",
@@ -116,11 +121,11 @@ export default function ProjectsPage() {
             letterSpacing: "0px",
             color: "#000000",
           }}
-        >
-          Our Projects
-        </h1>
+        />
 
-        <p
+        <AnimatedText
+          as="p"
+          text="We offer advanced chatbot development to enhance engagement and streamline communication, with tailored solutions and 24/7 support."
           className="w-full text-center mt-[16px]"
           style={{
             fontFamily: "'Inter', sans-serif",
@@ -130,10 +135,7 @@ export default function ProjectsPage() {
             letterSpacing: "0px",
             color: "#707070",
           }}
-        >
-          We offer advanced chatbot development to enhance engagement and
-          streamline communication, with tailored solutions and 24/7 support.
-        </p>
+        />
 
       </section>
 
@@ -383,17 +385,19 @@ export default function ProjectsPage() {
 
       {/* ── PROJECT LIST ── */}
       <section className="w-full max-w-[828px] mx-auto md:px-0 px-6 pb-24 flex flex-col gap-[64px] items-center">
-        {filtered.map((project, index) => {
-          const isEven = index % 2 === 0;
+        <StaggerContainer className="w-full flex flex-col gap-[64px] items-center">
+          {filtered.map((project, index) => {
+            const isEven = index % 2 === 0;
 
-          return (
-            <ProjectRowCard
-              key={project.id}
-              project={project}
-              isEven={isEven}
-            />
-          );
-        })}
+            return (
+              <ProjectRowCard
+                key={project.id}
+                project={project}
+                isEven={isEven}
+              />
+            );
+          })}
+        </StaggerContainer>
       </section>
 
       {/* ── FAQ ── */}
