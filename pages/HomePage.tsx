@@ -15,6 +15,8 @@ import AnimatedText from "../components/AnimatedText";
 import CardWrapper, { StaggerContainer } from "../components/CardWrapper";
 import { motion } from "framer-motion";
 import Section, { SectionContext } from "../components/Section";
+import FloatingChatBubble from "../components/FloatingChatBubble";
+
 
 function ControlledMotionDiv({ children, className, style, variants, ...props }: any) {
   const isInView = React.useContext(SectionContext);
@@ -469,80 +471,38 @@ export default function HomePage() {
            min-h-[400px]
            md:min-h-[550px]
            lg:min-h-[300px]
-           pt-[172px]
+            pt-[172px]
           " amount={0.25}>
 
-
           {/* Floating chat bubble - Desktop */}
-          <div className="absolute top-[140px] right-[-30px] lg:right-[-100px] hidden lg:flex flex-col items-end -rotate-[-30deg] animate-float pointer-events-none">
-            {/*to move the entire grouped section*/}
-            <div className="bg-white border border-[#121212] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium">
-              Need to start a SaaS company?
-            </div>
-            <div className="flex flex-col items-center mr-12 -mt-1 relative z-20">
-              {/* Custom cursor SVG pointing top-right (flipped horizontally) */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-sm rotate-12 -mr-2 scale-x-[-1]">
-                <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#121212" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
-              </svg>
-              <div className="bg-[#121212] text-white text-xs px-3 py-1.5 rounded-full -mt-[12px] mr-[49px] rotate-[-13deg] shadow-md font-medium">
-                Naijil
-              </div>
-            </div>
-          </div>
+          <FloatingChatBubble
+            text="Need to start a SaaS company?"
+            name="Naijil"
+            themeColor="#121212"
+            align="right"
+            containerClassName="absolute top-[140px] right-[-30px] lg:right-[-100px] hidden lg:flex flex-col items-end -rotate-[-30deg] pointer-events-none"
+          />
 
           {/* Floating chat bubble - Tablet/Mobile */}
-          <div className="absolute top-[110px] right-[40px] sm:right-[30px] md:right-[50px] lg:hidden flex flex-col items-end -rotate-[-30deg] animate-float pointer-events-none z-20">
-            <div className="bg-white border border-[#121212] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium whitespace-nowrap">
-              Need to start a SaaS company?
-            </div>
-            <div className="flex flex-col items-center mr-12 -mt-1 relative z-20">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-sm rotate-12 -mr-2 scale-x-[-1]">
-                <path d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z" fill="#121212" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
-              </svg>
-              <div className="bg-[#121212] text-white text-xs px-3 py-1.5 rounded-full -mt-[12px] mr-[49px] rotate-[-13deg] shadow-md font-medium">
-                Naijil
-              </div>
-            </div>
-          </div>
+          <FloatingChatBubble
+            text="Need to start a SaaS company?"
+            name="Naijil"
+            themeColor="#121212"
+            align="right"
+            containerClassName="absolute top-[110px] right-[40px] sm:right-[30px] md:right-[50px] lg:hidden flex flex-col items-end -rotate-[-30deg] pointer-events-none z-20"
+          />
 
           {/* Floating website modification bubble - Desktop */}
-          <div className="absolute right-[40px] md:right-[80px] lg:right-[850px] top-[620px] md:top-[640px] lg:top-[500px] hidden lg:flex flex-col items-start -rotate-[-164deg] z-20 animate-float pointer-events-none">
-            {/* Main bubble */}
-            <div className="bg-white border border-[#D41717] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium whitespace-nowrap">
-              Need to modify the website?
-            </div>
-
-            {/* Cursor + name */}
-            <div className="flex flex-col items-center ml-12 -mt-1 relative z-20">
-              {/* Cursor */}
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="drop-shadow-sm -rotate-12 -ml-2"
-                aria-hidden
-              >
-                <path
-                  d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z"
-                  fill="#D41717"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinejoin="round"
-                />
-              </svg>
-
-              {/* Name tag */}
-              <div className="bg-[#D41717] text-white text-xs px-3 py-1.5 rounded-full -mt-[12px] ml-[66px] rotate-[12deg] shadow-md font-medium">
-                Bhavya
-              </div>
-            </div>
-          </div>
-
+          <FloatingChatBubble
+            text="Need to modify the website?"
+            name="Bhavya"
+            themeColor="#D41717"
+            align="left"
+            containerClassName="absolute right-[40px] md:right-[80px] lg:right-[850px] top-[620px] md:top-[640px] lg:top-[500px] hidden lg:flex flex-col items-start -rotate-[-164deg] z-20 pointer-events-none"
+          />
 
           <AnimatedHeading
-            as="h1"
+             as="h1"
             text={["Your Product", "Delivered Right"]}
             enableHoverEffect={true}
             className="max-w-[949px] w-full mx-auto flex flex-col items-center text-center text-[40px] sm:text-[56px] md:text-[64px] leading-[1.1] sm:leading-[1.15] md:leading-[83.2px] text-[#000000] font-normal tracking-normal mb-6 transition-all duration-300"
@@ -567,37 +527,15 @@ export default function HomePage() {
 
           {/* Orange Bubble (Bhavya) for Tablet & Mobile - positioned between CTA and Our Proud Partners */}
           <div className="lg:hidden flex justify-start w-full mt-24 md:mt-44 mb-2 pl-[3px] sm:pl-[8px] md:pl-[18px]">
-            <div className="relative flex flex-col items-start rotate-[-4.44deg] animate-float pointer-events-none z-20">
-              {/* Main bubble */}
-              <div className="bg-white border border-[#D41717] rounded-full px-5 py-2.5 text-sm text-gray-600 shadow-sm relative z-10 font-medium whitespace-nowrap">
-                Need to modify the website?
-              </div>
-
-              {/* Cursor + Name Tag */}
-              <div className="flex flex-col items-center ml-12 -mt-1 relative z-20">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="drop-shadow-sm -rotate-12 -ml-2"
-                  aria-hidden
-                >
-                  <path
-                    d="M6 3L20 10.5L12.5 13.5L10 21L6 3Z"
-                    fill="#D41717"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <div className="bg-[#D41717] text-white text-xs px-3 py-1.5 rounded-full -mt-[12px] ml-[66px] rotate-[12deg] shadow-md font-medium">
-                  Bhavya
-                </div>
-              </div>
-            </div>
+            <FloatingChatBubble
+              text="Need to modify the website?"
+              name="Bhavya"
+              themeColor="#D41717"
+              align="left"
+              containerClassName="relative flex flex-col items-start rotate-[-4.44deg] pointer-events-none z-20"
+            />
           </div>
+
         </Section>
       </div>
 

@@ -8,6 +8,7 @@ import AnimatedText from "../components/AnimatedText";
 import CardWrapper, { StaggerContainer } from "../components/CardWrapper";
 import Section from "../components/Section";
 import { motion } from "framer-motion";
+import ProjectCategoryPill from "../components/ProjectCategoryPill";
 
 const typewriterContainerVariants = {
   hidden: {},
@@ -297,66 +298,15 @@ export default function BlogsPage() {
             const images = categoryImages[cat as keyof typeof categoryImages];
 
             return (
-              <button
+              <ProjectCategoryPill
                 key={cat}
+                label={cat}
+                isSelected={isSelected}
                 onClick={() => setActiveCategory(cat)}
-                className={`
-                  group
-                  inline-flex
-                  items-center
-                  h-[29px]
-                  gap-[4px]
-                  px-[8px]
-                  py-[4px]
-                  rounded-[8px]
-                  border
-                  bg-white
-                  transition-all
-                  duration-200
-                  ${
-                    isSelected
-                      ? "border-[#D41717] text-[#D41717]"
-                      : "border-[#D4D4D4] text-[#707070] hover:text-[#D41717] hover:border-[#D41717]"
-                  }
-                `}
-              >
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
-                  {images && (
-                    <>
-                      <Image
-                        src={images.before}
-                        alt={cat}
-                        width={16}
-                        height={16}
-                        className={`object-contain w-full h-full ${
-                          isSelected ? "hidden" : "block group-hover:hidden"
-                        }`}
-                      />
-                      <Image
-                        src={images.after}
-                        alt={cat}
-                        width={16}
-                        height={16}
-                        className={`object-contain w-full h-full ${
-                          isSelected ? "block" : "hidden group-hover:block"
-                        }`}
-                      />
-                    </>
-                  )}
-                </span>
-
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 500,
-                    fontSize: "12px",
-                    lineHeight: "21px",
-                    letterSpacing: "0px",
-                  }}
-                >
-                  {cat}
-                </span>
-              </button>
+                iconBefore={images?.before}
+                iconAfter={images?.after}
+                size="sm"
+              />
             );
           })}
 

@@ -8,6 +8,7 @@ import AnimatedHeading from "../components/AnimatedHeading";
 import AnimatedText from "../components/AnimatedText";
 import { StaggerContainer } from "../components/CardWrapper";
 import Section from "../components/Section";
+import ProjectCategoryPill from "../components/ProjectCategoryPill";
 
 
 const categories = [
@@ -19,6 +20,37 @@ const categories = [
   "n8n Automation",
   "SEO",
 ];
+
+const categoryImages: Record<string, { before: string; after: string }> = {
+  "All": {
+    before: "/images/assets/A1.png",
+    after: "/images/assets/allHover.png",
+  },
+  "Design": {
+    before: "/images/assets/v1.png",
+    after: "/images/assets/v2.png",
+  },
+  "Web Development": {
+    before: "/images/assets/fullStack.png",
+    after: "/images/assets/fullStackHover.png",
+  },
+  "No-code Development": {
+    before: "/images/assets/NC.png",
+    after: "/images/assets/NCH.png",
+  },
+  "Mobile Development": {
+    before: "/images/assets/fullStack.png",
+    after: "/images/assets/fullStackHover.png",
+  },
+  "n8n Automation": {
+    before: "/images/assets/n8nIcon.png",
+    after: "/images/assets/n8nHover.png",
+  },
+  "SEO": {
+    before: "/images/assets/seoSearch.png",
+    after: "/images/assets/seoHover.png",
+  },
+};
 
 interface Project {
   id: number;
@@ -144,242 +176,22 @@ export default function ProjectsPage() {
       <section className="max-w-[560px] mx-auto px-6 pt-[48px] pb-[64px]">
         <div className="flex flex-wrap gap-[6px] justify-start">
 
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`group/pill inline-flex items-center justify-center gap-[6px]
-        px-[8px] py-[4px]
-        rounded-[8px]
-        border-[1px]
-        transition-all duration-300
-        w-fit
-        ${activeCategory === cat
-                  ? "border-[#D41717] text-[#D41717] bg-white"
-                  : "border-[#707070] text-[#707070] bg-white hover:border-[#D41717] hover:text-[#D41717]"
-                }`}
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 500,
-                fontSize: "14px",
-                lineHeight: "21px",
-                letterSpacing: "0px",
-              }}
-            >
+          {categories.map((cat) => {
+            const isSelected = activeCategory === cat;
+            const images = categoryImages[cat as keyof typeof categoryImages];
 
-              {/* All — coded infinity*/}
-              {cat === "All" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
-
-                  {/* Default Gray Image */}
-                  <Image
-                    src="/images/assets/A1.png"
-                    alt="all-coded icon"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full absolute inset-0
-        ${activeCategory === cat
-                        ? "opacity-0"
-                        : "opacity-100 group-hover/pill:opacity-0"
-                      }`}
-                  />
-
-                  {/* Hover / Active Red Image */}
-                  <Image
-                    src="/images/assets/allHover.png"
-                    alt="all-coded icon active"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full absolute inset-0
-        ${activeCategory === cat
-                        ? "opacity-100"
-                        : "opacity-0 group-hover/pill:opacity-100"
-                      }`}
-                  />
-
-                </span>
-              )}
-
-              {/* Design — on and after hover images */}
-              {cat === "Design" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
-
-                  {/* Default Gray Image */}
-                  <Image
-                    src="/images/assets/v1.png"
-                    alt="Design icon"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full block
-      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
-                  />
-
-                  {/* Hover / Active Red Image */}
-                  <Image
-                    src="/images/assets/v2.png"
-                    alt="Design icon active"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full
-      ${activeCategory === cat
-                        ? "block"
-                        : "hidden group-hover/pill:block"
-                      }`}
-                  />
-
-                </span>
-              )}
-
-              {cat === "Web Development" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
-
-                  {/* Default Gray Image */}
-                  <Image
-                    src="/images/assets/fullStack.png"
-                    alt="web development icon"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full block
-      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
-                  />
-
-                  {/* Hover / Active Red Image */}
-                  <Image
-                    src="/images/assets/fullStackHover.png"
-                    alt="Web development icon active"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full
-      ${activeCategory === cat
-                        ? "block"
-                        : "hidden group-hover/pill:block"
-                      }`}
-                  />
-
-                </span>
-              )}
-              {/* No-code Development — Notion image icon */}
-              {cat === "No-code Development" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
-
-                  {/* Default Gray Image */}
-                  <Image
-                    src="/images/assets/NC.png"
-                    alt="No-code Development icon"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full block
-      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
-                  />
-
-                  {/* Hover / Active Red Image */}
-                  <Image
-                    src="/images/assets/NCH.png"
-                    alt="No-code development icon active"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full
-      ${activeCategory === cat
-                        ? "block"
-                        : "hidden group-hover/pill:block"
-                      }`}
-                  />
-
-                </span>
-              )}
-
-              {cat === "Mobile Development" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
-
-                  {/* Default Gray Image */}
-                  <Image
-                    src="/images/assets/fullStack.png"
-                    alt="Mobile development icon"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full block
-      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
-                  />
-
-                  {/* Hover / Active Red Image */}
-                  <Image
-                    src="/images/assets/fullStackHover.png"
-                    alt="Mobile development icon active"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full
-      ${activeCategory === cat
-                        ? "block"
-                        : "hidden group-hover/pill:block"
-                      }`}
-                  />
-
-                </span>
-              )}
-              {/* n8n Automation — sparkle SVG*/}
-              {cat === "n8n Automation" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
-
-                  {/* Default Gray Image */}
-                  <Image
-                    src="/images/assets/n8nIcon.png"
-                    alt=" n8n Automation icon"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full block
-      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
-                  />
-
-                  {/* Hover / Active Red Image */}
-                  <Image
-                    src="/images/assets/n8nHover.png"
-                    alt="n8n Automation icon active"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full
-      ${activeCategory === cat
-                        ? "block"
-                        : "hidden group-hover/pill:block"
-                      }`}
-                  />
-
-                </span>
-              )}
-
-              {/* SEO — magnifying glass SVG */}
-              {cat === "SEO" && (
-                <span className="relative shrink-0 w-[16px] h-[16px] block">
-
-                  {/* Default Gray Image */}
-                  <Image
-                    src="/images/assets/seoSearch.png"
-                    alt=" n8n Automation icon"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full block
-      ${activeCategory === cat ? "hidden" : "group-hover/pill:hidden"}`}
-                  />
-
-                  {/* Hover / Active Red Image */}
-                  <Image
-                    src="/images/assets/seoHover.png"
-                    alt="n8n Automation icon active"
-                    width={16}
-                    height={16}
-                    className={`object-contain w-full h-full
-      ${activeCategory === cat
-                        ? "block"
-                        : "hidden group-hover/pill:block"
-                      }`}
-                  />
-
-                </span>
-              )}
-
-              {cat}
-
-            </button>
-          ))}
+            return (
+              <ProjectCategoryPill
+                key={cat}
+                label={cat}
+                isSelected={isSelected}
+                onClick={() => setActiveCategory(cat)}
+                iconBefore={images?.before}
+                iconAfter={images?.after}
+                size="md"
+              />
+            );
+          })}
 
         </div>
       </section>

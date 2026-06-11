@@ -44,7 +44,7 @@ export default function ProjectRowCard({
           <AnimatedHeading
             as="h2"
             text={`${project.name} - ${project.type}`}
-            className="text-[24px] font-medium text-[#000000] leading-[33.6px]"
+            className="text-[18px] sm:text-[20px] md:text-[24px] font-medium text-[#000000] leading-[33.6px] whitespace-nowrap"
             style={{ fontFamily: "'Inter', sans-serif" }}
           />
         </div>
@@ -83,7 +83,7 @@ export default function ProjectRowCard({
       </div>
 
       {/* Image side */}
-      <div className="relative w-full md:w-[366px] h-[256px] shrink-0 border-[0.5px] border-[#CCCCCE] rounded-[8px] overflow-hidden bg-white group cursor-pointer transition-all duration-300 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
+      <div className="relative w-full aspect-[366/256] md:aspect-auto md:w-[366px] md:h-[256px] shrink-0 border-[0.5px] border-[#CCCCCE] rounded-[8px] overflow-hidden bg-white group cursor-pointer transition-all duration-300 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
         <Image
           src={project.image}
           alt={`${project.name} screenshot`}
