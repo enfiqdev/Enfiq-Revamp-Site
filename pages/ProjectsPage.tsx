@@ -7,6 +7,7 @@ import ProjectRowCard from "../components/ProjectRowCard";
 import AnimatedHeading from "../components/AnimatedHeading";
 import AnimatedText from "../components/AnimatedText";
 import { StaggerContainer } from "../components/CardWrapper";
+import Section from "../components/Section";
 
 
 const categories = [
@@ -106,7 +107,7 @@ export default function ProjectsPage() {
     <div className="pt-[112px] bg-[#F8F8F8]">
 
       {/* ── PAGE HEADER ── */}
-      <section className="max-w-[560px] mx-auto px-6 text-center flex flex-col items-center">
+      <Section as="section" className="max-w-[560px] mx-auto px-6 text-center flex flex-col items-center" amount={0.25}>
 
         <AnimatedHeading
           as="h1"
@@ -137,7 +138,7 @@ export default function ProjectsPage() {
           }}
         />
 
-      </section>
+      </Section>
 
       {/* ── FILTER BAR ── */}
       <section className="max-w-[560px] mx-auto px-6 pt-[48px] pb-[64px]">
@@ -384,7 +385,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── PROJECT LIST ── */}
-      <section className="w-full max-w-[828px] mx-auto md:px-0 px-6 pb-24 flex flex-col gap-[64px] items-center">
+      <Section as="section" className="w-full max-w-[828px] mx-auto md:px-0 px-6 pb-24 flex flex-col gap-[64px] items-center" amount={0.25}>
         <StaggerContainer className="w-full flex flex-col gap-[64px] items-center">
           {filtered.map((project, index) => {
             const isEven = index % 2 === 0;
@@ -398,7 +399,7 @@ export default function ProjectsPage() {
             );
           })}
         </StaggerContainer>
-      </section>
+      </Section>
 
       {/* ── FAQ ── */}
       <FAQAccordion />

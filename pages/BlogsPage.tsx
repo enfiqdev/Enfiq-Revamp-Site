@@ -6,6 +6,7 @@ import BlogCard from "../components/BlogCard";
 import AnimatedHeading from "../components/AnimatedHeading";
 import AnimatedText from "../components/AnimatedText";
 import CardWrapper, { StaggerContainer } from "../components/CardWrapper";
+import Section from "../components/Section";
 import { motion } from "framer-motion";
 
 const typewriterContainerVariants = {
@@ -224,7 +225,7 @@ export default function BlogsPage() {
   return (
     <div className="pt-[112px]">
       {/* ── PAGE HEADER ── */}
-      <section className="w-full max-w-[560px] px-4 mx-auto pt-[48px] pb-[48px] flex flex-col items-center gap-[12px] text-center">
+      <Section as="section" className="w-full max-w-[560px] px-4 mx-auto pt-[48px] pb-[48px] flex flex-col items-center gap-[12px] text-center" amount={0.25}>
 
         <TypewriterHeading
           text="Read some quality studies"
@@ -251,7 +252,7 @@ export default function BlogsPage() {
           }}
         />
 
-      </section>
+      </Section>
 
       {/* ── SEARCH + FILTERS ── */}
       <section className="w-full max-w-[560px] mx-auto px-4 flex flex-col items-center gap-[16px] pb-[64px]">
@@ -363,8 +364,8 @@ export default function BlogsPage() {
       </section>
 
       {/* ── BLOG GRID (9 in 3x3) ── */}
-      <section className="max-w-[1248px] mx-auto px-4 md:px-6 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] justify-items-center">
+      <Section as="section" className="max-w-[1248px] mx-auto px-4 md:px-6 pb-12" amount={0.25}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-[30px] justify-items-center">
           {Array.from({ length: visibleCount }).map((_, index) => {
             const post = allPosts[index % allPosts.length];
             const { image, tagIcon } = getBlogCardData(post.tag);
@@ -380,8 +381,8 @@ export default function BlogsPage() {
               />
             );
           })}
-        </div>
-      </section>
+        </StaggerContainer>
+      </Section>
 
       {/* ── LOAD MORE BUTTON ── */}
       <div className="flex justify-center mt-6 mb-0">
@@ -420,7 +421,7 @@ export default function BlogsPage() {
       </div>
 
       {/* ── SUBSCRIBE SECTION ── */}
-      <section className="max-w-[1248px] mx-auto px-6 py-[40px]">
+      <Section as="section" className="max-w-[1248px] mx-auto px-6 py-[40px]" amount={0.25}>
         <div className="bg-white border border-[#EBEBEB] rounded-2xl p-10 text-center shadow-sm flex flex-col items-center">
           <span
             className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#707070]"
@@ -493,7 +494,7 @@ export default function BlogsPage() {
             </button>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

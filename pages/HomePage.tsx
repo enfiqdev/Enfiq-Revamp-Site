@@ -14,6 +14,45 @@ import AnimatedHeading from "../components/AnimatedHeading";
 import AnimatedText from "../components/AnimatedText";
 import CardWrapper, { StaggerContainer } from "../components/CardWrapper";
 import { motion } from "framer-motion";
+import Section, { SectionContext } from "../components/Section";
+
+function ControlledMotionDiv({ children, className, style, variants, ...props }: any) {
+  const isInView = React.useContext(SectionContext);
+  const isControlled = isInView !== undefined;
+  return (
+    <motion.div
+      variants={variants}
+      initial={isControlled ? "hidden" : undefined}
+      animate={isControlled ? (isInView ? "visible" : "hidden") : undefined}
+      whileInView={isControlled ? undefined : "visible"}
+      viewport={isControlled ? undefined : { once: true }}
+      className={className}
+      style={style}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function ControlledMotionUl({ children, className, style, variants, ...props }: any) {
+  const isInView = React.useContext(SectionContext);
+  const isControlled = isInView !== undefined;
+  return (
+    <motion.ul
+      variants={variants}
+      initial={isControlled ? "hidden" : undefined}
+      animate={isControlled ? (isInView ? "visible" : "hidden") : undefined}
+      whileInView={isControlled ? undefined : "visible"}
+      viewport={isControlled ? undefined : { once: true }}
+      className={className}
+      style={style}
+      {...props}
+    >
+      {children}
+    </motion.ul>
+  );
+}
 
 const topNumberVariants = {
   hidden: {
@@ -425,13 +464,13 @@ export default function HomePage() {
           }}
         ></div>
         {/*hero  section height*/}
-       <section className="
+       <Section as="section" className="
            max-w-5xl w-full mx-auto px-6 text-center relative z-10
            min-h-[400px]
            md:min-h-[550px]
            lg:min-h-[300px]
            pt-[172px]
-          ">
+          " amount={0.25}>
 
 
           {/* Floating chat bubble - Desktop */}
@@ -559,7 +598,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </Section>
       </div>
 
       {/* "Our Proud Partners" Section */}
@@ -582,7 +621,7 @@ export default function HomePage() {
       </section>
 
       {/*  OUR PROJECTS */}
-      <section className="w-full max-w-[1440px] mx-auto flex flex-col gap-[10px] py-[40px] px-[24px] xl:px-[148px]">
+      <Section as="section" className="w-full max-w-[1440px] mx-auto flex flex-col gap-[10px] py-[40px] px-[24px] xl:px-[148px]" amount={0.25}>
         <div className="w-full max-w-[1144px] mx-auto flex flex-col  gap-[64px]">
           <div className="text-center">
             <span
@@ -647,10 +686,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* ── SERVICES ── */}
-      <section className="w-full max-w-[1440px] mx-auto pt-[40px] pb-[40px] px-[24px] xl:px-[148px]">
+      <Section as="section" className="w-full max-w-[1440px] mx-auto pt-[40px] pb-[40px] px-[24px] xl:px-[148px]" amount={0.25}>
         <div className="w-full max-w-[1144px] mx-auto flex flex-col items-center mb-[64px]">
 
           <span
@@ -725,10 +764,7 @@ export default function HomePage() {
 
             {/* ==================== EXACT NUMBER COLUMN CORRECTION ==================== */}
             {/* Uses absolute positioning inside the flex row to cleanly map from the header top down to the list base */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+            <ControlledMotionDiv
               className="hidden xl:flex absolute top-0 bottom-0 left-0 flex-col w-[56px] shrink-0 items-center justify-between"
             >
 
@@ -771,7 +807,7 @@ export default function HomePage() {
                   06
                 </motion.span>
               </div>
-            </motion.div>
+            </ControlledMotionDiv>
             {/* Dummy spacer element ensures your content column layout retains its original 41px gap spacing */}
             <div className="w-[56px] shrink-0 hidden xl:block" />
             {/* END NUMBER COLUMN CORRECTION  */}
@@ -793,11 +829,8 @@ export default function HomePage() {
                 />
               </div>
 
-              <motion.ul
+              <ControlledMotionUl
                 variants={bulletContainerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
                 className="flex flex-col w-fit max-w-[325px] gap-[8px] text-left"
               >
                 {[
@@ -819,7 +852,7 @@ export default function HomePage() {
                     </span>
                   </motion.li>
                 ))}
-              </motion.ul>
+              </ControlledMotionUl>
             </div>
           </div>
           {/* Right Image */}
@@ -847,10 +880,10 @@ export default function HomePage() {
         <div className="flex justify-center w-full mt-[40px]">
           <Button href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" text="Book a free call" />
         </div>
-      </section>
+      </Section>
 
       {/* ── TOOLS ── */}
-      <section className="w-full max-w-[1144px] mx-auto px-[24px] xl:px-0 pt-[40px]">
+      <Section as="section" className="w-full max-w-[1144px] mx-auto px-[24px] xl:px-0 pt-[40px]" amount={0.25}>
         <div className="text-center mb-10">
           <span
             className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000] hover:text-black transition-colors duration-300"
@@ -888,10 +921,10 @@ export default function HomePage() {
             imageAlt="Phi Variate"
           />
         </StaggerContainer>
-      </section>
+      </Section>
 
       {/* ── WHY US ── */}
-      <section className="w-full max-w-[1440px] mx-auto px-6 xl:px-[148px] py-[40px]">
+      <Section as="section" className="w-full max-w-[1440px] mx-auto px-6 xl:px-[148px] py-[40px]" amount={0.25}>
         <div className="w-full max-w-[1144px] mx-auto text-center mb-10">
           <span
             className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000] hover:text-black transition-colors duration-300"
@@ -961,10 +994,10 @@ export default function HomePage() {
             />
           ))}
         </StaggerContainer>
-      </section>
+      </Section>
 
       {/* ── TRUSTED BY ── */}
-      <section className="py-12 overflow-hidden w-full max-w-[1440px] mx-auto px-6 xl:px-[108.5px]">
+      <Section as="section" className="py-12 overflow-hidden w-full max-w-[1440px] mx-auto px-6 xl:px-[108.5px]" amount={0.25}>
         <p
           className="text-center mb-8 md:mb-10 text-[#000000]"
           style={{
@@ -1005,6 +1038,15 @@ export default function HomePage() {
                   "/images/assets/bikerr (1).png",
                   "/images/assets/bikerr (2).png",
                   "/images/assets/bikerr (3).png",
+                  "/images/assets/ironwala.png",
+                  "/images/assets/astro.png",
+                  "/images/assets/newslettr (1).png",
+                  "/images/assets/toasty Design.png",
+                  "/images/assets/ReelerAi.png",
+                  "/images/assets/newslettr (2).png",
+                  "/images/assets/tartan (1).png",
+                  "/images/assets/spacecom (2).png",
+                  "/images/assets/navo (1).png",
                   "/images/assets/expify.png",
                   "/images/assets/collaborators/Frame 1437255827.png"
                 ].map((src, idx) => (
@@ -1029,9 +1071,9 @@ export default function HomePage() {
         <div className="flex justify-center mt-10 md:mt-12 px-6">
           <Button href="https://cal.com/enfiq/30min" target="_blank" rel="noopener noreferrer" text="Book a free call" />
         </div>
-      </section>
+      </Section>
       {/* ── TESTIMONIALS ── */}
-      <section className="py-12 overflow-hidden w-full max-w-[1440px] mx-auto px-6 xl:px-[108.5px]">
+      <Section as="section" className="py-12 overflow-hidden w-full max-w-[1440px] mx-auto px-6 xl:px-[108.5px]" amount={0.25}>
         <StaggerContainer className="w-full">
           {/* Heading */}
           <div className="w-full text-center mb-10 flex flex-col items-center">
@@ -1100,13 +1142,13 @@ export default function HomePage() {
 
           </div>
         </StaggerContainer>
-      </section>
+      </Section>
 
       {/* ── FAQ ── */}
       <FAQAccordion />
 
       {/* ── BLOGS ── */}
-      <section className="max-w-[1248px] mx-auto px-6 py-12">
+      <Section as="section" className="max-w-[1248px] mx-auto px-6 py-12" amount={0.25}>
         <div className="text-center mb-10">
           <span
             className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#000000]"
@@ -1219,10 +1261,10 @@ export default function HomePage() {
             </div>
           </Link>
         </div>
-      </section>
+      </Section>
 
       {/* ── FINAL CTA ── */}
-      <section className="max-w-[1150px] mx-auto px-6 py-12 mb-10">
+      <Section as="section" className="max-w-[1150px] mx-auto px-6 py-12 mb-10" amount={0.25}>
         {/*changed the bg from #F8F9FA to #F4F4F4*/}
         <div className="bg-[#F4F4F4] rounded-[40px] px-6 py-16 md:py-20 flex flex-col items-center text-center gap-[32px]">
           <span
@@ -1300,7 +1342,7 @@ export default function HomePage() {
             </div>
           </form>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

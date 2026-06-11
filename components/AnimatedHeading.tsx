@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
+import { SectionContext } from "./Section";
 
 interface AnimatedHeadingProps {
   as?: "h1" | "h2";
@@ -18,6 +19,10 @@ export default function AnimatedHeading({
   style,
   enableHoverEffect = false,
 }: AnimatedHeadingProps) {
+  const contextInView = useContext(SectionContext);
+  const isControlled = contextInView !== undefined;
+  const isInView = isControlled ? contextInView : false;
+
   const Tag = as === "h1" ? motion.h1 : motion.h2;
   const lines = Array.isArray(text) ? text : [text];
 
@@ -41,7 +46,7 @@ export default function AnimatedHeading({
       y: 0,
       filter: "blur(0px)",
       transition: {
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut",
       },
     },
@@ -125,8 +130,9 @@ export default function AnimatedHeading({
       style={style}
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      animate={isControlled ? (isInView ? "visible" : "hidden") : undefined}
+      whileInView={isControlled ? undefined : "visible"}
+      viewport={isControlled ? undefined : { once: true }}
     >
       {lines.map((line, idx) => renderLine(line, idx))}
     </Tag>

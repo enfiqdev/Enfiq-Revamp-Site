@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
 import AnimatedText from "./AnimatedText";
+import Section from "./Section";
 
 interface FAQItem {
   question: string;
@@ -54,7 +55,7 @@ export default function FAQAccordion() {
   };
 
   return (
-    <section className="py-16 px-4">
+    <Section as="section" className="py-16 px-4" amount={0.25}>
       <div
         className="w-full max-w-[828px] mx-auto rounded-[24px] border-[1.5px] border-[#D41717] px-[16px] sm:px-[32px] md:px-[64px] py-[24px] sm:py-[32px] relative overflow-hidden flex flex-col gap-[64px] bg-white"
         style={gridBg}
@@ -257,6 +258,6 @@ export default function FAQAccordion() {
           </a>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const popInVariants = {
   hidden: {
     opacity: 0,
-    scale: 0.92,
+    scale: 0.8,
     y: 24,
   },
   visible: {
@@ -16,7 +16,7 @@ const popInVariants = {
     y: 0,
     transition: {
       type: "spring",
-      stiffness: 90,
+      stiffness: 120,
       damping: 14,
     },
   },

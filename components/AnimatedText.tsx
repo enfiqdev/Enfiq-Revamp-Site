@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
+import { SectionContext } from "./Section";
 
 interface AnimatedTextProps {
   as?: "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "label";
@@ -18,6 +19,10 @@ export default function AnimatedText({
   style,
   boldWords = [],
 }: AnimatedTextProps) {
+  const contextInView = useContext(SectionContext);
+  const isControlled = contextInView !== undefined;
+  const isInView = isControlled ? contextInView : false;
+
   // Select the appropriate motion tag dynamically
   const Tag = (motion[as as keyof typeof motion] || motion.p) as any;
   const lines = Array.isArray(text) ? text : [text];
@@ -56,8 +61,9 @@ export default function AnimatedText({
       style={style}
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      animate={isControlled ? (isInView ? "visible" : "hidden") : undefined}
+      whileInView={isControlled ? undefined : "visible"}
+      viewport={isControlled ? undefined : { once: true }}
     >
       {lines.map((line, lineIdx) => {
         const words = line.split(" ");

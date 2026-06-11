@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import React from "react";
+import { SectionContext } from "./Section";
 
 const StaggerContext = React.createContext(false);
 
@@ -28,15 +29,16 @@ export default function CardWrapper({
     hidden: {
       opacity: 0,
       y: 40,
-      scale: 0.96,
+      scale: 0.8,
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.7,
-        ease: [0.16, 1, 0.3, 1], // premium smooth custom cubic-bezier (easeOutQuart)
+        type: "spring",
+        stiffness: 120,
+        damping: 14,
       },
     },
   };
@@ -50,8 +52,17 @@ export default function CardWrapper({
 
   const MotionComponent = as ? (motion as any)[as] || motion.div : motion.div;
 
+  const contextInView = React.useContext(SectionContext);
+  const isControlled = contextInView !== undefined;
+  const isInView = isControlled ? contextInView : false;
+
   const animationProps = isInStagger
     ? {}
+    : isControlled
+    ? {
+        initial: "hidden",
+        animate: isInView ? "visible" : "hidden",
+      }
     : {
         initial: "hidden",
         whileInView: "visible",
@@ -85,6 +96,10 @@ export function StaggerContainer({
   style,
   staggerDelay = 0.1,
 }: StaggerContainerProps) {
+  const contextInView = React.useContext(SectionContext);
+  const isControlled = contextInView !== undefined;
+  const isInView = isControlled ? contextInView : false;
+
   const containerVariants = {
     hidden: {},
     visible: {
@@ -94,15 +109,24 @@ export function StaggerContainer({
     },
   };
 
+  const animationProps = isControlled
+    ? {
+        initial: "hidden",
+        animate: isInView ? "visible" : "hidden",
+      }
+    : {
+        initial: "hidden",
+        whileInView: "visible",
+        viewport: { once: true, margin: "-50px" },
+      };
+
   return (
     <StaggerContext.Provider value={true}>
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
         className={className}
         style={style}
+        {...animationProps}
       >
         {children}
       </motion.div>
