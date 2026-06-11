@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+
 import FAQAccordion from "../components/FAQAccordion";
 import ProjectRowCard from "../components/ProjectRowCard";
 import AnimatedHeading from "../components/AnimatedHeading";
@@ -92,36 +92,6 @@ const projects: Project[] = [
 ];
 
 
-function TagIcon({ tag, className = "" }: { tag: string; className?: string }) {
-  const cls = `shrink-0 ${className}`;
-  let src = "";
-
-  if (tag === "Design" || tag === "Framer Development") {
-    src = "/images/assets/v1.png";
-  } else if (tag === "Web Development" || tag === "Mobile Development") {
-    src = "/images/assets/fullStack.png";
-  } else if (tag === "No-code Development") {
-    src = "/images/assets/NC.png";
-  } else if (tag === "n8n Automation") {
-    src = "/images/assets/n8nIcon.png";
-  } else if (tag === "SEO" || tag === "On-Page SEO") {
-    src = "/images/assets/seoSearch.png";
-  } else if (tag === "All") {
-    src = "/images/assets/AllIcon.png";
-  }
-
-  if (!src) return null;
-
-  return (
-    <Image
-      src={src}
-      alt={tag}
-      width={16}
-      height={16}
-      className={cls}
-    />
-  );
-}
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All");

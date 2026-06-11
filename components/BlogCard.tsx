@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import AnimatedText from "./AnimatedText";
 import CardWrapper from "./CardWrapper";
-import { motion } from "framer-motion";
+
 
 const popInVariants = {
   hidden: {

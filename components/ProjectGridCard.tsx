@@ -10,12 +10,12 @@ interface ProjectGridCardProps {
     logo: string;
     tags: readonly string[] | string[];
   };
-  screenshot: string;
+  previewImage: string;
 }
 
 export default function ProjectGridCard({
   project,
-  screenshot,
+  previewImage,
 }: ProjectGridCardProps) {
   return (
     <CardWrapper className="w-full">
@@ -26,8 +26,8 @@ export default function ProjectGridCard({
       >
         <article className="relative w-full overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717] aspect-[366/256]">
           <Image
-            src={screenshot}
-            alt={`${project.name} product screenshot`}
+            src={previewImage}
+            alt={`${project.name} product preview`}
             fill
             sizes="(max-width: 1024px) 45vw, 320px"
             className="object-cover object-top"

@@ -5,7 +5,7 @@ import ServiceCard from "../components/serviceCards";
 import ContactForm from "../components/ContactForm";
 import AnimatedHeading from "../components/AnimatedHeading";
 import AnimatedText from "../components/AnimatedText";
-import { StaggerContainer } from "../components/CardWrapper";
+
 
 interface Service {
   num: string;

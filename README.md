@@ -1,6 +1,6 @@
-# ENFIQ Website — Next.js 14 + TypeScript + Tailwind CSS
+This is the official ENFIQ website built with Next.js 14 + TypeScript + Tailwind CSS.It is the official site of ENFIQ using Next.js 14 + TypeScript + Tailwind CSS.
 
-Pixel-perfect recreation of the ENFIQ agency website based on the provided design files.
+Perfectly recreate the ENFIQ agency website from its design files.
 
 ## Project Structure
 
@@ -55,14 +55,14 @@ npm run build
 | Primary Red | `#D62828` |
 | Dark / Footer | `#121212` |
 | Background | `#FAFAFA` |
-| Display Font | Playfair Display (serif) |
-| Body Font | DM Sans (sans-serif) |
+Playfair Display (serif) |
+Bold Face | DM Sans-Bold (sans-serif) |=
 
 ## Key Design Patterns
 
 ### Navbar
-- Transparent → frosted glass on scroll (`backdrop-blur-md`)
-- Red pill CTA: "Get Started"
+Using a backdrop blurry type will add a frosted glass effect on scroll.The backdrop-blur-md type will add a frosted glass effect to scroll.
+Clicks on the "Get Started" CTA.Clicking on the "Get Started" CTA.
 
 ### Grid Pattern (FAQ / Contact sections)
 ```css
@@ -73,15 +73,15 @@ background-image:
 
 ### Service Numbering
 - Large red `01`–`06` on the left
-- Vertical `border-l-2 border-dashed border-gray-200` connecting them
+Vertically connecting them with `border-l-2 border-dashed border-gray-200`
 
 ### Filter Pills
 - Active: `bg-[#121212] text-white`
 - Inactive: `bg-white text-gray-600 border-gray-200`
 
 ### FAQ Accordion
-- Chat-bubble style when open (`bg-[#121212] text-white rounded-full`)
-- Red-bordered container with grid overlay
+- Compact style: when the chat bubble is closed (`bg-[#121212] text-white rounded-compact`)
+There are a number of codes on this page.There are several code boxes on this page.
 
 ### Footer Watermark
 ```tsx
@@ -91,18 +91,16 @@ background-image:
 ```
 
 ## Images
-Replace placeholder `<div>` elements in project/blog cards with Next.js `<Image>` components:
+Change out placeholder `<div>` components in project/product blog cards to `<Image>` components in Next.js.
 
 ```tsx
 import Image from "next/image";
 
 <Image
   src="/images/tartanhq.png"
-  alt="TartanHQ project screenshot"
+  alt="TartanHQ project cardImage"
   width={600}
   height={400}
   className="rounded-xl object-cover"
 />
 ```
-
-Place actual images in `/public/images/`.

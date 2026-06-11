@@ -326,7 +326,7 @@ export default function ContactForm() {
               country={"in"}
               enableSearch={true}
               value={formData.phone}
-              onMount={(value, country) => {
+              onMount={(_, country) => {
                 setSelectedCountry(country);
               }}
               onChange={(phone, country) => {

@@ -152,10 +152,8 @@ const stickerVariants = {
 
 
 
-const partners = ["Framer", "Notion", "Voiceflow", "furlough"];
-
-/** Our Projects section â€” screenshots from `public/images/assets/VS` */
-const vsProjectScreenshots = [
+/** Our Projects section â€” preview images from `public/images/assets/VS` */
+const projectLOGO = [
   "/images/assets/card1.png",
   "/images/assets/card2.png",
   "/images/assets/card3.png",
@@ -207,145 +205,9 @@ const projects = [
   },
 ];
 
-const services = [
-  {
-    num: "01",
-    title: "Comprehensive Digital Solutions",
-    bullets: [
-      "Creative UI/UX design",
-      "Custom Web/App development",
-      "Custom No-code development",
-      "Strategic SEO optimization",
-      "Professional video editing",
-    ],
-  },
-];
 
-const tools = [
-  { name: "Domain Comp", desc: "Domain Prospector" },
-  { name: "Pin Variate", desc: "Pinterest Tool" },
-];
 
-const trustItems = [
-  { name: "uihen", company: "White Oak Wealth Management Company" },
-  { name: "a ii", company: "White Oak Wealth Management Company" },
-  { name: "uihen", company: "White Oak Wealth Management Company" },
-  { name: "Civil labs", company: "Civil labs" },
-];
 
-const blogs = [
-  {
-    date: "Oct 18, 2024",
-    read: "4 min read",
-    title: "Why Bad Website UX Design Is Killing Your Startup's Growth",
-    tag: "Designing / Branding",
-    img: "/images/assets/g1.png",
-  },
-  {
-    date: "Oct 24, 2024",
-    read: "4 min read",
-    title: "How Fast Website Speed Boosts SEO: Top Tips for 2025",
-    tag: "SEO",
-    img: "/images/assets/g2.png",
-  },
-  {
-    date: "Nov 9, 2024",
-    read: "4 min read",
-    title: "No-Code vs Full-Stack Dev: The Best Choice for Your Startup...",
-    tag: "No-code Development",
-    img: "/images/assets/g3.png",
-  },
-];
-
-// Placeholder image component
-function PlaceholderImg({
-  bg,
-  text,
-  className,
-}: {
-  bg: string;
-  text: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`flex items-center justify-center rounded-xl ${className}`}
-      style={{ background: bg }}
-    >
-      <span className="text-xs text-gray-400 font-medium">{text}</span>
-    </div>
-  );
-}
-
-// Services section ai” tool sticker collage (pink panel + overlapping logo circles)
-const serviceStickerLogos: { src: string; label: string; box: string }[] = [
-  {
-    src: "/images/assets/company/devicon-plain_figma.png",
-    label: "Figma",
-    box: "left-[4%] top-[14%] z-30 h-[3.25rem] w-[3.25rem] sm:h-14 sm:w-14 -rotate-[14deg] md:h-16 md:w-16",
-  },
-  {
-    src: "/images/assets/company/simple-icons_notion.png",
-    label: "Notion",
-    box: "left-[30%] top-[6%] z-20 h-12 w-12 sm:h-[3.25rem] sm:w-[3.25rem] rotate-[10deg] md:h-14 md:w-14",
-  },
-  {
-    src: "/images/assets/company/devicon-plain_vscode.png",
-    label: "VS Code",
-    box: "right-[6%] top-[16%] z-10 h-[3.25rem] w-[3.25rem] sm:h-14 sm:w-14 rotate-[16deg] md:h-16 md:w-16",
-  },
-  {
-    src: "/images/assets/company/Voiceflow-wordmark-dark%201.png",
-    label: "Voiceflow",
-    box: "left-[18%] top-[40%] z-40 h-16 w-16 sm:h-[4.25rem] sm:w-[4.25rem] -rotate-[8deg] md:h-[4.5rem] md:w-[4.5rem]",
-  },
-  {
-    src: "/images/assets/company/enfiqLOGO.png",
-    label: "Enfiq",
-    box: "right-[10%] top-[38%] z-[25] h-12 w-12 sm:h-14 sm:w-14 rotate-[12deg] md:h-[3.75rem] md:w-[3.75rem]",
-  },
-  {
-    src: "/images/assets/nocode.png",
-    label: "No-code",
-    box: "left-[8%] bottom-[16%] z-[15] h-12 w-12 sm:h-[3.25rem] sm:w-[3.25rem] rotate-[4deg] md:h-14 md:w-14",
-  },
-  {
-    src: "/images/assets/company/simple-icons_notion-1.png",
-    label: "Notion",
-    box: "left-[42%] bottom-[10%] z-[35] h-11 w-11 sm:h-12 sm:w-12 -rotate-[18deg] md:h-14 md:w-14",
-  },
-  {
-    src: "/images/assets/devicon-plain_vscode.png",
-    label: "VS Code",
-    box: "right-[18%] bottom-[20%] z-20 h-11 w-11 sm:h-12 sm:w-12 rotate-[6deg] md:h-[3.25rem] md:w-[3.25rem]",
-  },
-];
-
-function ServiceStickerCollage({ className }: { className?: string }) {
-  return (
-    <CardWrapper
-      enableHoverEffect={false}
-      className={`relative isolate overflow-hidden rounded-[1.75rem] bg-[#FFDDE3] shadow-sm ring-1 ring-black/[0.04] ${className ?? ""}`}
-      aria-label="Tools and platforms we work with, including Figma, Notion, and VS Code"
-    >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.55) 1px, transparent 0)`,
-          backgroundSize: "18px 18px",
-        }}
-      />
-      <div className="relative mx-auto h-[min(22rem,52vw)] w-full max-w-[20rem] min-h-[240px] sm:min-h-[260px] md:h-[18rem] md:max-w-none">
-        <Image
-          src="/images/assets/VS/stickers.png"
-          alt="Tool stickers"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </CardWrapper>
-  );
-}
 
 const testimonials = [
   {
@@ -617,7 +479,7 @@ export default function HomePage() {
                   <ProjectGridCard
                     key={proj.id}
                     project={proj}
-                    screenshot={vsProjectScreenshots[i]}
+                    previewImage={projectLOGO[i]}
                   />
                 ))}
               </StaggerContainer>
@@ -820,7 +682,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ── TOOLS ── */}
+      {/* Tools */}
       <Section as="section" className="w-full max-w-[1144px] mx-auto px-[24px] xl:px-0 pt-[40px]" amount={0.25}>
         <div className="text-center mb-10">
           <span

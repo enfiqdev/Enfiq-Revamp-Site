@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import Button from "../components/Button";
 
 const navLinks = [
   { label: "Projects", href: "/projects" },
@@ -125,6 +124,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Dropdown Menu */}
+      {/*overflow hidden was causing the wierd horizontal line*/}
       <div
         className={`md:hidden absolute top-full left-1/2 -translate-x-1/2 w-full max-w-[1144px] px-6 mt-3 transition-all duration-300 ease-in-out z-50 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}

@@ -5,7 +5,7 @@ import Image from "next/image";
 import BlogCard from "../components/BlogCard";
 import AnimatedHeading from "../components/AnimatedHeading";
 import AnimatedText from "../components/AnimatedText";
-import CardWrapper, { StaggerContainer } from "../components/CardWrapper";
+import { StaggerContainer } from "../components/CardWrapper";
 import Section from "../components/Section";
 import { motion } from "framer-motion";
 import ProjectCategoryPill from "../components/ProjectCategoryPill";

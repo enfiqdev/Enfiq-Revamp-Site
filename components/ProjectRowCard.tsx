@@ -86,7 +86,7 @@ export default function ProjectRowCard({
       <div className="relative w-full aspect-[366/256] md:aspect-auto md:w-[366px] md:h-[256px] shrink-0 border-[0.5px] border-[#CCCCCE] rounded-[8px] overflow-hidden bg-white group cursor-pointer transition-all duration-300 md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
         <Image
           src={project.image}
-          alt={`${project.name} screenshot`}
+          alt={`${project.name} preview`}
           fill
           className="object-cover object-top"
           sizes="366px"
