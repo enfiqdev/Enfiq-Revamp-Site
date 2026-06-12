@@ -57,7 +57,6 @@ interface Project {
   description: string;
   tags: string[];
   category: string;
-  bg: string;
   logo: string;
   image: string;
 }
@@ -71,7 +70,6 @@ const projects: Project[] = [
       "TartanHQ is a sophisticated orchestration platform that bridges the gap between fragmented data and intelligent automation. By leveraging Unified APIs, they provide businesses with real-time access to payroll, work, and financial data through a single integration.",
     tags: ["Design", "Framer Development", "On-Page SEO"],
     category: "Web Development",
-    bg: "#EEF5FF",
     logo: "/images/assets/tartanHQLogo.png",
     image: "/images/assets/card.png",
   },
@@ -83,7 +81,6 @@ const projects: Project[] = [
       "TartanHQ is a sophisticated orchestration platform that bridges the gap between fragmented data and intelligent automation. By leveraging Unified APIs, they provide businesses with real-time access to payroll, work, and financial data through a single integration.",
     tags: ["Design", "Framer Development", "On-Page SEO"],
     category: "Design",
-    bg: "#EEF5FF",
     logo: "/images/assets/tartanHQLogo.png",
     image: "/images/assets/card.png",
   },

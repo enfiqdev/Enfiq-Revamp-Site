@@ -1,106 +1,69 @@
-This is the official ENFIQ website built with Next.js 14 + TypeScript + Tailwind CSS.
-
-Perfectly recreate the ENFIQ agency website from its design files.
+This is the official marketing and portfolio website for ENFIQ, built with Next.js + TypeScript + Tailwind CSS, featuring interactive Framer Motion animations and a Cal.com calendar integration.
 
 ## Project Structure
 
 ```
 enfiq/
-├── app/                      # Next.js App Router
-│   ├── layout.tsx            # Root layout (fonts, metadata)
-│   ├── page.tsx              # Home → /
-│   ├── projects/page.tsx     # Projects → /projects
-│   ├── services/page.tsx     # Services → /services
-│   ├── blogs/page.tsx        # Blogs → /blogs
-│   └── contact/page.tsx      # Contact → /contact
+├── app/                      # Next.js App Router entry points
+│   ├── layout.tsx            # Global layout (fonts, metadata, body wrappers)
+│   ├── page.tsx              # Renders the Home components
+│   ├── projects/page.tsx     
+│   ├── services/page.tsx     
+│   ├── blogs/page.tsx        
+│   └── contact/page.tsx     
 │
-├── components/
-│   ├── Layout.tsx            # Root layout wrapper (Navbar + Footer)
-│   ├── Navbar.tsx            # Sticky glassmorphism header
-│   ├── Footer.tsx            # Dark footer with ENFIQ watermark
-│   └── FAQAccordion.tsx      # Reusable FAQ with grid-pattern bg
+├── components/               # Shared UI components
+│   ├── Layout.tsx            # Main layout layout (Navbar + Footer)
+│   ├── Navbar.tsx            # Interactive navigation header
+│   ├── Footer.tsx            # Full footer with brand branding
+│   └── FAQAccordion.tsx      # FAQ section accordion
 │
-├── pages/
-│   ├── HomePage.tsx          # Hero, Projects, Services, Tools, Testimonials, FAQ, Blogs, CTA
-│   ├── ProjectsPage.tsx      # Filter bar + alternating 2-col layout
-│   ├── ServicesPage.tsx      # Numbered list (01–06) with dashed border + contact form
-│   ├── BlogsPage.tsx         # Search, category filters, 3-col grid, subscribe
-│   └── ContactPage.tsx       # Cal.com widget, contact form, FAQ
+├── data/                     # Local mock data layers
+│   ├── projects.ts           # Unified project config data
+│   ├── services.ts           # Services config data
+│   ├── blogs.ts              # Blog posts lists
+│   ├── testimonials.ts       # Testimonial sliders
+│   └── faqs.ts               # FAQ questions list
+│
+├── pages/                    # Main page content blocks
+│   ├── HomePage.tsx          # Full landing page blocks
+│   ├── ProjectsPage.tsx      
+│   ├── ServicesPage.tsx      
+│   ├── BlogsPage.tsx     
+│   |── ContactPage.tsx       # Schedule widget + form
 │
 ├── styles/
-│   └── globals.css           # Tailwind directives + custom utilities
+│   └── globals.css           # Global style declarations and custom utilities
 │
-├── tailwind.config.ts        # Tailwind theme (colors, fonts, grid pattern)
-├── next.config.ts            # Next.js image domains config
+├── tailwind.config.ts        # Design tokens and Tailwind theme extension
+├── next.config.mjs           # Next.js image domain configurations
 └── package.json
 ```
 
-## Setup
+## Setup & Running
 
 ```bash
-# Install dependencies
+# Install package dependencies
 npm install
 
-# Run dev server
+# Run dev environment local server
 npm run dev
 
-# Build for production
+# Compile production bundles
 npm run build
+
+# Start production server
+npm run start
 ```
 
 ## Design System
 
 | Token | Value |
 |-------|-------|
-| Primary Red | `#D62828` |
-| Dark / Footer | `#121212` |
-| Background | `#FAFAFA` |
-| Display Font | Playfair Display (serif) |
+| Primary Red | `#D41717` |
+| Dark / Accent | `#121212` |
+| Gray text | `#707070` |
+| Light Background | `#FAFAFA` |
+| Headings Font | Inter (sans-serif) |
 | Body Font | DM Sans (sans-serif) |
-
-## Key Design Patterns
-
-### Navbar
-- Transparent → frosted glass on scroll (`backdrop-blur-md`)
-- Red pill CTA: "Get Started"
-
-### Grid Pattern (FAQ / Contact sections)
-```css
-background-image:
-  repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,0,0,0.04) 39px, rgba(0,0,0,0.04) 40px),
-  repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,0,0,0.04) 39px, rgba(0,0,0,0.04) 40px);
-```
-
-### Service Numbering
-- Large red `01`–`06` on the left
-- Vertical `border-l-2 border-dashed border-gray-200` connecting them
-
-### Filter Pills
-- Active: `bg-[#121212] text-white`
-- Inactive: `bg-white text-gray-600 border-gray-200`
-
-### FAQ Accordion
-- Compact style: when the chat bubble is closed (`bg-[#121212] text-white rounded-compact`)
-- Red-bordered container with grid overlay
-
-### Footer Watermark
-```tsx
-<span style={{ fontSize: "clamp(80px, 20vw, 200px)" }} className="text-white/[0.04] font-black">
-  ENFIQ
-</span>
-```
-
-## Images
-Replace placeholder `<div>` elements in project/blog cards with Next.js `<Image>` components:
-
-```tsx
-import Image from "next/image";
-
-<Image
-  src="/images/tartanhq.png"
-  alt="TartanHQ project cardImage"
-  width={600}
-  height={400}
-  className="rounded-xl object-cover"
-/>
-```
+| Logo Font | Pavelt (local display font) |

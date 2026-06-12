@@ -25,7 +25,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   return (
     <CardWrapper className="flex flex-col gap-[24px] w-full xl:w-[560px] group">
-      <article className="relative w-full h-[350px] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
+      <article className="relative w-full aspect-[16/10] overflow-hidden border-[0.5px] border-[#CCCCCE] rounded-[8px] bg-white transition-all duration-300 cursor-pointer md:hover:border-[#D41717] md:hover:shadow-[4px_4px_0px_0px_#D41717]">
         <Image
           src={image}
           alt={imageAlt}

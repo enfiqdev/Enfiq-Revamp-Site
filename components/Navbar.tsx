@@ -33,16 +33,7 @@ export default function Navbar() {
     <header className={`w-full flex flex-col items-center fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
       scrolled ? "pt-4" : "pt-[32px]"
     }`}>
-      {/* 
-        Note: The background opacity and backdrop blur are dynamically bound to CSS variables
-        defined in styles/globals.css. You can easily adjust them there:
-        - --nav-bg-scrolled: transparency/color when scrolled
-        - --nav-bg-initial: transparency/color at the very top
-        - --nav-blur-scrolled: blur amount when scrolled
-        - --nav-blur-initial: blur amount at the very top
-      */}
-      {/*tha pl[20px] is the left padding arounf the enfiq logo and the padding around the get started pr is 10px UPDATED*/}
-      <div
+     <div
         className={`w-full flex items-center justify-between relative transition-all duration-500 ease-in-out ${
           scrolled 
             ? "w-[calc(100%-2rem)] md:w-full md:max-w-[900px] h-[54px] rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-black/[0.04] pl-[20px] pr-[10px]"
@@ -124,7 +115,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {/*overflow hidden was causing the wierd horizontal line*/}
+      {/*overflow hidden removal to prevent the horizontal line*/}
       <div
         className={`md:hidden absolute top-full left-1/2 -translate-x-1/2 w-full max-w-[1144px] px-6 mt-3 transition-all duration-300 ease-in-out z-50 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}

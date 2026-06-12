@@ -189,26 +189,14 @@ export default function BlogsPage() {
         <TypewriterHeading
           text="Read some quality studies"
           className="w-full max-w-[598px] text-center text-[#000000]"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 600,
-            fontSize: "32px",
-            lineHeight: "44.8px",
-            letterSpacing: "0px",
-          }}
+          style={{ fontFamily: "'Inter', sans-serif",fontWeight: 600,fontSize: "32px",lineHeight: "44.8px",letterSpacing: "0px",}}
         />
 
         <AnimatedText
           as="p"
           text="We offer advanced chatbot development to enhance engagement and streamline communication, with tailored solutions and 24/7 support."
           className="w-full max-w-[520px] text-center text-[#707070] mx-auto px-2"
-          style={{
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 400,
-            fontSize: "16px",
-            lineHeight: "24px",
-            letterSpacing: "0px",
-          }}
+          style={{fontFamily: "'Inter', sans-serif",fontWeight: 400,fontSize: "16px",lineHeight: "24px",letterSpacing: "0px",}}
         />
 
       </Section>
@@ -235,16 +223,8 @@ export default function BlogsPage() {
             type="text"
             placeholder="Search"
             className="w-full h-full border border-[#7070704D] rounded-[49px] bg-white pl-[45px] pr-[8px] text-[16px] text-[#707070] placeholder:text-black/30 transition-all duration-300 hover:border-black hover:text-black focus:border-black focus:text-black focus:outline-none"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 400,
-              fontSize: "16px",
-              lineHeight: "24px",
-              letterSpacing: "0px",
-              color: "#707070",
-            }}
+            style={{fontFamily: "'Inter', sans-serif",fontWeight: 400,fontSize: "16px",lineHeight: "24px",letterSpacing: "0px",color: "#707070",}}
           />
-
         </div>
 
         {/* Category filters */}
@@ -301,12 +281,7 @@ export default function BlogsPage() {
             {/* First Text */}
             <span
               className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-black whitespace-nowrap"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "20px",
-              }}
+              style={{fontFamily: "'Inter', sans-serif",fontWeight: 400,fontSize: "20px",lineHeight: "20px",}}
             >
               Load More
             </span>
@@ -314,12 +289,7 @@ export default function BlogsPage() {
             {/* Second Text */}
             <span
               className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-20px] text-black whitespace-nowrap"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 400,
-                fontSize: "20px",
-                lineHeight: "20px",
-              }}
+              style={{fontFamily: "'Inter', sans-serif",fontWeight: 400,fontSize: "20px",lineHeight: "20px",}}
             >
               Load More
             </span>
@@ -332,13 +302,7 @@ export default function BlogsPage() {
         <div className="bg-white border border-[#EBEBEB] rounded-2xl p-10 text-center shadow-sm flex flex-col items-center">
           <span
             className="inline-flex items-center justify-center bg-white border border-[#DDDDDD] rounded-[12424px] px-[16px] py-[8px] mb-4 text-[#707070]"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 400,
-              fontSize: "14px",
-              lineHeight: "100%",
-              letterSpacing: "0px",
-            }}
+            style={{fontFamily: "'Inter', sans-serif",fontWeight: 400,fontSize: "14px",lineHeight: "100%",letterSpacing: "0px",}}
           >
             Subscribe Us
           </span>
@@ -353,13 +317,7 @@ export default function BlogsPage() {
             as="p"
             text="Stay ahead of the curve with exclusive tips, industry insights, and expert advice. Sign up today and elevate your website development knowledge!"
             className="w-full max-w-[873px] mx-auto text-center mb-8 text-[#323232] px-2"
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 500,
-              fontSize: "24px",
-              lineHeight: "32px",
-              letterSpacing: "-0.6px",
-            }}
+            style={{fontFamily: "'Inter', sans-serif",fontWeight: 500,fontSize: "24px",lineHeight: "32px",letterSpacing: "-0.6px",}}
           />
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-md mx-auto px-4 sm:px-0">
             <input
@@ -375,12 +333,7 @@ export default function BlogsPage() {
                 {/* First Text */}
                 <span
                   className="flex items-center justify-center transition-all duration-300 ease-in-out group-hover:-translate-y-[20px] text-white whitespace-nowrap"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 500,
-                    fontSize: "20px",
-                    lineHeight: "20px",
-                  }}
+                  style={{fontFamily: "'Inter', sans-serif",fontWeight: 500,fontSize: "20px",lineHeight: "20px",}}
                 >
                   Subscribe Now
                 </span>
