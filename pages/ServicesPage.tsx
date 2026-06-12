@@ -6,7 +6,6 @@ import ContactForm from "../components/ContactForm";
 import AnimatedHeading from "../components/AnimatedHeading";
 import AnimatedText from "../components/AnimatedText";
 
-
 interface Service {
   num: string;
   title: string;
@@ -92,7 +91,7 @@ export default function ServicesPage() {
   return (
     <div className="pt-[112px]">
 
-      {/* PAGE HEADER */}
+      {/*Page header*/}
       <section className="max-w-3xl mx-auto px-6 pb-6 sm:pb-[64px] text-center">
 
         <AnimatedHeading
@@ -123,7 +122,7 @@ export default function ServicesPage() {
 
       </section>
 
-      {/* SERVICE LIST */}
+      {/*Service list*/}
       <section className="max-w-[1248px] mx-auto px-6 flex flex-col gap-[61.84px] pt-8 pb-[69.81px] sm:py-[69.81px]">
         <div className="flex flex-col gap-[61.84px] w-full">
           {services.map((service) => (
@@ -135,7 +134,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CONTACT FORM */}
+      {/*Contact form*/}
       <div className="border-t border-gray-100">
         <ContactForm />
       </div>

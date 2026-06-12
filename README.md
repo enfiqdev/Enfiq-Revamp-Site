@@ -1,4 +1,4 @@
-This is the official ENFIQ website built with Next.js 14 + TypeScript + Tailwind CSS.It is the official site of ENFIQ using Next.js 14 + TypeScript + Tailwind CSS.
+This is the official ENFIQ website built with Next.js 14 + TypeScript + Tailwind CSS.
 
 Perfectly recreate the ENFIQ agency website from its design files.
 
@@ -55,14 +55,14 @@ npm run build
 | Primary Red | `#D62828` |
 | Dark / Footer | `#121212` |
 | Background | `#FAFAFA` |
-Playfair Display (serif) |
-Bold Face | DM Sans-Bold (sans-serif) |=
+| Display Font | Playfair Display (serif) |
+| Body Font | DM Sans (sans-serif) |
 
 ## Key Design Patterns
 
 ### Navbar
-Using a backdrop blurry type will add a frosted glass effect on scroll.The backdrop-blur-md type will add a frosted glass effect to scroll.
-Clicks on the "Get Started" CTA.Clicking on the "Get Started" CTA.
+- Transparent → frosted glass on scroll (`backdrop-blur-md`)
+- Red pill CTA: "Get Started"
 
 ### Grid Pattern (FAQ / Contact sections)
 ```css
@@ -73,7 +73,7 @@ background-image:
 
 ### Service Numbering
 - Large red `01`–`06` on the left
-Vertically connecting them with `border-l-2 border-dashed border-gray-200`
+- Vertical `border-l-2 border-dashed border-gray-200` connecting them
 
 ### Filter Pills
 - Active: `bg-[#121212] text-white`
@@ -81,7 +81,7 @@ Vertically connecting them with `border-l-2 border-dashed border-gray-200`
 
 ### FAQ Accordion
 - Compact style: when the chat bubble is closed (`bg-[#121212] text-white rounded-compact`)
-There are a number of codes on this page.There are several code boxes on this page.
+- Red-bordered container with grid overlay
 
 ### Footer Watermark
 ```tsx
@@ -91,7 +91,7 @@ There are a number of codes on this page.There are several code boxes on this pa
 ```
 
 ## Images
-Change out placeholder `<div>` components in project/product blog cards to `<Image>` components in Next.js.
+Replace placeholder `<div>` elements in project/blog cards with Next.js `<Image>` components:
 
 ```tsx
 import Image from "next/image";

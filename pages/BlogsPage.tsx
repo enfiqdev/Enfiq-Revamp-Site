@@ -100,48 +100,6 @@ const allPosts: BlogPost[] = [
     title: "No-Code vs Full-Stack Dev: The Best Choice for Your Startup...",
     tag: "No-code Development",
   },
-  {
-    id: 4,
-    date: "Nov 9, 2024",
-    readTime: "4 min read",
-    title: "No-Code vs Full-Stack Dev: The Best Choice for Your Startup...",
-    tag: "No-code Development",
-  },
-  {
-    id: 5,
-    date: "Oct 18, 2024",
-    readTime: "4 min read",
-    title: "Why Bad Website UX Design Is Killing Your Startup's Growth",
-    tag: "Designing / Branding",
-  },
-  {
-    id: 6,
-    date: "Oct 24, 2024",
-    readTime: "4 min read",
-    title: "How Fast Website Speed Boosts SEO: Top Tips for 2025",
-    tag: "SEO",
-  },
-  {
-    id: 7,
-    date: "Oct 24, 2024",
-    readTime: "4 min read",
-    title: "How Fast Website Speed Boosts SEO: Top Tips for 2025",
-    tag: "SEO",
-  },
-  {
-    id: 8,
-    date: "Nov 9, 2024",
-    readTime: "4 min read",
-    title: "No-Code vs Full-Stack Dev: The Best Choice for Your Startup...",
-    tag: "No-code Development",
-  },
-  {
-    id: 9,
-    date: "Oct 18, 2024",
-    readTime: "4 min read",
-    title: "Why Bad Website UX Design Is Killing Your Startup's Growth",
-    tag: "Designing / Branding",
-  },
 ];
 
 const categoryImages = {
@@ -225,7 +183,7 @@ export default function BlogsPage() {
 
   return (
     <div className="pt-[112px]">
-      {/* ── PAGE HEADER ── */}
+      {/*Page  header*/}
       <Section as="section" className="w-full max-w-[560px] px-4 mx-auto pt-[48px] pb-[48px] flex flex-col items-center gap-[12px] text-center" amount={0.25}>
 
         <TypewriterHeading
@@ -255,9 +213,8 @@ export default function BlogsPage() {
 
       </Section>
 
-      {/* ── SEARCH + FILTERS ── */}
+      {/* Search and filter*/}
       <section className="w-full max-w-[560px] mx-auto px-4 flex flex-col items-center gap-[16px] pb-[64px]">
-        {/* Search bar */}
         {/* Search bar */}
         <div className="relative w-full h-[42px]">
 
@@ -313,8 +270,8 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      {/* ── BLOG GRID (9 in 3x3) ── */}
-      <Section as="section" className="max-w-[1248px] mx-auto px-4 md:px-6 pb-12" amount={0.25}>
+      {/*Blogs*/}
+      <Section as="section" className="max-w-[1248px] mx-auto px-4 md:px-6 pb-12" amount={0.25} once={false}>
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-[30px] justify-items-center">
           {Array.from({ length: visibleCount }).map((_, index) => {
             const post = allPosts[index % allPosts.length];
@@ -334,7 +291,7 @@ export default function BlogsPage() {
         </StaggerContainer>
       </Section>
 
-      {/* ── LOAD MORE BUTTON ── */}
+      {/*Load more button*/}
       <div className="flex justify-center mt-6 mb-0">
         <button
           onClick={handleLoadMore}
@@ -370,7 +327,7 @@ export default function BlogsPage() {
         </button>
       </div>
 
-      {/* ── SUBSCRIBE SECTION ── */}
+      {/*Subscribe section*/}
       <Section as="section" className="max-w-[1248px] mx-auto px-6 py-[40px]" amount={0.25}>
         <div className="bg-white border border-[#EBEBEB] rounded-2xl p-10 text-center shadow-sm flex flex-col items-center">
           <span
@@ -385,7 +342,7 @@ export default function BlogsPage() {
           >
             Subscribe Us
           </span>
-          {/*gap between the heading and the paragraph  mb-[32px]*/}
+          {/*gap in heading and paragraph  mb-[32px]*/}
           <AnimatedHeading
             as="h2"
             text="Subscribe to Our Insights"
@@ -432,12 +389,7 @@ export default function BlogsPage() {
                 <span
                   className="absolute left-0 top-[20px] flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover:translate-y-[-20px] text-white whitespace-nowrap"
                   style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 500,
-                    fontSize: "20px",
-                    lineHeight: "20px",
-                  }}
-                >
+                    fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: "20px", lineHeight: "20px",}}>
                   Subscribe Now
                 </span>
               </div>

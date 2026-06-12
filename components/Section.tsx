@@ -11,6 +11,7 @@ interface SectionProps {
   id?: string;
   style?: React.CSSProperties;
   amount?: number;
+  once?: boolean;
   as?: "section" | "div";
 }
 
@@ -20,10 +21,11 @@ export default function Section({
   id,
   style,
   amount = 0.25,
+  once = true,
   as: Tag = "section",
 }: SectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount });
+  const isInView = useInView(ref, { once, amount });
 
   return (
     <SectionContext.Provider value={isInView}>

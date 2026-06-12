@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-
 import FAQAccordion from "../components/FAQAccordion";
 import ProjectRowCard from "../components/ProjectRowCard";
 import AnimatedHeading from "../components/AnimatedHeading";
@@ -9,7 +8,6 @@ import AnimatedText from "../components/AnimatedText";
 import { StaggerContainer } from "../components/CardWrapper";
 import Section from "../components/Section";
 import ProjectCategoryPill from "../components/ProjectCategoryPill";
-
 
 const categories = [
   "All",
@@ -91,8 +89,6 @@ const projects: Project[] = [
   },
 ];
 
-
-
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -108,7 +104,7 @@ export default function ProjectsPage() {
   return (
     <div className="pt-[112px] bg-[#F8F8F8]">
 
-      {/* ── PAGE HEADER ── */}
+      {/*Page header*/}
       <Section as="section" className="max-w-[560px] mx-auto px-6 text-center flex flex-col items-center" amount={0.25}>
 
         <AnimatedHeading
@@ -142,7 +138,7 @@ export default function ProjectsPage() {
 
       </Section>
 
-      {/* ── FILTER BAR ── */}
+      {/*Filter bar*/}
       <section className="max-w-[560px] mx-auto px-6 pt-[48px] pb-[64px]">
         <div className="flex flex-wrap gap-[6px] justify-start">
 
@@ -166,7 +162,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* ── PROJECT LIST ── */}
+      {/*Project list*/}
       <Section as="section" className="w-full max-w-[828px] mx-auto md:px-0 px-6 pb-24 flex flex-col gap-[64px] items-center" amount={0.25}>
         <StaggerContainer className="w-full flex flex-col gap-[64px] items-center">
           {filtered.map((project, index) => {
@@ -183,7 +179,7 @@ export default function ProjectsPage() {
         </StaggerContainer>
       </Section>
 
-      {/* ── FAQ ── */}
+      {/*FAQ*/}
       <FAQAccordion />
 
     </div>

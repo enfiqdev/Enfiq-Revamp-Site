@@ -333,7 +333,7 @@ export default function HomePage() {
            min-h-[400px]
            md:min-h-[550px]
            lg:min-h-[300px]
-            pt-[172px]
+           pt-[250px] md:pt-[240px] lg:pt-[192px]
           " amount={0.25}>
 
           {/* Floating chat bubble - Desktop */}
